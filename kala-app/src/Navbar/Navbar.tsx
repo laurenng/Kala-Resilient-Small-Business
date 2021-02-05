@@ -8,20 +8,24 @@ class Navbar extends React.Component<any> {
     render() {
       return (
           <div className="navbar">
-            <Link to="/library">
+            <Link to="/">
                 <div className="tab">
-                    Financial Resource Library
+                    <h1>home</h1>
                 </div>
             </Link>
             <Link to="/search">
                 <div className="tab">
-                    search funding tool
+                    <h1>search funding tool</h1>
+                </div>
+            </Link>
+            <Link to="/library">
+                <div className="tab">
+                    <h1>Financial Resource Library</h1>
                 </div>
             </Link>
         </div>
       );
     }
-
   }
 
   export default Navbar;

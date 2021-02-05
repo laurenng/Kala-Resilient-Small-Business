@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #61dafb;
+    background-color: gray;
     height: 3em;
     display: flex;
     flex-direction: row;
@@ -7,10 +7,23 @@
     align-items: center;
 }
 
-.div {
-    background-color: azure;
-    color: red;
-    font-size: 1em;
-    border: black solid 1px;
+/* individual  buttons*/
+a {
     text-decoration: none;
+}
+
+.tab {
+    color: white;
+    padding: .2em;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tab h1 {
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: wavy;
 }
