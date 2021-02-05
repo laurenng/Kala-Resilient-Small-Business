@@ -1,31 +1,24 @@
-// This is the Navbar component. Anything at top of page is from here :) 
+// This is the Navbar component. Anything at top of page is defined from here :) 
 import React from 'react';
 import './Navbar.css';
-import { Link } from "react-router-dom";
-
+import NavTabs from './NavTabs';
+import TitleHeader from './titleHeader';
 
 class Navbar extends React.Component<any> {
     render() {
       return (
-          <div className="navbar">
-            <Link to="/">
-                <div className="tab">
-                    <h1>home</h1>
-                </div>
-            </Link>
-            <Link to="/search">
-                <div className="tab">
-                    <h1>search funding tool</h1>
-                </div>
-            </Link>
-            <Link to="/library">
-                <div className="tab">
-                    <h1>Financial Resource Library</h1>
-                </div>
-            </Link>
-        </div>
+            <div>
+                <TitleHeader />
+                <NavTabs />
+            </div>
       );
     }
-  }
 
-  export default Navbar;
+    private titleHeader = () => {
+        return (
+            <h1>hello</h1>
+        )
+    }
+}
+
+export default Navbar;

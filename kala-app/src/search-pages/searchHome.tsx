@@ -13,11 +13,11 @@ interface searchState {
 class SearchHome extends React.Component<searchProps, searchState> {
     render() {
       return (
-          <div>
+          <div id="searchMain">
             <h1>Search home page </h1>
             <p>This is where users can find all the funding they need :) </p>
             <p> PRINT OUT THE DATAS HEREEEEE </p>
-        </div>
+          </div>
       );
     }
 

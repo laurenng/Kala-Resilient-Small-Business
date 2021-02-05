@@ -1,10 +1,16 @@
-.navbar {
-    background-color: gray;
+#navbar {
+    background-color: black;
     height: 3em;
+    /* makes elements centered + in line */
+    align-items: center;
+    top: 0;
+}
+
+#navContent {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    
 }
 
 /* individual  buttons*/
@@ -19,11 +25,37 @@ a {
     margin-right: 10px;
 }
 
-.tab h1 {
+h1 {
     font-size: 1.5em;
     text-decoration: none;
 }
 
 a:hover{
     text-decoration: wavy;
+}
+
+@media (max-width: 450px) {
+    #navbar {
+        height: 2em;
+    }
+
+    .tab h1 {
+        font-size: 1em;
+        text-decoration: none;
+    }
+}
+
+/* Medium devices (laptops, 720px and up) */
+@media (min-width: 720px) {
+    .tab h1 {
+        font-size: 1.5em;
+        text-decoration: none;
+    }
+}
+
+/* Medium devices (desktops, 1080px and up) */
+@media (min-width: 1000px) {
+    #navbar {
+        background-color: pink;
+    }
 }
