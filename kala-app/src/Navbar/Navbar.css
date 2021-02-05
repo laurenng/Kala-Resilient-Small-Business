@@ -4,6 +4,7 @@
     /* makes elements centered + in line */
     align-items: center;
     top: 0;
+    position: fixed;
 }
 
 #navContent {
