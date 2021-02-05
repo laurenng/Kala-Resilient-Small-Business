@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #61dafb;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.div {
+    background-color: azure;
+    color: red;
+    font-size: 1em;
+    border: black solid 1px;
+    text-decoration: none;
+}
