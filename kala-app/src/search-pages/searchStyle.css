@@ -2,3 +2,30 @@
     background-color: greenyellow;
     height:5000px;
 }
+
+.fundBox {
+    border: solid 2px gray;
+    border-radius: 0.5em;
+    background-color: white;
+    padding: 1em;
+    margin: 1em;
+}
+
+.fundBox::hover {
+    box-shadow: 0.5em 0.5em black;
+}
+
+.fundingFont {
+    font-weight: normal;
+    color: gray;
+}
+
+.moreDetailsBox {
+    background-color: gray;
+    padding: 1em;
+    width: fit-content;
+}
+
+.moreDetailsBox a {
+    color: white;
+}

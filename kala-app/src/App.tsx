@@ -20,7 +20,6 @@ class App extends React.Component<any> {
         <Router>
         {/* Nav bar display */}
         <Navbar />
-
         {/* React-Router component that dictates which component to go to */}
         <div className="page">
             <Switch>
