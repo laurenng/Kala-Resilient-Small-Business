@@ -1,0 +1,13 @@
+.catTitle {
+    background-color: grey;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    color: white;
+    background-image: url("../library_assets/kala_black_solid_bg.png");
+    padding: 5%;
+    background-position: center;
+}
+
+.backArrow {
+    transform: rotateY(180deg);
+}
