@@ -4,9 +4,9 @@ import Arrow from '../library_assets/Arrow 1.png';
 
 class Tribal extends React.Component<any> { 
   
-  // componentDidMount() {
-  //     window.scrollTo(0, 0);
-  //   }
+  componentDidMount() {
+      window.scrollTo(0, 0);
+    }
 
     goBack(){
       this.props.history.goBack();
