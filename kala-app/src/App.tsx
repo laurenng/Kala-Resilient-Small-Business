@@ -9,6 +9,7 @@ import SearchHome from './search-pages/searchHome';
 import LibraryHome from './library_pages/libraryHome';
 import Landing from './Landing';
 import ProfileHome from './profileHome';
+import FundingExpand from './search-pages/fundExpanded';
 
 // React-Router 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
@@ -27,6 +28,7 @@ class App extends React.Component<any> {
                 <Route exact path="/search" component={SearchHome} />
                 <Route exact path="/library" component={LibraryHome} />
                 <Route exact path="/profile" component={ProfileHome} />
+                <Route exact path="/profile" component={FundingExpand} />
             </Switch>
         </div>
       </Router>
