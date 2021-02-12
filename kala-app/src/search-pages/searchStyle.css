@@ -1,4 +1,48 @@
 #searchMain {
-    background-color: greenyellow;
-    height:5000px;
+    background-color: white;
+}
+
+.fundBox {
+    border: solid 2px gray;
+    border-radius: 50px;
+    background-color: white;
+    padding: 1em;
+    margin: 1em;
+}
+
+.fundBox:hover {
+    box-shadow: 0.5em 0.5em black;
+}
+
+.fundingFont {
+    font-weight: normal;
+    color: gray;
+}
+
+.moreDetailsBox {
+    background-color: gray;
+    padding: 1em;
+    width: fit-content;
+}
+
+.moreDetailsBox a {
+    color: white;
+}
+
+.button {
+    background-color: gray;
+    border-radius: 8px;
+}
+
+.content {
+    border: 2px white solid;
+    width: 95%;
+    margin: auto;
+
+}
+.inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
 }
