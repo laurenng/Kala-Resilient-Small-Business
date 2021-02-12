@@ -7,7 +7,7 @@ import './Navbar.css';
             <div id="navContent">
                 <Link to="/">
                     <div className="tab">
-                        <h1>home</h1>
+                        <h1>Home</h1>
                     </div>
                 </Link>
                 <Link to="/search">
