@@ -14,10 +14,30 @@ import FundingExpand from './search-pages/fundExpanded';
 // React-Router 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 
+// material-ui
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+
 class App extends React.Component<any> {
+
+  // example material-ui code
+  Copyright = () => {
+    return (
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'Copyright © '}
+        <Link color="inherit" href="https://ischool.uw.edu/capstone">
+          UW Capstone Team kala
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+
   render() {
     return (
       <div>
+
         <Router>
         {/* Nav bar display */}
         <Navbar />
@@ -32,6 +52,10 @@ class App extends React.Component<any> {
             </Switch>
         </div>
       </Router>
+
+      {/* Copyright footer */}
+      {this.Copyright()}
+
       </div>
     );
   }
