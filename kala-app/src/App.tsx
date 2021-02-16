@@ -28,7 +28,7 @@ class App extends React.Component<any> {
                 <Route exact path="/search" component={SearchHome} />
                 <Route exact path="/library" component={LibraryHome} />
                 <Route exact path="/profile" component={ProfileHome} />
-                <Route exact path="/profile" component={FundingExpand} />
+                <Route exact path="/expandFunds" component={FundingExpand} />
             </Switch>
         </div>
       </Router>

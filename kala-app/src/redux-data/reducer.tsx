@@ -1,5 +1,5 @@
-import { actionIdentifier, actions, setCurrentPageAction} from './actions';
-import { AppState, pages } from './types';
+import { actionIdentifier, actions, updatePostObjectAction} from './actions';
+import { AppState, pages, initialPost  } from './types';
 
 // Reducer
 // The reducer is a function that takes the previous 
@@ -13,7 +13,7 @@ import { AppState, pages } from './types';
 
 // https://redux.js.org/advanced/usage-with-react-router
 
-const intialState: AppState = { currentPage: pages.HomePage }
+const intialState: AppState = { currentPage: pages.HomePage, currentPost: initialPost }
 
 
 function reducer(state: AppState | undefined, action: actions) : AppState {
@@ -22,12 +22,10 @@ function reducer(state: AppState | undefined, action: actions) : AppState {
     }
 
     switch (action.type) {
-        case actionIdentifier.SETCURRENTPAGE: {
-            let addAction = action as setCurrentPageAction; //  treat the `action` object as a JoinObject
-
+        case actionIdentifier.UPDATEPOST: {
+            let addAction = action as updatePostObjectAction; 
             const newState = JSON.parse(JSON.stringify(state));
-            newState.currentPage = addAction.payload;
-
+            newState.currentPost = addAction.payload;
             return newState;
         }
         default:

@@ -34,6 +34,11 @@
     border-radius: 8px;
 }
 
+.selected {
+    background-color: teal;
+    text-decoration: underline;
+    font-weight: bold;
+}
 .content {
     border: 2px white solid;
     width: 95%;

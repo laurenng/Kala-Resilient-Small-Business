@@ -1,25 +1,88 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import './searchStyle.css';
+import { RouteComponentProps, withRouter } from 'react-router'; 
+import { updatePost } from "../redux-data/actions";
+import { connect } from "react-redux";
+import { AppState, Post } from "../redux-data/types";
 
-export const FundingRect = (fundingObj: any) => {
-  let d = fundingObj.fundingObj;
-  let shorten = d.description.split(' ').slice(0,25).join(' ')
-  let shortenWebsite = d.url.split('/')[2];
-  console.log(shortenWebsite)
-
-  const toFundingDetails = () => {
-    console.log("need to switch page");
-    
-  }
-
-  return(
-    <div className="fundBox" onClick={toFundingDetails}>
-        <h1>{d.name}</h1>
-        <h3 className="fundingFont">{shorten}</h3>
-        <div className="moreDetailsBox">
-        <a href={d.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
-        </div>
-    </div>
-  )
+interface props extends RouteComponentProps<any> {
+  /* other props for ChildComponent */
+  updatePost: (post: Post) => void;
 }
+
+// states that belong to SearchHome
+interface state {
+  fundingOpps: any[],
+  
+}
+
+class FundingRect extends React.Component<props, state> {
+    constructor(props: props, state: state){
+      super(props);
+      this.state = {
+        fundingOpps: []
+      };
+    }
+
+    render() {
+      // map through every technical assistance to display all
+      let displayContent = this.state.fundingOpps.map((d, i) => {
+        return(
+          <div key = {d.id}>
+            {this.individualRect(i)}
+          </div>
+        )
+      })
+      
+      return (
+          <div>
+            {displayContent}
+          </div>
+      );
+    }
+
+    private individualRect = (num: number) => {
+      let d = this.state.fundingOpps[num];
+      let shortenDescription = d.description.split(' ').slice(0,25).join(' ')
+      let shortenWebsite = d.url.split('/')[2];
+      console.log(d);
+      return(
+        <div className="fundBox" onClick={() => this.handleClick(d)}>
+         <h1>{d.name}</h1>
+         <h3>Due: {d.endDate}</h3>
+         <h3>Type: {d.type}</h3>
+         <h3 className="fundingFont">{shortenDescription}</h3>
+         <div className="moreDetailsBox">
+         <a href={d.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+         </div>
+     </div>
+      )
+    }
+
+    handleClick (d: Post) {
+      console.log(d);
+      this.props.history.push('/expandFunds');
+      this.props.updatePost(d);
+    }
+
+    async componentDidMount() {
+      let funding = require('../testData/testFunding.json');
+      this.setState({
+        fundingOpps: funding
+      })
+    }
+}
+
+function mapStateToProps(state: AppState) {
+  return { }
+}
+
+function mapDispatchToProps(dispatch: any)  {
+  return {
+    updatePost: ( post: Post ) => dispatch(updatePost(post))
+  }    
+}
+    
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FundingRect));
 
