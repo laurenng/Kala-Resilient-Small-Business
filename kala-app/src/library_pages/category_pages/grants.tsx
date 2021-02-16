@@ -1,5 +1,6 @@
 import React from 'react';
 import './category.css';
+import {createResource} from './createResource';
 import Arrow from '../library_assets/Arrow 1.png';
 
 
@@ -13,12 +14,7 @@ class Grants extends React.Component<any> {
     console.log("Mount");
     
   };
-  componentDidUpdate() {
-    console.log("Update");
-  };
-  componentWillUnmount() {
-    console.log("Unmount");
-  };
+
     render() {
       return (
           <main>
@@ -31,18 +27,10 @@ class Grants extends React.Component<any> {
                  on the grant and grant provider but these resources will help you figure out which grant might be
                   best suited for your business as well as help you prepare for filling out an application.</h4>
             {/* use router for this*/}
-            {this.createResource("Grant Terminology Dictionary", "https://www.grants.gov/web/grants/learn-grants/grant-terminology.html", "grants.gov")}
+            {createResource("Grant Terminology Dictionary", "https://www.grants.gov/web/grants/learn-grants/grant-terminology.html", "grants.gov")}
         </main>
       );
         
-    }
-    private createResource = (resourceName: string, resourceURL: string, resourceDesc: string) => {
-      return (
-          <div className="resource">
-            <h2>{resourceName}</h2>
-            <a href={resourceURL} target="_blank"><h3>{resourceDesc}</h3></a>
-          </div>
-      );
     }
 }
 

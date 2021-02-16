@@ -18,6 +18,9 @@ import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
+//fundingform
+import FundingForm from './funding_form/fundingForm';
+
 class App extends React.Component<any> {
 
   // example material-ui code
@@ -53,6 +56,7 @@ class App extends React.Component<any> {
         </div>
       </Router>
 
+      {/* <FundingForm /> */}
       {/* Copyright footer */}
       {this.Copyright()}
 

@@ -1,0 +1,38 @@
+.question {
+    border: solid black 5px;
+    border-radius: 50px;
+    /* width: 237px;
+    height: 198px; */
+    padding: 3%;
+    margin-left: 25%;
+    left: 111px;
+    top: 80px;
+    font-size: 42px;
+    /* float: right; */
+    text-align: center;
+}  
+
+.formQuestion img {
+    width: 64px;
+    height: 70px;
+    margin-left: 5%;
+    /* left: 30px;
+    top: 275px; */
+    /* float: right; */
+}
+
+.formQuestion h2 {
+    /* margin-left: 5%; */
+}
+
+.formQuestion {
+    margin-left: 7%;
+}
+
+.formQuestion select {
+    border: 1px solid #1A1A1A;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 239px;
+}
+
