@@ -1,3 +1,44 @@
+.backBtn {
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-color: #545D69;
+    color: #545D69;
+    background: white;
+}
+
+#progressBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 25%;;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.currDot {
+    background-color: orange;
+}
+
+.nextBtn {
+    background: #545D69;
+    border-radius: 6px;
+    align-items: center;
+    padding: 8px 12px;
+    color: white;
+}
+
 .question {
     border: solid black 5px;
     border-radius: 50px;

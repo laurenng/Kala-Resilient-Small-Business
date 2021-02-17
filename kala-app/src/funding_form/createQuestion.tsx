@@ -1,6 +1,7 @@
 import kala from './kala_orange_solid 3.svg';
 import './fundingForm.css';
 // Need onChange Handlers
+// Need Hint messages implemented
 
 export const createMultiselectQuestion = (question: string, questionInstruction: string, answerOptions: string[]) => {
     return(

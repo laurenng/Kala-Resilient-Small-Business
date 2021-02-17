@@ -12,7 +12,7 @@ import ProfileHome from './profileHome';
 import FundingExpand from './search-pages/fundExpanded';
 
 // React-Router 
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
+import {Route, BrowserRouter as Router, Switch, withRouter} from 'react-router-dom'
 
 // material-ui
 import Typography from '@material-ui/core/Typography';
@@ -20,6 +20,7 @@ import Link from '@material-ui/core/Link';
 
 //fundingform
 import FundingForm from './funding_form/fundingForm';
+import PersistentDrawerLeft from './testAppBar';
 
 class App extends React.Component<any> {
 
@@ -51,12 +52,13 @@ class App extends React.Component<any> {
                 <Route exact path="/search" component={SearchHome} />
                 <Route exact path="/library" component={LibraryHome} />
                 <Route exact path="/profile" component={ProfileHome} />
-                <Route exact path="/profile" component={FundingExpand} />
+                {/* <Route exact path="/profile" component={FundingExpand} /> */}
             </Switch>
         </div>
       </Router>
 
-      {/* <FundingForm /> */}
+      <FundingForm />
+      <PersistentDrawerLeft />
       {/* Copyright footer */}
       {this.Copyright()}
 
