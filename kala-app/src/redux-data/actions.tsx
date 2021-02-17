@@ -1,10 +1,12 @@
 // Actions and their types
-import { pages, Post} from "./types";
+import { pages, Fund, TA} from "./types";
 // import PostPage from "../components/postPage";
 
 export enum actionIdentifier {
-  UPDATEPOST,
-  GETPOST,
+  UPDATEFUND,
+  GETFUND,
+  UPDATETA,
+  GETTA,
   SETCURRENTPAGE
 }
 
@@ -13,9 +15,14 @@ export interface setCurrentPageAction {
   payload: pages
 };
 
-export interface updatePostObjectAction {
+export interface updateFundObjectAction {
   type: actionIdentifier,
-  payload: Post 
+  payload: Fund 
+};
+
+export interface updateTAObjectAction {
+  type: actionIdentifier,
+  payload: TA 
 };
 
 // Action creators
@@ -25,13 +32,21 @@ export function setCurrentPage(page: pages) : setCurrentPageAction {
     payload: page
   }
 };
-export function updatePost(post: Post) : updatePostObjectAction {
-  console.log("UPDATING POST ");
+export function updateFund(fund: Fund) : updateFundObjectAction {
+  console.log("UPDATING Fund ");
   return {
-    type: actionIdentifier.UPDATEPOST,
-    payload: post
+    type: actionIdentifier.UPDATEFUND,
+    payload: fund
   }
 };
 
-export type actions = setCurrentPageAction | updatePostObjectAction 
+export function updateTA(TA: TA) : updateTAObjectAction {
+  console.log("UPDATING TA");
+  return {
+    type: actionIdentifier.UPDATETA,
+    payload: TA
+  }
+};
+
+export type actions = setCurrentPageAction | updateFundObjectAction | updateTAObjectAction
 

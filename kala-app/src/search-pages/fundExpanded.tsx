@@ -1,11 +1,11 @@
 import React from 'react';
 import './searchStyle.css';
 import { connect } from "react-redux";
-import { AppState, Post } from "../redux-data/types";
+import { AppState, Fund } from "../redux-data/types";
 
 // properties that belong to SearchHome
 interface fundProps {
-  post: Post
+  fund: Fund
 }
 
 // states that belong to SearchHome
@@ -20,18 +20,21 @@ class FundingExpand extends React.Component<fundProps, fundState> {
     }
 
     render() {
-      console.log(this.props.post);
-      let post = this.props.post;
+      console.log(this.props.fund);
+      let post = this.props.fund;
+      let shortenWebsite = post.url.split('/')[2];
       return (
-        <div>
+        <div className="main">
           <h1>{post.name}</h1>
-          <a href={post.url} rel="noreferrer" target="_blank">Visit {post.url}</a>
-          <p>Description: {post.description}</p>
-          <p>Application Due Date: {post.endDate}</p>
-          <p>Source: {post.provider}</p>
-          <p>Funding Type: {post.description}</p>
-          <p>Terms: {post.terms}</p>
-          <p>Uses: {post.uses}</p>
+          <div className ="moreDetailsBox">
+            <a href={post.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+          </div>
+          <p><strong>Description: </strong> {post.description}</p>
+          <p><strong>Application Due Date: </strong> {post.endDate}</p>
+          <p><strong>Source:</strong> {post.provider}</p>
+          <p><strong>Funding Type:</strong> {post.description}</p>
+          <p><strong>Terms:</strong> {post.terms}</p>
+          <p><strong>Uses: </strong> {post.uses}</p>
         </div>
             
       );
@@ -43,7 +46,7 @@ class FundingExpand extends React.Component<fundProps, fundState> {
     
 function mapStateToProps(state: AppState) {
   return { 
-    post: state.currentPost
+    fund: state.currentFund
   }
 }
 // is it still connecteds

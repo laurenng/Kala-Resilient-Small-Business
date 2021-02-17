@@ -6,10 +6,11 @@ export enum pages {
 
 export interface AppState {
     currentPage: pages;
-    currentPost: Post;
+    currentFund: Fund;
+    currentTA: TA;
 }
 
-export const initialPost : Post = {
+export const initialFund : Fund = {
     id: 1,
     name: "Economic Injury Disaster Loans (EIDL)",
     type: "loan",
@@ -28,7 +29,7 @@ export const initialPost : Post = {
     }
 }
 
-export interface Post {
+export interface Fund {
     id: number,
     name: string,
     type: string,
@@ -45,6 +46,32 @@ export interface Post {
         isCollateralReq: boolean,
         establishedBy: string
     }
-  }
+}
+
+export const initialTA : TA = {
+    id: 0,
+    name: "none",
+    description: "Empty",
+    website: "none",
+    phone: "none",
+    email: "none",
+    pocName: "Duane Fladland",
+    languages: ["Spanish", "Mandarin", "French", "Swahili", "Laotian", "Thai"],
+    demographics: ["Black, Latnix"],
+    locations: ["State-wide"]
+}
+
+export interface TA {
+    id: number,
+    name: string,
+    description: string,
+    website: string,
+    phone: string,
+    email: string,
+    pocName: string,
+    languages: string[],
+    demographics: string[],
+    locations: string[]
+}
 
 export default AppState;

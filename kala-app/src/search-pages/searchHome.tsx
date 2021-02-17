@@ -28,13 +28,13 @@ class SearchHome extends React.Component<searchProp, searchState> {
       if(this.state.tab === "funding") {
         displayContent = <FundingRect ></FundingRect>
       } else { // if tab is on Technical assistance
-        displayContent = <TaRect></TaRect>
+        displayContent = <TaRect/>
       }
 
       return (
           <div id="searchMain">
             <h1>Fill out this form to filter results</h1>
-            <div className= "inline" >
+            <div className= "inline centered" >
               <div className = {this.state.tab === "funding" ? "selected button" : "button"} onClick={this.fundingClick}>
                 <h1>Funding</h1>
               </div>

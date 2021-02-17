@@ -2,13 +2,13 @@
 import React from 'react';
 import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
-import { updatePost } from "../redux-data/actions";
+import { updateFund } from "../redux-data/actions";
 import { connect } from "react-redux";
-import { AppState, Post } from "../redux-data/types";
+import { AppState, Fund } from "../redux-data/types";
 
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
-  updatePost: (post: Post) => void;
+  updateFund: (fund: Fund) => void;
 }
 
 // states that belong to SearchHome
@@ -46,11 +46,13 @@ class FundingRect extends React.Component<props, state> {
       let d = this.state.fundingOpps[num];
       let shortenDescription = d.description.split(' ').slice(0,25).join(' ')
       let shortenWebsite = d.url.split('/')[2];
-      console.log(d);
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
          <h1>{d.name}</h1>
-         <h3>Due: {d.endDate}</h3>
+         <div className="inline">
+          <h3>Due:</h3><p>{d.endDate}</p> 
+         </div>
+        
          <h3>Type: {d.type}</h3>
          <h3 className="fundingFont">{shortenDescription}</h3>
          <div className="moreDetailsBox">
@@ -60,10 +62,10 @@ class FundingRect extends React.Component<props, state> {
       )
     }
 
-    handleClick (d: Post) {
+    handleClick (d: Fund) {
       console.log(d);
       this.props.history.push('/expandFunds');
-      this.props.updatePost(d);
+      this.props.updateFund(d);
     }
 
     async componentDidMount() {
@@ -80,7 +82,7 @@ function mapStateToProps(state: AppState) {
 
 function mapDispatchToProps(dispatch: any)  {
   return {
-    updatePost: ( post: Post ) => dispatch(updatePost(post))
+    updateFund: ( fund: Fund ) => dispatch(updateFund(fund))
   }    
 }
     

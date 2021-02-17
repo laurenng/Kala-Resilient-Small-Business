@@ -10,6 +10,7 @@ import LibraryHome from './library_pages/libraryHome';
 import Landing from './Landing';
 import ProfileHome from './profileHome';
 import FundingExpand from './search-pages/fundExpanded';
+import TaExpand from './search-pages/TaExpanded';
 
 // React-Router 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
@@ -29,6 +30,7 @@ class App extends React.Component<any> {
                 <Route exact path="/library" component={LibraryHome} />
                 <Route exact path="/profile" component={ProfileHome} />
                 <Route exact path="/expandFunds" component={FundingExpand} />
+                <Route exact path="/expandTA" component={TaExpand} />
             </Switch>
         </div>
       </Router>
