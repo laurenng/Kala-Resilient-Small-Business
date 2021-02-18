@@ -10,9 +10,6 @@ const Categories = () => {
             <Link to="/grants">{createCategory("Grants")}</Link>
             <Link to="/minority-owned-small-businesses">{createCategory("Minority Owned Small Businesses")}</Link>
             <Link to="/tribally-owned-small-businesses">{createCategory("Tribally Owned Small Businesses")}</Link>
-            
-            
-           
             <Link to="/financial-literacy-and-education">{createCategory("Financial Literacy and Education")}</Link>
             <Link to="/language-support">{createCategory("Language Support")}</Link>
             <Link to="/covid-resources">{createCategory("COVID Resources")}</Link>

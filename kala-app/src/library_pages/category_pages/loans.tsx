@@ -1,5 +1,6 @@
 import React from 'react';
 import './category.css';
+import {createResource} from './createResource';
 import Arrow from '../library_assets/Arrow 1.png';
 
 class Loans extends React.Component<any> {
@@ -23,18 +24,10 @@ class Loans extends React.Component<any> {
                these resources will help you figure out which loan might be best suited for your business as
                 well as help you prepare for filling out an application.</h4>
             {/* use router for this*/}
-            {this.createResource("Getting a Business Loan Instructional Video Series", "http://wsbdc.org/training/instructional-video-series/", "wsbdc.org")}
+            {createResource("Getting a Business Loan Instructional Video Series", "http://wsbdc.org/training/instructional-video-series/", "wsbdc.org")}
         </main>
       );
         
-    }
-    private createResource = (resourceName: string, resourceURL: string, resourceDesc: string) => {
-      return (
-          <div className="resource">
-            <h2>{resourceName}</h2>
-            <a href={resourceURL} target="_blank"><h3>{resourceDesc}</h3></a>
-          </div>
-      );
     }
 }
 
