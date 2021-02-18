@@ -12,11 +12,12 @@ import ProfileHome from './profileHome';
 import FundingExpand from './search-pages/fundExpanded';
 
 // React-Router 
-import {Route, BrowserRouter as Router, Switch, withRouter} from 'react-router-dom'
+import {Route, Router, Switch, withRouter} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
 
 // material-ui
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import history from "./customHistory";
 
 //fundingform
 import FundingForm from './funding_form/fundingForm';
@@ -41,10 +42,10 @@ class App extends React.Component<any> {
   render() {
     return (
       <div>
-
-        <Router>
+        <PersistentDrawerLeft />
+         <Router history={history}>
         {/* Nav bar display */}
-        <Navbar />
+        {/* <Navbar /> */} 
         {/* React-Router component that dictates which component to go to */}
         <div className="page">
             <Switch>
@@ -52,13 +53,15 @@ class App extends React.Component<any> {
                 <Route exact path="/search" component={SearchHome} />
                 <Route exact path="/library" component={LibraryHome} />
                 <Route exact path="/profile" component={ProfileHome} />
-                {/* <Route exact path="/profile" component={FundingExpand} /> */}
+                <Route exact path="/profile" component={FundingExpand} />
+                <Route exact path="/form" component={FundingForm} /> 
+                {/* Current not button linking to form */}
             </Switch>
         </div>
       </Router>
 
-      <FundingForm />
-      <PersistentDrawerLeft />
+      {/* <FundingForm /> */}
+      
       {/* Copyright footer */}
       {this.Copyright()}
 

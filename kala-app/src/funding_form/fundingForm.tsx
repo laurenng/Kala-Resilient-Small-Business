@@ -3,10 +3,6 @@ import React from 'react';
 import './fundingForm.css';
 import kala from './kala_orange_solid 3.svg';
 
-// type myState = {
-//   count: number
-// };
-
 class FundingForm extends React.Component<any, any> {
     constructor(props: any) {
       super(props)
@@ -34,7 +30,7 @@ class FundingForm extends React.Component<any, any> {
           answerSubmitted.push(answer.value);
         }
       });
-      console.log(answerSubmitted);
+      // console.log(answerSubmitted);
 
       this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
       this.setState({question1ans: answerSubmitted});
@@ -52,7 +48,7 @@ class FundingForm extends React.Component<any, any> {
           answerSubmitted.push(answer.value);
         }
       });
-      console.log(answerSubmitted);
+      // console.log(answerSubmitted);
  
       this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
       this.setState({question2ans: answerSubmitted});
@@ -65,7 +61,7 @@ class FundingForm extends React.Component<any, any> {
       const answerSelected = document.getElementById("bizType") as HTMLSelectElement;
       // console.log(answerInputs);
       const answerSubmitted = answerSelected.value;
-      console.log(answerSubmitted);
+      // console.log(answerSubmitted);
 
       this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
       this.setState({question3ans: answerSubmitted});
@@ -74,15 +70,17 @@ class FundingForm extends React.Component<any, any> {
       document.getElementById("submitBtn")?.classList.remove("hidden");
     }
 
-    q1Options = ["Working Capital", "Start a Business", "Purchase Inventory", "Purchase Machinery or Equipment", "Making Building Improvements",
-  "Building Acquisition", "Rent/Utility Bills", "Refinance Existing Debt", "Paying employees", "Other"];
-    q2Options = ["ASAP", "In the next two weeks", "Within 1-2 months", "Anytime"];
+    q1Options = ["Buy a building/property", "Insurance", "Make building improvements", "Marketing", "Pandemic-related expenses",
+  "Pay employees", "Purchase machinery or equipment", "Purchase inventory", "Refinance", "Rent/Utility Bills", "Don't know"];
+    q2Options = ["Immediately", "Within 1-2 months", "Within the next year", "Anytime"];
     q3Options = ["Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
 
+
+    // Use this one for testing redux
     questionOne = <div className="formQuestion" id="question1">
                   <h1 className="question" >Why do you want this funding?</h1>
                   <img src={kala} alt="Kala the squid"/>
-                  <h2>Gimme answer</h2>
+                  <h2>Select all options that apply to you.</h2>
                   {this.q1Options.map(answer => (
                       <div>
                           <input className="answer" type="checkbox" id={answer} value={answer} key={answer}></input>
@@ -94,9 +92,9 @@ class FundingForm extends React.Component<any, any> {
                 </div>
 
     questionTwo = <div className="formQuestion" id="question2">
-                  <h1 className="question" >When do you need funding?</h1>
+                  <h1 className="question" >Now, let's talk about money.</h1>
                   <img src={kala} alt="Kala the squid"/>
-                  <h2>Gimme answer</h2>
+                  <h2>When do you need this funding by?</h2>
                   {this.q2Options.map(answer => (
                       <div>
                           <input className="answer" type="radio" name="question2" id={answer} value={answer} key={answer}></input>
@@ -131,7 +129,7 @@ class FundingForm extends React.Component<any, any> {
     }
 
     currQuestion: JSX.Element = <div></div>;
-
+    // Work in progress - Fence post issue with questionNumber & currState
     displayQuestion = () => {
       let currQuestionNumber = this.state.currQuestionNumber;
       console.log(currQuestionNumber);

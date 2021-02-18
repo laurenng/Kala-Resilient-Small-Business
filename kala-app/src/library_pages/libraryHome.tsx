@@ -15,6 +15,7 @@ import LanguageSupport from './category_pages/langSupport';
 import CovidSupport from './category_pages/covidSupport';
 import AdditionalSupport from './category_pages/additionalSupport';
 import { createBrowserHistory } from "history";
+
 import {withRouter} from 'react-router';
 // useHistory?? https://stackoverflow.com/questions/31079081/programmatically-navigate-using-react-router
 
@@ -31,7 +32,7 @@ class LibraryHome extends React.Component<any> {
               {/* forceRefresh={true} */}
             {/* Problem, when a library page is manually refreshed the component does not load/reload might be history problem */}
             <div className="translatorBtn">Need a translator?</div>
-            <Router basename="/library"  > 
+            <Router basename="/library"> 
             
 
               <div className="libraryContents">

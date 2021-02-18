@@ -21,9 +21,9 @@ import LibraryHome from './library_pages/libraryHome';
 import Landing from './Landing';
 import ProfileHome from './profileHome';
 import FundingExpand from './search-pages/fundExpanded';
-import {Route, BrowserRouter as Router, Switch, Link} from 'react-router-dom'
-// import { createBrowserHistory } from "history";
+import {Route, BrowserRouter as Router, Switch, Link, useHistory} from 'react-router-dom'
 
+import history from "./customHistory";
 
 
 
@@ -94,9 +94,9 @@ export default function PersistentDrawerLeft(this: any) {
   const [open, setOpen] = React.useState(false);
   // const history = useHistory();
 
-  // const pushHistory = (path: string) => {
-  //   history.push(path);
-  // }
+  const pushHistory = (path: string) => {
+    history.push(path);
+  }
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -148,17 +148,22 @@ export default function PersistentDrawerLeft(this: any) {
         </div>
         <Divider />
         <List>
-          <ListItem button component={Link} to="/" >
-            <ListItemText primary={'Home Page'} />
+          <ListItem button component={Link} to="/">
+            <ListItemText primary={'Home Page'} onClick={ () => pushHistory("/")} />
           </ListItem>
           <ListItem button component={Link} to="/search">
-            <ListItemText primary={'Search'} />
+            <ListItemText primary={'Search'} onClick={ () => pushHistory("/search")}/>
           </ListItem>
           <ListItem button component={Link} to="/library">
-            <ListItemText primary={'Library'} />
+            <ListItemText primary={'Library'} onClick={ () => pushHistory("/library")}/>
           </ListItem>
           <ListItem button component={Link} to="/profile">
-            <ListItemText primary={'My Account'} />
+            <ListItemText primary={'My Account'} onClick={ () => pushHistory("/profile")}/>
+          </ListItem>
+
+          {/* for testing form only */}
+          <ListItem button component={Link} to="/form">
+            <ListItemText primary={'Funding Form'} onClick={ () => pushHistory("/form")}/>
           </ListItem>
         </List>
         {/* testing purposes */}
