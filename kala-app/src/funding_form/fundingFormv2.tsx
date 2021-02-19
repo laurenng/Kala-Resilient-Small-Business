@@ -8,9 +8,11 @@ class FundingForm extends React.Component<any, any> {
       super(props)
       this.state = {
         currQuestionNumber: 0,
-        question1ans: [],
-        question2ans: "",
-        question3ans: ""
+        languageAns: [],
+        fundingReasonAns: [],
+        bizIndustryAns: "",
+        bizTypeAns: "",
+        bizDateAns: ""
       };
       this.handleQ1 = this.handleQ1.bind(this);
       this.handleQ2 = this.handleQ2.bind(this);
@@ -23,17 +25,13 @@ class FundingForm extends React.Component<any, any> {
     handleBackBtn = (event: { target: any; }) => {
       this.setState({currQuestionNumber: this.state.currQuestionNumber - 1}, () => {
         this.displayQuestion();
-    });
-      // console.log(this.state);
-      // this.displayQuestion();
+      });
     }
 
     handleSkip = (event: { target: any; }) => {
       this.setState({currQuestionNumber: this.state.currQuestionNumber + 1}, () => {
         this.displayQuestion();
-    });
-      // console.log(this.state);
-      // this.displayQuestion();
+      });
     }
 
     // question is stored in state
@@ -41,57 +39,44 @@ class FundingForm extends React.Component<any, any> {
     // handlers should follow same format, just change checked with selected, etc.
     handleQ1 = (event: { target: any; }) => {
       const answerInputs = document.querySelectorAll(".answer") as NodeListOf<HTMLInputElement>;;
-      // console.log(answerInputs);
       const answerSubmitted: string[] = [];
       answerInputs.forEach(answer => {
         if (answer.checked == true) {
           answerSubmitted.push(answer.value);
         }
       });
-      // console.log(answerSubmitted);
 
-      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1, question1ans: answerSubmitted}, () => {
+      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1, languageAns: answerSubmitted}, () => {
         this.displayQuestion();
-    });
-      // console.log(this.state);
-      // this.displayQuestion();
-
+      });
     }
 
     handleQ2 = (event: { target: any; }) => {
       const answerInputs = document.querySelectorAll(".answer") as NodeListOf<HTMLInputElement>;
-      // console.log(answerInputs);
       const answerSubmitted: string[] = [];
       answerInputs.forEach(answer => {
         if (answer.checked == true) {
           answerSubmitted.push(answer.value);
         }
       });
-      // console.log(answerSubmitted);
  
-      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1, question2ans: answerSubmitted}, () => {
+      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1, fundingReasonAns: answerSubmitted}, () => {
         this.displayQuestion();
-    });
-      // this.setState({question2ans: answerSubmitted});
-      // console.log(this.state);
-      // this.displayQuestion();
-
+      });
     }
 
     handleQ3 = (event: { target: any; }) => {
-      const answerSelected = document.getElementById("bizType") as HTMLSelectElement;
-      // console.log(answerInputs);
-      const answerSubmitted = answerSelected.value;
-      // console.log(answerSubmitted);
+      const bizType = document.getElementById("bizType") as HTMLSelectElement;
+      const bizIndustry = document.getElementById("bizIndustry") as HTMLSelectElement;
+      const bizDate = document.getElementById("bizDate") as HTMLInputElement;
+      const bizTypeAns = bizType.value;
+      const bizIndustryAns = bizIndustry.value;
+      const bizDateAns = bizDate.value;
 
-      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1, question3ans: answerSubmitted}, () => {
+      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1, bizIndustryAns: bizIndustryAns ,
+      bizTypeAns: bizTypeAns, bizDateAns: bizDateAns}, () => {
         this.displayQuestion();
-    });
-      // this.setState({question3ans: answerSubmitted});
-      console.log(this.state);
-      
-      
-      // this.displayQuestion();
+      });
     }
 
     beginForm = () => {
@@ -101,26 +86,18 @@ class FundingForm extends React.Component<any, any> {
           document.getElementById("progressBar")?.classList.add("active");
         this.setState({currQuestionNumber: this.state.currQuestionNumber + 1}, () => {
           this.displayQuestion();
-      });
-      
-        
-        // console.log(this.state);
-        
-      }
+      });    
+    }
 
     q1Options = ["Spanish", "Mandarin", "Vietnamese", "Russian", " Swahili", "French", "ASL", "Laotian", "Thai", "English"];
     q2Options = ["Buy a building/property", "Insurance", "Make building improvements", "Marketing", "Pandemic-related expenses",
   "Pay employees", "Purchase machinery or equipment", "Purchase inventory", "Refinance", "Rent/Utility Bills"];
-    q4Options = ["Immediately", "Within 1-2 months", "Within the next year", "Anytime"];
     q3BizTypeOptions = ["Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
     q3IndustryOptions = ["Agriculture", "Construction", "Creative", "Education", "Finance", "Food", "Health Services",
     "Information Technology", "Leisure & Hospitality", "Manufacturing", "Professional & Business Services",
     "Real Estate", "Retail", "Trade, Transportation, & Utilities", "Other"]
 
 
-
-
-    // Use this one for testing redux
     welcomeQuestion = <div id="welcomeDiv">
                         <h1 id="welcomeMsg">Matching Questionaire</h1>
                         <div className="question" id="welcomeQuestion">
@@ -224,34 +201,7 @@ class FundingForm extends React.Component<any, any> {
                       </div>
                     </div>
 
-    // questionTemp = <div className="formQuestion" id="question2">
-    //               <h1 className="question" >Now, let's talk about money.</h1>
-    //               <img src={kala} alt="Kala the squid"/>
-    //               <h2>When do you need this funding by?</h2>
-    //               {this.q2Options.map(answer => (
-    //                   <div>
-    //                       <input className="answer" type="radio" name="question2" id={answer} value={answer} key={answer}></input>
-    //                       <label htmlFor={answer}>{answer}</label>
-    //                   </div>
-    //               ))}
-    //               <br></br>
-    //               <div className="controls">
-    //                 <button className="skipBtn" onClick={this.handleQ2} type="button">Skip</button>
-    //                 <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
-    //                 <button className="nextBtn" onClick={this.handleQ2} type="button">Next</button>
-    //               </div>
-                  
-    //             </div>
-
-    
-
-
-
-    
-
     currQuestion: JSX.Element = <div></div>;
-    // Work in progress - Fence post issue with questionNumber & currState
-    // need to use props
     displayQuestion = () => {
       let currQuestionNumber = this.state.currQuestionNumber;
       console.log(this.state);
