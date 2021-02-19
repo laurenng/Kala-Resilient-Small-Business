@@ -1,8 +1,11 @@
 import React from 'react';
 import './searchStyle.css';
+import { connect } from "react-redux";
+import { AppState, Fund } from "../redux-data/types";
 
 // properties that belong to SearchHome
 interface fundProps {
+  fund: Fund
 }
 
 // states that belong to SearchHome
@@ -15,15 +18,56 @@ class FundingExpand extends React.Component<fundProps, fundState> {
       this.state = {
       };
     }
-
+    
     render() {
+      console.log(this.props.fund);
+      let post = this.props.fund;
+      let shortenWebsite = post.url.split('/')[2];
+      let postList = this.listed(post.terms);
+      let useList = this.listed(post.uses);
       return (
-            <h1>Fill out this form to filter results</h1>
+        <div className="main">
+          <h1 className="title">{post.name}</h1>
+          <div className ="moreDetailsBox url">
+            <a href={post.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+          </div>
+          <p><strong>Description: </strong> {post.description}</p>
+          <p><strong>Application Due Date: </strong> {post.endDate}</p>
+          <p><strong>Source:</strong> {post.provider}</p>
+          <p><strong>Funding Type:</strong> {post.description}</p>
+          <p><strong>Terms:</strong> {postList}</p>
+          <p><strong>Uses: </strong> {useList}</p>
+        </div>
+            
       );
+    }
+
+    private listed = (list: string[]) => {
+      let childList = list.map((d) => {
+        return(
+          <li>{d}</li>
+        )
+      })
+      return (
+        <ul>
+          {childList}
+        </ul>
+      )
     }
 
     async componentDidMount() {
     }
 }
     
-export default FundingExpand; 
+function mapStateToProps(state: AppState) {
+  return { 
+    fund: state.currentFund
+  }
+}
+// is it still connecteds
+function mapDispatchToProps(dispatch: any)  {
+  return {
+  }    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FundingExpand);

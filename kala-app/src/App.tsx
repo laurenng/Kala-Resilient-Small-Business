@@ -10,6 +10,7 @@ import LibraryHome from './library_pages/libraryHome';
 import Landing from './Landing';
 import ProfileHome from './profileHome';
 import FundingExpand from './search-pages/fundExpanded';
+import TaExpand from './search-pages/TaExpanded';
 
 // React-Router 
 import {Route, Router, Switch, withRouter} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
@@ -53,9 +54,8 @@ class App extends React.Component<any> {
                 <Route exact path="/search" component={SearchHome} />
                 <Route exact path="/library" component={LibraryHome} />
                 <Route exact path="/profile" component={ProfileHome} />
-                <Route exact path="/profile" component={FundingExpand} />
-                <Route exact path="/form" component={FundingForm} /> 
-                {/* Current not button linking to form */}
+                <Route exact path="/expandFunds" component={FundingExpand} />
+                <Route exact path="/expandTA" component={TaExpand} />
             </Switch>
         </div>
       </Router>

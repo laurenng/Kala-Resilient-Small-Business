@@ -10,5 +10,17 @@
 		"languages": ["Spanish", "Mandarin", "French", "Swahili", "Laotian", "Thai"],
 		"demographics": ["Black, Latnix"],
 		"locations": ["State-wide"]
+	},
+	{
+		"id": 2,
+		"name": "OTHER OPTION",
+		"description": "description 2",
+		"website": "wsbdc.org",
+		"phone": "(833) 492-7232",
+		"email": "new@email.com",
+		"pocName": "Duane Fladland",
+		"languages": ["Spanish", "Mandarin", "French", "Swahili", "Laotian", "Thai"],
+		"demographics": ["Black"],
+		"locations": ["State-wide"]
 	}
 ]
