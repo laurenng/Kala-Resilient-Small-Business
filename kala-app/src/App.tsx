@@ -13,15 +13,40 @@ import FundingExpand from './search-pages/fundExpanded';
 import TaExpand from './search-pages/TaExpanded';
 
 // React-Router 
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
+import {Route, Router, Switch, withRouter} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
+
+// material-ui
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import history from "./customHistory";
+
+//fundingform
+import FundingForm from './funding_form/fundingForm';
+import PersistentDrawerLeft from './testAppBar';
 
 class App extends React.Component<any> {
+
+  // example material-ui code
+  Copyright = () => {
+    return (
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'Copyright © '}
+        <Link color="inherit" href="https://ischool.uw.edu/capstone">
+          UW Capstone Team kala
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+
   render() {
     return (
       <div>
-        <Router>
+        <PersistentDrawerLeft />
+         <Router history={history}>
         {/* Nav bar display */}
-        <Navbar />
+        {/* <Navbar /> */} 
         {/* React-Router component that dictates which component to go to */}
         <div className="page">
             <Switch>
@@ -34,6 +59,12 @@ class App extends React.Component<any> {
             </Switch>
         </div>
       </Router>
+
+      {/* <FundingForm /> */}
+      
+      {/* Copyright footer */}
+      {this.Copyright()}
+
       </div>
     );
   }

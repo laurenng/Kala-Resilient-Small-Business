@@ -1,8 +1,8 @@
 [
 	{
-		"id": 1,
-		"name": "Economic Injury Disaster Loans (EIDL)",
-		"type": "loan",
+		"id": "1",
+		"fundingName": "Economic Injury Disaster Loans (EIDL)",
+		"fundingType": "loan",
 		"provider": "SBA",
 		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/covid-19-economic-injury-disaster-loans",
 		"startDate": "2020-12-27",
@@ -18,9 +18,9 @@
 		}
 	},
 	{
-		"id": 2,
-		"name": "Shuttered Venue Operators Grant (SVO)",
-		"type": "grant",
+		"id": "2",
+		"fundingName": "Shuttered Venue Operators Grant (SVO)",
+		"fundingType": "grant",
 		"provider": "SBA",
 		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/shuttered-venue-operators-grant",
 		"startDate": null,
@@ -36,9 +36,9 @@
 		}
 	},
 	{
-		"id": 3,
-		"name": "First Draw Payment Protection Program (PPP)",
-		"type": "loan",
+		"id": "3",
+		"fundingName": "First Draw Payment Protection Program (PPP)",
+		"fundingType": "loan",
 		"provider": "SBA",
 		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program/first-draw-ppp-loans",
 		"startDate": "2021-01-11",
@@ -54,9 +54,9 @@
 		}
 	},
 	{
-		"id": 4,
-		"name": "Second Draw Payment Protection Program (PPP)",
-		"type": "loan",
+		"id": "4",
+		"fundingName": "Second Draw Payment Protection Program (PPP)",
+		"fundingType": "loan",
 		"provider": "SBA",
 		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program/second-draw-ppp-loans",
 		"startDate": "2021-01-11",
@@ -72,9 +72,9 @@
 		}
 	},
 	{
-		"id": 5,
-		"name": "SBA Express Bridge Loans",
-		"type": "loan",
+		"id": "5",
+		"fundingName": "SBA Express Bridge Loans",
+		"fundingType": "loan",
 		"provider": "SBA",
 		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/sba-express-bridge-loans",
 		"startDate": "2020-03-25",
