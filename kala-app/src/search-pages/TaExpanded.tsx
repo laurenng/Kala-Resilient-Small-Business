@@ -23,26 +23,40 @@ class TaExpand extends React.Component<fundProps, fundState> {
       console.log(this.props.TA);
       let post = this.props.TA;
       let shortenWebsite = post.website.split('/')[0];
+      // turning string arrays into bulleted lists
+      let languageList = this.listed(post.languages);
+      let locationList = this.listed(post.locations);
+      let demoList = this.listed(post.demographics);
       return (
         <div className="main">
           <h1>{post.name}</h1>
-          <div className ="moreDetailsBox">
+          <div className ="moreDetailsBox url">
             <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
           </div>
           <p><strong>Description: </strong> {post.description}</p>
           <p><strong>Phone: </strong> {post.phone}</p>
           <p><strong>Email: </strong> {post.email}</p>
           <p><strong>Point Of Contact: </strong> {post.pocName}</p>
-          <p><strong>Languages: </strong> {post.languages}</p>
-          <p><strong>Locations: </strong> {post.locations}</p>
-          <p><strong>Client Demographics: </strong> {post.demographics}</p>
+          <p><strong>Languages: </strong> {languageList}</p>
+          <p><strong>Locations: </strong> {locationList}</p>
+          <p><strong>Client Demographics: </strong> {demoList}</p>
 
         </div>
             
       );
     }
 
-    async componentDidMount() {
+    private listed = (list: string[]) => {
+      let childList = list.map((d) => {
+        return(
+          <li>{d}</li>
+        )
+      })
+      return (
+        <ul>
+          {childList}
+        </ul>
+      )
     }
 }
     

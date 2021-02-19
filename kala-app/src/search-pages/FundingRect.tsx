@@ -43,20 +43,26 @@ class FundingRect extends React.Component<props, state> {
     }
 
     private individualRect = (num: number) => {
+      // getting the object specific at the index represented at num
       let d = this.state.fundingOpps[num];
+      // limits length of description being shown. Current limit is at 25 words
       let shortenDescription = d.description.split(' ').slice(0,25).join(' ')
+      // getting a shorten version of the link that only keeps part before 
+      // all the mumble jumble 
       let shortenWebsite = d.url.split('/')[2];
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
          <h1>{d.name}</h1>
          <div className="inline">
-          <h3>Due:</h3><p>{d.endDate}</p> 
+          <h3><strong>Due: </strong></h3> {d.endDate === null ? "No End Date" : d.endDate}
          </div>
-        
-         <h3>Type: {d.type}</h3>
-         <h3 className="fundingFont">{shortenDescription}</h3>
-         <div className="moreDetailsBox">
-         <a href={d.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+         <h3><strong>Type: </strong> {d.type}</h3>
+         <p className="fundingFont">{shortenDescription}</p>
+         <div className="moreDetailsBox learnMore" onClick={() => this.handleClick(d)}>
+          <p>Learn More</p>
+         </div>
+         <div className="moreDetailsBox url">
+          <a href={d.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
          </div>
      </div>
       )
