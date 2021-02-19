@@ -33,8 +33,8 @@ class SearchHome extends React.Component<searchProp, searchState> {
 
       return (
           <div id="searchMain">
-            <h1>Fill out this form to filter results</h1>
-            <div className= "inline centered" >
+            
+            <div className= "inline centered">
               <div className = {this.state.tab === "funding" ? "selected button" : "button"} onClick={this.fundingClick}>
                 <h1>Funding</h1>
               </div>
@@ -42,6 +42,11 @@ class SearchHome extends React.Component<searchProp, searchState> {
                 <h1>TA Providers</h1>
               </div>
             </div>
+
+            <div className = "moreDetailsBox url centeredForm"> 
+              <h1>Fill out this form to filter results</h1>
+            </div>
+
             <div className="content">
               {displayContent}
             </div>

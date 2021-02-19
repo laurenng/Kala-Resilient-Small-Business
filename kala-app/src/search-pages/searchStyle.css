@@ -48,6 +48,13 @@ h1, h3, p, ul{
     border: solid 0.2em rgb(83, 82, 82);
 }
 
+.centeredForm {
+    margin: auto;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    padding: 0.3em;
+}
+
 .learnMore {
     background-color: white;
     color: rgb(83, 82, 82);
@@ -63,16 +70,16 @@ h1, h3, p, ul{
 }
 
 .button {
-    background-color: gray;
+    background-color: white;
     border-radius: 8px;
     padding-left: 2em;
     padding-right: 2em;
 }
 
 .selected {
-    background-color: teal;
+    background-color: white;
     text-decoration: underline;
-    font-weight: bold;
+    font-weight: 800;
 }
 .content {
     border: 2px white solid;
