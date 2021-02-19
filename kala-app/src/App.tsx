@@ -20,7 +20,7 @@ import Link from '@material-ui/core/Link';
 import history from "./customHistory";
 
 //fundingform
-import FundingForm from './funding_form/fundingForm';
+import FundingForm from './funding_form/fundingFormv2';
 import PersistentDrawerLeft from './testAppBar';
 
 class App extends React.Component<any> {

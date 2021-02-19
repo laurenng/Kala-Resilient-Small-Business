@@ -1,4 +1,4 @@
-.backBtn {
+.backBtn, .skipBtn {
     align-items: center;
     padding: 8px 12px;
     border-radius: 6px;
@@ -13,16 +13,13 @@
     flex-direction: row;
     justify-content: space-between;
     width: 50%;
-    margin-left: 25%;;
-}
-
-.hidden {
+    margin-left: 25%;
     display: none;
 }
 
 .dot {
-    height: 25px;
-    width: 25px;
+    height: 7px;
+    width: 7px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -32,49 +29,119 @@
     background-color: orange;
 }
 
-.nextBtn {
-    background: #545D69;
-    border-radius: 6px;
-    align-items: center;
-    padding: 8px 12px;
-    color: white;
-}
-
-.question {
+#welcomeQuestion {
+    overflow: scroll;
+    height: 300px;
+    font-size: 16px;
+    text-align: left;
     border: solid black 5px;
     border-radius: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#welcomeMsg {
+    font-size: 42px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.nextBtn, #beginForm, #submitBtn {
+    background: #545D69;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: white;
+    align-self: end;
+    /* margin-left: 75%; */
+}
+
+#beginForm {
+    margin-left: 75%;
+}
+
+.backBtn {
+    margin-left: 40%;
+    margin-right: 5px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-end; */
+}
+
+.questionBubble {
+    border: solid black 5px;
+    border-radius: 50px;
+    /* padding: 60px; */
     /* width: 237px;
     height: 198px; */
-    padding: 3%;
-    margin-left: 25%;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* margin-left: 25%; */
     left: 111px;
-    top: 80px;
-    font-size: 42px;
+    top: 68px;
+    margin: 3%;
     /* float: right; */
-    text-align: center;
+    text-align: left;
+    width: 275px;
+    
 }  
 
+.question {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.questionInstructions {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
 .formQuestion img {
-    width: 64px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin-left: 5%;
     /* left: 30px;
     top: 275px; */
     /* float: right; */
+    /* float: left; */
+    margin-right: 5%;
 }
 
-.formQuestion h2 {
-    /* margin-left: 5%; */
+.sideByside {
+    display: flex;
+    flex-flow: row;
+    
 }
 
 .formQuestion {
-    margin-left: 7%;
+    /* margin-left: 7%; */
+}
+
+.checkBoxList {
+    /* float: right;
+    margin-right: 40%; */
+}
+
+.dropDownList {
+    margin-left: 5%;
 }
 
 .formQuestion select {
     border: 1px solid #1A1A1A;
     box-sizing: border-box;
     border-radius: 10px;
-    width: 239px;
+    width: 173px;
+}
+
+#progressBar.active {
+    display: flex;
 }
 

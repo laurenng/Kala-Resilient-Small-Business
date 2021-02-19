@@ -71,7 +71,7 @@ class FundingForm extends React.Component<any, any> {
     }
 
     q1Options = ["Buy a building/property", "Insurance", "Make building improvements", "Marketing", "Pandemic-related expenses",
-  "Pay employees", "Purchase machinery or equipment", "Purchase inventory", "Refinance", "Rent/Utility Bills", "Don't know"];
+  "Pay employees", "Purchase machinery or equipment", "Purchase inventory", "Refinance", "Rent/Utility Bills"];
     q2Options = ["Immediately", "Within 1-2 months", "Within the next year", "Anytime"];
     q3Options = ["Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
 
