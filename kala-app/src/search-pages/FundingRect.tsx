@@ -1,7 +1,7 @@
 import React from 'react';
 import './searchStyle.css';
 
-export const FundingRect = (fundingObj: any) => {
+export  const FundingRect = (fundingObj: any) => {
   let d = fundingObj.fundingObj;
   let shorten = d.description.split(' ').slice(0,25).join(' ')
   let shortenWebsite = d.url.split('/')[2];

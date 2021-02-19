@@ -15,7 +15,6 @@ class FundingForm extends React.Component<any, any> {
       this.handleQ1 = this.handleQ1.bind(this);
       this.handleQ2 = this.handleQ2.bind(this);
       this.handleQ3 = this.handleQ3.bind(this);
-      
     }
 
     // question is stored in state
@@ -26,7 +25,7 @@ class FundingForm extends React.Component<any, any> {
       // console.log(answerInputs);
       const answerSubmitted: string[] = [];
       answerInputs.forEach(answer => {
-        if (answer.checked == true) {
+        if (answer.checked === true) {
           answerSubmitted.push(answer.value);
         }
       });
@@ -36,7 +35,6 @@ class FundingForm extends React.Component<any, any> {
       this.setState({question1ans: answerSubmitted});
       console.log(this.state);
       this.displayQuestion();
-
     }
 
     handleQ2 = (event: { target: any; }) => {
@@ -44,7 +42,7 @@ class FundingForm extends React.Component<any, any> {
       // console.log(answerInputs);
       const answerSubmitted: string[] = [];
       answerInputs.forEach(answer => {
-        if (answer.checked == true) {
+        if (answer.checked === true) {
           answerSubmitted.push(answer.value);
         }
       });
@@ -75,6 +73,11 @@ class FundingForm extends React.Component<any, any> {
     q2Options = ["Immediately", "Within 1-2 months", "Within the next year", "Anytime"];
     q3Options = ["Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
 
+    // adding redux here to change filters properties 
+    handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) =>{
+      console.log("will be handling change here");
+      console.log(event.target.value);
+    }
 
     // Use this one for testing redux
     questionOne = <div className="formQuestion" id="question1">
@@ -82,7 +85,7 @@ class FundingForm extends React.Component<any, any> {
                   <img src={kala} alt="Kala the squid"/>
                   <h2>Select all options that apply to you.</h2>
                   {this.q1Options.map(answer => (
-                      <div>
+                      <div onChange={this.handleChange1}>
                           <input className="answer" type="checkbox" id={answer} value={answer} key={answer}></input>
                           <label htmlFor={answer}>{answer}</label>
                       </div>
@@ -117,8 +120,6 @@ class FundingForm extends React.Component<any, any> {
                   <br></br>
                   <button className="nextBtn" onClick={this.handleQ3} type="button">Next</button>
                 </div>
-
-
 
     beginForm = () => {
       this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
@@ -198,9 +199,7 @@ class FundingForm extends React.Component<any, any> {
             </form>
         </main>
       );
-
     }
-
 }
 
 export default FundingForm;

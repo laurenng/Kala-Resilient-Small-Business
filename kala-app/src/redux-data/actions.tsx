@@ -1,14 +1,20 @@
 // Actions and their types
-import { pages } from "./types";
+import { pages, changedFilter } from "./types";
 // import PostPage from "../components/postPage";
 
 export enum actionIdentifier {
-  SETCURRENTPAGE
+  SETCURRENTPAGE,
+  UPDATEFILTERS
 }
 
 export interface setCurrentPageAction {
   type: actionIdentifier,
   payload: pages
+};
+
+export interface updateFiltersAction {
+  type: actionIdentifier,
+  payload: changedFilter
 };
 
 // Action creators
@@ -19,5 +25,13 @@ export function setCurrentPage(page: pages) : setCurrentPageAction {
   }
 };
 
-export type actions = setCurrentPageAction 
+export function updateFilters(filter: changedFilter) : updateFiltersAction {
+  return {
+    type: actionIdentifier.UPDATEFILTERS,
+    payload: filter
+  }
+};
+
+
+export type actions = setCurrentPageAction | updateFiltersAction;
 

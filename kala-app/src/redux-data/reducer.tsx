@@ -1,4 +1,4 @@
-import { actionIdentifier, actions, setCurrentPageAction} from './actions';
+import { actionIdentifier, actions, setCurrentPageAction, updateFiltersAction} from './actions';
 import { AppState, pages } from './types';
 
 // Reducer
@@ -28,6 +28,13 @@ function reducer(state: AppState | undefined, action: actions) : AppState {
             const newState = JSON.parse(JSON.stringify(state));
             newState.currentPage = addAction.payload;
 
+            return newState;
+        }
+        case actionIdentifier.UPDATEFILTERS: {
+            let addAction = action as updateFiltersAction; //  treat the `action` object as a JoinObject
+
+            const newState = JSON.parse(JSON.stringify(state));
+            newState.currentFilters[addAction.payload.group].value[addAction.payload.filter].value = addAction.payload.value;
             return newState;
         }
         default:
