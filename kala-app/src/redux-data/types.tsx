@@ -5,17 +5,23 @@ export interface AppState {
     currentFilter: Filters;
 }
 
+export default AppState;
+
+export interface Filters {
+    [key: string]: {value: any, label: string}
+}
+
 export const reasonFilter  = {
-    property: false, //{value: false, label: "Buy a building/property"},
-    insurance: false, //{value: false, label: "Insurance"},
-    improveBuild: false, //{value: false, label: "Make building improvements"},
-    marketing: false, //{value: false, label: "Marketing"},
-    covid: false, //{value: false, label: "Pandemic-related expenses"},
-    employees: false, //{value: false, label: "Pay employees"},
-    equipment: false, //{value: false, label: "Purchase machinery or equipment"},
-    inventory: false, //{value: false, label: "Purchase inventory"},
-    refinance: false, //{value: false, label: "Refinance"},
-    rent: false, //{value: false, label: "Rent/Utility Bills"}
+    property: false, 
+    insurance: false, 
+    improveBuild: false, 
+    marketing: false, 
+    covid: false, 
+    employees: false, 
+    equipment: false, 
+    inventory: false, 
+    refinance: false, 
+    rent: false
 }
 
 export const genderFilter  = {
@@ -24,38 +30,18 @@ export const genderFilter  = {
     nb: false, //{value: false, label: "nonbinary"},
 }
 
-export interface changedFilter {
-    group: keyof typeof filters;
-    filter: keyof typeof reasonFilter;
-    value: boolean;
+export const whenFilter = {
+    choice: "none"
 }
 
-export interface Filters {
-    [key: string]: {value: any, label: string}
+export const bizTypeFilter = {
+    choice: "LLC"
 }
 
-export const filters  = {
+export const filters : Filters = {
     reason: {value: reasonFilter, label: "reason"},
-    gender: {value: genderFilter, label: "gender"}
-}
-
-export const initialFund : Fund = {
-    id: 1,
-    name: "Economic Injury Disaster Loans (EIDL)",
-    type: "loan",
-    provider: "SBA",
-    url: "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/covid-19-economic-injury-disaster-loans",
-    startDate: "2020-12-27",
-    endDate: "2020-12-27",
-    uses: ["Working capital","Normal operating expenses"],
-    description: "In response to the Coronavirus (COVID-19) pandemic, small business owners, including agricultural businesses, and nonprofit organizations in all U.S. states, Washington D.C., and territories can apply for an Economic Injury Disaster Loan. The EIDL program is designed to provide economic relief to businesses that are currently experiencing a temporary loss of revenue due to COVID-19.",
-    terms: ["3.75% for businesses (fixed)", "2.75% for nonprofits (fixed)", "30 years", "No pre-payment penalty or fees"],
-    qualifications: {
-        NAICS: [11],
-        maxEmployees: 1,
-        isCollateralReq: false,
-        establishedBy: "2019-01-01"
-    }
+    when: {value: whenFilter, label: "when"},
+    bizType: {value: bizTypeFilter, label: "bizType"}
 }
 
 export interface Fund {
@@ -77,19 +63,6 @@ export interface Fund {
     }
 }
 
-export const initialTA : TA = {
-    id: 0,
-    name: "none",
-    description: "Empty",
-    website: "none",
-    phone: "none",
-    email: "none",
-    pocName: "Duane Fladland",
-    languages: ["Spanish", "Mandarin", "French", "Swahili", "Laotian", "Thai"],
-    demographics: ["Black, Latnix"],
-    locations: ["State-wide"]
-}
-
 export interface TA {
     id: number,
     name: string,
@@ -103,6 +76,36 @@ export interface TA {
     locations: string[]
 }
 
+// initializing data 
+export const initialFund : Fund = {
+    id: 1,
+    name: "Economic Injury Disaster Loans (EIDL)",
+    type: "loan",
+    provider: "SBA",
+    url: "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/covid-19-economic-injury-disaster-loans",
+    startDate: "2020-12-27",
+    endDate: "2020-12-27",
+    uses: ["Working capital","Normal operating expenses"],
+    description: "In response to the Coronavirus (COVID-19) pandemic, small business owners, including agricultural businesses, and nonprofit organizations in all U.S. states, Washington D.C., and territories can apply for an Economic Injury Disaster Loan. The EIDL program is designed to provide economic relief to businesses that are currently experiencing a temporary loss of revenue due to COVID-19.",
+    terms: ["3.75% for businesses (fixed)", "2.75% for nonprofits (fixed)", "30 years", "No pre-payment penalty or fees"],
+    qualifications: {
+        NAICS: [11],
+        maxEmployees: 1,
+        isCollateralReq: false,
+        establishedBy: "2019-01-01"
+    }
+}
 
+export const initialTA : TA = {
+    id: 0,
+    name: "none",
+    description: "Empty",
+    website: "none",
+    phone: "none",
+    email: "none",
+    pocName: "Duane Fladland",
+    languages: ["Spanish", "Mandarin", "French", "Swahili", "Laotian", "Thai"],
+    demographics: ["Black, Latnix"],
+    locations: ["State-wide"]
+}
 
-export default AppState;

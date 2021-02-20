@@ -1,3 +1,4 @@
+import { Divider } from '@material-ui/core';
 import React from 'react';
 import './fundingForm.css';
 import Question1 from './Question1';
@@ -93,9 +94,9 @@ class FundingForm extends React.Component<any, any> {
           </div>
       } else if (this.state.questionIndex <= 3) { // going through each question (number in if statement = number of questions)
         displayScreen = 
-          <form id="fundingForm">    
+          <div id="fundingForm">    
             {this.selectQuestion(this.state.questionIndex)}
-          </form>
+          </div>
       } else { // end screen after questions are done 
         displayScreen = 
           <div>

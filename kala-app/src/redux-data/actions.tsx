@@ -1,5 +1,5 @@
 // Actions and their types
-import { Fund, TA, changedFilter, Filters} from "./types";
+import { Fund, TA, Filters} from "./types";
 // import PostPage from "../components/postPage";
 
 export enum actionIdentifier {
