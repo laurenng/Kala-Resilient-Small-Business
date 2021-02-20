@@ -56,11 +56,10 @@ class App extends React.Component<any> {
                 <Route exact path="/profile" component={ProfileHome} />
                 <Route exact path="/expandFunds" component={FundingExpand} />
                 <Route exact path="/expandTA" component={TaExpand} />
+                <Route exact path="/form" component={FundingForm} />
             </Switch>
         </div>
       </Router>
-
-      {/* <FundingForm /> */}
       
       {/* Copyright footer */}
       {this.Copyright()}

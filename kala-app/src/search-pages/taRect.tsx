@@ -61,6 +61,7 @@ class TaRect extends React.Component<props, state> {
       )
     }
 
+    // fix routing issue here! 
     handleClick (d: TA) {
       console.log(d);
       this.props.history.push('/expandTA');

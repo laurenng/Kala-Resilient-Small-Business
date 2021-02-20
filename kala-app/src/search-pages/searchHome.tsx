@@ -3,6 +3,7 @@ import './searchStyle.css';
 import FundingRect  from './FundingRect';
 import TaRect  from './taRect';
 import { RouteComponentProps, withRouter } from 'react-router'; 
+import { Link } from "react-router-dom";
 
 
 // properties that belong to SearchHome
@@ -43,9 +44,11 @@ class SearchHome extends React.Component<searchProp, searchState> {
               </div>
             </div>
 
-            <div className = "moreDetailsBox url centeredForm"> 
-              <h1>Fill out this form to filter results</h1>
-            </div>
+              <Link to="/form">
+                  <div className="moreDetailsBox url centeredForm">
+                      <h1>Go to form here</h1>
+                  </div>
+              </Link>
 
             <div className="content">
               {displayContent}
@@ -54,7 +57,6 @@ class SearchHome extends React.Component<searchProp, searchState> {
           </div>
       );
     }
-
     private fundingClick = () => {
       this.setState({
         tab: "funding"

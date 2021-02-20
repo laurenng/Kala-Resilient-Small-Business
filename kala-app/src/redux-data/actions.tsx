@@ -1,13 +1,5 @@
 // Actions and their types
-<<<<<<< HEAD
-import { pages, changedFilter } from "./types";
-// import PostPage from "../components/postPage";
-
-export enum actionIdentifier {
-  SETCURRENTPAGE,
-  UPDATEFILTERS
-=======
-import { pages, Fund, TA} from "./types";
+import { Fund, TA, changedFilter} from "./types";
 // import PostPage from "../components/postPage";
 
 export enum actionIdentifier {
@@ -15,21 +7,16 @@ export enum actionIdentifier {
   GETFUND,
   UPDATETA,
   GETTA,
-  SETCURRENTPAGE
->>>>>>> c781d5c78ea655b1c7c53554fb1f79861b5fbef7
+  UPDATEFILTERS
 }
 
-export interface setCurrentPageAction {
-  type: actionIdentifier,
-  payload: pages
-};
 
-<<<<<<< HEAD
 export interface updateFiltersAction {
   type: actionIdentifier,
   payload: changedFilter
-=======
-export interface updateFundObjectAction {
+}
+
+  export interface updateFundObjectAction {
   type: actionIdentifier,
   payload: Fund 
 };
@@ -37,16 +24,9 @@ export interface updateFundObjectAction {
 export interface updateTAObjectAction {
   type: actionIdentifier,
   payload: TA 
->>>>>>> c781d5c78ea655b1c7c53554fb1f79861b5fbef7
 };
 
 // Action creators
-export function setCurrentPage(page: pages) : setCurrentPageAction {
-  return {
-    type: actionIdentifier.SETCURRENTPAGE,
-    payload: page
-  }
-};
 export function updateFund(fund: Fund) : updateFundObjectAction {
   console.log("UPDATING Fund ");
   return {
@@ -63,7 +43,6 @@ export function updateTA(TA: TA) : updateTAObjectAction {
   }
 };
 
-<<<<<<< HEAD
 export function updateFilters(filter: changedFilter) : updateFiltersAction {
   return {
     type: actionIdentifier.UPDATEFILTERS,
@@ -71,9 +50,5 @@ export function updateFilters(filter: changedFilter) : updateFiltersAction {
   }
 };
 
-
-export type actions = setCurrentPageAction | updateFiltersAction;
-=======
-export type actions = setCurrentPageAction | updateFundObjectAction | updateTAObjectAction
->>>>>>> c781d5c78ea655b1c7c53554fb1f79861b5fbef7
+export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction; 
 

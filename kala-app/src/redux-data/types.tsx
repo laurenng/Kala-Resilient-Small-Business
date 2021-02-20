@@ -1,7 +1,8 @@
-// State of the app
-export enum pages {
-    HomePage,
-    OtherPage
+// describes the types used in redux 
+export interface AppState {
+    currentFund: Fund;
+    currentTA: TA;
+    currentFilter: Filters;
 }
 
 export const ageFilters : Filters = {
@@ -35,12 +36,6 @@ export interface Filters {
 export const filters : Filters = {
     age: {value: ageFilters, label: "age"},
     gender: {value: genderFilter, label: "gender"}
-}
-
-export interface AppState {
-    currentPage: pages;
-    currentFund: Fund;
-    currentTA: TA;
 }
 
 export const initialFund : Fund = {
