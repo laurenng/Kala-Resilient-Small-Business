@@ -62,7 +62,7 @@ class App extends React.Component<any> {
       </Router>
       
       {/* Copyright footer */}
-      {this.Copyright()}
+      {/* {this.Copyright()} */}
 
       </div>
     );

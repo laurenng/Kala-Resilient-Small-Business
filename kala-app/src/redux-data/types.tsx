@@ -5,27 +5,28 @@ export interface AppState {
     currentFilter: Filters;
 }
 
-export const ageFilters : Filters = {
-    underTwelve: {value: false, label: "<12"},
-    twelveToSeventeen: {value: false, label: "12 - 17"},
-    eighteenToTwentyfour: {value: false, label: "18 - 24"},
-    twentyfiveToThirtyfour: {value: false, label: "25 - 34"},
-    thirtyfiveToFortyfour: {value: false, label: "35 - 44"},
-    fortyfiveToFiftyfour: {value: false, label: "45 - 54"},
-    fiftyfiveToSixtyfour: {value: false, label: "55 - 64"},
-    sixtyfiveToSeventyfour: {value: false, label: "65 - 74"},
-    seventyfiveOrOlder: {value: false, label: "75+"}
+export const reasonFilter  = {
+    property: false, //{value: false, label: "Buy a building/property"},
+    insurance: false, //{value: false, label: "Insurance"},
+    improveBuild: false, //{value: false, label: "Make building improvements"},
+    marketing: false, //{value: false, label: "Marketing"},
+    covid: false, //{value: false, label: "Pandemic-related expenses"},
+    employees: false, //{value: false, label: "Pay employees"},
+    equipment: false, //{value: false, label: "Purchase machinery or equipment"},
+    inventory: false, //{value: false, label: "Purchase inventory"},
+    refinance: false, //{value: false, label: "Refinance"},
+    rent: false, //{value: false, label: "Rent/Utility Bills"}
 }
 
-export const genderFilter : Filters = {
-    male: {value: false, label: "male"},
-    female: {value: false, label: "female"},
-    nb: {value: false, label: "nonbinary"},
+export const genderFilter  = {
+    male: false, //{value: false, label: "male"},
+    female: false, //{value: false, label: "female"},
+    nb: false, //{value: false, label: "nonbinary"},
 }
 
 export interface changedFilter {
     group: keyof typeof filters;
-    filter: keyof typeof ageFilters;
+    filter: keyof typeof reasonFilter;
     value: boolean;
 }
 
@@ -33,8 +34,8 @@ export interface Filters {
     [key: string]: {value: any, label: string}
 }
 
-export const filters : Filters = {
-    age: {value: ageFilters, label: "age"},
+export const filters  = {
+    reason: {value: reasonFilter, label: "reason"},
     gender: {value: genderFilter, label: "gender"}
 }
 

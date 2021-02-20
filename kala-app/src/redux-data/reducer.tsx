@@ -38,7 +38,7 @@ function reducer(state: AppState | undefined, action: actions) : AppState {
             let addAction = action as updateFiltersAction; //  treat the `action` object as a JoinObject
 
             const newState = JSON.parse(JSON.stringify(state));
-            newState.currentFilters[addAction.payload.group].value[addAction.payload.filter].value = addAction.payload.value;
+            newState.currentFilters = addAction.payload;
             return newState;
         }
         default:

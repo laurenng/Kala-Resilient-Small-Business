@@ -1,4 +1,3 @@
-import {createDropDownQuestion, createMultiselectQuestion, createRadioQuestion} from './createQuestion';
 import React from 'react';
 import './fundingForm.css';
 import Question1 from './Question1';
@@ -33,9 +32,8 @@ class FundingForm extends React.Component<any, any> {
 
     // start of the form 
     beginForm = () => {
-      this.setState({questionIndex: this.state.questionIndex + 1});
-      this.selectQuestion(this.state.questionIndex);
-      console.log(this.state);
+      this.setState({questionIndex: 1});
+      this.selectQuestion(1);
       document.getElementById("welcomeMsg")?.classList.add("hidden");
       document.getElementById("beginForm")?.classList.add("hidden");
     }
@@ -60,6 +58,7 @@ class FundingForm extends React.Component<any, any> {
       return (
         <div>
           {question}
+          <br></br>
           <div className="controls">
             <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
             <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
@@ -76,9 +75,9 @@ class FundingForm extends React.Component<any, any> {
       if (currQuestion < 4) { // temp if statement
         progressDots[currQuestion - 1].classList.add("currDot");
       }
-      
     }
 
+    // handling the submit 
     handleSubmit = () => {
       console.log(this.state);
     }

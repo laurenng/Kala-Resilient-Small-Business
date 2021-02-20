@@ -6,24 +6,6 @@ export default class Question2 extends React.Component<any, any> {
 
     q2Options = ["Immediately", "Within 1-2 months", "Within the next year", "Anytime"];
 
-    // question is stored in state
-    // questionNumber: {question: string, questionAnswer: string[]}
-    // handlers should follow same format, just change checked with selected, etc.
-    handleQ2 = (event: { target: any; }) => {
-        const answerInputs = document.querySelectorAll(".answer") as NodeListOf<HTMLInputElement>;
-        // console.log(answerInputs);
-        const answerSubmitted: string[] = [];
-        answerInputs.forEach(answer => {
-          if (answer.checked === true) {
-            answerSubmitted.push(answer.value);
-        }
-        });
-        this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
-      this.setState({question2ans: answerSubmitted});
-      console.log(this.state);
-      //this.displayQuestion();
-    }
-
     // adding redux here to change filters properties 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
         console.log("will be handling change here");
@@ -42,7 +24,6 @@ export default class Question2 extends React.Component<any, any> {
                         <label htmlFor={answer}>{answer}</label>
                     </div>
                 ))}
-                <br></br>
             </div>
         )
     }
