@@ -57,8 +57,6 @@ class FundingExpand extends React.Component<fundProps, fundState> {
       )
     }
 
-    async componentDidMount() {
-    }
 }
     
 function mapStateToProps(state: AppState) {

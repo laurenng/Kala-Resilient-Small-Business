@@ -1,158 +1,78 @@
 import {createDropDownQuestion, createMultiselectQuestion, createRadioQuestion} from './createQuestion';
 import React from 'react';
 import './fundingForm.css';
-import kala from './kala_orange_solid 3.svg';
+import Question1 from './Question1';
+import Question2 from './Question2';
+import Question3 from './Question3';
+import WelcomeQuestion from './WelcomeQuestion';
 
 class FundingForm extends React.Component<any, any> {
     constructor(props: any) {
       super(props)
       this.state = {
-        currQuestionNumber: 1,
-        question1ans: [],
-        question2ans: "",
-        question3ans: ""
+        questionIndex: 0
       };
-      this.handleQ1 = this.handleQ1.bind(this);
-      this.handleQ2 = this.handleQ2.bind(this);
-      this.handleQ3 = this.handleQ3.bind(this);
     }
 
-    // question is stored in state
-    // questionNumber: {question: string, questionAnswer: string[]}
-    // handlers should follow same format, just change checked with selected, etc.
-    handleQ1 = (event: { target: any; }) => {
-      const answerInputs = document.querySelectorAll(".answer") as NodeListOf<HTMLInputElement>;;
-      // console.log(answerInputs);
-      const answerSubmitted: string[] = [];
-      answerInputs.forEach(answer => {
-        if (answer.checked === true) {
-          answerSubmitted.push(answer.value);
-        }
+    // next button functionality 
+    handleNext = (event: { target: any; }) => {
+      this.setState({
+        questionIndex: this.state.questionIndex + 1
       });
-      // console.log(answerSubmitted);
-
-      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
-      this.setState({question1ans: answerSubmitted});
-      console.log(this.state);
-      this.displayQuestion();
     }
 
-    handleQ2 = (event: { target: any; }) => {
-      const answerInputs = document.querySelectorAll(".answer") as NodeListOf<HTMLInputElement>;
-      // console.log(answerInputs);
-      const answerSubmitted: string[] = [];
-      answerInputs.forEach(answer => {
-        if (answer.checked === true) {
-          answerSubmitted.push(answer.value);
-        }
-      });
-      // console.log(answerSubmitted);
- 
-      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
-      this.setState({question2ans: answerSubmitted});
-      console.log(this.state);
-      this.displayQuestion();
-
+    // back button functionality 
+    handleBackBtn = (event: { target: any; }) => {
+      this.setState({questionIndex: this.state.questionIndex - 1})
     }
 
-    handleQ3 = (event: { target: any; }) => {
-      const answerSelected = document.getElementById("bizType") as HTMLSelectElement;
-      // console.log(answerInputs);
-      const answerSubmitted = answerSelected.value;
-      // console.log(answerSubmitted);
-
-      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
-      this.setState({question3ans: answerSubmitted});
-      console.log(this.state);
-      this.displayQuestion();
-      document.getElementById("submitBtn")?.classList.remove("hidden");
+    // skip button functionality 
+    handleSkip = (event: { target: any; }) => {
+      this.setState({questionIndex: this.state.questionIndex + 1})
     }
 
-    q1Options = ["Buy a building/property", "Insurance", "Make building improvements", "Marketing", "Pandemic-related expenses",
-  "Pay employees", "Purchase machinery or equipment", "Purchase inventory", "Refinance", "Rent/Utility Bills", "Don't know"];
-    q2Options = ["Immediately", "Within 1-2 months", "Within the next year", "Anytime"];
-    q3Options = ["Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
-
-    // adding redux here to change filters properties 
-    handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) =>{
-      console.log("will be handling change here");
-      console.log(event.target.value);
-    }
-
-    // Use this one for testing redux
-    questionOne = <div className="formQuestion" id="question1">
-                  <h1 className="question" >Why do you want this funding?</h1>
-                  <img src={kala} alt="Kala the squid"/>
-                  <h2>Select all options that apply to you.</h2>
-                  {this.q1Options.map(answer => (
-                      <div onChange={this.handleChange1}>
-                          <input className="answer" type="checkbox" id={answer} value={answer} key={answer}></input>
-                          <label htmlFor={answer}>{answer}</label>
-                      </div>
-                  ))}
-                  <br></br>
-                  <button className="nextBtn" onClick={this.handleQ1} type="button">Next</button>
-                </div>
-
-    questionTwo = <div className="formQuestion" id="question2">
-                  <h1 className="question" >Now, let's talk about money.</h1>
-                  <img src={kala} alt="Kala the squid"/>
-                  <h2>When do you need this funding by?</h2>
-                  {this.q2Options.map(answer => (
-                      <div>
-                          <input className="answer" type="radio" name="question2" id={answer} value={answer} key={answer}></input>
-                          <label htmlFor={answer}>{answer}</label>
-                      </div>
-                  ))}
-                  <br></br>
-                  <button className="nextBtn" onClick={this.handleQ2} type="button">Next</button>
-                </div>
-
-    questionThree = <div className="formQuestion" id="question3">
-                  <h1 className="question" >What is your business type?</h1>
-                  <img src={kala} alt="Kala the squid"/>
-                  <h2>Gimme answer</h2>
-                  <select id="bizType" name="bizType">
-                  {this.q3Options.map(answer => (
-                      <option value={answer} key={answer}>{answer}</option>
-                  ))}
-                  </select>
-                  <br></br>
-                  <button className="nextBtn" onClick={this.handleQ3} type="button">Next</button>
-                </div>
-
+    // start of the form 
     beginForm = () => {
-      this.setState({currQuestionNumber: this.state.currQuestionNumber + 1});
-      this.displayQuestion();
+      this.setState({questionIndex: this.state.questionIndex + 1});
+      this.selectQuestion(this.state.questionIndex);
       console.log(this.state);
       document.getElementById("welcomeMsg")?.classList.add("hidden");
       document.getElementById("beginForm")?.classList.add("hidden");
     }
 
-    currQuestion: JSX.Element = <div></div>;
     // Work in progress - Fence post issue with questionNumber & currState
-    displayQuestion = () => {
-      let currQuestionNumber = this.state.currQuestionNumber;
-      console.log(currQuestionNumber);
-      switch (currQuestionNumber) {
+    selectQuestion = (num: number) => {
+      let question;
+      switch (num) {
         case 1:
-          this.currQuestion = this.questionOne;
+          question = <Question1/>
           break;
         case 2:
-          this.currQuestion  = this.questionTwo;
+          question  = <Question2 />
           break;
         case 3:
-          this.currQuestion  = this.questionThree;
+          question  = <Question3 />
           break;
-        default:
-          this.currQuestion  = <p>You've completed all our questions!</p>;
+        default: // last case! 
+          question = <p>You've completed all our questions!</p>;
       }
-      this.fillProgress();
+      // displaying the question with additional buttons (skip, back, next buttons)
+      return (
+        <div>
+          {question}
+          <div className="controls">
+            <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
+            <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
+            <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
+          </div>
+        </div>
+      )
     }
 
+    // dot sequence CSS styling 
     fillProgress = () => {
       const progressDots = document.querySelectorAll(".dot") as NodeListOf<HTMLInputElement>;
-      const currQuestion = this.state.currQuestionNumber;
+      const currQuestion = this.state.questionIndex;
       if (currQuestion < 4) { // temp if statement
         progressDots[currQuestion - 1].classList.add("currDot");
       }
@@ -164,7 +84,27 @@ class FundingForm extends React.Component<any, any> {
     }
 
     render() {
-      
+      let displayScreen;
+      if (this.state.questionIndex === 0) { // if begining the form
+        displayScreen = 
+          <div>
+            <p id="welcomeMsg">Welcome</p>
+            <WelcomeQuestion /> 
+            <button onClick={this.beginForm} type="button" id="beginForm">Begin Form</button>
+          </div>
+      } else if (this.state.questionIndex <= 3) { // going through each question (number in if statement = number of questions)
+        displayScreen = 
+          <form id="fundingForm">    
+            {this.selectQuestion(this.state.questionIndex)}
+          </form>
+      } else { // end screen after questions are done 
+        displayScreen = 
+          <div>
+            <h1>this is last screeen</h1>
+            <input type="submit" value="Submit" className="hidden" id="submitBtn" onClick={e => {e.preventDefault(); this.handleSubmit()}}></input>
+          </div>
+      }
+
       return (
         <main>
             <div id="progressBar">
@@ -172,31 +112,10 @@ class FundingForm extends React.Component<any, any> {
               <span className="dot"></span>
               <span className="dot"></span>
             </div>
-            <p id="welcomeMsg">Welcome</p>
-            <button onClick={this.beginForm} type="button" id="beginForm">Begin Form</button>
-            <form id="fundingForm">
-                {/* Current idea to make the form dynamic: have state that tracks progress of questions, have if/else or switch statements to toggle which question is on display at the moment */}
-                {/* Handlers should be assigned in createQuestion.tsx */}
-                {/* Should these functions be made private methods instead? */}
-                
-                
-                {/* Test code */}
-                
-                
-                {/* {this.displayQuestion} */}
-                {this.currQuestion}
 
-                
+            {/* What is being displayed is dictated above in the conditional rendering sequence */}
+            {displayScreen}
 
-                
-                {/* {createMultiselectQuestion("Why do you need funding?", "Select all that apply", ["Payroll", "Rent", "Working Capital"])}
-                {createDropDownQuestion("What state do you live in?", "Select one", ["NV", "CA", "WA"])}
-                {createRadioQuestion("Do you like squids?", "Answer the question", ["Yes", "No"])} */}
-                {/* <button className="backBtn" type="button">Back</button>
-                <button className="nextBtn" type="button">Next</button>
-              <br></br>*/}
-                <input type="submit" value="Submit" className="hidden" id="submitBtn" onClick={e => {e.preventDefault(); this.handleSubmit()}}></input>
-            </form>
         </main>
       );
     }
