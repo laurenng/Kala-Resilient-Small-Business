@@ -1,4 +1,4 @@
-import {createDropDownQuestion, createMultiselectQuestion, createRadioQuestion} from './createQuestion';
+
 import React from 'react';
 import './fundingForm.css';
 import kala from './kala_orange_solid 3.svg';
