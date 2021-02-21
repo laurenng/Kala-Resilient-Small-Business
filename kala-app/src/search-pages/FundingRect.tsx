@@ -59,7 +59,7 @@ class FundingRect extends React.Component<props, state> {
          </div>
          <h3><strong>Type: </strong> {d.type}</h3>
          <p className="fundingFont">{shortenDescription}</p>
-         <div className="moreDetailsBox learnMore" onClick={() => this.handleClick(d)}>
+         <div className="moreDetailsBox learnMore">
           <p>Learn More</p>
          </div>
          <div className="moreDetailsBox url">

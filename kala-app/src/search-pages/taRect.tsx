@@ -51,7 +51,7 @@ class TaRect extends React.Component<props, state> {
         <div className="fundBox" onClick={() => this.handleClick(d)}>
             <h1>{d.name}</h1>
             <p className="fundingFont">{shortenDescription}</p>
-            <div className="moreDetailsBox learnMore" onClick={() => this.handleClick(d)}>
+            <div className="moreDetailsBox learnMore">
               <p>Learn More</p>
             </div>
             <div className="moreDetailsBox url">

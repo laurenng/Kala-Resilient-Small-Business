@@ -24,10 +24,17 @@ export const reasonFilter  = {
     rent: false
 }
 
-export const genderFilter  = {
-    male: false, //{value: false, label: "male"},
-    female: false, //{value: false, label: "female"},
-    nb: false, //{value: false, label: "nonbinary"},
+export const languageFilter  = {
+    Spanish: false,
+    Mandarin: false,
+    Vietnamese: false,
+    Russian: false,
+    Swahili: false,
+    French: false,
+    ASL: false,
+    Laotian: false,
+    Thai: false,
+    English: false
 }
 
 export const whenFilter = {
@@ -35,10 +42,11 @@ export const whenFilter = {
 }
 
 export const bizTypeFilter = {
-    choice: "LLC"
+    choice: "none"
 }
 
 export const filters : Filters = {
+    language: {value: languageFilter, label: "language"},
     reason: {value: reasonFilter, label: "reason"},
     when: {value: whenFilter, label: "when"},
     bizType: {value: bizTypeFilter, label: "bizType"}

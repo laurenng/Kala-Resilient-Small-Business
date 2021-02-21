@@ -22,6 +22,7 @@ class Question3 extends React.Component<props, state> {
     } 
 
     componentWillUnmount() {
+        console.log(this.props.currentFilter)
         let changes = this.props.currentFilter;
         changes.bizType.value = this.state;
         updateFilters(changes);
@@ -43,7 +44,7 @@ class Question3 extends React.Component<props, state> {
                 <div onChange={this.handleChange}>
                     <select id="bizType" name="bizType" defaultValue={this.state.choice}>
                         {this.q3Options.map(answer => (
-                            <option value={answer}> {answer}</option>
+                            <option value={answer} key={answer}> {answer}</option>
                         ))}
                     </select>
                 </div>
@@ -51,7 +52,7 @@ class Question3 extends React.Component<props, state> {
         )
     }
 
-    q3Options = ["Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
+    q3Options = ["none", "Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
 }
 
 function mapStateToProps(state: AppState) {
