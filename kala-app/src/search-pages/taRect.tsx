@@ -4,6 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { updateTA } from "../redux-data/actions";
 import { connect } from "react-redux";
 import { AppState, TA } from "../redux-data/types";
+import fetchFromAPI from '../redux-data/fetchFromAPI';
 
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
@@ -12,7 +13,7 @@ interface props extends RouteComponentProps<any> {
 
 // states that belong to SearchHome
 interface state {
-  technicalAssistance: any[],
+  technicalAssistance: any,
 }
 
 class TaRect extends React.Component<props, state> {
@@ -25,7 +26,7 @@ class TaRect extends React.Component<props, state> {
 
     render() {
       // map through every technical assistance to display all
-      let displayContent = this.state.technicalAssistance.map((d, i) => {
+      let displayContent = this.state.technicalAssistance.map((d: any, i: number) => {
         return(
           <div key = {d.id}>
             {this.individualRect(i)}
@@ -46,16 +47,16 @@ class TaRect extends React.Component<props, state> {
       let shortenDescription = d.description.split(' ').slice(0,25).join(' ')
       // getting a shorten version of the link that only keeps part before 
       // all the mumble jumble 
-      // let shortenWebsite = d.website.split('/')[2];
+      let shortenWebsite = d.website.split('/')[2];
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
-            <h1>{d.name}</h1>
+            <h1>{d.orgName}</h1>
             <p className="fundingFont">{shortenDescription}</p>
             <div className="moreDetailsBox learnMore" onClick={() => this.handleClick(d)}>
               <p>Learn More</p>
             </div>
             <div className="moreDetailsBox url">
-              <a href={d.url} rel="noreferrer" target="_blank">Visit {d.website}</a>
+              <a href={d.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
             </div>
         </div>
       )
@@ -69,10 +70,15 @@ class TaRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      let ta = require('../testData/testTA.json');
-      this.setState({
-        technicalAssistance: ta
-      })
+      // let ta = require('../testData/testTA.json');
+      
+      let url ="https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/assistance";
+      let ta = await fetchFromAPI(url).then(data => {
+        console.log(data)
+        this.setState({
+          technicalAssistance: data
+        })
+      });
     }
 }
 
