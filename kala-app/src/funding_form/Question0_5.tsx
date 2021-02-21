@@ -59,7 +59,7 @@ class Question0 extends React.Component<props, state> {
                   <h2>Select all options that apply to you.</h2>
                   {this.q1Options.map(answer => {
                       // @ts-ignore 
-                      let booleanChecked = this.state[answer.label];
+                      let booleanChecked = this.state[answer.value];
                       return(
                         <div key={answer.value} onChange={this.handleChange}>
                             {/* @ts-ignore */}

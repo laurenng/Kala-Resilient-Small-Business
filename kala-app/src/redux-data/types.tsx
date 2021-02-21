@@ -45,11 +45,21 @@ export const bizTypeFilter = {
     choice: "none"
 }
 
+export const establishedDate = {
+    choice: "none"
+}
+
+export const industryFilter = {
+    choice: "none"
+}
+
 export const filters : Filters = {
     language: {value: languageFilter, label: "language"},
     reason: {value: reasonFilter, label: "reason"},
     when: {value: whenFilter, label: "when"},
-    bizType: {value: bizTypeFilter, label: "bizType"}
+    bizType: {value: bizTypeFilter, label: "bizType"},
+    established: {value: establishedDate, label: "established"},
+    industryType: {value: industryFilter, label: "industryType"}
 }
 
 export interface Fund {
