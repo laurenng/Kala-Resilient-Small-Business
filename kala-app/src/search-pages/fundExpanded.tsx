@@ -34,11 +34,13 @@ class FundingExpand extends React.Component<fundProps, fundState> {
           <p><strong>Description: </strong> {post.description}</p>
           <p><strong>Application Due Date: </strong> {post.endDate}</p>
           <p><strong>Source:</strong> {post.provider}</p>
-          <p><strong>Funding Type:</strong> {post.description}</p>
-          <p><strong>Terms:</strong> {postList}</p>
-          <p><strong>Uses: </strong> {useList}</p>
+          <p><strong>Funding Type:</strong></p>
+          {post.description}
+          <p><strong>Terms:</strong></p>
+          {postList}
+          <p><strong>Uses: </strong></p>
+          {useList}
         </div>
-            
       );
     }
 
@@ -55,8 +57,6 @@ class FundingExpand extends React.Component<fundProps, fundState> {
       )
     }
 
-    async componentDidMount() {
-    }
 }
     
 function mapStateToProps(state: AppState) {

@@ -43,6 +43,7 @@ class FundingRect extends React.Component<props, state> {
     }
 
     private individualRect = (num: number) => {
+      
       // getting the object specific at the index represented at num
       let d = this.state.fundingOpps[num];
       // limits length of description being shown. Current limit is at 25 words
@@ -52,7 +53,7 @@ class FundingRect extends React.Component<props, state> {
       let shortenWebsite = d.url.split('/')[2];
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
-         <h1>{d.name}</h1>
+         <h1>{d.fundingName}</h1>
          <div className="inline">
           <h3><strong>Due: </strong></h3> {d.endDate === null ? "No End Date" : d.endDate}
          </div>

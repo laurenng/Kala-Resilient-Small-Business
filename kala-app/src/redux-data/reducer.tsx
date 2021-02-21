@@ -1,5 +1,5 @@
-import { actionIdentifier, actions, updateFundObjectAction} from './actions';
-import { AppState, pages, initialFund, initialTA } from './types';
+import { actionIdentifier, actions, updateFundObjectAction, updateFiltersAction} from './actions';
+import { AppState, filters, initialFund, initialTA } from './types';
 
 // Reducer
 // The reducer is a function that takes the previous 
@@ -13,7 +13,7 @@ import { AppState, pages, initialFund, initialTA } from './types';
 
 // https://redux.js.org/advanced/usage-with-react-router
 
-const intialState: AppState = { currentPage: pages.HomePage, currentFund: initialFund, currentTA: initialTA }
+const intialState: AppState = { currentFund: initialFund, currentTA: initialTA, currentFilter: filters}
 
 
 function reducer(state: AppState | undefined, action: actions) : AppState {
@@ -32,6 +32,13 @@ function reducer(state: AppState | undefined, action: actions) : AppState {
             let addAction = action as updateFundObjectAction; 
             const newState = JSON.parse(JSON.stringify(state));
             newState.currentTA = addAction.payload;
+            return newState;
+        }
+        case actionIdentifier.UPDATEFILTERS: {
+            let addAction = action as updateFiltersAction; //  treat the `action` object as a JoinObject
+
+            const newState = JSON.parse(JSON.stringify(state));
+            newState.currentFilters = addAction.payload;
             return newState;
         }
         default:

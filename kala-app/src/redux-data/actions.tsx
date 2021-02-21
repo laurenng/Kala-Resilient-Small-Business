@@ -1,5 +1,5 @@
 // Actions and their types
-import { pages, Fund, TA} from "./types";
+import { Fund, TA, Filters} from "./types";
 // import PostPage from "../components/postPage";
 
 export enum actionIdentifier {
@@ -7,15 +7,16 @@ export enum actionIdentifier {
   GETFUND,
   UPDATETA,
   GETTA,
-  SETCURRENTPAGE
+  UPDATEFILTERS
 }
 
-export interface setCurrentPageAction {
-  type: actionIdentifier,
-  payload: pages
-};
 
-export interface updateFundObjectAction {
+export interface updateFiltersAction {
+  type: actionIdentifier,
+  payload: Filters
+}
+
+  export interface updateFundObjectAction {
   type: actionIdentifier,
   payload: Fund 
 };
@@ -26,12 +27,6 @@ export interface updateTAObjectAction {
 };
 
 // Action creators
-export function setCurrentPage(page: pages) : setCurrentPageAction {
-  return {
-    type: actionIdentifier.SETCURRENTPAGE,
-    payload: page
-  }
-};
 export function updateFund(fund: Fund) : updateFundObjectAction {
   console.log("UPDATING Fund ");
   return {
@@ -48,5 +43,12 @@ export function updateTA(TA: TA) : updateTAObjectAction {
   }
 };
 
-export type actions = setCurrentPageAction | updateFundObjectAction | updateTAObjectAction
+export function updateFilters(filter: Filters) : updateFiltersAction {
+  return {
+    type: actionIdentifier.UPDATEFILTERS,
+    payload: filter
+  }
+};
+
+export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction; 
 
