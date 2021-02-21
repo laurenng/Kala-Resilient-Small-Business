@@ -162,9 +162,9 @@ export default function PersistentDrawerLeft(this: any) {
           </ListItem>
 
           {/* for testing form only */}
-          <ListItem button component={Link} to="/form">
+          {/* <ListItem button component={Link} to="/form">
             <ListItemText primary={'Funding Form'} onClick={ () => pushHistory("/form")}/>
-          </ListItem>
+          </ListItem> */}
         </List>
         {/* testing purposes */}
             {/* <Switch>

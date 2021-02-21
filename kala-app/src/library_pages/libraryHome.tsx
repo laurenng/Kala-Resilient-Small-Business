@@ -1,74 +1,182 @@
 import React from 'react';
 import './libraryStyle.css';
 import kala from './library_assets/kala_black_solid_bg.png';
-import Arrow from './library_assets/Arrow 1.png';
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import {RouteComponentProps} from 'react-router-dom';
 import Loans from './category_pages/loans';
 import Tribal from './category_pages/tribalBusiness';
-import Categories from './categories';
-import { Link } from "react-router-dom";
-import Library from './category_pages/library';
 import Grants from './category_pages/grants';
 import MinorityBusiness from './category_pages/minorityBusiness';
 import FinancialLiteracy from './category_pages/financialLit';
 import LanguageSupport from './category_pages/langSupport';
 import CovidSupport from './category_pages/covidSupport';
 import AdditionalSupport from './category_pages/additionalSupport';
-import { createBrowserHistory } from "history";
+import libHistory from './libraryHistory';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import {ArrowBack, ArrowForward} from '@material-ui/icons';
 
-import {withRouter} from 'react-router';
-// useHistory?? https://stackoverflow.com/questions/31079081/programmatically-navigate-using-react-router
+interface libraryState {
+  cat: string
+}
 
-class LibraryHome extends React.Component<any> {
+interface libraryProp extends RouteComponentProps<any> {
+  /* other props for ChildComponent */
+}
+
+class LibraryHome extends React.Component<libraryProp, libraryState> {
+  componentDidMount() {
+    console.log(libHistory)
+    console.log(this.state)
+  }
+
+  constructor(props: libraryProp, state: libraryState){
+    super(props);
+    this.state = {
+      cat: "home"
+    };
+  }
+
     render() {
-      
+      let displayContent; 
+      let category = this.state.cat;
+      switch (category) {
+        case "loans":
+          displayContent  = 
+          <div id="loans">
+            {this.createBanner("Loans")}
+            <Loans/>
+          </div>
+          break;
+        case "grants":
+          displayContent  = 
+            <div id="grants">
+              {this.createBanner("Grants")}
+              <Grants/>
+            </div>
+          break;
+        case "minorities":
+          displayContent  = 
+            <div id="minorities">
+              {this.createBanner("Minority Owned Small Businesses")}
+              <MinorityBusiness/>
+            </div>
+          break;
+        case "tribal":
+          displayContent  = 
+            <div id="tribal">
+              {this.createBanner("Tribally Owned Small Businesses")}
+              <Tribal/>
+            </div>
+          break;
+        case "finLit":
+        displayContent  = 
+          <div id="finLit">
+            {this.createBanner("Financial Literacy and Education")}
+            <FinancialLiteracy/>
+          </div>
+        break;
+        case "lang":
+        displayContent  = 
+          <div id="lang">
+            {this.createBanner("Language Support")}
+            <LanguageSupport/>
+          </div>
+        break;
+        case "covid":
+        displayContent  = 
+          <div id="covid">
+            {this.createBanner("COVID Resource")}
+            <CovidSupport/>
+          </div>
+        break;
+        case "additional":
+        displayContent  = 
+          <div id="additional">
+            {this.createBanner("Additional Support")}
+            <AdditionalSupport/>
+          </div>
+        break;
+        default: // Home 
+          displayContent = 
+            <div>
+              <h1>Library</h1>
+              <p>In this library you can find resources to guide you as you apply for funding.</p>
+            </div>
+      }
+
       return (
           <main>
-            {/* <h1>Library</h1>
-            <p>In this library you can find resources to guide you as you apply for funding.</p> */}
-
-            {/* {this.createCategory("Tribally Owned Small Businesses", "/library/tribally-owned-small-businesses")}
-            {this.createCategory("Loans", "/library/loans")} */}
-              {/* forceRefresh={true} */}
-            {/* Problem, when a library page is manually refreshed the component does not load/reload might be history problem */}
             <div className="translatorBtn">Need a translator?</div>
-            <Router basename="/library"> 
-            
 
-              <div className="libraryContents">
-                  <Switch>
-                      <Route exact path="/tribally-owned-small-businesses" component={Tribal}/>
-                      <Route exact path="/minority-owned-small-businesses" component={MinorityBusiness}/>
-                      <Route exact path="/loans" component={Loans}/>
-                      <Route exact path="/grants" component={Grants}/>
-                      <Route exact path="/financial-literacy-and-education" component={FinancialLiteracy}/>
-                      <Route exact path="/language-support" component={LanguageSupport}/>
-                      <Route exact path="/covid-resources" component={CovidSupport}/>
-                      <Route exact path="/additional-support" component={AdditionalSupport}/>
-                      <Route exact path="/" component={Library}/>
-                  </Switch>
-              </div>
+            {displayContent}
 
-              {/* <Categories /> */}
-              
-            </Router>
+            <List id="libraryCats">
+              <ListItem>
+                  <div onClick={() => this.categoryClick("loans")}>{this.createCategory("Loans")}</div> 
+              </ListItem>
+              <ListItem>
+                  <div onClick={() => this.categoryClick("grants")}>{this.createCategory("Grants")}</div>
+              </ListItem>
+              <ListItem>
+                  <div onClick={() => this.categoryClick("minorities")}>{this.createCategory("Minority Owned Small Businesses")}</div>
+              </ListItem>
+              <ListItem>
+                  <div onClick={() => this.categoryClick("tribal")}>{this.createCategory("Tribally Owned Small Businesses")}</div>
+              </ListItem>
+              <ListItem>
+                  <div onClick={() => this.categoryClick("finLit")}>{this.createCategory("Financial Literacy and Education")}</div>
+              </ListItem>
+              <ListItem>
+                  <div onClick={() => this.categoryClick("lang")}>{this.createCategory("Language Support")}</div>
+              </ListItem>
+              <ListItem>
+                  <div onClick={() => this.categoryClick("covid")}>{this.createCategory("COVID Resources")}</div>
+              </ListItem>
+              <ListItem>
+                  <div onClick={() => this.categoryClick("additional")}>{this.createCategory("Additional Support")}</div>
+              </ListItem>
+            </List>
           </main>
-      );
-        
+      );  
     }
 
-    // with functions and any variables, you need to specify types (ie: string, any, boolean, int)
-    // private createCategory = (categoryName: string, categoryURL: string) => {
-    //     return (
-    //         <div className="categoryContainer">
-    //           <Link to={categoryURL}>
-    //             <img className="catIcon" src={kala} alt="Category Icon"></img>
-    //             <h2>{categoryName}</h2>
-    //             <img className="navArrow" src={Arrow} alt="Navigation Arrow"></img>
-    //           </Link>
-    //         </div>
-    //     );
-    // }
+    private createBanner = (title: string) => {
+      return(
+      <div className="catTitle">
+        <ArrowBack className="navArrow" onClick={this.libraryLoad}></ArrowBack>
+        <h1>{title}</h1>
+      </div>);
+    }
+  
+    private libraryLoad = () => {
+      console.log("back btn clicked")
+      this.setState({
+        cat: "home"
+      })
+      console.log(this.state)
+      document.getElementById("libraryCats")?.classList.remove("hidden");
+    }
+
+    private createCategory = (categoryName: string) => {
+      return (
+        <div className="categoryContainer">
+          <img className="catIcon" src={kala} alt="Category Icon"></img>
+          <h2>{categoryName}</h2>
+          <ArrowForward className="navArrow"></ArrowForward>
+        </div>
+        );
+    }
+
+    private categoryClick = (categoryName: string) => {
+      this.setState({
+        cat: categoryName
+      })
+      console.log(this.state)
+      document.getElementById("libraryCats")?.classList.add("hidden");
+    }
+      
 }
     
 export default LibraryHome; 
+
+

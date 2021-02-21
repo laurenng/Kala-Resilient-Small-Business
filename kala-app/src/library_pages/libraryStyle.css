@@ -4,8 +4,8 @@
 }
 
 .navArrow {
-    width: 15%;
-    height: 15%;
+    transform: scale(2);
+    margin-right: 3%;
 }
 
 .categoryContainer {
@@ -16,6 +16,10 @@
     margin-bottom: 10%;
     align-items: center;
     font-size: small;
+}
+
+.categoryContainer h2 {
+    padding-right: 3%;
 }
 
 main {
@@ -31,4 +35,8 @@ main {
     right: 10px;
     position: fixed;
     padding: 5%;
+}
+
+.hidden {
+    display: none;
 }
