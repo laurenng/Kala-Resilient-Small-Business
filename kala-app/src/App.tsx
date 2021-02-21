@@ -22,10 +22,18 @@ import history from "./customHistory";
 
 //fundingform
 import FundingForm from './funding_form/fundingForm';
+
+//hamburgerMenu
 import PersistentDrawerLeft from './testAppBar';
 
-class App extends React.Component<any> {
+//Fetch Requests
+import fetchFromAPI from './redux-data/fetchFromAPI';
 
+
+
+
+class App extends React.Component<any> {
+  
   // example material-ui code
   Copyright = () => {
     return (
@@ -63,7 +71,8 @@ class App extends React.Component<any> {
       
       {/* Copyright footer */}
       {/* {this.Copyright()} */}
-
+      <button onClick={() => fetchFromAPI("https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/funding")}>Test Funding</button>
+      <button onClick={() => fetchFromAPI("https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/assistance")}>Test TA</button>
       </div>
     );
   }

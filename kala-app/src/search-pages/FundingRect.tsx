@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { updateFund } from "../redux-data/actions";
 import { connect } from "react-redux";
 import { AppState, Fund } from "../redux-data/types";
+import fetchFromAPI from "../redux-data/fetchFromAPI";
 
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
@@ -13,7 +14,7 @@ interface props extends RouteComponentProps<any> {
 
 // states that belong to SearchHome
 interface state {
-  fundingOpps: any[],
+  fundingOpps: any,
   
 }
 
@@ -27,13 +28,14 @@ class FundingRect extends React.Component<props, state> {
 
     render() {
       // map through every technical assistance to display all
-      let displayContent = this.state.fundingOpps.map((d, i) => {
+      let displayContent = this.state.fundingOpps.map((d: any, i: number) => {
         return(
           <div key = {d.id}>
             {this.individualRect(i)}
           </div>
         )
-      })
+      }) 
+      console.log(this.state.fundingOpps)
       
       return (
           <div>
@@ -50,7 +52,7 @@ class FundingRect extends React.Component<props, state> {
       let shortenDescription = d.description.split(' ').slice(0,25).join(' ')
       // getting a shorten version of the link that only keeps part before 
       // all the mumble jumble 
-      let shortenWebsite = d.url.split('/')[2];
+      let shortenWebsite = d.website.split('/')[2];
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
          <h1>{d.fundingName}</h1>
@@ -63,9 +65,10 @@ class FundingRect extends React.Component<props, state> {
           <p>Learn More</p>
          </div>
          <div className="moreDetailsBox url">
-          <a href={d.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+          <a href={d.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
          </div>
      </div>
+
       )
     }
 
@@ -76,12 +79,15 @@ class FundingRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      let funding = require('../testData/testFunding.json');
-      this.setState({
-        fundingOpps: funding
-      })
+      let url ="https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/funding";
+      let funding = await fetchFromAPI(url).then(data => {
+        console.log(data)
+        this.setState({
+          fundingOpps: data
+        })
+      });
     }
-}
+  }
 
 function mapStateToProps(state: AppState) {
   return { }
