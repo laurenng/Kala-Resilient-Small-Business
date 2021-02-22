@@ -71,8 +71,8 @@ class App extends React.Component<any> {
       
       {/* Copyright footer */}
       {/* {this.Copyright()} */}
-      <button onClick={() => fetchFromAPI("https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/funding")}>Test Funding</button>
-      <button onClick={() => fetchFromAPI("https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/assistance")}>Test TA</button>
+      {/* <button onClick={() => fetchFromAPI("http://54.214.55.177:8080/funding")}>Test Funding</button>
+      <button onClick={() => fetchFromAPI("http://54.214.55.177:8080/assistance")}>Test TA</button> */}
       </div>
     );
   }

@@ -38,6 +38,7 @@ class FundingForm extends React.Component<any, any> {
       this.selectQuestion(1);
       document.getElementById("welcomeMsg")?.classList.add("hidden");
       document.getElementById("beginForm")?.classList.add("hidden");
+      document.getElementById("progressBar")?.classList.add("active");
     }
 
     // Work in progress - Fence post issue with questionNumber & currState
@@ -48,13 +49,13 @@ class FundingForm extends React.Component<any, any> {
           question = <Question0/>
           break;
         case 2:
-          question  = <Question2 />
+          question  = <Question1 />
           break;
         case 3:
           question  = <Question3 />
           break;
         default: // last case! 
-          question = <p>You've completed all our questions!</p>;
+          question = <p>You've completed all our questions!</p>
       }
       // displaying the question with additional buttons (skip, back, next buttons)
       return (
@@ -89,7 +90,7 @@ class FundingForm extends React.Component<any, any> {
       if (this.state.questionIndex === 0) { // if begining the form
         displayScreen = 
           <div>
-            <p id="welcomeMsg">Welcome</p>
+            {/* <p id="welcomeMsg">Welcome</p> */}
             <WelcomeQuestion /> 
             <button onClick={this.beginForm} type="button" id="beginForm">Begin Form</button>
           </div>
