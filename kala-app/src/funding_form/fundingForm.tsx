@@ -1,6 +1,7 @@
 import { Divider } from '@material-ui/core';
 import React from 'react';
 import './fundingForm.css';
+import Question0 from './Question0_5';
 import Question1 from './Question1';
 import Question2 from './Question2';
 import Question3 from './Question3';
@@ -44,7 +45,7 @@ class FundingForm extends React.Component<any, any> {
       let question;
       switch (num) {
         case 1:
-          question = <Question1/>
+          question = <Question0/>
           break;
         case 2:
           question  = <Question2 />
@@ -100,7 +101,7 @@ class FundingForm extends React.Component<any, any> {
       } else { // end screen after questions are done 
         displayScreen = 
           <div>
-            <h1>this is last screeen</h1>
+            <p>You've completed all our questions! Are you sure you want to submit your answers?</p>;
             <input type="submit" value="Submit" className="hidden" id="submitBtn" onClick={e => {e.preventDefault(); this.handleSubmit()}}></input>
           </div>
       }
