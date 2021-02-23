@@ -6,16 +6,16 @@ import './fundingForm.css';
 import kala from './kala_orange_solid 3.svg';
 
 interface state {
-    property: boolean,
-    insurance: boolean,
-    improveBuild: boolean,
-    marketing: boolean,
-    covid: boolean,
-    employees: boolean,
-    equipment: boolean,
-    inventory: boolean,
-    refinance: boolean,
-    rent: boolean
+    Spanish: boolean,
+    Mandarin: boolean,
+    Vietnamese: boolean,
+    Russian: boolean,
+    Swahili: boolean,
+    French: boolean,
+    ASL: boolean,
+    Laotian: boolean,
+    Thai: boolean,
+    English: boolean
 }
 
 interface props {
@@ -23,18 +23,18 @@ interface props {
     updateFilters: (newFilters: Filters) => void,
 }
 
-class Question1 extends React.Component<props, state> {
+class Question0 extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
         // setting state to what is dictated in redux (aka storing prev values here)
-        this.state = this.props.currentFilter.reason.value;
+        this.state = this.props.currentFilter.language.value;
     } 
 
     // add states to redux here when component is removed from screen
     // aka when user is done inputing 
     componentWillUnmount() {
         let changes = this.props.currentFilter;
-        changes.reason.value = this.state;
+        changes.language.value = this.state;
         updateFilters(changes);
     }
 
@@ -54,21 +54,21 @@ class Question1 extends React.Component<props, state> {
     render() {
         return(
             <div className="formQuestion" id="question1">
-                  <div className="questionBubble">
-                    <h4 className="question" >Why do you want this funding?</h4>
-                    <h5 className="questionInstructions">Select all options that apply to you.</h5>
-                  </div>
-                  <div className="sideByside">
+                <div className="questionBubble">
+                  <h4 className="question">What language(s) would you prefer to use when speaking to assistance?</h4>
+                  <h5 className="questionInstructions">Select all options that apply to you.</h5>
+                </div>
+                <div className="sideByside">
                   <img src={kala} alt="Kala the squid"/>
                   <div>
                   {this.q1Options.map(answer => {
                       // @ts-ignore 
-                      let booleanChecked = this.state[answer.label];
+                      let booleanChecked = this.state[answer.value];
                       return(
-                        <div key={answer.label} onChange={this.handleChange}>
+                        <div key={answer.value} onChange={this.handleChange}>
                             {/* @ts-ignore */}
                             <input className="answer" type="checkbox" onChange={this.handleChange} checked={booleanChecked}
-                            id={answer.label} value={answer.label}></input>
+                            id={answer.value} value={answer.value}></input>
                             <label htmlFor={answer.value}>{answer.value}</label>
                         </div>
                       )
@@ -80,47 +80,37 @@ class Question1 extends React.Component<props, state> {
     }
 
     private q1Options = [
-        {
-            label: "covid", 
-            value: "Pandemic-related expenses"
+        { 
+            value: "Spanish"
         },
-        {
-            label: "employees", 
-            value: "Pay employees"
+        { 
+            value: "Mandarin"
         },
-        {
-            label: "equipment", 
-            value: "Purchase machinery or equipment"
+        { 
+            value: "Vietnamese"
         },
-        {
-            label: "improveBuild", 
-            value: "Make building improvements"
+        { 
+            value: "Russian"
         },
-        {
-            label: "insurance", 
-            value: "Insurance"
+        { 
+            value: "Swahili"
         },
-        {
-            label: "inventory", 
-            value: "Purchase inventory"
+        { 
+            value: "French"
         },
-        {
-            label: "property", 
-            value: "Buy a building/property"
+        { 
+            value: "ASL"
         },
-        
-        {
-            label: "marketing", 
-            value: "Marketing"
+        { 
+            value: "Laotian"
         },
-        {
-            label: "refinance", 
-            value: "Refinance"
+        { 
+            value: "Thai"
         },
-        {
-            label: "rent", 
-            value: "Rent/Utility Bills"
-        }];
+        { 
+            value: "English"
+        }
+    ];
 }
 
 function mapStateToProps(state: AppState) {
@@ -135,4 +125,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question1);
+export default connect(mapStateToProps, mapDispatchToProps)(Question0);

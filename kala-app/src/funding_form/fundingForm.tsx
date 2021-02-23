@@ -1,6 +1,7 @@
 import { Divider } from '@material-ui/core';
 import React from 'react';
 import './fundingForm.css';
+import Question0 from './Question0_5';
 import Question1 from './Question1';
 import Question2 from './Question2';
 import Question3 from './Question3';
@@ -37,6 +38,7 @@ class FundingForm extends React.Component<any, any> {
       this.selectQuestion(1);
       document.getElementById("welcomeMsg")?.classList.add("hidden");
       document.getElementById("beginForm")?.classList.add("hidden");
+      document.getElementById("progressBar")?.classList.add("active");
     }
 
     // Work in progress - Fence post issue with questionNumber & currState
@@ -44,16 +46,16 @@ class FundingForm extends React.Component<any, any> {
       let question;
       switch (num) {
         case 1:
-          question = <Question1/>
+          question = <Question0/>
           break;
         case 2:
-          question  = <Question2 />
+          question  = <Question1 />
           break;
         case 3:
           question  = <Question3 />
           break;
         default: // last case! 
-          question = <p>You've completed all our questions!</p>;
+          question = <p>You've completed all our questions!</p>
       }
       // displaying the question with additional buttons (skip, back, next buttons)
       return (
@@ -88,7 +90,7 @@ class FundingForm extends React.Component<any, any> {
       if (this.state.questionIndex === 0) { // if begining the form
         displayScreen = 
           <div>
-            <p id="welcomeMsg">Welcome</p>
+            {/* <p id="welcomeMsg">Welcome</p> */}
             <WelcomeQuestion /> 
             <button onClick={this.beginForm} type="button" id="beginForm">Begin Form</button>
           </div>
@@ -100,7 +102,7 @@ class FundingForm extends React.Component<any, any> {
       } else { // end screen after questions are done 
         displayScreen = 
           <div>
-            <h1>this is last screeen</h1>
+            <p>You've completed all our questions! Are you sure you want to submit your answers?</p>;
             <input type="submit" value="Submit" className="hidden" id="submitBtn" onClick={e => {e.preventDefault(); this.handleSubmit()}}></input>
           </div>
       }

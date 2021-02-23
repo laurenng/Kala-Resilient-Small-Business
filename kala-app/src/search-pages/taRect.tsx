@@ -52,7 +52,7 @@ class TaRect extends React.Component<props, state> {
         <div className="fundBox" onClick={() => this.handleClick(d)}>
             <h1>{d.orgName}</h1>
             <p className="fundingFont">{shortenDescription}</p>
-            <div className="moreDetailsBox learnMore" onClick={() => this.handleClick(d)}>
+            <div className="moreDetailsBox learnMore">
               <p>Learn More</p>
             </div>
             <div className="moreDetailsBox url">
@@ -72,7 +72,7 @@ class TaRect extends React.Component<props, state> {
     async componentDidMount() {
       // let ta = require('../testData/testTA.json');
       
-      let url ="https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/assistance";
+      let url ="http://54.214.55.177:8080/assistance";
       let ta = await fetchFromAPI(url).then(data => {
         console.log(data)
         this.setState({

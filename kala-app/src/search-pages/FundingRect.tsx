@@ -61,7 +61,7 @@ class FundingRect extends React.Component<props, state> {
          </div>
          <h3><strong>Type: </strong> {d.type}</h3>
          <p className="fundingFont">{shortenDescription}</p>
-         <div className="moreDetailsBox learnMore" onClick={() => this.handleClick(d)}>
+         <div className="moreDetailsBox learnMore">
           <p>Learn More</p>
          </div>
          <div className="moreDetailsBox url">
@@ -79,7 +79,7 @@ class FundingRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      let url ="https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/funding";
+      let url ="http://54.214.55.177:8080/funding";
       let funding = await fetchFromAPI(url).then(data => {
         console.log(data)
         this.setState({
