@@ -1,4 +1,4 @@
-const apiURL = "https://cors-anywhere.herokuapp.com/http://54.214.55.177:8080/";
+const apiURL = "http://54.214.55.177:8080/";
 
 async function fetchFromAPI<T>(url: string): Promise<any> {
     return fetch(url)
@@ -9,7 +9,7 @@ async function fetchFromAPI<T>(url: string): Promise<any> {
       return response.json() as Promise<{ data: string[] }>
     })
     .then(data => {
-        // console.log(data)
+        console.log(data)
         return data
     })
 }

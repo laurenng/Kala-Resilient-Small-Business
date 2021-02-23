@@ -54,9 +54,13 @@ class Question1 extends React.Component<props, state> {
     render() {
         return(
             <div className="formQuestion" id="question1">
-                  <h1 className="question" >Why do you want this funding?</h1>
+                  <div className="questionBubble">
+                    <h4 className="question" >Why do you want this funding?</h4>
+                    <h5 className="questionInstructions">Select all options that apply to you.</h5>
+                  </div>
+                  <div className="sideByside">
                   <img src={kala} alt="Kala the squid"/>
-                  <h2>Select all options that apply to you.</h2>
+                  <div>
                   {this.q1Options.map(answer => {
                       // @ts-ignore 
                       let booleanChecked = this.state[answer.label];
@@ -68,8 +72,9 @@ class Question1 extends React.Component<props, state> {
                             <label htmlFor={answer.value}>{answer.value}</label>
                         </div>
                       )
-                      
                   })}
+                  </div>
+                  </div>
                 </div>
         )
     }
