@@ -1,13 +1,8 @@
 import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
-import Arrow from '../library_assets/Arrow 1.png';
 
 class FinancialLiteracy extends React.Component<any> {
-    goBack(){
-      this.props.history.goBack();
-    };
-
     componentDidMount() {
       window.scrollTo(0, 0);
     };
@@ -15,11 +10,6 @@ class FinancialLiteracy extends React.Component<any> {
       
       return (
           <main>
-            <div>
-            <div className="catTitle">
-              <img className="backArrow" src={Arrow} alt="Backwards Navigation Arrow" onClick={() => this.goBack()}></img>
-              <h1>Financial Literacy and Education</h1>
-            </div>
             <h4>If you’re looking to improve your financial literacy and educate yourself in business related topics here’s
                a list of free online courses, modules, and resources for developing your business and understanding 
                financial information.</h4>
@@ -29,8 +19,6 @@ class FinancialLiteracy extends React.Component<any> {
                 {createResource("Marketing Tips from Office of Minority and Women Business Enterprises", "https://omwbe.wa.gov/resources-small-businesses/more-resources/marketing-tips", "omwbe.wa.gov")}
                 {createResource("Resources for Starting and Building Your Business from StartUpWashington", "http://startup.choosewashingtonstate.com/", "startup.choosewashingtonstate.com")}
                 {createResource("General Business Help and Financial Literacy from the Seattle Public Library", "https://www.spl.org/programs-and-services/business", "spl.org")}
-
-            </div>
             
         </main>
       );

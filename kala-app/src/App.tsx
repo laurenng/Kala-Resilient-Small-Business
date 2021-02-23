@@ -1,9 +1,6 @@
 import React from 'react';
 import './App.css';
 
-// the nav bar 
-import Navbar from './Navbar/Navbar';
-
 // pages that are linked in navbar
 import SearchHome from './search-pages/searchHome';
 import LibraryHome from './library_pages/libraryHome';
@@ -13,7 +10,7 @@ import FundingExpand from './search-pages/fundExpanded';
 import TaExpand from './search-pages/TaExpanded';
 
 // React-Router 
-import {Route, Router, Switch, withRouter} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
+import {Route, Router, Switch} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
 
 // material-ui
 import Typography from '@material-ui/core/Typography';
@@ -51,11 +48,9 @@ class App extends React.Component<any> {
   render() {
     return (
       <div>
-        <PersistentDrawerLeft />
-         <Router history={history}>
-        {/* Nav bar display */}
-        {/* <Navbar /> */} 
-        {/* React-Router component that dictates which component to go to */}
+        <PersistentDrawerLeft /> {/* Hamburger Menu*/}
+        <Router history={history}>
+  
         <div className="page">
             <Switch>
                 <Route exact path="/" component={Landing} />

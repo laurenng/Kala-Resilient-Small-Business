@@ -1,7 +1,6 @@
 import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
-import Arrow from '../library_assets/Arrow 1.png';
 
 class Tribal extends React.Component<any> { 
   
@@ -9,17 +8,9 @@ class Tribal extends React.Component<any> {
       window.scrollTo(0, 0);
     }
 
-    goBack(){
-      this.props.history.goBack();
-    } 
-
     render() {
       return (
           <div>
-            <div className="catTitle">
-              <img className="backArrow" src={Arrow} alt="Backwards Navigation Arrow" onClick={() => this.goBack()}></img>
-              <h1>Tribally Owned Small Businesses</h1>
-            </div>
             <h4>We understand that Tribal owned businesses have different needs and processes when it comes to 
                 operating as well as receiving funding. Here are some resources that cater specifically to Native Americans.</h4>
             
