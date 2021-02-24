@@ -32,7 +32,7 @@ class FundingRect extends React.Component<props, state> {
       // map through every technical assistance to display all
       let displayContent = this.state.fundingOpps.map((d: any, i: number) => {
         return(
-          <div key = {d.id}>
+          <div key = {i}>
             {this.individualRect(i)}
           </div>
         )
@@ -81,20 +81,20 @@ class FundingRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      // let url ="http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/funding";
-      // let funding = await fetchFromAPI(url).then(data => {
-      //   console.log(data)
-      //   this.setState({
-      //     fundingOpps: data
-      //   })
-      // });
-      let array = [];
-      array.push(this.props.currentFund)
-      array.push(this.props.currentFund)
-      console.log(array);
-      this.setState({
-        fundingOpps: array
-      })
+      let url ="http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/funding";
+      let funding = await fetchFromAPI(url).then(data => {
+        console.log(data)
+        this.setState({
+          fundingOpps: data
+        })
+      });
+      // let array = [];
+      // array.push(this.props.currentFund)
+      // array.push(this.props.currentFund)
+      // console.log(array);
+      // this.setState({
+      //   fundingOpps: array
+      // })
     }
   }
 
