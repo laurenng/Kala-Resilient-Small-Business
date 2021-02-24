@@ -69,7 +69,7 @@ class Question0 extends React.Component<props, state> {
                             {/* @ts-ignore */}
                             <input className="answer" type="checkbox" onChange={this.handleChange} checked={booleanChecked}
                             id={answer.value} value={answer.value}></input>
-                            <label htmlFor={answer.value}>{answer.value}</label>
+                            <label htmlFor={answer.value}>{answer.label}</label>
                         </div>
                       )
                   })}
@@ -81,33 +81,43 @@ class Question0 extends React.Component<props, state> {
 
     private q1Options = [
         { 
+            label: "Español (Spanish)",
             value: "Spanish"
         },
         { 
+            label: "官話 (Mandarin)",
             value: "Mandarin"
         },
         { 
+            label: "㗂越 (Vietnamese)",
             value: "Vietnamese"
         },
         { 
+            label: "Русский язык (Russian)",
             value: "Russian"
         },
         { 
+            label: "Kiswahili (Swahili)",
             value: "Swahili"
         },
         { 
+            label: "français (French)",
             value: "French"
         },
         { 
+            label: "American Sign Language (ASL)",
             value: "ASL"
         },
         { 
+            label: "ພາສາລາວ (Laotian)",
             value: "Laotian"
         },
         { 
+            label: "ภาษาล้านนา (Thai)",
             value: "Thai"
         },
         { 
+            label: "English",
             value: "English"
         }
     ];

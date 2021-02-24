@@ -32,7 +32,7 @@ class FundingRect extends React.Component<props, state> {
       // map through every technical assistance to display all
       let displayContent = this.state.fundingOpps.map((d: any, i: number) => {
         return(
-          <div key = {d.id}>
+          <div key = {i}>
             {this.individualRect(i)}
           </div>
         )
