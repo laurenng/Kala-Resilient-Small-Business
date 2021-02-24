@@ -99,11 +99,11 @@ class Question3 extends React.Component<props, state> {
             </div>
         )
     }
-    q3IndustryOptions = ["none", "Agriculture", "Construction", "Creative", "Education", "Finance", "Food", "Health Services",
+    q3IndustryOptions = ["Select an option", "Agriculture", "Construction", "Creative", "Education", "Finance", "Food", "Health Services",
     "Information Technology", "Leisure & Hospitality", "Manufacturing", "Professional & Business Services",
     "Real Estate", "Retail", "Trade, Transportation, & Utilities", "Other"]
 
-    q3Options = ["none", "Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
+    q3Options = ["Select an option", "Sole proprietorship", "LLC", "Corporation", "Nonprofit", "Other"];
 }
 
 function mapStateToProps(state: AppState) {
