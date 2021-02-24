@@ -3,12 +3,13 @@ import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
 import { updateTA } from "../redux-data/actions";
 import { connect } from "react-redux";
-import { AppState, TA } from "../redux-data/types";
+import { AppState, Filters, TA } from "../redux-data/types";
 import fetchFromAPI from '../redux-data/fetchFromAPI';
 
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
-  updateTA: (TA: TA) => void;
+  currentFilter: Filters,
+  updateTA: (TA: TA) => void
 }
 
 // states that belong to SearchHome
@@ -28,7 +29,7 @@ class TaRect extends React.Component<props, state> {
       // map through every technical assistance to display all
       let displayContent = this.state.technicalAssistance.map((d: any, i: number) => {
         return(
-          <div key = {d.id}>
+          <div key = {i}>
             {this.individualRect(i)}
           </div>
         )
@@ -70,20 +71,65 @@ class TaRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      // let ta = require('../testData/testTA.json');
       
-      let url ="http://54.214.55.177:8080/assistance";
-      let ta = await fetchFromAPI(url).then(data => {
-        console.log(data)
+      let url ="http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/assistance";
+      await fetchFromAPI(url).then(data => {
+        let selectedData = this.compareLanguages(data);
+        console.log(selectedData);
         this.setState({
-          technicalAssistance: data
+          technicalAssistance: selectedData
         })
       });
+      
+    }
+
+    private compareLanguages(data: TA[]) {
+      // selected languages user selected in onboarding form
+      let languageFilter = this.props.currentFilter.language.value;
+
+      // this could be more efficient with hashset + O(1) lookup...
+      // currently we are at O(n)
+
+      // creating set of selected languages
+      let selectedLanguages: string[] = [];
+      Object.keys(languageFilter).map((d: string) => {
+        if (languageFilter[d]) {
+          selectedLanguages.push(d);
+        }
+        return d;
+      })
+      let languageSet = new Set(selectedLanguages);
+
+      if (languageSet.size === 0) {
+        return data;
+      }
+      
+      // iterating through the current TA dataset to find 
+      // only the relevant TA providers that match their selected
+      // languages
+
+      // FIX THE MAPS THEY"RE UGLY
+      let selectedData: any = [];
+      data.map((d: TA) => {
+        let languages = d.languages;
+        for (let i=0; i< languages.length; i++) {
+          if(languageSet.has(languages[i])) {
+            selectedData.push(d);
+            break;
+          }
+        }
+        return null;
+      })
+
+      console.log(selectedData);
+      return selectedData;
     }
 }
 
 function mapStateToProps(state: AppState) {
-  return { }
+  return { 
+    currentFilter: state.currentFilter
+  }
 }
 
 function mapDispatchToProps(dispatch: any)  {

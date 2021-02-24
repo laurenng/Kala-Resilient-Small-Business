@@ -22,14 +22,14 @@ class FundingExpand extends React.Component<fundProps, fundState> {
     render() {
       console.log(this.props.fund);
       let post = this.props.fund;
-      let shortenWebsite = post.url.split('/')[2];
+      let shortenWebsite = post.website.split('/')[2];
       let postList = this.listed(post.terms);
       let useList = this.listed(post.uses);
       return (
         <div className="main">
-          <h1 className="title">{post.name}</h1>
+          <h1 className="title">{post.fundingName}</h1>
           <div className ="moreDetailsBox url">
-            <a href={post.url} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+            <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
           </div>
           <p><strong>Description: </strong> {post.description}</p>
           <p><strong>Application Due Date: </strong> {post.endDate}</p>

@@ -22,14 +22,14 @@ class TaExpand extends React.Component<fundProps, fundState> {
     render() {
       console.log(this.props.TA);
       let post = this.props.TA;
-      let shortenWebsite = post.website.split('/')[0];
+      let shortenWebsite = post.website.split('/')[2];
       // turning string arrays into bulleted lists
       let languageList = this.listed(post.languages);
       let locationList = this.listed(post.locations);
       let demoList = this.listed(post.demographics);
       return (
         <div className="main">
-          <h1>{post.name}</h1>
+          <h1>{post.orgName}</h1>
           <div className ="moreDetailsBox url">
             <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
           </div>
@@ -37,9 +37,9 @@ class TaExpand extends React.Component<fundProps, fundState> {
           <p><strong>Phone: </strong> {post.phone}</p>
           <p><strong>Email: </strong> {post.email}</p>
           <p><strong>Point Of Contact: </strong> {post.pocName}</p>
-          <p><strong>Languages: </strong> {languageList}</p>
-          <p><strong>Locations: </strong> {locationList}</p>
-          <p><strong>Client Demographics: </strong> {demoList}</p>
+          <p><strong>Languages: </strong> </p>{languageList}
+          <p><strong>Locations: </strong></p> {locationList}
+          <p><strong>Client Demographics: </strong></p> {demoList}
 
         </div>
             
@@ -49,7 +49,7 @@ class TaExpand extends React.Component<fundProps, fundState> {
     private listed = (list: string[]) => {
       let childList = list.map((d) => {
         return(
-          <li>{d}</li>
+          <li key={d}>{d}</li>
         )
       })
       return (
