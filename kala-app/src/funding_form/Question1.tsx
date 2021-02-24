@@ -55,7 +55,7 @@ class Question1 extends React.Component<props, state> {
         return(
             <div className="formQuestion" id="question1">
                   <div className="questionBubble">
-                    <h4 className="question" >Why do you want this funding?</h4>
+                    <h4 className="question" >Why do you need funding?</h4>
                     <h5 className="questionInstructions">Select all options that apply to you.</h5>
                   </div>
                   <div className="sideByside">

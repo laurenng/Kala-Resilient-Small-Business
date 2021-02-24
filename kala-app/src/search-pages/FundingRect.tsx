@@ -4,11 +4,13 @@ import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
 import { updateFund } from "../redux-data/actions";
 import { connect } from "react-redux";
-import { AppState, Fund } from "../redux-data/types";
+import { AppState, Fund, Filters} from "../redux-data/types";
 import fetchFromAPI from "../redux-data/fetchFromAPI";
 
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
+  currentFilter: Filters,
+  currentFund: Fund,
   updateFund: (fund: Fund) => void;
 }
 
@@ -79,18 +81,28 @@ class FundingRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      let url ="http://54.214.55.177:8080/funding";
-      let funding = await fetchFromAPI(url).then(data => {
-        console.log(data)
-        this.setState({
-          fundingOpps: data
-        })
-      });
+      // let url ="http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/funding";
+      // let funding = await fetchFromAPI(url).then(data => {
+      //   console.log(data)
+      //   this.setState({
+      //     fundingOpps: data
+      //   })
+      // });
+      let array = [];
+      array.push(this.props.currentFund)
+      array.push(this.props.currentFund)
+      console.log(array);
+      this.setState({
+        fundingOpps: array
+      })
     }
   }
 
 function mapStateToProps(state: AppState) {
-  return { }
+  return { 
+    currentFilter: state.currentFilter,
+    currentFund: state.currentFund
+  }
 }
 
 function mapDispatchToProps(dispatch: any)  {

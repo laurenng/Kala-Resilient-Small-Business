@@ -5,8 +5,10 @@ import Question0 from './Question0_5';
 import Question1 from './Question1';
 import Question2 from './Question2';
 import Question3 from './Question3';
+import DemoQuestion from './DemoQuestion';
 import WelcomeQuestion from './WelcomeQuestion';
 
+const NUM_QUESTIONS = 4; 
 class FundingForm extends React.Component<any, any> {
     constructor(props: any) {
       super(props)
@@ -54,6 +56,9 @@ class FundingForm extends React.Component<any, any> {
         case 3:
           question  = <Question3 />
           break;
+        case 4:
+          question  = <DemoQuestion />
+          break;
         default: // last case! 
           question = <p>You've completed all our questions!</p>
       }
@@ -82,6 +87,7 @@ class FundingForm extends React.Component<any, any> {
 
     // handling the submit 
     handleSubmit = () => {
+      console.log("submitting");
       console.log(this.state);
     }
 
@@ -94,7 +100,7 @@ class FundingForm extends React.Component<any, any> {
             <WelcomeQuestion /> 
             <button onClick={this.beginForm} type="button" id="beginForm">Begin Form</button>
           </div>
-      } else if (this.state.questionIndex <= 3) { // going through each question (number in if statement = number of questions)
+      } else if (this.state.questionIndex <= NUM_QUESTIONS) { // going through each question (number in if statement = number of questions)
         displayScreen = 
           <div id="fundingForm">    
             {this.selectQuestion(this.state.questionIndex)}

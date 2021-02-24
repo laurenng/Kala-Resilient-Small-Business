@@ -80,7 +80,7 @@ class Question3 extends React.Component<props, state> {
                             </select>
                         </div>
 
-                        <h3 className="question" >What is your business type?</h3>
+                        <h3 className="question" >business type</h3>
                         <div onChange={this.handleChangeType}>
                             <select id="bizType" name="bizType" defaultValue={this.state.bizType}>
                                 {this.q3Options.map(answer => (
@@ -90,7 +90,7 @@ class Question3 extends React.Component<props, state> {
                         </div>
 
                         <div>
-                            <h3>When did you start your business?</h3>
+                            <h3>Business start date</h3>
                             <input type="month" id="bizDate" name="bizDate" defaultValue={this.state.established}
                             onChange={this.handleChangeDate}></input>
                         </div>

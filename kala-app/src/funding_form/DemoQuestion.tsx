@@ -1,0 +1,183 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { updateFilters } from '../redux-data/actions';
+import AppState, {Filters} from '../redux-data/types';
+import './fundingForm.css';
+import kala from './kala_orange_solid 3.svg';
+
+interface state {
+    native: boolean,
+    women: boolean,
+    men: boolean,
+    hispanic: boolean,
+    asian: boolean,
+    black: boolean,
+    islander: boolean,
+    mixed: boolean,
+    mideast: boolean,
+    veteran: boolean,
+    lgbtq: boolean,
+    white: boolean
+    tribalAff: string
+}
+
+interface props {
+    currentFilter: Filters,
+    updateFilters: (newFilters: Filters) => void,
+}
+
+class DemoQuestion extends React.Component<props, state> {
+    constructor(props:any) {
+        super(props);
+        // setting state to what is dictated in redux (aka storing prev values here)
+        this.state =  this.props.currentFilter.reason.value;
+    } 
+
+    componentDidMount() {
+        console.log("the state")
+        console.log(this.state)
+        console.log("The props")
+        console.log(this.props.currentFilter);
+        this.setState({
+            tribalAff: this.props.currentFilter.tribalAff.value
+        })
+    }
+    // add states to redux here when component is removed from screen
+    // aka when user is done inputing 
+    componentWillUnmount() {
+        let changes = this.props.currentFilter;
+        let reasonSet = {
+            native: this.state.native,
+            women: this.state.women,
+            men: this.state.men,
+            hispanic: this.state.hispanic,
+            asian: this.state.asian,
+            black: this.state.black,
+            islander: this.state.islander,
+            mixed: this.state.mixed,
+            mideast: this.state.mideast,
+            veteran: this.state.veteran,
+            lgbtq: this.state.lgbtq,
+            white: this.state.white
+        }
+        changes.reason.value = reasonSet;
+        changes.tribalAff.value = this.state.tribalAff;
+        updateFilters(changes);
+    }
+
+    private tribalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            tribalAff: event.target.value
+        })
+    }
+
+    // adding redux here to change filters properties 
+    private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        let changingLabel = event.target.value;
+        // typescript sucks and doesn't let me do the line below without the ts-ignore.... 
+        // @ts-ignore
+        let pastValue = this.state[changingLabel]
+        // let phrase = 
+        // updating state to toggle boolean value 
+        this.setState({
+            [changingLabel]: !pastValue
+        } as any);
+    }
+    
+    render() {
+        console.log(this.state)
+        return(
+            <div className="formQuestion" id="question1">
+                  <div className="questionBubble">
+                    <h4 className="question" >Tell me more about yourself.</h4>
+                  </div>
+                  <div className="sideByside">
+                  <img src={kala} alt="Kala the squid"/>
+                  <div>
+                    <h5 className="questionInstructions">Select that apply to you.</h5>
+                    {this.demoOptions.map(answer => {
+                        // @ts-ignore 
+                        let booleanChecked = this.state[answer.label];
+                        return(
+                            <div key={answer.label} onChange={this.handleChange}>
+                                {/* @ts-ignore */}
+                                <input className="answer" type="checkbox" onChange={this.handleChange} checked={booleanChecked}
+                                id={answer.label} value={answer.label}></input>
+                                <label htmlFor={answer.value}>{answer.value}</label>
+                            </div>
+                        )
+                    })}
+                    <br></br>
+                    <h5 className="questionInstructions">Select that apply to you.</h5>
+                    <input type="text" value={this.state.tribalAff} onChange={this.tribalChange}></input>
+                  </div>
+                  </div>
+                </div>
+        )
+    }
+
+    private demoOptions = [
+        {
+            label: "native", 
+            value: "Native American or Alaskan Native"
+        },
+        {
+            label: "women", 
+            value: "Women"
+        },
+        {
+            label: "men", 
+            value: "Men"
+        },
+        {
+            label: "hispanic", 
+            value: "Latinx or Hispanic"
+        },
+        {
+            label: "asian", 
+            value: "Asian"
+        },
+        {
+            label: "black", 
+            value: "Black or African American"
+        },
+        {
+            label: "islander", 
+            value: "Pacific Islander"
+        },
+        
+        {
+            label: "mideast", 
+            value: "Middle Eastern or North African"
+        },
+        {
+            label: "mixed", 
+            value: "Mixed Race"
+        },
+        {
+            label: "lgbtq", 
+            value: "LGBTQ+"
+        },
+        {
+            label: "veteran", 
+            value: "Veteran"
+        },
+        {
+            label: "white", 
+            value: "White"
+        }];
+}
+
+function mapStateToProps(state: AppState) {
+    return { 
+        currentFilter: state.currentFilter
+    }
+}
+
+function mapDispatchToProps(dispatch: any)  {
+    return {
+        updateFilters: (  newFilters: Filters ) => dispatch(updateFilters(newFilters))
+    }    
+} 
+
+export default connect(mapStateToProps, mapDispatchToProps)(DemoQuestion);
