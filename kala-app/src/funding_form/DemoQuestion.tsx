@@ -29,19 +29,12 @@ interface props {
 class DemoQuestion extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
+        let allProps = this.props.currentFilter.demographic.value;
+        allProps["tribalAff"] = this.props.currentFilter.tribalAff.value;
         // setting state to what is dictated in redux (aka storing prev values here)
-        this.state =  this.props.currentFilter.reason.value;
+        this.state =  allProps;
     } 
 
-    componentDidMount() {
-        console.log("the state")
-        console.log(this.state)
-        console.log("The props")
-        console.log(this.props.currentFilter);
-        this.setState({
-            tribalAff: this.props.currentFilter.tribalAff.value
-        })
-    }
     // add states to redux here when component is removed from screen
     // aka when user is done inputing 
     componentWillUnmount() {
@@ -60,7 +53,7 @@ class DemoQuestion extends React.Component<props, state> {
             lgbtq: this.state.lgbtq,
             white: this.state.white
         }
-        changes.reason.value = reasonSet;
+        changes.demographic.value = reasonSet;
         changes.tribalAff.value = this.state.tribalAff;
         updateFilters(changes);
     }
@@ -85,7 +78,6 @@ class DemoQuestion extends React.Component<props, state> {
     }
     
     render() {
-        console.log(this.state)
         return(
             <div className="formQuestion" id="question1">
                   <div className="questionBubble">
@@ -99,10 +91,10 @@ class DemoQuestion extends React.Component<props, state> {
                         // @ts-ignore 
                         let booleanChecked = this.state[answer.label];
                         return(
-                            <div key={answer.label} onChange={this.handleChange}>
+                            <div key={answer.label}>
                                 {/* @ts-ignore */}
-                                <input className="answer" type="checkbox" onChange={this.handleChange} checked={booleanChecked}
-                                id={answer.label} value={answer.label}></input>
+                                <input className="answer" type="checkbox" checked={booleanChecked}
+                                id={answer.label} value={answer.label} onChange={this.handleChange}></input>
                                 <label htmlFor={answer.value}>{answer.value}</label>
                             </div>
                         )
