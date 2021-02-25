@@ -7,6 +7,7 @@ import Question2 from './Question2';
 import Question3 from './Question3';
 import DemoQuestion from './DemoQuestion';
 import WelcomeQuestion from './WelcomeQuestion';
+import { Link } from "react-router-dom";
 
 const NUM_QUESTIONS = 4; 
 class FundingForm extends React.Component<any, any> {
@@ -109,7 +110,12 @@ class FundingForm extends React.Component<any, any> {
         displayScreen = 
           <div>
             <p>You've completed all our questions! Are you sure you want to submit your answers?</p>;
-            <input type="submit" value="Submit" className="hidden" id="submitBtn" onClick={e => {e.preventDefault(); this.handleSubmit()}}></input>
+            <Link to="/search">
+                  <div className="moreDetailsBox url centeredForm">
+                      <h1>Go to Search Home</h1>
+                  </div>
+              </Link>
+            {/* <input type="submit" value="Submit" className="hidden" id="submitBtn" onClick={e => {e.preventDefault(); this.handleSubmit()}}></input> */}
           </div>
       }
 

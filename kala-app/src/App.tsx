@@ -8,6 +8,7 @@ import Landing from './Landing';
 import ProfileHome from './profileHome';
 import FundingExpand from './search-pages/fundExpanded';
 import TaExpand from './search-pages/TaExpanded';
+import NotFoundPage from './NotFoundPage';
 
 // React-Router 
 import {Route, Router, Switch} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
@@ -60,6 +61,7 @@ class App extends React.Component<any> {
                 <Route exact path="/expandFunds" component={FundingExpand} />
                 <Route exact path="/expandTA" component={TaExpand} />
                 <Route exact path="/form" component={FundingForm} />
+                <Route path="*" component={NotFoundPage} />
             </Switch>
         </div>
       </Router>
