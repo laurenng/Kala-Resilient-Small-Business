@@ -13,7 +13,7 @@ import AdditionalSupport from './category_pages/additionalSupport';
 import libHistory from './libraryHistory';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import {ArrowBack, ArrowForward} from '@material-ui/icons';
+import {ArrowBackIos, ArrowForwardIos} from '@material-ui/icons';
 
 interface libraryState {
   cat: string
@@ -143,7 +143,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
     private createBanner = (title: string) => {
       return(
       <div className="catTitle">
-        <ArrowBack className="navArrow" onClick={this.libraryLoad}></ArrowBack>
+        <ArrowBackIos className="navArrow" onClick={this.libraryLoad}></ArrowBackIos>
         <h1>{title}</h1>
       </div>);
     }
@@ -162,7 +162,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
         <div className="categoryContainer">
           <img className="catIcon" src={kala} alt="Category Icon"></img>
           <h2>{categoryName}</h2>
-          <ArrowForward className="navArrow"></ArrowForward>
+          <ArrowForwardIos className="navArrow"></ArrowForwardIos>
         </div>
         );
     }

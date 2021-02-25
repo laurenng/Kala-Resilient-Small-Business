@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateFilters } from '../redux-data/actions';
-import AppState, {Filters} from '../redux-data/types';
-import './fundingForm.css';
-import kala from './kala_orange_solid 3.svg';
+import { updateFilters } from '../../redux-data/actions';
+import AppState, {Filters} from '../../redux-data/types';
+import './../fundingForm.css';
+import kala from './../kala_orange_solid 3.svg';
 
 interface state {
     property: boolean,
@@ -23,7 +23,7 @@ interface props {
     updateFilters: (newFilters: Filters) => void,
 }
 
-class Question1 extends React.Component<props, state> {
+class ReasonQ extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
         // setting state to what is dictated in redux (aka storing prev values here)
@@ -135,4 +135,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question1);
+export default connect(mapStateToProps, mapDispatchToProps)(ReasonQ);

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { updateFilters } from '../redux-data/actions';
-import AppState, { Filters } from '../redux-data/types';
-import './fundingForm.css';
-import kala from './kala_orange_solid 3.svg';
+import { updateFilters } from '../../redux-data/actions';
+import AppState, { Filters } from '../../redux-data/types';
+import './../fundingForm.css';
+import kala from './../kala_orange_solid 3.svg';
 
 interface props {
     currentFilter: Filters,
@@ -16,7 +16,7 @@ interface state {
     industry: string
 }
 
-class Question3 extends React.Component<props, state> {
+class BizQ extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
         let type = this.props.currentFilter.bizType.value;
@@ -118,4 +118,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question3);
+export default connect(mapStateToProps, mapDispatchToProps)(BizQ);

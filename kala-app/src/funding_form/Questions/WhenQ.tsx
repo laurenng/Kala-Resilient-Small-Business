@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { updateFilters } from '../redux-data/actions';
-import AppState, { Filters } from '../redux-data/types';
-import './fundingForm.css';
-import kala from './kala_orange_solid 3.svg';
+import { updateFilters } from '../../redux-data/actions';
+import AppState, { Filters } from '../../redux-data/types';
+import './../fundingForm.css';
+import kala from './../kala_orange_solid 3.svg';
 
 interface props {
     currentFilter: Filters,
@@ -14,7 +14,7 @@ interface state {
     choice: string
 }
 
-class Question2 extends React.Component<props, state> {
+class WhenQ extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
         // setting state to what is dictated in redux (aka storing prev values here)
@@ -89,4 +89,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question2);
+export default connect(mapStateToProps, mapDispatchToProps)(WhenQ);

@@ -24,12 +24,6 @@ import FundingForm from './funding_form/fundingForm';
 //hamburgerMenu
 import PersistentDrawerLeft from './testAppBar';
 
-//Fetch Requests
-import fetchFromAPI from './redux-data/fetchFromAPI';
-
-
-
-
 class App extends React.Component<any> {
   
   // example material-ui code
@@ -38,7 +32,8 @@ class App extends React.Component<any> {
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
         <Link color="inherit" href="https://ischool.uw.edu/capstone">
-          UW Capstone Team kala
+        Designed and developed by Team kala for a Commerce UW project. 
+        All icons are from icons8.com
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -67,10 +62,8 @@ class App extends React.Component<any> {
       </Router>
       
       {/* Copyright footer */}
-      {/* {this.Copyright()} */}
-      {/* <button onClick={() => fetchFromAPI("http://54.214.55.177:8080/funding")}>Test Funding</button>
-      <button onClick={() => fetchFromAPI("http://54.214.55.177:8080/assistance")}>Test TA</button> */}
-      </div>
+      {this.Copyright()}
+    </div> 
     );
   }
 }

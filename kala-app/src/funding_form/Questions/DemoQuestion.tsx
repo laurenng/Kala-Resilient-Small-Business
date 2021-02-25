@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateFilters } from '../redux-data/actions';
-import AppState, {Filters} from '../redux-data/types';
-import './fundingForm.css';
-import kala from './kala_orange_solid 3.svg';
+import { updateFilters } from '../../redux-data/actions';
+import AppState, {Filters} from '../../redux-data/types';
+import './../fundingForm.css';
+import kala from './../kala_orange_solid 3.svg';
 
 interface state {
     native: boolean,
