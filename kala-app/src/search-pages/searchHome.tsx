@@ -34,7 +34,7 @@ class SearchHome extends React.Component<searchProp, searchState> {
 
       return (
           <div id="searchMain">
-            
+            <br></br>
             <div className= "inline centered">
               <div className = {this.state.tab === "funding" ? "selected button" : "button"} onClick={this.fundingClick}>
                 <h1>Funding</h1>
