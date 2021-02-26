@@ -5,3 +5,64 @@
   text-align: center;
   font-family: 'Inter', sans-serif;
 }
+
+
+/* stylings for landing page*/
+/* Container holding the image and the text */
+.text-image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  width: 70%;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 2em;
+}
+
+/* styling 2-sided descriptions*/
+.two-column {
+  margin: 0.5em;
+  display: flex;
+  flex-direction: row;
+}
+
+.two-column h3 {
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+
+.right-column {
+  width: 80%;
+}
+
+.icon {
+  width: 3em;
+  height: 3em;
+}
+
+.redirect_button {
+  background-color: rgb(83, 82, 82);
+  border-radius: .5em;
+  width: fit-content;
+  
+}
+
+.button_text{
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  padding: .3em;
+}
+
+.button_text:link, .button_text:visited {
+  color: white;
+  text-decoration: dotted;
+}
