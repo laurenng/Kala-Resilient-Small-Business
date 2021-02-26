@@ -5,7 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import kala from './kala_orange_solid 3.svg';
 import './fundingForm.css';
 import CloseIcon from '@material-ui/icons/Close';
-
+import { Link } from "react-router-dom";
 // styling courtesy of material-ui
 function getModalStyle() {
     const top = 50;
@@ -66,7 +66,7 @@ export default function ConfirmPopup() {
                     <img src={kala} alt="Kala the squid"/>
                     <div className="controls">
                         <button className="backBtn" onClick={handleClose}>No</button>
-                        <a href="/search"><button className="nextBtn">Yes</button></a>
+                        <Link to="/search"><button className="nextBtn">Yes</button></Link> 
                     </div>
                 </div>
             </Modal>
