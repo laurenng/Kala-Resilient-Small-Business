@@ -9,6 +9,9 @@ import DemoQuestion from './Questions/DemoQuestion';
 import WelcomeQuestion from './WelcomeQuestion';
 import { Link } from "react-router-dom";
 
+// popup
+import ConfirmPopup from './confirmationPopup';
+
 const NUM_QUESTIONS = 4; 
 class FundingForm extends React.Component<any, any> {
     constructor(props: any) {
@@ -47,21 +50,23 @@ class FundingForm extends React.Component<any, any> {
     // Work in progress - Fence post issue with questionNumber & currState
     selectQuestion = (num: number) => {
       let question;
+      let nextBtn; // dependent on whether there are more questions or form should be submitted
       switch (num) {
         case 1:
           question = <LanguageQ/>
+          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         case 2:
           question  = <ReasonQ />
+          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         case 3:
           question  = <BizQ />
+          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
-        case 4:
+        default: // last question - form submission case
           question  = <DemoQuestion />
-          break;
-        default: // last case! 
-          question = <p>You've completed all our questions!</p>
+          nextBtn = <ConfirmPopup></ConfirmPopup>
       }
       // displaying the question with additional buttons (skip, back, next buttons)
       return (
@@ -71,21 +76,23 @@ class FundingForm extends React.Component<any, any> {
           <div className="controls">
             <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
             <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
-            <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
+            {nextBtn}
           </div>
         </div>
       )
     }
 
     // dot sequence CSS styling 
-    // TODO: FIX THIS BROKEN CODE
     fillProgress = () => {
-      const progressDots = document.querySelectorAll(".dot") as NodeListOf<HTMLInputElement>;
-      console.log(progressDots);
-      progressDots[0].classList.add("currDot");
+      const progressDots = document.querySelectorAll(".dot") as NodeListOf<HTMLSpanElement>;
+      // console.log(progressDots);
       const currQuestion = this.state.questionIndex;
-      if (currQuestion === NUM_QUESTIONS) { // temp if statement
-        progressDots[currQuestion - 1].classList.add("currDot");
+
+      for (let i = 0; i < progressDots.length; i++) {
+        progressDots[i].classList.remove("currDot");
+        if (currQuestion > 0 && currQuestion <= NUM_QUESTIONS) { 
+          progressDots[currQuestion - 1].classList.add("currDot");
+        }
       }
     }
 
@@ -118,12 +125,11 @@ class FundingForm extends React.Component<any, any> {
                       <h1>Go to Search Home</h1>
                   </div>
               </Link>
-            {/* <input type="submit" value="Submit" className="hidden" id="submitBtn" onClick={e => {e.preventDefault(); this.handleSubmit()}}></input> */}
           </div>
       }
 
       let dots = [...Array(NUM_QUESTIONS)].map((e, i) => <span key={i} className="dot"></span>)
-      // this.fillProgress();
+      this.fillProgress();
       return (
         <main>
             <div id="progressBar">

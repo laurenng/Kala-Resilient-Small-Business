@@ -24,19 +24,22 @@ import FundingForm from './funding_form/fundingForm';
 //hamburgerMenu
 import PersistentDrawerLeft from './testAppBar';
 
+
+
 class App extends React.Component<any> {
   
   // example material-ui code
   Copyright = () => {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://ischool.uw.edu/capstone">
-        Designed and developed by Team kala for a Commerce UW project. 
-        All icons are from icons8.com
-        </Link>{' '}
+        {/* {'Copyright © '} {' '} 
         {new Date().getFullYear()}
-        {'.'}
+        {'.'}*/}
+        
+        Designed and developed by <Link color="inherit" href="https://ischool.uw.edu/capstone">Team kala</Link> for a WA Dept. Commerce + UW project. 
+        <br></br>
+        All icons are from icons8.com
+        
       </Typography>
     );
   }
@@ -60,6 +63,8 @@ class App extends React.Component<any> {
             </Switch>
         </div>
       </Router>
+
+      
       
       {/* Copyright footer */}
       {this.Copyright()}
