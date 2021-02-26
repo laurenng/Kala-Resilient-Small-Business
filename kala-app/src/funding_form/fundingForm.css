@@ -122,15 +122,6 @@
     
 }
 
-.formQuestion {
-    /* margin-left: 7%; */
-}
-
-.checkBoxList {
-    /* float: right;
-    margin-right: 40%; */
-}
-
 .dropDownList {
     margin-left: 5%;
 }
@@ -144,5 +135,17 @@
 
 #progressBar.active {
     display: flex;
+}
+
+#confirmPopup h4 {
+    border: solid black 5px;
+    border-radius: 3em;
+    /* padding-left: 5%;
+    padding-right: 5%; */
+    padding: 7%;
+}
+
+.closeBtn {
+    margin-left: 90%;
 }
 

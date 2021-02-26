@@ -30,6 +30,7 @@ class FundingRect extends React.Component<props, state> {
 
     render() {
       // map through every technical assistance to display all
+      
       let displayContent = this.state.fundingOpps.map((d: any, i: number) => {
         return(
           <div key = {i}>
@@ -37,6 +38,10 @@ class FundingRect extends React.Component<props, state> {
           </div>
         )
       }) 
+      // if no funding avaliable, this is message we will have in place 
+      if (this.state.fundingOpps.length === 0) {
+        displayContent = <h3>Please change your filters we don't have options for you</h3>
+      } 
       console.log(this.state.fundingOpps)
       
       return (
@@ -82,18 +87,18 @@ class FundingRect extends React.Component<props, state> {
 
     async componentDidMount() {
       let url ="http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/funding";
-      let funding = await fetchFromAPI(url).then(data => {
+      await fetchFromAPI(url).then(data => {
         console.log(data)
         this.setState({
           fundingOpps: data
         })
       });
-      // let array = [];
-      // array.push(this.props.currentFund)
-      // array.push(this.props.currentFund)
-      // console.log(array);
+      // let arrayTemp: any[] = [];
+      // arrayTemp.push(this.props.currentFund)
+      // arrayTemp.push(this.props.currentFund)
+      // console.log(arrayTemp);
       // this.setState({
-      //   fundingOpps: array
+      //   fundingOpps: arrayTemp
       // })
     }
   }

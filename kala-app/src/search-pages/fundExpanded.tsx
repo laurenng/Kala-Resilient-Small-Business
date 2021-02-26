@@ -20,7 +20,6 @@ class FundingExpand extends React.Component<fundProps, fundState> {
     }
     
     render() {
-      console.log(this.props.fund);
       let post = this.props.fund;
       let shortenWebsite = post.website.split('/')[2];
       let postList = this.listed(post.terms);
@@ -45,9 +44,9 @@ class FundingExpand extends React.Component<fundProps, fundState> {
     }
 
     private listed = (list: string[]) => {
-      let childList = list.map((d) => {
+      let childList = list.map((d,i) => {
         return(
-          <li>{d}</li>
+          <li key={i}>{d}</li>
         )
       })
       return (

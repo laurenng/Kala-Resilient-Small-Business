@@ -8,6 +8,7 @@ import Landing from './Landing';
 import ProfileHome from './profileHome';
 import FundingExpand from './search-pages/fundExpanded';
 import TaExpand from './search-pages/TaExpanded';
+import NotFoundPage from './NotFoundPage';
 
 // React-Router 
 import {Route, Router, Switch} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
@@ -23,10 +24,6 @@ import FundingForm from './funding_form/fundingForm';
 //hamburgerMenu
 import PersistentDrawerLeft from './testAppBar';
 
-//Fetch Requests
-import fetchFromAPI from './redux-data/fetchFromAPI';
-
-
 
 
 class App extends React.Component<any> {
@@ -35,12 +32,14 @@ class App extends React.Component<any> {
   Copyright = () => {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://ischool.uw.edu/capstone">
-          UW Capstone Team kala
-        </Link>{' '}
+        {/* {'Copyright © '} {' '} 
         {new Date().getFullYear()}
-        {'.'}
+        {'.'}*/}
+        
+        Designed and developed by <Link color="inherit" href="https://ischool.uw.edu/capstone">Team kala</Link> for a WA Dept. Commerce + UW project. 
+        <br></br>
+        All icons are from icons8.com
+        
       </Typography>
     );
   }
@@ -60,15 +59,16 @@ class App extends React.Component<any> {
                 <Route exact path="/expandFunds" component={FundingExpand} />
                 <Route exact path="/expandTA" component={TaExpand} />
                 <Route exact path="/form" component={FundingForm} />
+                <Route path="*" component={NotFoundPage} />
             </Switch>
         </div>
       </Router>
+
+      
       
       {/* Copyright footer */}
-      {/* {this.Copyright()} */}
-      {/* <button onClick={() => fetchFromAPI("http://54.214.55.177:8080/funding")}>Test Funding</button>
-      <button onClick={() => fetchFromAPI("http://54.214.55.177:8080/assistance")}>Test TA</button> */}
-      </div>
+      {this.Copyright()}
+    </div> 
     );
   }
 }
