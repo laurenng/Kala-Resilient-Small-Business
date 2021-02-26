@@ -106,6 +106,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
 
       return (
           <main>
+            <br></br>
             <div className="translatorBtn">Need a translator?</div>
 
             {displayContent}
