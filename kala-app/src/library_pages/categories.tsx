@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import {ArrowBackIos, ArrowForwardIos} from '@material-ui/icons';
 
 const pushHistory = (path: string) => {
     libHistory.push(path);
@@ -60,7 +61,7 @@ const createCategory = (categoryName: string) => {
         <div className="categoryContainer">
           <img className="catIcon" src={kala} alt="Category Icon"></img>
           <h2>{categoryName}</h2>
-          <img className="navArrow" src={Arrow} alt="Navigation Arrow"></img>
+          <ArrowForwardIos className="navArrow"></ArrowForwardIos>
         </div>
     );
 }

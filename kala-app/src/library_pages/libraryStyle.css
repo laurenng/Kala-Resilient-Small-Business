@@ -11,6 +11,10 @@
     right: 10px;
 }
 
+.backNavArrow {
+    /*  */
+}
+
 .categoryContainer {
     display: flex;
     flex-flow: row;
