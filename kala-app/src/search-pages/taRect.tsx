@@ -121,7 +121,6 @@ class TaRect extends React.Component<props, state> {
         return null;
       })
 
-      console.log(selectedData);
       return selectedData;
     }
 }

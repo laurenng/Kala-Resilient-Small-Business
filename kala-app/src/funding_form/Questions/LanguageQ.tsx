@@ -81,6 +81,10 @@ class LanguageQ extends React.Component<props, state> {
 
     private q1Options = [
         { 
+            label: "English",
+            value: "English"
+        },
+        { 
             label: "Español (Spanish)",
             value: "Spanish"
         },
@@ -96,6 +100,10 @@ class LanguageQ extends React.Component<props, state> {
             label: "Русский язык (Russian)",
             value: "Russian"
         },
+        {
+            label: "한글 (Korean)",
+            value: "Korean"
+        },
         { 
             label: "Kiswahili (Swahili)",
             value: "Swahili"
@@ -105,20 +113,16 @@ class LanguageQ extends React.Component<props, state> {
             value: "French"
         },
         { 
-            label: "American Sign Language (ASL)",
-            value: "ASL"
+            label: "ภาษาล้านนา (Thai)",
+            value: "Thai"
         },
         { 
             label: "ພາສາລາວ (Laotian)",
             value: "Laotian"
         },
         { 
-            label: "ภาษาล้านนา (Thai)",
-            value: "Thai"
-        },
-        { 
-            label: "English",
-            value: "English"
+            label: "American Sign Language (ASL)",
+            value: "ASL"
         }
     ];
 }

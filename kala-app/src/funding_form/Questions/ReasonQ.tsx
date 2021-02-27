@@ -81,6 +81,14 @@ class ReasonQ extends React.Component<props, state> {
 
     private q1Options = [
         {
+            label: "property", 
+            value: "Buy a building/property"
+        },
+        {
+            label: "improveBuild", 
+            value: "Make building improvements"
+        },
+        {
             label: "covid", 
             value: "Pandemic-related expenses"
         },
@@ -92,10 +100,7 @@ class ReasonQ extends React.Component<props, state> {
             label: "equipment", 
             value: "Purchase machinery or equipment"
         },
-        {
-            label: "improveBuild", 
-            value: "Make building improvements"
-        },
+        
         {
             label: "insurance", 
             value: "Insurance"
@@ -104,10 +109,7 @@ class ReasonQ extends React.Component<props, state> {
             label: "inventory", 
             value: "Purchase inventory"
         },
-        {
-            label: "property", 
-            value: "Buy a building/property"
-        },
+        
         
         {
             label: "marketing", 

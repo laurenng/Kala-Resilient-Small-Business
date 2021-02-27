@@ -46,7 +46,7 @@ class SearchHome extends React.Component<searchProp, searchState> {
 
               <Link to="/form">
                   <div className="moreDetailsBox url centeredForm">
-                      <h1>Go to form here</h1>
+                      <h1>Filter results here</h1>
                   </div>
               </Link>
 

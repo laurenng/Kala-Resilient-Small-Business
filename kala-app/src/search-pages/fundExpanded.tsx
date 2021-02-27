@@ -20,6 +20,7 @@ class FundingExpand extends React.Component<fundProps, fundState> {
     }
     
     render() {
+      console.log(this.props.fund);
       let post = this.props.fund;
       let shortenWebsite = post.website.split('/')[2];
       let postList = this.listed(post.terms);
@@ -33,8 +34,8 @@ class FundingExpand extends React.Component<fundProps, fundState> {
           <p><strong>Description: </strong> {post.description}</p>
           <p><strong>Application Due Date: </strong> {post.endDate}</p>
           <p><strong>Source:</strong> {post.provider}</p>
-          <p><strong>Funding Type:</strong></p>
-          {post.description}
+          <p><strong>Funding Type:</strong> {post.fundingType}</p>
+          
           <p><strong>Terms:</strong></p>
           {postList}
           <p><strong>Uses: </strong></p>

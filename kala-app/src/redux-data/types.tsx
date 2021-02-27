@@ -34,7 +34,8 @@ export const languageFilter  = {
     ASL: false,
     Laotian: false,
     Thai: false,
-    English: false
+    English: false,
+    Korean: false
 }
 
 export const demoFilter  = {
@@ -82,7 +83,7 @@ export const filters : Filters = {
 export interface Fund {
     id: number,
     fundingName: string,
-    type: string,
+    fundingType: string,
     provider: string,
     website: string,
     startDate: string,
@@ -94,7 +95,9 @@ export interface Fund {
         NAICS: number[],
         maxEmployees: number,
         isCollateralReq: boolean,
-        establishedBy: string
+        establishedBy: string,
+        useCases: string[],
+        demographics: string[]
     }
 }
 
@@ -115,7 +118,7 @@ export interface TA {
 export const initialFund : Fund = {
     id: 1,
     fundingName: "Economic Injury Disaster Loans (EIDL)",
-    type: "loan",
+    fundingType: "loan",
     provider: "SBA",
     website: "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/covid-19-economic-injury-disaster-loans",
     startDate: "2020-12-27",
@@ -127,7 +130,9 @@ export const initialFund : Fund = {
         NAICS: [11],
         maxEmployees: 1,
         isCollateralReq: false,
-        establishedBy: "2019-01-01"
+        establishedBy: "2019-01-01",
+        useCases: ["none", "none"],
+        demographics: ["none"]
     }
 }
 

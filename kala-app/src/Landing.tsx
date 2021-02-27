@@ -12,6 +12,7 @@ class Landing extends React.Component<any> {
       <div>
         <div className="text-image-container">
           <img src={image} alt="Snow" style={{width: '100%', height: '17em'}} />
+          <div className ="blackLayer"></div>
           <div className="centered_text">Washington state small businesses, start your funding search here.</div>
         </div>
 
