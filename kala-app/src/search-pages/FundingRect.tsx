@@ -66,7 +66,7 @@ class FundingRect extends React.Component<props, state> {
          <div className="inline">
           <h3><strong>Due: </strong></h3> {d.endDate === null ? "No End Date" : d.endDate}
          </div>
-         <h3><strong>Type: </strong> {d.type}</h3>
+         <h3><strong>Type: </strong> {d.fundingType}</h3>
          <p className="fundingFont">{shortenDescription}</p>
          <div className="moreDetailsBox learnMore">
           <p>Learn More</p>
@@ -88,20 +88,73 @@ class FundingRect extends React.Component<props, state> {
     async componentDidMount() {
       let url ="http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/funding";
       await fetchFromAPI(url).then(data => {
-        console.log(data)
+        let selectedData = this.filterData(data);
+        console.log(selectedData);
         this.setState({
-          fundingOpps: data
+          fundingOpps: selectedData
         })
       });
-      // let arrayTemp: any[] = [];
-      // arrayTemp.push(this.props.currentFund)
-      // arrayTemp.push(this.props.currentFund)
-      // console.log(arrayTemp);
-      // this.setState({
-      //   fundingOpps: arrayTemp
-      // })
     }
+
+    private filterData(data: Fund[]) {
+      // selected languages user selected in onboarding form
+      let useFilters = this.props.currentFilter.reason.value;
+      let demoFilters = this.props.currentFilter.demographic.value;
+
+      // creating set of selected uses
+      let selectedReasons: string[] = [];
+      Object.keys(useFilters).map((d: string) => {
+        if (useFilters[d]) {
+          selectedReasons.push(d);
+        }
+        return d;
+      })
+
+      let selectedDemographics: string[] = [];
+      Object.keys(demoFilters).map((d: string) => {
+        if (demoFilters[d]) {
+          selectedDemographics.push(d);
+        }
+        return d;
+      })
+
+      // values the user selected to be considered
+      let reasonSet = new Set(selectedReasons);
+      let demoSet = new Set(selectedDemographics);
+
+      // if (reasonSet.size === 0) {
+      //   return data;
+      // }
+      
+      let selectedData = new Set();
+      data.map((d: Fund) => {
+        let uses = d.qualifications.useCases; 
+        let demographic = d.qualifications.demographics; 
+
+        let useBoolean = this.booleanCheck(reasonSet, uses); 
+        let demoBoolean = this.booleanCheck(demoSet, demographic); 
+        
+        if (useBoolean || demoBoolean) {
+          selectedData.add(d);
+        }
+        return null;
+      })
+      // change set into array 
+      console.log(selectedData);
+      return Array.from(selectedData);
+    }
+
+    private booleanCheck(dSet: any, filter: any) {
+      for (let i=0; i< filter.length; i++) {
+        if (dSet.has(filter[i])) {
+          return true;
+        }
+      }
+      return false;
+    } 
   }
+
+  
 
 function mapStateToProps(state: AppState) {
   return { 

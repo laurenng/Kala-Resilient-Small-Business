@@ -100,7 +100,7 @@ class DemoQuestion extends React.Component<props, state> {
                         )
                     })}
                     <br></br>
-                    <h5 className="questionInstructions">Select that apply to you.</h5>
+                    <h5 className="questionInstructions">Tribal affilation (if applicable)</h5>
                     <input type="text" value={this.state.tribalAff} onChange={this.tribalChange}></input>
                   </div>
                   </div>

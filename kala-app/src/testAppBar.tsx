@@ -157,9 +157,9 @@ export default function PersistentDrawerLeft(this: any) {
           <ListItem button component={Link} to="/library">
             <ListItemText primary={'Library'} onClick={ () => pushHistory("/library")}/>
           </ListItem>
-          <ListItem button component={Link} to="/profile">
+          {/* <ListItem button component={Link} to="/profile">
             <ListItemText primary={'My Account'} onClick={ () => pushHistory("/profile")}/>
-          </ListItem>
+          </ListItem> */}
 
           {/* for testing form only */}
           {/* <ListItem button component={Link} to="/form">
