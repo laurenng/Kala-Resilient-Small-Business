@@ -144,7 +144,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
     private createBanner = (title: string) => {
       return(
       <div className="catTitle">
-        <ArrowBackIos className="navArrow" onClick={this.libraryLoad}></ArrowBackIos>
+        <ArrowBackIos className="backNavArrow" onClick={this.libraryLoad}></ArrowBackIos>
         <h1>{title}</h1>
       </div>);
     }

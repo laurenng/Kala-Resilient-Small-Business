@@ -51,7 +51,7 @@ class Landing extends React.Component<any> {
             <p>Start applying on your own or reach out to an assistance to guide you thorugh applying. </p>
             <Link to="/form">
                   <div className="redirect_button">
-                      <h1 className="button_text">Go To Library</h1>
+                      <h1 className="button_text">Go To the funding form</h1>
                   </div>
               </Link>
           </div>
