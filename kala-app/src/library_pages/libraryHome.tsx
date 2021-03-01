@@ -15,6 +15,17 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import {ArrowBackIos, ArrowForwardIos} from '@material-ui/icons';
 
+import loansImg from '../assets/library_banners/loans-16-9.jpg';
+import finLitImg from '../assets/library_banners/fin-lit-and-education-16-9.jpg';
+import tribalImg from '../assets/library_banners/tribal-owned-16-9.jpg';
+import minorityImg from '../assets/library_banners/minority-owned-16-9.jpg';
+import languageImg from '../assets/library_banners/language-16-9.jpg';
+import covidImg from '../assets/library_banners/covid-related-16-9.jpg';
+import addImg from '../assets/library_banners/additional-16-9.jpg';
+import grantsImg from '../assets/library_banners/grants-16-9.jpg';
+
+import { url } from 'inspector';
+
 interface libraryState {
   cat: string
 }
@@ -43,56 +54,56 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
         case "loans":
           displayContent  = 
           <div id="loans">
-            {this.createBanner("Loans")}
+            {this.createBanner("Loans", loansImg)}
             <Loans/>
           </div>
           break;
         case "grants":
           displayContent  = 
             <div id="grants">
-              {this.createBanner("Grants")}
+              {this.createBanner("Grants", grantsImg)}
               <Grants/>
             </div>
           break;
         case "minorities":
           displayContent  = 
             <div id="minorities">
-              {this.createBanner("Minority Owned Small Businesses")}
+              {this.createBanner("Minority Owned Small Businesses", minorityImg)}
               <MinorityBusiness/>
             </div>
           break;
         case "tribal":
           displayContent  = 
             <div id="tribal">
-              {this.createBanner("Tribally Owned Small Businesses")}
+              {this.createBanner("Tribally Owned Small Businesses", tribalImg)}
               <Tribal/>
             </div>
           break;
         case "finLit":
         displayContent  = 
           <div id="finLit">
-            {this.createBanner("Financial Literacy and Education")}
+            {this.createBanner("Financial Literacy and Education", finLitImg)}
             <FinancialLiteracy/>
           </div>
         break;
         case "lang":
         displayContent  = 
           <div id="lang">
-            {this.createBanner("Language Support")}
+            {this.createBanner("Language Support", languageImg)}
             <LanguageSupport/>
           </div>
         break;
         case "covid":
         displayContent  = 
           <div id="covid">
-            {this.createBanner("COVID Resource")}
+            {this.createBanner("COVID Resource", covidImg)}
             <CovidSupport/>
           </div>
         break;
         case "additional":
         displayContent  = 
           <div id="additional">
-            {this.createBanner("Additional Support")}
+            {this.createBanner("Additional Support", addImg)}
             <AdditionalSupport/>
           </div>
         break;
@@ -141,9 +152,15 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       );  
     }
 
-    private createBanner = (title: string) => {
-      return(
-      <div className="catTitle">
+    private createBanner = (title: string, bgImg: string) => {
+      let styles = {
+        backgroundImage: "linear-gradient(to right, grey 9%, silver 100%), url(" + bgImg + ")",
+        opacity: 0.8,
+        backgroundBlendMode: 'multiply'
+        
+    }
+      return (
+      <div className="catTitle" style={styles}>
         <ArrowBackIos className="backNavArrow" onClick={this.libraryLoad}></ArrowBackIos>
         <h1>{title}</h1>
       </div>);

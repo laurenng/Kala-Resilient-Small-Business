@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Icon, InlineIcon } from '@iconify/react';
 import bookmark from '@iconify-icons/icons8/bookmark';
-import image from './assest/landing_header.jpg';
+import image from './assets/landing_page/landing-pg.jpg';
 import { Link } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 

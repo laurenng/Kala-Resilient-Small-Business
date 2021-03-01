@@ -3,8 +3,9 @@ import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
 import { updateTA } from "../redux-data/actions";
 import { connect } from "react-redux";
-import { AppState, Filters, TA } from "../redux-data/types";
+import { AppState, Filters, TA, languageFilter } from '../redux-data/types';
 import fetchFromAPI from '../redux-data/fetchFromAPI';
+import booleanCheck from './filterCheck';
 
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
@@ -75,7 +76,7 @@ class TaRect extends React.Component<props, state> {
       let url ="http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/assistance";
       await fetchFromAPI(url).then(data => {
         let selectedData = this.compareLanguages(data);
-        console.log(selectedData);
+        // console.log(selectedData);
         this.setState({
           technicalAssistance: selectedData
         })
@@ -86,7 +87,9 @@ class TaRect extends React.Component<props, state> {
     private compareLanguages(data: TA[]) {
       // selected languages user selected in onboarding form
       let languageFilter = this.props.currentFilter.language.value;
-
+      // object of selected demographics the user selected in onboarding form
+      let demoFilters = this.props.currentFilter.demographic.value;
+      // console.log(this.props.currentFilter);
       // this could be more efficient with hashset + O(1) lookup...
       // currently we are at O(n)
 
@@ -98,30 +101,41 @@ class TaRect extends React.Component<props, state> {
         }
         return d;
       })
-      let languageSet = new Set(selectedLanguages);
 
-      if (languageSet.size === 0) {
+      // creating set of selected business demographics
+      let selectedDemographics: string[] = [];
+      Object.keys(demoFilters).map((d: string) => {
+        if (demoFilters[d]) {
+          selectedDemographics.push(d);
+        }
+        return d;
+      })
+
+      let languageSet = new Set(selectedLanguages);
+      let demoSet = new Set(selectedDemographics);
+      // console.log(languageSet);
+      // console.log(demoSet);
+
+      if (languageSet.size === 0 && demoSet.size === 0) {
         return data;
       }
-      
-      // iterating through the current TA dataset to find 
-      // only the relevant TA providers that match their selected
-      // languages
 
-      // FIX THE MAPS THEY"RE UGLY
-      let selectedData: any = [];
+      let selectedData = new Set();
       data.map((d: TA) => {
+        // String[] of API data of TAs
         let languages = d.languages;
-        for (let i=0; i< languages.length; i++) {
-          if(languageSet.has(languages[i])) {
-            selectedData.push(d);
-            break;
-          }
+        let demographics = d.demographics; 
+
+        let langBoolean = booleanCheck(languageSet, languages); 
+        let demoBoolean = booleanCheck(demoSet, demographics); 
+        if (langBoolean || demoBoolean) {
+          selectedData.add(d);
         }
         return null;
       })
-
-      return selectedData;
+      // change set into array 
+      // console.log(selectedData);
+      return Array.from(selectedData);
     }
 }
 

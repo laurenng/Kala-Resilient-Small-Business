@@ -6,6 +6,7 @@ import { updateFund } from "../redux-data/actions";
 import { connect } from "react-redux";
 import { AppState, Fund, Filters} from "../redux-data/types";
 import fetchFromAPI from "../redux-data/fetchFromAPI";
+import booleanCheck from './filterCheck';
 
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
@@ -110,6 +111,7 @@ class FundingRect extends React.Component<props, state> {
         return d;
       })
 
+      // creating set of selected business demographics
       let selectedDemographics: string[] = [];
       Object.keys(demoFilters).map((d: string) => {
         if (demoFilters[d]) {
@@ -122,17 +124,17 @@ class FundingRect extends React.Component<props, state> {
       let reasonSet = new Set(selectedReasons);
       let demoSet = new Set(selectedDemographics);
 
-      // if (reasonSet.size === 0) {
-      //   return data;
-      // }
+      if (reasonSet.size === 0 && demoSet.size === 0) {
+        return data;
+      }
       
       let selectedData = new Set();
       data.map((d: Fund) => {
         let uses = d.qualifications.useCases; 
         let demographic = d.qualifications.demographics; 
 
-        let useBoolean = this.booleanCheck(reasonSet, uses); 
-        let demoBoolean = this.booleanCheck(demoSet, demographic); 
+        let useBoolean = booleanCheck(reasonSet, uses); 
+        let demoBoolean = booleanCheck(demoSet, demographic); 
         
         if (useBoolean || demoBoolean) {
           selectedData.add(d);
@@ -140,18 +142,9 @@ class FundingRect extends React.Component<props, state> {
         return null;
       })
       // change set into array 
-      console.log(selectedData);
+      // console.log(selectedData);
       return Array.from(selectedData);
     }
-
-    private booleanCheck(dSet: any, filter: any) {
-      for (let i=0; i< filter.length; i++) {
-        if (dSet.has(filter[i])) {
-          return true;
-        }
-      }
-      return false;
-    } 
   }
 
   
