@@ -37,8 +37,6 @@ class App extends React.Component<any> {
         {'.'}*/}
         
         Designed and developed by <Link color="inherit" href="https://ischool.uw.edu/capstone">Team kala</Link> for a WA Dept. Commerce + UW project. 
-        <br></br>
-        All icons are from icons8.com
         
       </Typography>
     );

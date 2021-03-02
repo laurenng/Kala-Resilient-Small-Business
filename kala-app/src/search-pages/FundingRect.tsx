@@ -17,7 +17,6 @@ interface props extends RouteComponentProps<any> {
 // states that belong to SearchHome
 interface state {
   fundingOpps: any,
-  
 }
 
 class FundingRect extends React.Component<props, state> {
@@ -122,9 +121,9 @@ class FundingRect extends React.Component<props, state> {
       let reasonSet = new Set(selectedReasons);
       let demoSet = new Set(selectedDemographics);
 
-      // if (reasonSet.size === 0) {
-      //   return data;
-      // }
+      if ((reasonSet.size === 0) && demoSet.size === 0) {
+        return data;
+      }
       
       let selectedData = new Set();
       data.map((d: Fund) => {
