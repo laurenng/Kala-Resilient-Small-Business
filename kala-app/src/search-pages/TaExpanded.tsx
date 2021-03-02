@@ -28,7 +28,8 @@ class TaExpand extends React.Component<fundProps, fundState> {
       let locationList = this.listed(post.locations);
       let demoList = this.listed(post.demographics);
       return (
-        <div className="main">
+        <div className="main expanded">
+          <br></br>
           <h1>{post.orgName}</h1>
           <div className ="moreDetailsBox url">
             <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
@@ -39,10 +40,10 @@ class TaExpand extends React.Component<fundProps, fundState> {
           <p><strong>Point Of Contact: </strong> {post.pocName}</p>
           <p><strong>Languages: </strong> </p>{languageList}
           <p><strong>Locations: </strong></p> {locationList}
-          <p><strong>Client Demographics: </strong></p> {demoList}
-
+          {post.demographics.length > 0 ? (
+            <p><strong>Demographics: </strong>{demoList}</p>
+          ) : (null) }
         </div>
-            
       );
     }
 

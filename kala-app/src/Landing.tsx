@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import image from './assest/landing_header.jpg';
+import image from './assets/landing_page/landing-pg.jpg';
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,7 +17,10 @@ class Landing extends React.Component<any> {
         </div>
 
         <div className="two-column">
-        <FontAwesomeIcon icon={faBook} size="2x"/>
+          <div className="icon_styling">
+            <FontAwesomeIcon icon={faBook} size="2x" />
+          </div>
+        
           <i className="fas fa-book"></i>
           <div className="right-column">
             <h3>Financial Literacy Library</h3>
@@ -31,7 +34,9 @@ class Landing extends React.Component<any> {
         </div>
 
         <div className="two-column">
-        <FontAwesomeIcon icon={faSearch} size="2x"/>
+        <div className="icon_styling">
+            <FontAwesomeIcon icon={faSearch} size="2x" />
+          </div>
           <div className="right-column">
             <h3>Search Tool</h3>
             <p>Here you can find what funding and assistance best match your business.</p>
@@ -44,7 +49,9 @@ class Landing extends React.Component<any> {
         </div>
 
         <div className="two-column">
-          <FontAwesomeIcon icon={faMoneyBillWave} size="2x"/>
+          <div className="icon_styling">
+            <FontAwesomeIcon icon={faMoneyBillWave} size="2x" />
+          </div>
           <div className="right-column">
             <h3>Get Funding</h3>
             <p>Start applying on your own or reach out to an assistance to guide you thorugh applying. </p>
