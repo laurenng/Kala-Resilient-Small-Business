@@ -26,7 +26,8 @@ class FundingExpand extends React.Component<fundProps, fundState> {
       let postList = this.listed(post.terms);
       let useList = this.listed(post.uses);
       return (
-        <div className="main">
+        <div className="main expanded">
+          <br></br>
           <h1 className="title">{post.fundingName}</h1>
           <div className ="moreDetailsBox url">
             <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>

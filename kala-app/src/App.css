@@ -37,7 +37,7 @@
 
 /* styling 2-sided descriptions*/
 .two-column {
-  margin: 0.5em;
+  margin: 1em;
   display: flex;
   flex-direction: row;
 }
@@ -49,6 +49,7 @@
 
 .right-column {
   width: 80%;
+  margin-left: 0.3em;
 }
 
 .icon {
@@ -59,6 +60,10 @@
 .redirect_button {
   background-color: rgb(83, 82, 82);
   border-radius: .5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: .1em;
+  padding-bottom: .1em;
   width: fit-content;
   
 }
@@ -68,9 +73,16 @@
   font-size: 1em;
   text-decoration: none;
   padding: .3em;
+  margin: 0;
 }
 
 .button_text:link, .button_text:visited {
   color: white;
   text-decoration: dotted;
+}
+
+.icon_styling {
+  width: 3em;
+  display: flex;
+  justify-content: center;
 }

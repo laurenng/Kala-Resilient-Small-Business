@@ -85,6 +85,7 @@ class TaRect extends React.Component<props, state> {
     }
 
     private compareLanguages(data: TA[]) {
+      console.log("HERELKIIOO")
       // selected languages user selected in onboarding form
       let languageFilter = this.props.currentFilter.language.value;
       // object of selected demographics the user selected in onboarding form

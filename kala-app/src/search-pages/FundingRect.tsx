@@ -18,7 +18,6 @@ interface props extends RouteComponentProps<any> {
 // states that belong to SearchHome
 interface state {
   fundingOpps: any,
-  
 }
 
 class FundingRect extends React.Component<props, state> {
@@ -65,7 +64,7 @@ class FundingRect extends React.Component<props, state> {
         <div className="fundBox" onClick={() => this.handleClick(d)}>
          <h1>{d.fundingName}</h1>
          <div className="inline">
-          <h3><strong>Due: </strong></h3> {d.endDate === null ? "No End Date" : d.endDate}
+          <h3><strong>Due: </strong> {d.endDate === null ? "No End Date" : d.endDate}</h3> 
          </div>
          <h3><strong>Type: </strong> {d.fundingType}</h3>
          <p className="fundingFont">{shortenDescription}</p>
