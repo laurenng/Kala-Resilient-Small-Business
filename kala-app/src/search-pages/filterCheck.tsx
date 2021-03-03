@@ -7,9 +7,11 @@
 // returns boolean representing whether or not the back-end data object had
 // and matching values with the filter
 export default function booleanCheck(dSet: Set<String>, filter: String[]) {
+    // console.log(dSet);
+    // console.log(filter);
     for (let i = 0; i < filter.length; i++) {
         if (dSet.has(filter[i].toLowerCase())) {
-        return true;
+            return true;
         }
     }
     return false;

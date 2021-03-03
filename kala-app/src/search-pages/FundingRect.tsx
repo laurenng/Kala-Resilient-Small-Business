@@ -105,7 +105,7 @@ class FundingRect extends React.Component<props, state> {
       let selectedReasons: string[] = [];
       Object.keys(useFilters).map((d: string) => {
         if (useFilters[d]) {
-          selectedReasons.push(d);
+          selectedReasons.push(d.toLowerCase());
         }
         return d;
       })
@@ -114,7 +114,7 @@ class FundingRect extends React.Component<props, state> {
       let selectedDemographics: string[] = [];
       Object.keys(demoFilters).map((d: string) => {
         if (demoFilters[d]) {
-          selectedDemographics.push(d);
+          selectedDemographics.push(d.toLowerCase());
         }
         return d;
       })

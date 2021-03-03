@@ -93,7 +93,7 @@ class LanguageQ extends React.Component<props, state> {
             value: "Mandarin"
         },
         { 
-            label: "㗂越 (Vietnamese)",
+            label: "Tiếng Việt (Vietnamese)",
             value: "Vietnamese"
         },
         { 

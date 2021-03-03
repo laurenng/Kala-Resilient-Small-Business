@@ -98,7 +98,7 @@ class TaRect extends React.Component<props, state> {
       let selectedLanguages: string[] = [];
       Object.keys(languageFilter).map((d: string) => {
         if (languageFilter[d]) {
-          selectedLanguages.push(d);
+          selectedLanguages.push(d.toLowerCase());
         }
         return d;
       })
@@ -107,11 +107,11 @@ class TaRect extends React.Component<props, state> {
       let selectedDemographics: string[] = [];
       Object.keys(demoFilters).map((d: string) => {
         if (demoFilters[d]) {
-          selectedDemographics.push(d);
+          selectedDemographics.push(d.toLowerCase());
         }
         return d;
       })
-
+      // console.log(selectedLanguages);
       let languageSet = new Set(selectedLanguages);
       let demoSet = new Set(selectedDemographics);
       // console.log(languageSet);
