@@ -30,19 +30,19 @@ class TaExpand extends React.Component<fundProps, fundState> {
       return (
         <div className="main expanded">
           <br></br>
+          {/* Assuming that each organization will have as a bare minimum a Name, Website, & Description */}
+          {/* All else are optional and render conditionally */}
           <h1>{post.orgName}</h1>
           <div className ="moreDetailsBox url">
             <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
           </div>
           <p><strong>Description: </strong> {post.description}</p>
-          <p><strong>Phone: </strong> {post.phone}</p>
-          <p><strong>Email: </strong> {post.email}</p>
-          <p><strong>Point Of Contact: </strong> {post.pocName}</p>
-          <p><strong>Languages: </strong> </p>{languageList}
-          <p><strong>Locations: </strong></p> {locationList}
-          {post.demographics.length > 0 ? (
-            <p><strong>Demographics: </strong>{demoList}</p>
-          ) : (null) }
+          {post.phone !== null ? (<p><strong>Phone: </strong> {post.phone}</p>) : (null)}
+          {post.email !== null ? (<p><strong>Email: </strong> {post.email}</p>) : (null)}
+          {post.pocName !== null ? (<p><strong>Point Of Contact: </strong> {post.pocName}</p>) : (null)}
+          {post.languages.length > 0 ? (<div><p><strong>Languages: </strong></p>{languageList}</div>) : (null) }
+          {post.locations.length > 0 ? (<div><p><strong>Locations: </strong></p>{locationList}</div>) : (null) }
+          {post.demographics.length > 0 ? (<p><strong>Demographics: </strong>{demoList}</p>) : (null) }
         </div>
       );
     }
