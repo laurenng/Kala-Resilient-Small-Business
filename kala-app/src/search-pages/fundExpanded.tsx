@@ -28,19 +28,19 @@ class FundingExpand extends React.Component<fundProps, fundState> {
       return (
         <div className="main expanded">
           <br></br>
+          {/* Assuming that each funding opportunity will have as a bare minimum a Name, Website, & Description */}
+          {/* All else are optional and render conditionally */}
           <h1 className="title">{post.fundingName}</h1>
           <div className ="moreDetailsBox url">
             <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
           </div>
           <p><strong>Description: </strong> {post.description}</p>
-          <p><strong>Application Due Date: </strong> {post.endDate}</p>
-          <p><strong>Source:</strong> {post.provider}</p>
-          <p><strong>Funding Type:</strong> {post.fundingType}</p>
+          {post.endDate !== null ? (<p><strong>Application Due Date: </strong> {post.endDate}</p>) : (null)}
+          {post.provider !== null ? (<p><strong>Source:</strong> {post.provider}</p>) : (null)}
+          {post.fundingType !== null ? (<p><strong>Funding Type:</strong> {post.fundingType}</p>) : (null)}
           
-          <p><strong>Terms:</strong></p>
-          {postList}
-          <p><strong>Uses: </strong></p>
-          {useList}
+          {post.terms.length > 0 ? (<p><strong>Terms:</strong>{postList}</p>) : (null)}
+          {post.uses.length > 0 ? (<p><strong>Uses: </strong>{useList}</p>) : (null)}
         </div>
       );
     }

@@ -36,8 +36,9 @@ interface libraryProp extends RouteComponentProps<any> {
 
 class LibraryHome extends React.Component<libraryProp, libraryState> {
   componentDidMount() {
-    console.log(libHistory)
-    console.log(this.state)
+    // console.log(libHistory)
+    // console.log(this.state)
+    window.scrollTo(0, 0);
   }
 
   constructor(props: libraryProp, state: libraryState){
@@ -118,7 +119,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       return (
           <main>
             <br></br>
-            <div className="translatorBtn">Need a translator?</div>
+            <div className="translatorBtn" onClick={() => this.categoryClick("lang")}>Need a translator?</div>
 
             {displayContent}
 

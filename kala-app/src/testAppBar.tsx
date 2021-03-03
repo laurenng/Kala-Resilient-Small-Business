@@ -13,14 +13,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+
 import ListItemText from '@material-ui/core/ListItemText';
 
-import SearchHome from './search-pages/searchHome';
-import LibraryHome from './library_pages/libraryHome';
-import Landing from './Landing';
-import ProfileHome from './profileHome';
-import FundingExpand from './search-pages/fundExpanded';
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from 'react-router-dom'
 
 import history from "./customHistory";
@@ -42,17 +37,18 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     appBarShift: {
       width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: drawerWidth,
     },
     hide: {
       display: 'none',
+    },
+    menuButton: {
+      marginRight: theme.spacing(10),
+      flexGrow: 1,
     },
     drawer: {
       width: drawerWidth,
@@ -67,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(0, 1),
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
-      justifyContent: 'flex-end',
+      justifyContent: 'flex-start',
     },
     content: {
       flexGrow: 1,
@@ -76,14 +72,14 @@ const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      marginLeft: -drawerWidth,
+      marginRight: -drawerWidth,
     },
     contentShift: {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      marginLeft: 0,
+      marginRight: 0,
     },
   }),
 );
@@ -92,7 +88,6 @@ export default function PersistentDrawerLeft(this: any) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  // const history = useHistory();
 
   const pushHistory = (path: string) => {
     history.push(path);
@@ -115,19 +110,20 @@ export default function PersistentDrawerLeft(this: any) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar className="rightToolBar">
+          <Typography variant="h6"> {/*  noWrap className={classes.title} */}
+            Funding Finder
+          </Typography>
           <IconButton
             color="inherit"
             aria-label="open drawer"
+            edge="end"
             onClick={handleDrawerOpen}
-            edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Funding Finder
-          </Typography>
+          
         </Toolbar>
       </AppBar>
 
