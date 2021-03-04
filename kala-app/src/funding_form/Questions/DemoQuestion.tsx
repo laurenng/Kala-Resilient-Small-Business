@@ -40,9 +40,9 @@ class DemoQuestion extends React.Component<props, state> {
     componentWillUnmount() {
         let changes = this.props.currentFilter;
         let reasonSet = {
-            native: this.state.native,
             women: this.state.women,
             men: this.state.men,
+            native: this.state.native,
             hispanic: this.state.hispanic,
             asian: this.state.asian,
             black: this.state.black,
@@ -118,10 +118,13 @@ class DemoQuestion extends React.Component<props, state> {
             value: "Man"
         },
         {
+<<<<<<< HEAD
             label: "lgbtq", 
             value: "LGBTQ+"
         },
         {
+=======
+>>>>>>> fad713ffadd9207a59d95e373323cfd0998a257c
             label: "native", 
             value: "Native American or Alaskan Native"
         },

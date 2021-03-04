@@ -16,6 +16,8 @@ class LanguageSupport extends React.Component<any> {
           {/* use router for this*/}
           {createResource("List of Support Providers from Range of Languages, Cultures, and Communities", "https://www.smallbizhelpwa.com/resources", "smallbizhelpwa.com")}
           {createResource("SBA Disaster Loan Information in Multiple Languages", "http://www.seattle.gov/office-of-economic-development/covid-19/sba-disaster-loan-assistance", "seattle.gov")}
+          {createResource("Change Chrome Language & Translation Features", "https://support.google.com/chrome/answer/173424", "support.google.com")}
+          {createResource("Change Firefox Language Settings & Features", "https://support.mozilla.org/en-US/kb/use-firefox-another-language", "support.mozilla.org")}
       </main>
     ); 
   }
