@@ -34,7 +34,18 @@ class SearchHome extends React.Component<searchProp, searchState> {
 
       return (
           <div id="searchMain">
+            <div id="page-introduction">
             <br></br>
+              <h1>Funding &amp; Assistance</h1>
+              <Link to="/form" style={{ textDecoration: 'none' }}>
+                  <div className="moreDetailsBox url form-button">
+                      <h2>Filter results here</h2>
+                  </div>
+              </Link>
+              <p>Find technical assistance (e.g. legal and financial experts) and
+                 funding (loans and grants) here. Answer these questions to narrow 
+                 your results. </p>
+            </div>
             <div className= "inline centered">
               <div className = {this.state.tab === "funding" ? "selected button" : "button"} onClick={this.fundingClick}>
                 <h1>Funding</h1>
@@ -43,12 +54,6 @@ class SearchHome extends React.Component<searchProp, searchState> {
                 <h1>TA Providers</h1>
               </div>
             </div>
-
-              <Link to="/form">
-                  <div className="moreDetailsBox url centeredForm">
-                      <h2>Filter results here</h2>
-                  </div>
-              </Link>
 
             <div className="content">
               {displayContent}

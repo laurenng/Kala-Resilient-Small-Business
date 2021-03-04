@@ -57,27 +57,28 @@ h1 {
     border: solid 0.2em rgb(83, 82, 82);
 }
 
-.centeredForm {
-    margin: auto;
+.form-button {
     margin-top: 0.3em;
     margin-bottom: 0.3em;
     padding: 0.3em;
 }
 
-.centeredForm h2 {
+
+.form-button h2 {
     font-size: 1.5em;
     font-weight: bold;
+    color: white;
     margin: 0;
-}
-.learnMore {
-    background-color: white;
-    color: rgb(83, 82, 82);
 }
 
 .url {
     background-color: rgb(83, 82, 82);
-    color: white;
     text-decoration: none;
+    color: white;
+}
+.learnMore {
+    background-color: white;
+    color: rgb(83, 82, 82);
 }
 
 .moreDetailsBox a {
@@ -95,12 +96,12 @@ h1 {
 .selected {
     background-color: white;
     text-decoration: underline;
-    
 }
 
-.selected {
+.selected h1 {
     font-weight: bold;
 }
+
 .content {
     border: 2px white solid;
     width: 95%;
@@ -130,4 +131,15 @@ h1 {
 .expanded {
     width: 75%;
     margin: auto;
+}
+
+#page-introduction {
+    padding: 10%;
+    align-items: left;
+    background-color: lightblue;
+}
+
+#page-introduction h1 {
+    font-size: 3em;
+    font-weight: bolder;
 }

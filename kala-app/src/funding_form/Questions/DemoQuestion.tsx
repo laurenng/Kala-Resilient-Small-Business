@@ -110,16 +110,20 @@ class DemoQuestion extends React.Component<props, state> {
 
     private demoOptions = [
         {
-            label: "native", 
-            value: "Native American or Alaskan Native"
-        },
-        {
             label: "women", 
-            value: "Women"
+            value: "Woman"
         },
         {
             label: "men", 
-            value: "Men"
+            value: "Man"
+        },
+        {
+            label: "lgbtq", 
+            value: "LGBTQ+"
+        },
+        {
+            label: "native", 
+            value: "Native American or Alaskan Native"
         },
         {
             label: "hispanic", 
@@ -147,16 +151,12 @@ class DemoQuestion extends React.Component<props, state> {
             value: "Mixed Race"
         },
         {
-            label: "lgbtq", 
-            value: "LGBTQ+"
+            label: "white", 
+            value: "White"
         },
         {
             label: "veteran", 
             value: "Veteran"
-        },
-        {
-            label: "white", 
-            value: "White"
         }];
 }
 

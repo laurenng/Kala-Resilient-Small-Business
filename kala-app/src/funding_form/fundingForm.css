@@ -18,9 +18,8 @@
 }
 
 .dot {
-    
-    height: 7px;
-    width: 7px;
+    height: 1em;
+    width: 1em;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -37,8 +36,11 @@
     text-align: left;
     border: solid black 5px;
     border-radius: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
+    border-bottom-left-radius: 0;
+    
+    /* padding-left: 5%;
+    padding-right: 5%; */
+    padding: 5%;
 }
 
 #welcomeMsg {
@@ -78,16 +80,12 @@
 .questionBubble {
     border: solid black 5px;
     border-radius: 50px;
-    /* padding: 60px; */
-    /* width: 237px;
-    height: 198px; */
+    border-bottom-left-radius: 0;
     padding-left: 5%;
     padding-right: 5%;
-    /* margin-left: 25%; */
     left: 111px;
     top: 68px;
     margin: 3%;
-    /* float: right; */
     text-align: left;
     width: 275px;
     
@@ -149,3 +147,16 @@
     margin-left: 90%;
 }
 
+#demo-simple-select {
+    min-width: 9em;
+}
+
+#demo-simple-select-label {
+    margin: .4em;
+    font-size: 1.3em;
+    color: black;
+}
+
+.dropdown-form {
+    margin: 0.5em;
+}

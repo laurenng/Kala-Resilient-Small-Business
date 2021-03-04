@@ -5,6 +5,17 @@ import AppState, { Filters } from '../../redux-data/types';
 import './../fundingForm.css';
 import kala from './../kala_orange_solid 3.svg';
 
+// material ui form styling
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+
+// calendar material ui
+// import {
+//     KeyboardDatePicker
+//   } from '@material-ui/pickers'; 
+
+
 interface props {
     currentFilter: Filters,
     updateFilters: (newFilters: Filters) => void,
@@ -40,21 +51,24 @@ class BizQ extends React.Component<props, state> {
     }
 
     // adding redux here to change filters properties 
-    handleChangeType = (event: React.ChangeEvent<HTMLInputElement>) =>{
+    handleChangeType = (event:  React.ChangeEvent<{ name?: string; value: unknown }>) =>{
+        let type_name = String(event.target.value);
         this.setState({
-            bizType: event.target.value
+            bizType: type_name
         })
     }
 
     // adding redux here to change filters properties 
-    handleChangeIndustry = (event: React.ChangeEvent<HTMLInputElement>) =>{
+    handleChangeIndustry = (event: React.ChangeEvent<{ name?: string; value: unknown }>) =>{
+        let type_industry = String(event.target.value);
         this.setState({
-            industry: event.target.value
+            industry: type_industry
         })
     }
 
     // adding redux here to change filters properties 
     handleChangeDate = (event: React.ChangeEvent<HTMLInputElement>) =>{
+        
         this.setState({
             established: event.target.value
         })
@@ -70,30 +84,56 @@ class BizQ extends React.Component<props, state> {
                     <div className="sideByside">
                     <img src={kala} alt="Kala the squid"/>
                     <div className="dropDownList">
-
-                        <h3>Business industry</h3>
-                        <div onChange={this.handleChangeIndustry}>
-                            <select id="bizIndustry" name="bizIndustry" defaultValue={this.state.industry}>
-                            {this.q3IndustryOptions.map(answer => (
-                                <option value={answer} key={answer}>{answer}</option>
-                            ))}
-                            </select>
-                        </div>
-
-                        <h3 className="question" >business type</h3>
-                        <div onChange={this.handleChangeType}>
-                            <select id="bizType" name="bizType" defaultValue={this.state.bizType}>
-                                {this.q3Options.map(answer => (
-                                    <option value={answer} key={answer}> {answer}</option>
+                        <FormControl className="dropdown-form">
+                            <h3>Business Industry</h3>
+                            {/* <InputLabel id="demo-simple-select-label">Business Industry</InputLabel> */}
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={this.state.industry}
+                            className="dropdown-form"
+                            onChange={this.handleChangeIndustry}
+                            >
+                                {this.q3IndustryOptions.map(answer => (
+                                    <MenuItem value={answer}>{answer}</MenuItem>
                                 ))}
-                            </select>
-                        </div>
+                            </Select>
+                        </FormControl>
 
-                        <div>
+                        <FormControl className="dropdown-form">
+                            <h3>Business Type</h3>
+                            {/* <InputLabel id="demo-simple-select-label">Business Type</InputLabel> */}
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={this.state.bizType}
+                            className="dropdown-form"
+                            onChange={this.handleChangeType}
+                            >
+                                {this.q3Options.map(answer => (
+                                    <MenuItem value={answer}>{answer}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+
+                        {/* <KeyboardDatePicker
+                            disableToolbar
+                            variant="inline"
+                            format="MM/dd/yyyy"
+                            margin="normal"
+                            id="date-picker-inline"
+                            label="Date picker inline"
+                            value={this.state.established}
+                            onChange={handleDateChange}
+                            KeyboardButtonProps={{
+                                'aria-label': 'change date',
+                            }}
+                        /> */}
+                        {/* <div>
                             <h3>Business start date</h3>
                             <input type="month" id="bizDate" name="bizDate" defaultValue={this.state.established}
                             onChange={this.handleChangeDate}></input>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

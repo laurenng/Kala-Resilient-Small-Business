@@ -39,6 +39,7 @@ class TaExpand extends React.Component<fundProps, fundState> {
           <p><strong>Email: </strong> {post.email}</p>
           <p><strong>Point Of Contact: </strong> {post.pocName}</p>
           <p><strong>Languages: </strong> </p>{languageList}
+          
           <p><strong>Locations: </strong></p> {locationList}
           {post.demographics.length > 0 ? (
             <p><strong>Demographics: </strong>{demoList}</p>
