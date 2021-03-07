@@ -22,7 +22,7 @@ import history from "./customHistory";
 
 
 
-const drawerWidth = 240;
+const drawerWidth = 100;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

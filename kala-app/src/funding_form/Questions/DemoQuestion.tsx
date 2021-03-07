@@ -118,13 +118,6 @@ class DemoQuestion extends React.Component<props, state> {
             value: "Man"
         },
         {
-<<<<<<< HEAD
-            label: "lgbtq", 
-            value: "LGBTQ+"
-        },
-        {
-=======
->>>>>>> fad713ffadd9207a59d95e373323cfd0998a257c
             label: "native", 
             value: "Native American or Alaskan Native"
         },

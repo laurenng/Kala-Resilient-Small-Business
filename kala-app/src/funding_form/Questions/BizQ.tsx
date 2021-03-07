@@ -10,11 +10,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 
-// calendar material ui
-// import {
-//     KeyboardDatePicker
-//   } from '@material-ui/pickers'; 
+//import Calendar from './../components/calendar';
 
+// calendar material ui
+import { MuiPickersUtilsProvider, DatePicker, KeyboardDatePicker } from '@material-ui/pickers'; 
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import 'date-fns';
 
 interface props {
     currentFilter: Filters,
@@ -26,7 +28,7 @@ interface state {
     established: string,
     industry: string
 }
-
+// Date | null
 class BizQ extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
@@ -67,11 +69,16 @@ class BizQ extends React.Component<props, state> {
     }
 
     // adding redux here to change filters properties 
-    handleChangeDate = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        
-        this.setState({
-            established: event.target.value
-        })
+    handleChangeDate = (event: React.ChangeEvent<HTMLInputElement>) => {
+        // date: Date | null) =>{
+        //if (date !== null) {
+            // console.log(date);
+            // console.log(date?.getMonth() + 1)
+            // console.log(date?.getFullYear())
+            this.setState({
+                established: event.target.value
+            })
+        //}
     }
 
     render() {
@@ -95,11 +102,11 @@ class BizQ extends React.Component<props, state> {
                             onChange={this.handleChangeIndustry}
                             >
                                 {this.q3IndustryOptions.map(answer => (
-                                    <MenuItem value={answer}>{answer}</MenuItem>
+                                    <MenuItem value={answer} key={answer}>{answer}</MenuItem>
                                 ))}
                             </Select>
                         </FormControl>
-
+                        <br></br>
                         <FormControl className="dropdown-form">
                             <h3>Business Type</h3>
                             {/* <InputLabel id="demo-simple-select-label">Business Type</InputLabel> */}
@@ -111,29 +118,49 @@ class BizQ extends React.Component<props, state> {
                             onChange={this.handleChangeType}
                             >
                                 {this.q3Options.map(answer => (
-                                    <MenuItem value={answer}>{answer}</MenuItem>
+                                    <MenuItem value={answer} key={answer}>{answer}</MenuItem>
                                 ))}
                             </Select>
                         </FormControl>
+                        
+                        {/* <h3>Business Start Date</h3> */}
+                        {/* <Calendar></Calendar> */}
+                        {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <Grid container justify="flex-start"> 
+                                <KeyboardDatePicker
+                                    disableToolbar
+                                    variant="inline"
+                                    format="MM/yyyy"
+                                    margin="normal"
+                                    id="date-picker-inline"
+                                    label="Date picker inline"
+                                    value={this.state.established}
+                                    onChange={this.handleChangeDate}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                    }}
+                                />
+                                <DatePicker
+                                    variant="inline"
+                                    openTo="year"
+                                    views={["year", "month"]}
+                                    minDate={new Date("1800-01-01")}
+                                    maxDate={new Date()}
+                                    // label="Year and Month"
+                                    // helperText="Start from year selection"
+                                    value={this.state.established}
+                                    onChange={this.handleChangeDate}
+                                />
+                            </Grid>
+                        </MuiPickersUtilsProvider> */}
 
-                        {/* <KeyboardDatePicker
-                            disableToolbar
-                            variant="inline"
-                            format="MM/dd/yyyy"
-                            margin="normal"
-                            id="date-picker-inline"
-                            label="Date picker inline"
-                            value={this.state.established}
-                            onChange={handleDateChange}
-                            KeyboardButtonProps={{
-                                'aria-label': 'change date',
-                            }}
-                        /> */}
-                        {/* <div>
+                        
+
+                        <div>
                             <h3>Business start date</h3>
                             <input type="month" id="bizDate" name="bizDate" defaultValue={this.state.established}
                             onChange={this.handleChangeDate}></input>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </div>

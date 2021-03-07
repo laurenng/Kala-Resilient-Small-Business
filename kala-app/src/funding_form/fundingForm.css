@@ -158,5 +158,20 @@
 }
 
 .dropdown-form {
-    margin: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+/* stylings for the calendar view */
+#ui-datepicker-div {margin-left:-160px; }
+
+.textField {
+    background-color: pink;
+    margin-left: 0;
+    min-width:fit-content
+}
+
+.MuiPaper-root {
+    background-color: pink;
 }
