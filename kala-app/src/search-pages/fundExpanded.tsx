@@ -2,10 +2,12 @@ import React from 'react';
 import './searchStyle.css';
 import { connect } from "react-redux";
 import { AppState, Fund } from "../redux-data/types";
+import { ArrowBackIos } from '@material-ui/icons';
 
 // properties that belong to SearchHome
 interface fundProps {
-  fund: Fund
+  fund: Fund,
+  history: any
 }
 
 // states that belong to SearchHome
@@ -15,8 +17,14 @@ interface fundState {
 class FundingExpand extends React.Component<fundProps, fundState> {
     constructor(props: fundProps, state: fundState){
       super(props);
+      this.goBack = this.goBack.bind(this);
       this.state = {
       };
+    }
+
+    goBack(){
+      this.props.history.goBack();
+      this.props.history.push('/search');
     }
     
     render() {
@@ -28,6 +36,7 @@ class FundingExpand extends React.Component<fundProps, fundState> {
       return (
         <div className="main expanded">
           <br></br>
+          <ArrowBackIos className="backNavArrow" onClick={() => this.goBack()}></ArrowBackIos>
           {/* Assuming that each funding opportunity will have as a bare minimum a Name, Website, & Description */}
           {/* All else are optional and render conditionally */}
           <h1 className="title">{post.fundingName}</h1>

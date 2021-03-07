@@ -23,8 +23,10 @@ import languageImg from '../assets/library_banners/language-16-9.jpg';
 import covidImg from '../assets/library_banners/covid-related-16-9.jpg';
 import addImg from '../assets/library_banners/additional-16-9.jpg';
 import grantsImg from '../assets/library_banners/grants-16-9.jpg';
-
+import langBtn from '../assets/Lang Assistance_.png';
 import { url } from 'inspector';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 interface libraryState {
   cat: string
@@ -116,39 +118,44 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
             </div>
       }
 
+      
+
       return (
           <main>
             <br></br>
-            <div className="translatorBtn" onClick={() => this.categoryClick("lang")}>Need a translator?</div>
-
+            {/* <div className="translatorBtn" onClick={() => this.categoryClick("lang")}>Need a translator?</div>   */}
+            {/* <img className="translatorBtn" src={langBtn} onClick={() => this.categoryClick("lang")} /> */}
             {displayContent}
-
-            <List id="libraryCats">
-              <ListItem>
-                  <div onClick={() => this.categoryClick("loans")}>{this.createCategory("Loans")}</div> 
-              </ListItem>
-              <ListItem>
-                  <div onClick={() => this.categoryClick("grants")}>{this.createCategory("Grants")}</div>
-              </ListItem>
-              <ListItem>
-                  <div onClick={() => this.categoryClick("minorities")}>{this.createCategory("Minority Owned Small Businesses")}</div>
-              </ListItem>
-              <ListItem>
-                  <div onClick={() => this.categoryClick("tribal")}>{this.createCategory("Tribally Owned Small Businesses")}</div>
-              </ListItem>
-              <ListItem>
-                  <div onClick={() => this.categoryClick("finLit")}>{this.createCategory("Financial Literacy and Education")}</div>
-              </ListItem>
-              <ListItem>
-                  <div onClick={() => this.categoryClick("lang")}>{this.createCategory("Language Support")}</div>
-              </ListItem>
-              <ListItem>
-                  <div onClick={() => this.categoryClick("covid")}>{this.createCategory("COVID Resources")}</div>
-              </ListItem>
-              <ListItem>
-                  <div onClick={() => this.categoryClick("additional")}>{this.createCategory("Additional Support")}</div>
-              </ListItem>
-            </List>
+            
+            <div className="gridContainer" id="libraryCats">
+            <Grid container spacing={2}> {/* id="libraryCats" */}
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("loans")}>{this.createCategory("Loans", loansImg)}</div> 
+              </Grid>
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("grants")}>{this.createCategory("Grants", grantsImg)}</div>
+              </Grid>
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("minorities")}>{this.createCategory("Minority Owned Small Businesses", minorityImg)}</div>
+              </Grid>
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("tribal")}>{this.createCategory("Tribally Owned Small Businesses", tribalImg)}</div>
+              </Grid>
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("finLit")}>{this.createCategory("Financial Literacy and Education", finLitImg)}</div>
+              </Grid>
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("lang")}>{this.createCategory("Language Support", languageImg)}</div>
+              </Grid>
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("covid")}>{this.createCategory("COVID Resources", covidImg)}</div>
+              </Grid>
+              <Grid item xs={6}>
+                  <div onClick={() => this.categoryClick("additional")}>{this.createCategory("Additional Support", addImg)}</div>
+              </Grid>
+            </Grid>
+            </div>
+            
           </main>
       );  
     }
@@ -172,16 +179,16 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       this.setState({
         cat: "home"
       })
-      console.log(this.state)
+      // console.log(this.state)
       document.getElementById("libraryCats")?.classList.remove("hidden");
     }
 
-    private createCategory = (categoryName: string) => {
+    private createCategory = (categoryName: string, catImg: any) => {
       return (
         <div className="categoryContainer">
-          <img className="catIcon" src={kala} alt="Category Icon"></img>
+          <img className="catIcon" src={catImg} alt="Category Icon"></img>
           <h2>{categoryName}</h2>
-          <ArrowForwardIos className="navArrow"></ArrowForwardIos>
+          {/* <ArrowForwardIos className="navArrow"></ArrowForwardIos> */}
         </div>
         );
     }
@@ -190,7 +197,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       this.setState({
         cat: categoryName
       })
-      console.log(this.state)
+      // console.log(this.state)
       document.getElementById("libraryCats")?.classList.add("hidden");
     }
       

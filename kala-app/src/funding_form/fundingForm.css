@@ -1,10 +1,10 @@
 .backBtn, .skipBtn {
     align-items: center;
     padding: 8px 12px;
-    border-radius: 6px;
-    border-color: #545D69;
-    color: #545D69;
-    background: white;
+    background-color: white;
+    border: #0A7088 2px solid;
+    border-radius: 1em;
+    color: black;
 }
 
 #progressBar {
@@ -27,7 +27,7 @@
 }
 
 .currDot {
-    background-color: orange;
+    background-color: #0A7088;
 }
 
 #welcomeQuestion {
@@ -52,12 +52,14 @@
 }
 
 .nextBtn, #beginForm, #submitBtn {
-    background: #545D69;
-    border-radius: 6px;
+    /* background: #545D69; */
+    border-radius: 1em;
     padding: 8px 12px;
     color: white;
     align-self: end;
     /* margin-left: 75%; */
+    color: white;
+    background-color: #0A7088;
 }
 
 #beginForm {
@@ -67,6 +69,10 @@
 .backBtn {
     margin-left: 40%;
     margin-right: 5px;
+    color: black;
+    background-color: white;
+    border: #0A7088 2px solid;
+    border-radius: 1em;
 }
 
 .controls {

@@ -5,6 +5,12 @@ import {createResource} from './createResource';
 class FinancialLiteracy extends React.Component<any> {
     componentDidMount() {
       window.scrollTo(0, 0);
+      // window.scrollTo({
+      //   top: 0,
+      //   behavior: "smooth"
+      // });
+      // document.querySelector('body').scrollTo(0,0);
+      console.log("Height: " + window.innerHeight + " Width: " + window.innerWidth);
     };
     render() {
       
