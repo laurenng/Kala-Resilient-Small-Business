@@ -8,11 +8,11 @@ import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
 // styling courtesy of material-ui
 function getModalStyle() {
-    const top = 50;
-    const left = 50;
+    const top = 75;
+    const left = 70;
     return {
-        top: `${top}%`,
-        left: `${left}%`,
+        marginTop: `${top}%`,
+        marginLeft: `${left}%`,
         transform: `translate(-${top}%, -${left}%)`,
     };
 }

@@ -23,7 +23,9 @@ import FundingForm from './funding_form/fundingForm';
 
 //hamburgerMenu
 import PersistentDrawerLeft from './testAppBar';
+import PersistentDrawerRight from './appBar';
 
+import commerceLogo from './assets/Logo__Standard_RGB.png';
 
 
 class App extends React.Component<any> {
@@ -31,21 +33,25 @@ class App extends React.Component<any> {
   // example material-ui code
   Copyright = () => {
     return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {/* {'Copyright © '} {' '} 
-        {new Date().getFullYear()}
-        {'.'}*/}
-        
-        Designed and developed by <Link color="inherit" href="https://ischool.uw.edu/capstone">Team kala</Link> for a WA Dept. Commerce + UW project. 
-        
-      </Typography>
+      <footer id="copyrightFooter">
+        <img src={commerceLogo} height='20%' width='50%'/>
+        <Typography variant="body2" color="textSecondary" align="left">
+          {/* {'Copyright © '} {' '} 
+          {new Date().getFullYear()}
+          {'.'}*/}
+          
+          Designed and developed by <Link color="inherit" href="https://ischool.uw.edu/capstone">Team kala</Link> for a WA Dept. Commerce + UW project. 
+          
+        </Typography>
+      </footer>
     );
   }
 
   render() {
     return (
       <div>
-        <PersistentDrawerLeft /> {/* Hamburger Menu*/}
+        {/* Hamburger Menu*/}
+        <PersistentDrawerRight />
         <Router history={history}>
   
         <div className="page">

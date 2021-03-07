@@ -86,3 +86,13 @@
   display: flex;
   justify-content: center;
 }
+
+#copyrightFooter {
+  margin-top: 10%;
+  margin-left: 5%;
+}
+
+.page {
+  width: 100%;
+  margin-top: 15%;
+}
