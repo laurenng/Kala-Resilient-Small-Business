@@ -45,20 +45,21 @@ class TaRect extends React.Component<props, state> {
 
     private individualRect = (num: number) => {
       let d = this.state.technicalAssistance[num];
-      // limits length of description being shown. Current limit is at 25 words
-      let shortenDescription = d.description.split(' ').slice(0,25).join(' ')
       // getting a shorten version of the link that only keeps part before 
       // all the mumble jumble 
       let shortenWebsite = d.website.split('/')[2];
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
             <h1>{d.orgName}</h1>
-            <p className="fundingFont">{shortenDescription}</p>
-            <div className="moreDetailsBox learnMore">
-              <p>Learn More</p>
-            </div>
-            <div className="moreDetailsBox url">
+
+            <div className="turquoise-box">
               <a href={d.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+            </div>
+
+            <br></br>
+            <br></br>
+            <div className="learnMoreBox">
+              <h1>Learn More</h1>
             </div>
         </div>
       )
@@ -85,7 +86,6 @@ class TaRect extends React.Component<props, state> {
     }
 
     private compareLanguages(data: TA[]) {
-      console.log("HERELKIIOO")
       // selected languages user selected in onboarding form
       let languageFilter = this.props.currentFilter.language.value;
       // object of selected demographics the user selected in onboarding form

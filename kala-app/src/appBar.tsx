@@ -2,9 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -13,15 +13,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
-import kala from './assets/kala_orange_clearbg.png';
 import ListItemText from '@material-ui/core/ListItemText';
-
+import kala from './assets/kala_orange_clearbg.png';
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from 'react-router-dom'
-
 import history from "./customHistory";
 
 const drawerWidth = 240;
-console.log(drawerWidth);
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,13 +41,11 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
       marginRight: drawerWidth,
     },
+    title: {
+      flexGrow: 1,
+    },
     hide: {
       display: 'none',
-    },
-    menuButton: {
-      marginRight: theme.spacing(10),
-      flexGrow: .6,
-      color: 'black',
     },
     drawer: {
       width: drawerWidth,
@@ -66,7 +61,6 @@ const useStyles = makeStyles((theme: Theme) =>
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
       justifyContent: 'flex-start',
-      
     },
     content: {
       flexGrow: 1,
@@ -87,11 +81,11 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function PersistentDrawerLeft(this: any) {
+export default function PersistentDrawerRight() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  
+
   const pushHistory = (path: string) => {
     history.push(path);
   }
@@ -113,9 +107,9 @@ export default function PersistentDrawerLeft(this: any) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar className="rightToolBar">
-          <img src={kala} height='5%' width='5%'/>
-          <Typography variant="h6" noWrap> {/*  noWrap className={classes.title} */}
+        <Toolbar>
+          <img src={kala} height='15%' width='15%'/>
+          <Typography variant="h6" noWrap className={classes.title}>
             Funding Finder
           </Typography>
           <IconButton
@@ -123,14 +117,13 @@ export default function PersistentDrawerLeft(this: any) {
             aria-label="open drawer"
             edge="end"
             onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, open && classes.hide)}
+            className={clsx(open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
-          
         </Toolbar>
       </AppBar>
-
+      
       <Router>
       <Drawer
         className={classes.drawer}
@@ -157,32 +150,9 @@ export default function PersistentDrawerLeft(this: any) {
           <ListItem button component={Link} to="/form">
             <ListItemText primary={'Funding & Assistance'} onClick={ () => pushHistory("/form")}/>
           </ListItem>
-          
-          {/* <ListItem button component={Link} to="/profile">
-            <ListItemText primary={'My Account'} onClick={ () => pushHistory("/profile")}/>
-          </ListItem> */}
-
-          {/* for testing form only */}
-          {/* <ListItem button component={Link} to="/form">
-            <ListItemText primary={'Funding Form'} onClick={ () => pushHistory("/form")}/>
-          </ListItem> */}
         </List>
-        {/* testing purposes */}
-            {/* <Switch>
-                <Route exact path="/" component={Landing} />
-                <Route exact path="/search" component={SearchHome} />
-                <Route exact path="/library" component={LibraryHome} />
-                <Route exact path="/profile" component={ProfileHome} />
-            </Switch> */}
-        
       </Drawer>
       </Router>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-      </main>
     </div>
   );
 }
