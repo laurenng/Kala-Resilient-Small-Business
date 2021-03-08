@@ -18,16 +18,15 @@
 }
 
 .dot {
-    
-    height: 7px;
-    width: 7px;
+    height: 1em;
+    width: 1em;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
 }
 
 .currDot {
-    background-color: #0A7088;
+    background-color: #00BCE8;
 }
 
 #welcomeQuestion {
@@ -37,8 +36,11 @@
     text-align: left;
     border: solid black 5px;
     border-radius: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
+    border-bottom-left-radius: 0;
+    
+    /* padding-left: 5%;
+    padding-right: 5%; */
+    padding: 5%;
 }
 
 #welcomeMsg {
@@ -84,16 +86,12 @@
 .questionBubble {
     border: solid black 5px;
     border-radius: 50px;
-    /* padding: 60px; */
-    /* width: 237px;
-    height: 198px; */
+    border-bottom-left-radius: 0;
     padding-left: 5%;
     padding-right: 5%;
-    /* margin-left: 25%; */
     left: 111px;
     top: 68px;
     margin: 3%;
-    /* float: right; */
     text-align: left;
     width: 275px;
     
@@ -141,6 +139,7 @@
 
 #progressBar.active {
     display: flex;
+    margin-top: 1em;
 }
 
 #confirmPopup h4 {
@@ -155,3 +154,38 @@
     margin-left: 90%;
 }
 
+#demo-simple-select {
+    min-width: 9em;
+}
+
+#demo-simple-select-label {
+    margin: .4em;
+    font-size: 1.3em;
+    color: black;
+}
+
+.dropdown-form {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+/* stylings for the calendar view */
+#ui-datepicker-div {margin-left:-160px; }
+
+.textField {
+    background-color: pink;
+    margin-left: 0;
+    min-width:fit-content
+}
+
+.MuiPaper-root {
+    background-color: pink;
+}
+
+.modal {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

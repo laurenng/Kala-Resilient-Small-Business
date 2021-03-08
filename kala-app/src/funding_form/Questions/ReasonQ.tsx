@@ -5,6 +5,8 @@ import AppState, {Filters} from '../../redux-data/types';
 import './../fundingForm.css';
 import kala from './../kala_orange_solid 3.svg';
 
+
+
 interface state {
     property: boolean,
     insurance: boolean,

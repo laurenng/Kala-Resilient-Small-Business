@@ -72,3 +72,21 @@ main {
 .gridContainer {
     flex-grow: 1;
 }
+
+.libraryHeader {
+    padding: 5%;
+    margin: -1.3em;
+    align-items: left;
+    background-color: #808080;
+    color: white
+}
+
+.libraryHeader h1 {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.bannerTitle {
+    font-size: 2em;
+    font-weight: bolder;
+}
