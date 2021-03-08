@@ -21,13 +21,21 @@ import history from "./customHistory";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-    },
-    appBar: {
+createStyles({
+  root: {
+    display: 'flex',
+    color: '#EA5F14',
+    backgroundColor: 'white',
+    "& .MuiAppBar-root": {
       color: '#EA5F14',
       backgroundColor: 'white',
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+    }
+  }, 
+    appBar: {
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
