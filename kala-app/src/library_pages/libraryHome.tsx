@@ -57,6 +57,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       this.state = {
         cat: "lang"
       };
+
     } else {
       this.state = {
         cat: "home"
@@ -176,11 +177,11 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
     }
 
     private createBanner = (title: string, bgImg: string) => {
+      // console.log("Created banner: " + title);
       let styles = {
         backgroundImage: "linear-gradient(to right, grey 9%, silver 100%), url(" + bgImg + ")",
         opacity: 0.8,
         backgroundBlendMode: 'multiply'
-        
     }
       return (
       <div className="catTitle" style={styles}>

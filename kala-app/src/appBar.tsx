@@ -18,16 +18,28 @@ import kala from './assets/kala_orange_clearbg.png';
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from 'react-router-dom'
 import history from "./customHistory";
 
+// font awesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLanguage, faHandHoldingUsd, faBook, faHome } from '@fortawesome/free-solid-svg-icons';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-    },
-    appBar: {
+createStyles({
+  root: {
+    display: 'flex',
+    color: '#EA5F14',
+    backgroundColor: 'white',
+    "& .MuiAppBar-root": {
       color: '#EA5F14',
       backgroundColor: 'white',
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+    }
+  }, 
+    appBar: {
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -88,7 +100,7 @@ export default function PersistentDrawerRight() {
 
   const pushHistory = (path: string) => {
     history.push(path);
-    // console.log(history);
+   // console.log(history);
   }
 
   // Used to go to a specific category in library atm
@@ -152,18 +164,20 @@ export default function PersistentDrawerRight() {
         <Divider />
         <List>
           <ListItem button component={Link} to="/">
-            <ListItemText primary={'Home Page'} onClick={ () => pushHistory("/")} />
+            <FontAwesomeIcon icon={faHome} size="1x" color="#808080" />
+            <ListItemText primary={' Home Page'} onClick={ () => pushHistory("/")} />
           </ListItem>
           <ListItem button component={Link} to="/library">
-            <ListItemText primary={'Library'} onClick={ () => pushHistory("/library")}/>
+            <FontAwesomeIcon icon={faBook} size="1x" color="#808080" />
+            <ListItemText primary={' Library'} onClick={ () => pushHistory("/library")}/>
           </ListItem>
           <ListItem button component={Link} to="/form">
-<<<<<<< Updated upstream
-            <ListItemText primary={'Funding & Assistance'} onClick={ () => pushHistory("/form")}/>
-=======
+            <FontAwesomeIcon icon={faHandHoldingUsd} size="1x" color="#808080" />
+            <ListItemText primary={' Funding & Assistance'} onClick={ () => pushHistory("/form")}/>
+          </ListItem>
+          <ListItem button component={Link} to="/form">
               <FontAwesomeIcon icon={faLanguage} size="1x" color="#808080" />
               <ListItemText primary={' Language Help'} onClick={ () => pushHistorySearch("/library", "lang")}/>
->>>>>>> Stashed changes
           </ListItem>
         </List>
       </Drawer>
