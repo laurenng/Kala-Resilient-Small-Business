@@ -135,7 +135,7 @@ h1 {
 #page-introduction {
     padding: 5%;
     align-items: left;
-    background-color: #808080;
+    background: radial-gradient(#808080,#9c9a9a);
     color: white
 }
 

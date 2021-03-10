@@ -18,6 +18,10 @@ import kala from './assets/kala_orange_clearbg.png';
 import {Route, BrowserRouter as Router, Switch, Link, useHistory} from 'react-router-dom'
 import history from "./customHistory";
 
+// font awesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLanguage, faHandHoldingUsd, faBook, faHome } from '@fortawesome/free-solid-svg-icons';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -150,13 +154,20 @@ export default function PersistentDrawerRight() {
         <Divider />
         <List>
           <ListItem button component={Link} to="/">
-            <ListItemText primary={'Home Page'} onClick={ () => pushHistory("/")} />
+            <FontAwesomeIcon icon={faHome} size="1x" color="#808080" />
+            <ListItemText primary={' Home Page'} onClick={ () => pushHistory("/")} />
           </ListItem>
           <ListItem button component={Link} to="/library">
-            <ListItemText primary={'Library'} onClick={ () => pushHistory("/library")}/>
+            <FontAwesomeIcon icon={faBook} size="1x" color="#808080" />
+            <ListItemText primary={' Library'} onClick={ () => pushHistory("/library")}/>
           </ListItem>
           <ListItem button component={Link} to="/form">
-            <ListItemText primary={'Funding & Assistance'} onClick={ () => pushHistory("/form")}/>
+            <FontAwesomeIcon icon={faHandHoldingUsd} size="1x" color="#808080" />
+            <ListItemText primary={' Funding & Assistance'} onClick={ () => pushHistory("/form")}/>
+          </ListItem>
+          <ListItem button component={Link} to="/form">
+              <FontAwesomeIcon icon={faLanguage} size="1x" color="#808080" />
+              <ListItemText primary={' Language Help'} onClick={ () => pushHistory("/form")}/>
           </ListItem>
         </List>
       </Drawer>
