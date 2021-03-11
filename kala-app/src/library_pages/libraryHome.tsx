@@ -128,10 +128,11 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
         break;
         default: // Home 
           displayContent = 
-            <div>
+            <div className="libraryHeader">
               <h1>Library</h1>
               <p>In this library you can find resources to guide you as you apply for funding.</p>
             </div>
+            
       }
 
       
@@ -142,7 +143,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
             {/* <div className="translatorBtn" onClick={() => this.categoryClick("lang")}>Need a translator?</div>   */}
             {/* <img className="translatorBtn" src={langBtn} onClick={() => this.categoryClick("lang")} /> */}
             {displayContent}
-            
+            <br></br>
             <div className="gridContainer" id="libraryCats">
             <Grid container spacing={2}> {/* id="libraryCats" */}
               <Grid item xs={6}>
@@ -181,12 +182,13 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       let styles = {
         backgroundImage: "linear-gradient(to right, grey 9%, silver 100%), url(" + bgImg + ")",
         opacity: 0.8,
-        backgroundBlendMode: 'multiply'
+        backgroundBlendMode: 'multiply',
+        margin: "-1.3em"
     }
       return (
       <div className="catTitle" style={styles}>
         <ArrowBackIos className="backNavArrow" onClick={this.libraryLoad}></ArrowBackIos>
-        <h1>{title}</h1>
+        <h1 className="bannerTitle">{title}</h1>
       </div>);
     }
   

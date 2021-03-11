@@ -8,6 +8,10 @@ import { AppState, Fund, Filters} from "../redux-data/types";
 import fetchFromAPI from "../redux-data/fetchFromAPI";
 import booleanCheck from './filterCheck';
 
+// font awesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandHoldingUsd, faHandshake } from '@fortawesome/free-solid-svg-icons';
+
 interface props extends RouteComponentProps<any> {
   /* other props for ChildComponent */
   currentFilter: Filters,
@@ -55,25 +59,37 @@ class FundingRect extends React.Component<props, state> {
       
       // getting the object specific at the index represented at num
       let d = this.state.fundingOpps[num];
-      // limits length of description being shown. Current limit is at 25 words
-      let shortenDescription = d.description.split(' ').slice(0,25).join(' ')
+
+      let funding = null;
+
+      if (d.fundingType === "Loan") {
+        funding = <FontAwesomeIcon icon={faHandshake} size="1x" color="#EA5F14" />
+      } else { // grants 
+        funding = <FontAwesomeIcon icon={faHandHoldingUsd} size="1x" color="#EA5F14" />
+      }
       // getting a shorten version of the link that only keeps part before 
       // all the mumble jumble 
       let shortenWebsite = d.website.split('/')[2];
+      if (shortenWebsite.length > 15) {
+        shortenWebsite = shortenWebsite.substring(0,15)
+      }
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
          <h1>{d.fundingName}</h1>
          <div className="inline">
-          <h3><strong>Due: </strong> {d.endDate === null ? "No End Date" : d.endDate}</h3> 
+            
+            <div className="turquoise-box">
+              <a href={d.website} rel="noreferrer" target="_blank">{shortenWebsite}</a>
+            </div>
+            <h3>{funding} {d.fundingType} </h3>
          </div>
-         <h3><strong>Type: </strong> {d.fundingType}</h3>
-         <p className="fundingFont">{shortenDescription}</p>
-         <div className="moreDetailsBox learnMore">
-          <p>Learn More</p>
+         
+         <br></br>
+         <br></br>
+         <div className="learnMoreBox">
+           <h1>Learn More</h1>
          </div>
-         <div className="moreDetailsBox url">
-          <a href={d.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
-         </div>
+
      </div>
 
       )

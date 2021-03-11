@@ -5,6 +5,16 @@ import AppState, { Filters } from '../../redux-data/types';
 import './../fundingForm.css';
 import kala from './../kala_orange_solid 3.svg';
 
+// material ui form styling
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+
+import LocalizaitonProvider from '@material-ui/lab/LocalizationProvider';
+import DatePicker from '@material-ui/lab/DatePicker';
+import TextField from '@material-ui/core/TextField';
+import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
+
 interface props {
     currentFilter: Filters,
     updateFilters: (newFilters: Filters) => void,
@@ -12,7 +22,7 @@ interface props {
 
 interface state {
     bizType: string,
-    established: string,
+    established: Date | null,
     industry: string
 }
 
@@ -40,24 +50,31 @@ class BizQ extends React.Component<props, state> {
     }
 
     // adding redux here to change filters properties 
-    handleChangeType = (event: React.ChangeEvent<HTMLInputElement>) =>{
+    handleChangeType = (event:  React.ChangeEvent<{ name?: string; value: unknown }>) =>{
+        let type_name = String(event.target.value);
         this.setState({
-            bizType: event.target.value
+            bizType: type_name
         })
     }
 
     // adding redux here to change filters properties 
-    handleChangeIndustry = (event: React.ChangeEvent<HTMLInputElement>) =>{
+    handleChangeIndustry = (event: React.ChangeEvent<{ name?: string; value: unknown }>) =>{
+        let type_industry = String(event.target.value);
         this.setState({
-            industry: event.target.value
+            industry: type_industry
         })
     }
 
     // adding redux here to change filters properties 
-    handleChangeDate = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        this.setState({
-            established: event.target.value
-        })
+    handleChangeDate = (date: Date | null) =>{
+        if (date !== null) {
+            console.log(date);
+            // console.log(date?.getMonth() + 1)
+            // console.log(date?.getFullYear())
+            this.setState({
+                established: date
+            })
+        }
     }
 
     render() {
@@ -70,30 +87,60 @@ class BizQ extends React.Component<props, state> {
                     <div className="sideByside">
                     <img src={kala} alt="Kala the squid"/>
                     <div className="dropDownList">
-
-                        <h3>Business industry</h3>
-                        <div onChange={this.handleChangeIndustry}>
-                            <select id="bizIndustry" name="bizIndustry" defaultValue={this.state.industry}>
-                            {this.q3IndustryOptions.map(answer => (
-                                <option value={answer} key={answer}>{answer}</option>
-                            ))}
-                            </select>
-                        </div>
-
-                        <h3 className="question" >business type</h3>
-                        <div onChange={this.handleChangeType}>
-                            <select id="bizType" name="bizType" defaultValue={this.state.bizType}>
-                                {this.q3Options.map(answer => (
-                                    <option value={answer} key={answer}> {answer}</option>
+                        <FormControl className="dropdown-form">
+                            <h3>Business Industry</h3>
+                            {/* <InputLabel id="demo-simple-select-label">Business Industry</InputLabel> */}
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={this.state.industry}
+                            className="dropdown-form"
+                            onChange={this.handleChangeIndustry}
+                            >
+                                {this.q3IndustryOptions.map(answer => (
+                                    <MenuItem value={answer} key={answer}>{answer}</MenuItem>
                                 ))}
-                            </select>
-                        </div>
-
-                        <div>
-                            <h3>Business start date</h3>
-                            <input type="month" id="bizDate" name="bizDate" defaultValue={this.state.established}
-                            onChange={this.handleChangeDate}></input>
-                        </div>
+                            </Select>
+                        </FormControl>
+                        <br></br>
+                        <FormControl className="dropdown-form">
+                            <h3>Business Type</h3>
+                            {/* <InputLabel id="demo-simple-select-label">Business Type</InputLabel> */}
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={this.state.bizType}
+                            className="dropdown-form"
+                            onChange={this.handleChangeType}
+                            >
+                                {this.q3Options.map(answer => (
+                                    <MenuItem value={answer} key={answer}>{answer}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        
+                        <h3>Business Start Date</h3>
+                        <LocalizaitonProvider dateAdapter={AdapterDateFns}>
+                            <div className="modal">
+                            <DatePicker 
+                                views={['year', 'month']}
+                                label="Year and Month"
+                                minDate={new Date('1950-01-01')}
+                                maxDate={new Date()}
+                                value={this.state.established}
+                                onChange={this.handleChangeDate}
+                                renderInput={(params) => (
+                                    <TextField
+                                    {...params}
+                                    className="modal"
+                                    margin="normal"
+                                    variant="standard"
+                                    helperText={null}
+                                    />
+                                )}
+                            />
+                            </div>
+                        </LocalizaitonProvider>
                     </div>
                 </div>
             </div>

@@ -147,16 +147,12 @@ class DemoQuestion extends React.Component<props, state> {
             value: "Mixed Race"
         },
         {
-            label: "lgbtq", 
-            value: "LGBTQ+"
+            label: "white", 
+            value: "White"
         },
         {
             label: "veteran", 
             value: "Veteran"
-        },
-        {
-            label: "white", 
-            value: "White"
         }];
 }
 

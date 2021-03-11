@@ -20,12 +20,8 @@ import {Route, BrowserRouter as Router, Switch, Link, useHistory} from 'react-ro
 
 import history from "./customHistory";
 
-
-
 const drawerWidth = 240;
 console.log(drawerWidth);
-
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

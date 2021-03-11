@@ -3,7 +3,7 @@
 }
 
 .main {
-    width: 90%;
+    width: 85%;
     margin: auto;
 }
 
@@ -17,7 +17,7 @@ h1, h3, p, ul{
 }
 
 .fundBox h1 {
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 h1 {
@@ -32,10 +32,10 @@ h1 {
 
 .fundBox {
     border: solid 2px gray;
-    border-radius: 50px;
+    border-radius: 20px;
     background-color: white;
     padding: 2em;
-    margin: 1em;
+    margin: 1.5em;
 }
 
 .fundBox:hover {
@@ -57,27 +57,28 @@ h1 {
     border: solid 0.2em rgb(83, 82, 82);
 }
 
-.centeredForm {
-    margin: auto;
+.form-button {
     margin-top: 0.3em;
     margin-bottom: 0.3em;
     padding: 0.3em;
 }
 
-.centeredForm h2 {
+
+.form-button h2 {
     font-size: 1.5em;
     font-weight: bold;
+    color: white;
     margin: 0;
-}
-.learnMore {
-    background-color: white;
-    color: rgb(83, 82, 82);
 }
 
 .url {
     background-color: rgb(83, 82, 82);
-    color: white;
     text-decoration: none;
+    color: white;
+}
+.learnMore {
+    background-color: white;
+    color: rgb(83, 82, 82);
 }
 
 .moreDetailsBox a {
@@ -95,12 +96,14 @@ h1 {
 .selected {
     background-color: white;
     text-decoration: underline;
-    
+    text-decoration-color: #00BCE8;
+    text-decoration-thickness: .2em;
 }
 
-.selected {
+.selected h1 {
     font-weight: bold;
 }
+
 .content {
     border: 2px white solid;
     width: 95%;
@@ -110,10 +113,7 @@ h1 {
 .inline {
     display: flex;
     flex-direction: row;
-    align-items:center;
-}
-
-.centered {
+    align-items: center;
     justify-content: space-around;
 }
 
@@ -130,4 +130,66 @@ h1 {
 .expanded {
     width: 75%;
     margin: auto;
+}
+
+#page-introduction {
+    padding: 5%;
+    align-items: left;
+    background: radial-gradient(#808080,#9c9a9a);
+    color: white
+}
+
+#page-introduction h1 {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.blue-box {
+    margin: 0;
+    margin-top: 0.5em;
+    padding: 0.5em;
+    width: fit-content;
+    border-radius: 0.5em;
+    border: solid 0.2em #00BCE8 ;
+    background-color: #00BCE8 ;
+}
+
+/* #0A7088 */
+.blue-box h2 {
+    padding-left: .4em;
+    margin: 0;
+    color: white;
+    font-size: 1em;
+}
+
+.turquoise-box {
+    margin: 0;
+    margin-top: 0.5em;
+    padding: 0.5em;
+    width: fit-content;
+    border-radius: 0.5em;
+    border: solid 0.2em #0A7088;
+}
+
+.turquoise-box a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    font-size: .8em;
+}
+
+.learnMoreBox {
+    margin: -2em;
+    background-color: #0A7088;
+    display: flex;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    justify-content: center;
+}
+
+.learnMoreBox h1 {
+    padding: .7em;
+    color: white;
+    font-size: 1.4em;
+    font-weight: bolder;
 }

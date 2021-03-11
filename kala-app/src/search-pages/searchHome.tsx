@@ -4,7 +4,9 @@ import FundingRect  from './FundingRect';
 import TaRect  from './taRect';
 import { RouteComponentProps, withRouter } from 'react-router'; 
 import { Link } from "react-router-dom";
-
+// font awesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 // properties that belong to SearchHome
 interface searchProp extends RouteComponentProps<any> {
@@ -15,6 +17,8 @@ interface searchProp extends RouteComponentProps<any> {
 interface searchState {
   tab: string
 }
+
+const SCROLLTARGET = 100; 
 
 class SearchHome extends React.Component<searchProp, searchState> {
     constructor(props: searchProp, state: searchState){
@@ -34,21 +38,28 @@ class SearchHome extends React.Component<searchProp, searchState> {
 
       return (
           <div id="searchMain">
+            <div id="page-introduction">
             <br></br>
-            <div className= "inline centered">
+              <h1>Funding &amp; Assistance</h1>
+              <Link to="/form" style={{ textDecoration: 'none' }}>
+                  <div className="blue-box inline">
+                    <FontAwesomeIcon icon={faFilter} size="1x" color="white" />
+                    <h2> Filter results here</h2>
+                  </div>
+              </Link>
+              <p>Find technical assistance (e.g. legal and financial experts) and
+                 funding (loans and grants) here. Answer these questions to narrow 
+                 your results. </p>
+            </div>
+
+            <div className= "inline">
+              <div className = {this.state.tab === "provider" ? "selected button" : "button"} onClick={this.providerClick}>
+                <h1>Assistance</h1>
+              </div>
               <div className = {this.state.tab === "funding" ? "selected button" : "button"} onClick={this.fundingClick}>
                 <h1>Funding</h1>
               </div>
-              <div className = {this.state.tab === "provider" ? "selected button" : "button"} onClick={this.providerClick}>
-                <h1>TA Providers</h1>
-              </div>
             </div>
-
-              <Link to="/form">
-                  <div className="moreDetailsBox url centeredForm">
-                      <h2>Filter results here</h2>
-                  </div>
-              </Link>
 
             <div className="content">
               {displayContent}
