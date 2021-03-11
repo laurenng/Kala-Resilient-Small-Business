@@ -78,6 +78,15 @@ class DemoQuestion extends React.Component<props, state> {
     }
     
     render() {
+        let tribalAffQ = <div></div>;
+        if (this.state.native) {
+            tribalAffQ = (
+                <div>
+                    <h5 className="questionInstructions">Tribal affilation (if applicable)</h5>
+                    <input type="text" value={this.state.tribalAff} onChange={this.tribalChange}></input>
+                </div>
+            )
+        }
         return(
             <div className="formQuestion" id="question1">
                   <div className="questionBubble">
@@ -100,8 +109,8 @@ class DemoQuestion extends React.Component<props, state> {
                         )
                     })}
                     <br></br>
-                    <h5 className="questionInstructions">Tribal affilation (if applicable)</h5>
-                    <input type="text" value={this.state.tribalAff} onChange={this.tribalChange}></input>
+                    {tribalAffQ}
+                    
                   </div>
                   </div>
                 </div>

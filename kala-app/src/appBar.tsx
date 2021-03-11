@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme: Theme) =>
 createStyles({
   root: {
     display: 'flex',
-    color: '#EA5F14',
+    color: '#D6775A',
     backgroundColor: 'white',
     "& .MuiAppBar-root": {
-      color: '#EA5F14',
+      color: '#D6775A',
       backgroundColor: 'white',
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
@@ -90,6 +90,12 @@ createStyles({
       }),
       marginRight: 0,
     },
+    menuIcon: {
+      color: 'black'
+    },
+    menuFont: {
+      marginLeft: ".6em"
+    },
   }),
 );
 
@@ -130,10 +136,12 @@ export default function PersistentDrawerRight() {
         })}
       >
         <Toolbar>
-          <img src={kala} height='15%' width='15%'/>
-          <Typography variant="h6" noWrap className={classes.title}>
-            Funding Finder
-          </Typography>
+          {/* CHANGE LOGO TO LINK */}
+            <img src={kala} height='15%' width='15%'/>
+            <Typography variant="h6" noWrap className={classes.title}>
+              Funding Finder
+            </Typography>
+          
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -141,7 +149,7 @@ export default function PersistentDrawerRight() {
             onClick={handleDrawerOpen}
             className={clsx(open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon className={classes.menuIcon} />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -165,19 +173,19 @@ export default function PersistentDrawerRight() {
         <List>
           <ListItem button component={Link} to="/">
             <FontAwesomeIcon icon={faHome} size="1x" color="#808080" />
-            <ListItemText primary={' Home Page'} onClick={ () => pushHistory("/")} />
+            <ListItemText className={classes.menuFont} primary={' Home Page'} onClick={ () => pushHistory("/")} />
           </ListItem>
           <ListItem button component={Link} to="/library">
             <FontAwesomeIcon icon={faBook} size="1x" color="#808080" />
-            <ListItemText primary={' Library'} onClick={ () => pushHistory("/library")}/>
+            <ListItemText className={classes.menuFont} primary={' Library'} onClick={ () => pushHistory("/library")}/>
           </ListItem>
           <ListItem button component={Link} to="/form">
             <FontAwesomeIcon icon={faHandHoldingUsd} size="1x" color="#808080" />
-            <ListItemText primary={' Funding & Assistance'} onClick={ () => pushHistory("/form")}/>
+            <ListItemText className={classes.menuFont} primary={' Funding & Assistance'} onClick={ () => pushHistory("/form")}/>
           </ListItem>
           <ListItem button component={Link} to="/form">
               <FontAwesomeIcon icon={faLanguage} size="1x" color="#808080" />
-              <ListItemText primary={' Language Help'} onClick={ () => pushHistorySearch("/library", "lang")}/>
+              <ListItemText className={classes.menuFont} primary={' Language Help'} onClick={ () => pushHistorySearch("/library", "lang")}/>
           </ListItem>
         </List>
       </Drawer>

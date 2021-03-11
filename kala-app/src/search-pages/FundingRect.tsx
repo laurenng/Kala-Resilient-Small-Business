@@ -70,28 +70,25 @@ class FundingRect extends React.Component<props, state> {
       // getting a shorten version of the link that only keeps part before 
       // all the mumble jumble 
       let shortenWebsite = d.website.split('/')[2];
-      if (shortenWebsite.length > 15) {
-        shortenWebsite = shortenWebsite.substring(0,15)
+      if (shortenWebsite.length > 12) {
+        shortenWebsite = shortenWebsite.substring(0,9) + "..."
       }
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
-         <h1>{d.fundingName}</h1>
-         <div className="inline">
-            
-            <div className="turquoise-box">
-              <a href={d.website} rel="noreferrer" target="_blank">{shortenWebsite}</a>
+            <div className="fundBoxTop">
+              <h1>{d.fundingName}</h1>
+              <div className="inline">
+                  <div className="turquoise-box">
+                    <a href={d.website} rel="noreferrer" target="_blank">{shortenWebsite}</a>
+                  </div>
+                  <h3>{funding} {d.fundingType} </h3>
+              </div>
+              <br></br>
             </div>
-            <h3>{funding} {d.fundingType} </h3>
-         </div>
-         
-         <br></br>
-         <br></br>
-         <div className="learnMoreBox">
-           <h1>Learn More</h1>
-         </div>
-
-     </div>
-
+            <div className="learnMoreBox">
+              <h1>Learn More</h1>
+            </div>
+        </div>
       )
     }
 
@@ -117,20 +114,20 @@ class FundingRect extends React.Component<props, state> {
       let useFilters = this.props.currentFilter.reason.value;
       let demoFilters = this.props.currentFilter.demographic.value;
 
-      // creating set of selected uses
-      let selectedReasons: string[] = [];
-      Object.keys(useFilters).map((d: string) => {
-        if (useFilters[d]) {
-          selectedReasons.push(d.toLowerCase());
-        }
-        return d;
-      })
-
       // creating set of selected business demographics
       let selectedDemographics: string[] = [];
       Object.keys(demoFilters).map((d: string) => {
         if (demoFilters[d]) {
           selectedDemographics.push(d.toLowerCase());
+        }
+        return d;
+      })
+
+      // creating set of selected uses
+      let selectedReasons: string[] = [];
+      Object.keys(useFilters).map((d: string) => {
+        if (useFilters[d]) {
+          selectedReasons.push(d.toLowerCase());
         }
         return d;
       })
@@ -144,6 +141,10 @@ class FundingRect extends React.Component<props, state> {
       }
       
       let selectedData = new Set();
+
+      // REMEMBER TO DELTE THIS IT'S TO SHOW OFF THAT NATIVES ARE IMPORTANT AND HAVE FUNDING
+      selectedData.add(data[4])
+      
       data.map((d: Fund) => {
         let uses = d.qualifications.useCases; 
         let demographic = d.qualifications.demographics; 
@@ -151,7 +152,7 @@ class FundingRect extends React.Component<props, state> {
         let useBoolean = booleanCheck(reasonSet, uses); 
         let demoBoolean = booleanCheck(demoSet, demographic); 
         
-        if (useBoolean || demoBoolean) {
+        if (demoBoolean || useBoolean) {
           selectedData.add(d);
         }
         return null;

@@ -27,7 +27,7 @@ class Landing extends React.Component<any> {
             <p>This library contains resources you can use to familiarize yourself with terminology while applying for funding.</p>
             <Link to="/library" style={{ textDecoration: 'none' }}>
                   <div className="redirect_button">
-                      <h1 className="button_text">Go To Library</h1>
+                      <h1 className="button_text">Go to library</h1>
                   </div>
               </Link>
           </div>
@@ -40,9 +40,9 @@ class Landing extends React.Component<any> {
           <div className="right-column">
             <h3>Search Tool</h3>
             <p>Here you can find what funding and assistance best match your business.</p>
-              <Link to="/search" style={{ textDecoration: 'none' }}>
+              <Link to="/form" style={{ textDecoration: 'none' }}>
                   <div className="redirect_button">
-                      <h1 className="button_text">Go To the search tool</h1>
+                      <h1 className="button_text">Go to the search tool</h1>
                   </div>
               </Link>
           </div>
@@ -55,11 +55,6 @@ class Landing extends React.Component<any> {
           <div className="right-column">
             <h3>Get Funding</h3>
             <p>Start applying on your own or reach out to an assistance to guide you thorugh applying. </p>
-              <Link to="/form" style={{ textDecoration: 'none' }}>
-                  <div className="redirect_button">
-                      <h1 className="button_text">Go To the funding form</h1>
-                  </div>
-              </Link>
         </div>
       </div>  
       </div>

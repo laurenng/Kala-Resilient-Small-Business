@@ -16,10 +16,6 @@ h1, h3, p, ul{
     font-weight: normal;
 }
 
-.fundBox h1 {
-    font-weight: bolder;
-}
-
 h1 {
     margin:0;
     font-size: 1.5em;
@@ -31,16 +27,25 @@ h1 {
 }
 
 .fundBox {
-    border: solid 2px gray;
-    border-radius: 20px;
-    background-color: white;
-    padding: 2em;
     margin: 1.5em;
+}
+
+.fundBox h1 {
+    font-weight: bolder;
+}
+
+.fundBoxTop {
+    border: solid 2px gray;
+    border-bottom: none;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: white;
+    padding: 1.5em;
+    padding-bottom: 0;
 }
 
 .fundBox:hover {
     background-color: rgb(218, 214, 214);
-    box-shadow: 0.5em 0.5em lightgray;
 }
 
 .fundingFont {
@@ -54,7 +59,8 @@ h1 {
     padding: 0.5em;
     width: fit-content;
     border-radius: 0.5em;
-    border: solid 0.2em rgb(83, 82, 82);
+    background-color: #0A7088;
+    border: solid 0.2em #0A7088;
 }
 
 .form-button {
@@ -72,7 +78,6 @@ h1 {
 }
 
 .url {
-    background-color: rgb(83, 82, 82);
     text-decoration: none;
     color: white;
 }
@@ -86,18 +91,10 @@ h1 {
     text-decoration: none;
 }
 
-.button {
-    background-color: white;
-    border-radius: 8px;
-    padding-left: 2em;
-    padding-right: 2em;
-}
 
 .selected {
     background-color: white;
-    text-decoration: underline;
-    text-decoration-color: #00BCE8;
-    text-decoration-thickness: .2em;
+    border-bottom:#0A7088 .2em solid;
 }
 
 .selected h1 {
@@ -150,8 +147,8 @@ h1 {
     padding: 0.5em;
     width: fit-content;
     border-radius: 0.5em;
-    border: solid 0.2em #00BCE8 ;
-    background-color: #00BCE8 ;
+    border: solid 0.2em #0A7088 ;
+    background-color: #0A7088 ;
 }
 
 /* #0A7088 */
@@ -179,7 +176,6 @@ h1 {
 }
 
 .learnMoreBox {
-    margin: -2em;
     background-color: #0A7088;
     display: flex;
     border-bottom-left-radius: 15px;
