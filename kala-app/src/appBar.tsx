@@ -100,6 +100,16 @@ export default function PersistentDrawerRight() {
 
   const pushHistory = (path: string) => {
     history.push(path);
+   // console.log(history);
+  }
+
+  // Used to go to a specific category in library atm
+  const pushHistorySearch = (path: string, search: string) => {
+    history.push({
+      pathname: path,
+      search: search
+      });
+    // console.log(history);
   }
 
   const handleDrawerOpen = () => {
@@ -167,7 +177,7 @@ export default function PersistentDrawerRight() {
           </ListItem>
           <ListItem button component={Link} to="/form">
               <FontAwesomeIcon icon={faLanguage} size="1x" color="#808080" />
-              <ListItemText primary={' Language Help'} onClick={ () => pushHistory("/form")}/>
+              <ListItemText primary={' Language Help'} onClick={ () => pushHistorySearch("/library", "lang")}/>
           </ListItem>
         </List>
       </Drawer>

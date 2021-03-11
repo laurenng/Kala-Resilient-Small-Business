@@ -34,6 +34,13 @@ interface libraryState {
 
 interface libraryProp extends RouteComponentProps<any> {
   /* other props for ChildComponent */
+  location: {
+    hash: string
+    key: string
+    pathname: string
+    search: string
+    state: string
+    }
 }
 
 class LibraryHome extends React.Component<libraryProp, libraryState> {
@@ -45,9 +52,18 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
 
   constructor(props: libraryProp, state: libraryState){
     super(props);
-    this.state = {
-      cat: "home"
-    };
+    // console.log(props);
+    if (props.location.search !== "") {
+      this.state = {
+        cat: "lang"
+      };
+
+    } else {
+      this.state = {
+        cat: "home"
+      };
+    }
+    
   }
 
     render() {
@@ -162,12 +178,12 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
     }
 
     private createBanner = (title: string, bgImg: string) => {
+      // console.log("Created banner: " + title);
       let styles = {
         backgroundImage: "linear-gradient(to right, grey 9%, silver 100%), url(" + bgImg + ")",
         opacity: 0.8,
         backgroundBlendMode: 'multiply',
         margin: "-1.3em"
-        
     }
       return (
       <div className="catTitle" style={styles}>
@@ -177,7 +193,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
     }
   
     private libraryLoad = () => {
-      console.log("back btn clicked")
+      // console.log("back btn clicked")
       this.setState({
         cat: "home"
       })
