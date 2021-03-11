@@ -50,14 +50,13 @@ class TaRect extends React.Component<props, state> {
       let shortenWebsite = d.website.split('/')[2];
       return(
         <div className="fundBox" onClick={() => this.handleClick(d)}>
-            <h1>{d.orgName}</h1>
-
-            <div className="turquoise-box">
-              <a href={d.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+            <div className="fundBoxTop">
+              <h1>{d.orgName}</h1>
+              <div className="turquoise-box">
+                <a href={d.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+              </div>
+              <br></br>
             </div>
-
-            <br></br>
-            <br></br>
             <div className="learnMoreBox">
               <h1>Learn More</h1>
             </div>

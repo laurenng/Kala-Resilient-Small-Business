@@ -53,10 +53,10 @@ class SearchHome extends React.Component<searchProp, searchState> {
             </div>
 
             <div className= "inline">
-              <div className = {this.state.tab === "provider" ? "selected button" : "button"} onClick={this.providerClick}>
+              <div className = {this.state.tab === "provider" ? "selected" : ""} onClick={this.providerClick}>
                 <h1>Assistance</h1>
               </div>
-              <div className = {this.state.tab === "funding" ? "selected button" : "button"} onClick={this.fundingClick}>
+              <div className = {this.state.tab === "funding" ? "selected" : ""} onClick={this.fundingClick}>
                 <h1>Funding</h1>
               </div>
             </div>

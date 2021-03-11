@@ -132,6 +132,7 @@ class FundingForm extends React.Component<any, any> {
       this.fillProgress();
       return (
         <main>
+            <br></br>
             <div id="progressBar">
               {dots}
             </div>
