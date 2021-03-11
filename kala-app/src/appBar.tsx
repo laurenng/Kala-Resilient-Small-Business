@@ -94,7 +94,7 @@ createStyles({
       color: 'black'
     },
     menuFont: {
-      marginLeft: ".6em"
+      marginLeft: '.6em'
     },
     logoLink: {
       textDecoration: 'none',
@@ -105,6 +105,10 @@ createStyles({
     logoImg: {
       width: '80%',
       height: '100%',
+    },
+    kala: {
+      width: '4em',
+      height: '4em'
     }
   }),
 );
@@ -150,7 +154,7 @@ export default function PersistentDrawerRight() {
         <Toolbar>
           {/* CHANGE LOGO TO LINK */}
             <Link to="/" onClick={ () => pushHistory("/")} className={classes.logoLink}>
-              <img src={kala}/>
+              <img src={kala} className={classes.kala}/>
             </Link>
             <Typography variant="h6" noWrap className={classes.title}>
               Funding Finder
