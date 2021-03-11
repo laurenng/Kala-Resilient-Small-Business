@@ -96,6 +96,16 @@ createStyles({
     menuFont: {
       marginLeft: ".6em"
     },
+    logoLink: {
+      textDecoration: 'none',
+      display: 'flex',
+      height: '15%',
+      width: '15%'
+    },
+    logoImg: {
+      width: '80%',
+      height: '100%',
+    }
   }),
 );
 
@@ -129,19 +139,23 @@ export default function PersistentDrawerRight() {
   return (
     <div className={classes.root}>
       <CssBaseline />
+      <Router>
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
       >
+        
         <Toolbar>
           {/* CHANGE LOGO TO LINK */}
-            <img src={kala} height='15%' width='15%'/>
+            <Link to="/" onClick={ () => pushHistory("/")} className={classes.logoLink}>
+              <img src={kala}/>
+            </Link>
             <Typography variant="h6" noWrap className={classes.title}>
               Funding Finder
             </Typography>
-          
+            
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -154,7 +168,7 @@ export default function PersistentDrawerRight() {
         </Toolbar>
       </AppBar>
       
-      <Router>
+      
       <Drawer
         className={classes.drawer}
         variant="persistent"

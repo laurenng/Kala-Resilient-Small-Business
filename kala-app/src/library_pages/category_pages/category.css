@@ -5,8 +5,13 @@
     padding: 5%;
     background-position: center;
     background-size: cover;
+    margin-bottom: .5em;
 }
 
 .backArrow {
     transform: rotateY(180deg);
+}
+
+h4 {
+    font-weight: normal;
 }
