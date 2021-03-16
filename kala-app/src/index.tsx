@@ -1,10 +1,13 @@
+/**
+Creates the application :) sets up with redux store
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
 // Extra optimizations 
-import * as serviceWorker from './serviceWorker';
-import reportWebVitals from './reportWebVitals';
+import * as serviceWorker from './performance/serviceWorker';
+import reportWebVitals from './performance/reportWebVitals';
 
 // Redux Imports
 import { Provider } from 'react-redux'

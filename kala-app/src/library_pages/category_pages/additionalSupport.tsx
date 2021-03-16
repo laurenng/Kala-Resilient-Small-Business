@@ -1,3 +1,7 @@
+/**
+Creates the business question component with forms for users to input their
+business industry, type and date. Data is temporarily saved to redux 
+*/
 import React from 'react';
 import './category.css';
 import {createResource} from './createResource';

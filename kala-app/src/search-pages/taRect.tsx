@@ -3,7 +3,7 @@ import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
 import { updateTA } from "../redux-data/actions";
 import { connect } from "react-redux";
-import { AppState, Filters, TA, languageFilter } from '../redux-data/types';
+import { AppState, Filters, TA} from '../redux-data/types';
 import fetchFromAPI from '../redux-data/fetchFromAPI';
 import booleanCheck from './filterCheck';
 

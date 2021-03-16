@@ -1,6 +1,6 @@
-const apiURL = "http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/";
+// const apiURL = "http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/";
 
-async function fetchFromAPI<T>(url: string): Promise<any> {
+async function fetchFromAPI(url: string): Promise<any> {
     return fetch(url)
     .then(response => {
       if (!response.ok) {

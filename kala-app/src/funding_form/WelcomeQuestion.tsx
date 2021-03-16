@@ -1,5 +1,5 @@
 import './fundingForm.css';
-import kala from './kala_orange_solid 3.svg';
+import kala from '../assets/kala_orange_solid 3.svg';
 
 const WelcomeQuestion = () => {
     return(

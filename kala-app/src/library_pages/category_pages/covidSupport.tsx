@@ -1,7 +1,6 @@
 import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
-import Arrow from '../library_assets/Arrow 1.png';
 
 class CovidSupport extends React.Component<any> {
   componentDidMount() {

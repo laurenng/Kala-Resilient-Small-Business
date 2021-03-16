@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 
 // properties that belong to SearchHome
 interface searchProps {

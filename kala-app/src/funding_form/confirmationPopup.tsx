@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
-import kala from './kala_orange_solid 3.svg';
+import kala from '../assets/kala_orange_solid 3.svg';
 import './fundingForm.css';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
