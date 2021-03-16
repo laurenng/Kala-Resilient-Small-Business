@@ -15,7 +15,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import kala from './assets/kala_orange_clearbg.png';
-import {Route, BrowserRouter as Router, Switch, Link, useHistory} from 'react-router-dom'
+import {BrowserRouter as Router, Link} from 'react-router-dom'
 import history from "./customHistory";
 
 // font awesome icons
@@ -154,7 +154,8 @@ export default function PersistentDrawerRight() {
         <Toolbar>
           {/* CHANGE LOGO TO LINK */}
             <Link to="/" onClick={ () => pushHistory("/")} className={classes.logoLink}>
-              <img src={kala} className={classes.kala}/>
+              <img src={kala} alt= "funding finder logo of kala the squid with 3 tentacles and a smiley face" 
+              className={classes.kala}/>
             </Link>
             <Typography variant="h6" noWrap className={classes.title}>
               Funding Finder

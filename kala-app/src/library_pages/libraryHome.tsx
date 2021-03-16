@@ -1,6 +1,5 @@
 import React from 'react';
 import './libraryStyle.css';
-import kala from './library_assets/kala_black_solid_bg.png';
 import {RouteComponentProps} from 'react-router-dom';
 import Loans from './category_pages/loans';
 import Tribal from './category_pages/tribalBusiness';
@@ -10,10 +9,7 @@ import FinancialLiteracy from './category_pages/financialLit';
 import LanguageSupport from './category_pages/langSupport';
 import CovidSupport from './category_pages/covidSupport';
 import AdditionalSupport from './category_pages/additionalSupport';
-import libHistory from './libraryHistory';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import {ArrowBackIos, ArrowForwardIos} from '@material-ui/icons';
+import {ArrowBackIos} from '@material-ui/icons';
 
 import loansImg from '../assets/library_banners/loans-16-9.jpg';
 import finLitImg from '../assets/library_banners/fin-lit-and-education-16-9.jpg';
@@ -23,10 +19,7 @@ import languageImg from '../assets/library_banners/language-16-9.jpg';
 import covidImg from '../assets/library_banners/covid-related-16-9.jpg';
 import addImg from '../assets/library_banners/additional-16-9.jpg';
 import grantsImg from '../assets/library_banners/grants-16-9.jpg';
-import langBtn from '../assets/Lang Assistance_.png';
-import { url } from 'inspector';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 interface libraryState {
   cat: string

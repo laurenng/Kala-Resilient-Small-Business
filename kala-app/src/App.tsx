@@ -1,14 +1,18 @@
+/**
+sets up wiht react router 
+*/
+
 import React from 'react';
 import './App.css';
 
 // pages that are linked in navbar
 import SearchHome from './search-pages/searchHome';
 import LibraryHome from './library_pages/libraryHome';
-import Landing from './Landing';
-import ProfileHome from './profileHome';
+import Landing from './mainPages/Landing';
+import ProfileHome from './mainPages/profileHome';
 import FundingExpand from './search-pages/fundExpanded';
 import TaExpand from './search-pages/TaExpanded';
-import NotFoundPage from './NotFoundPage';
+import NotFoundPage from './mainPages/NotFoundPage';
 
 // React-Router 
 import {Route, Router, Switch} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
@@ -22,7 +26,6 @@ import history from "./customHistory";
 import FundingForm from './funding_form/fundingForm';
 
 //hamburgerMenu
-import PersistentDrawerLeft from './testAppBar';
 import PersistentDrawerRight from './appBar';
 
 import commerceLogo from './assets/Logo__Standard_RGB.png';
@@ -34,7 +37,7 @@ class App extends React.Component<any> {
   Copyright = () => {
     return (
       <footer id="copyrightFooter">
-        <img src={commerceLogo} height='20%' width='50%'/>
+        <img src={commerceLogo} alt="WA Commerce Department logo" height='20%' width='50%'/>
         <Typography variant="body2" color="textSecondary" align="left">
           {/* {'Copyright © '} {' '} 
           {new Date().getFullYear()}

@@ -1,9 +1,13 @@
+/**
+Creates the business question component with forms for users to input their
+business industry, type and date. Data is temporarily saved to redux 
+*/
 import { connect } from 'react-redux';
 import React from 'react';
 import { updateFilters } from '../../redux-data/actions';
 import AppState, { Filters } from '../../redux-data/types';
 import './../fundingForm.css';
-import kala from './../kala_orange_solid 3.svg';
+import kala from '../../assets/kala_orange_solid 3.svg';
 
 // material ui form styling
 import MenuItem from '@material-ui/core/MenuItem';

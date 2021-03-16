@@ -56,12 +56,11 @@ class FundingRect extends React.Component<props, state> {
     }
 
     private individualRect = (num: number) => {
-      
       // getting the object specific at the index represented at num
       let d = this.state.fundingOpps[num];
-
       let funding = null;
 
+      
       if (d.fundingType === "Loan") {
         funding = <FontAwesomeIcon icon={faHandshake} size="1x" color="#EA5F14" />
       } else { // grants 
@@ -141,10 +140,6 @@ class FundingRect extends React.Component<props, state> {
       }
       
       let selectedData = new Set();
-
-      // REMEMBER TO DELTE THIS IT'S TO SHOW OFF THAT NATIVES ARE IMPORTANT AND HAVE FUNDING
-      selectedData.add(data[4])
-      
       data.map((d: Fund) => {
         let uses = d.qualifications.useCases; 
         let demographic = d.qualifications.demographics; 

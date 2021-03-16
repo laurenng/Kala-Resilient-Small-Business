@@ -18,7 +18,7 @@ interface searchState {
   tab: string
 }
 
-const SCROLLTARGET = 100; 
+// const SCROLLTARGET = 100; 
 
 class SearchHome extends React.Component<searchProp, searchState> {
     constructor(props: searchProp, state: searchState){
