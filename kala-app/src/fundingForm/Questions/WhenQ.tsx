@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { updateFilters } from '../../redux-data/actions';
-import AppState, { Filters } from '../../redux-data/types';
-import './../fundingForm.css';
+import { updateFilters } from '../../reduxData/actions';
+import AppState, { Filters } from '../../reduxData/types';
+import '../fundingForm.css';
 import kala from '../../assets/kala_orange_solid 3.svg';
 
 interface props {

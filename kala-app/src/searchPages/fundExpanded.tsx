@@ -6,7 +6,7 @@ dfasdfas
 import React from 'react';
 import './searchStyle.css';
 import { connect } from "react-redux";
-import { AppState, Fund } from "../redux-data/types";
+import { AppState, Fund } from "../reduxData/types";
 import { ArrowBackIos } from '@material-ui/icons';
 
 // properties that belong to SearchHome

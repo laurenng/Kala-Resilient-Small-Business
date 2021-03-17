@@ -17,13 +17,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import kala from './assets/kala_orange_clearbg.png';
 import {BrowserRouter as Router, Link} from 'react-router-dom'
 import history from "./customHistory";
-
 // font awesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLanguage, faHandHoldingUsd, faBook, faHome } from '@fortawesome/free-solid-svg-icons';
 
 const drawerWidth = 240;
 
+/**
+ * Sets the styles for the nav bar
+ */
 const useStyles = makeStyles((theme: Theme) =>
 createStyles({
   root: {
@@ -113,6 +115,10 @@ createStyles({
   }),
 );
 
+/**
+ * Creates & returns the right aligned hamburger menu navigation bar for the app
+ * Uses react router and custom browser history for navigation/routing
+ */
 export default function PersistentDrawerRight() {
   const classes = useStyles();
   const theme = useTheme();
@@ -120,7 +126,6 @@ export default function PersistentDrawerRight() {
 
   const pushHistory = (path: string) => {
     history.push(path);
-   // console.log(history);
   }
 
   // Used to go to a specific category in library atm
@@ -129,7 +134,6 @@ export default function PersistentDrawerRight() {
       pathname: path,
       search: search
       });
-    // console.log(history);
   }
 
   const handleDrawerOpen = () => {
@@ -152,7 +156,6 @@ export default function PersistentDrawerRight() {
       >
         
         <Toolbar>
-          {/* CHANGE LOGO TO LINK */}
             <Link to="/" onClick={ () => pushHistory("/")} className={classes.logoLink}>
               <img src={kala} alt= "funding finder logo of kala the squid with 3 tentacles and a smiley face" 
               className={classes.kala}/>

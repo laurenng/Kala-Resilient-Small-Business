@@ -1,25 +1,26 @@
 import React from 'react';
 import './libraryStyle.css';
 import {RouteComponentProps} from 'react-router-dom';
-import Loans from './category_pages/loans';
-import Tribal from './category_pages/tribalBusiness';
-import Grants from './category_pages/grants';
-import MinorityBusiness from './category_pages/minorityBusiness';
-import FinancialLiteracy from './category_pages/financialLit';
-import LanguageSupport from './category_pages/langSupport';
-import CovidSupport from './category_pages/covidSupport';
-import AdditionalSupport from './category_pages/additionalSupport';
+import Loans from './categoryPages/loans';
+import Tribal from './categoryPages/tribalBusiness';
+import Grants from './categoryPages/grants';
+import MinorityBusiness from './categoryPages/minorityBusiness';
+import FinancialLiteracy from './categoryPages/financialLit';
+import LanguageSupport from './categoryPages/langSupport';
+import CovidSupport from './categoryPages/covidSupport';
+import AdditionalSupport from './categoryPages/additionalSupport';
 import {ArrowBackIos} from '@material-ui/icons';
-
-import loansImg from '../assets/library_banners/loans-16-9.jpg';
-import finLitImg from '../assets/library_banners/fin-lit-and-education-16-9.jpg';
-import tribalImg from '../assets/library_banners/tribal-owned-16-9.jpg';
-import minorityImg from '../assets/library_banners/minority-owned-16-9.jpg';
-import languageImg from '../assets/library_banners/language-16-9.jpg';
-import covidImg from '../assets/library_banners/covid-related-16-9.jpg';
-import addImg from '../assets/library_banners/additional-16-9.jpg';
-import grantsImg from '../assets/library_banners/grants-16-9.jpg';
 import Grid from '@material-ui/core/Grid';
+// Category resource banner images
+import loansImg from '../assets/libraryBanners/loans-16-9.jpg';
+import finLitImg from '../assets/libraryBanners/fin-lit-and-education-16-9.jpg';
+import tribalImg from '../assets/libraryBanners/tribal-owned-16-9.jpg';
+import minorityImg from '../assets/libraryBanners/minority-owned-16-9.jpg';
+import languageImg from '../assets/libraryBanners/language-16-9.jpg';
+import covidImg from '../assets/libraryBanners/covid-related-16-9.jpg';
+import addImg from '../assets/libraryBanners/additional-16-9.jpg';
+import grantsImg from '../assets/libraryBanners/grants-16-9.jpg';
+
 
 interface libraryState {
   cat: string
@@ -36,16 +37,17 @@ interface libraryProp extends RouteComponentProps<any> {
     }
 }
 
+/**
+ * This class is renders and controls the library feature. It includes the library home
+ * as well as the switching of displays between different library category views.
+ */
 class LibraryHome extends React.Component<libraryProp, libraryState> {
   componentDidMount() {
-    // console.log(libHistory)
-    // console.log(this.state)
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // Scrolls to the top of the page on mount
   }
 
   constructor(props: libraryProp, state: libraryState){
     super(props);
-    // console.log(props);
     if (props.location.search !== "") {
       this.state = {
         cat: "lang"
@@ -60,6 +62,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
   }
 
     render() {
+      // Switches to the proper category display depending on state
       let displayContent; 
       let category = this.state.cat;
       switch (category) {
@@ -128,13 +131,9 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
             
       }
 
-      
-
       return (
           <main>
             <br></br>
-            {/* <div className="translatorBtn" onClick={() => this.categoryClick("lang")}>Need a translator?</div>   */}
-            {/* <img className="translatorBtn" src={langBtn} onClick={() => this.categoryClick("lang")} /> */}
             {displayContent}
             <br></br>
             <div className="gridContainer" id="libraryCats">
@@ -170,8 +169,14 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       );  
     }
 
+    /**
+     * Creates the interactive category banners for the library
+     * 
+     * @param title - String - the title of the category
+     * @param bgImg - String - the background image for the category banner
+     * @returns div with the corresponding banner 
+     */
     private createBanner = (title: string, bgImg: string) => {
-      // console.log("Created banner: " + title);
       let styles = {
         backgroundImage: "linear-gradient(to right, grey 9%, silver 100%), url(" + bgImg + ")",
         opacity: 0.8,
@@ -185,30 +190,42 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       </div>);
     }
   
+    /**
+     * Sets the initial state of the library to the library home page view
+     */
     private libraryLoad = () => {
-      // console.log("back btn clicked")
       this.setState({
         cat: "home"
       })
-      // console.log(this.state)
       document.getElementById("libraryCats")?.classList.remove("hidden");
     }
 
+    /**
+     * Creates the library home grid containers for each category
+     * 
+     * @param categoryName - String - the name of the library category
+     * @param catImg - any - the image of the category preview from the library grid
+     * @returns - a category div to be used in the library home grid
+     */
     private createCategory = (categoryName: string, catImg: any) => {
       return (
         <div className="categoryContainer">
           <img className="catIcon" src={catImg} alt="Category Icon"></img>
           <h2>{categoryName}</h2>
-          {/* <ArrowForwardIos className="navArrow"></ArrowForwardIos> */}
         </div>
         );
     }
 
+    /**
+     * Sets the state to the category the user clicked and hides the 
+     * grid of library categories
+     * 
+     * @param categoryName - String - the name of the category clicked
+     */
     private categoryClick = (categoryName: string) => {
       this.setState({
         cat: categoryName
       })
-      // console.log(this.state)
       document.getElementById("libraryCats")?.classList.add("hidden");
     }
       

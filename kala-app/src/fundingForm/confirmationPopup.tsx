@@ -5,6 +5,7 @@ import kala from '../assets/kala_orange_solid 3.svg';
 import './fundingForm.css';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
+
 // styling courtesy of material-ui
 function getModalStyle() {
     const top = 75;
@@ -32,6 +33,13 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+/**
+ * Creates the confirmation pop up for users when submiting the funding finder
+ * form
+ * 
+ * @returns div with a pop up modal used to confirm whether a user would like to
+ * submit their questionarie information
+ */
 export default function ConfirmPopup() {
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);

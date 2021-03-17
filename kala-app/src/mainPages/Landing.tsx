@@ -3,7 +3,7 @@ LAUREN
 */
 import React from 'react';
 import './styles/landing.css';
-import image from './../assets/landing_page/landing-pg.jpg';
+import image from './../assets/landingPage/landing-pg.jpg';
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

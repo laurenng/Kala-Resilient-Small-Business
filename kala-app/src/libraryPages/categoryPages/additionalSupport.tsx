@@ -1,11 +1,10 @@
-/**
-Creates the business question component with forms for users to input their
-business industry, type and date. Data is temporarily saved to redux 
-*/
 import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
 
+/**
+Creates the Additional Support page of the library with pertinent resources
+*/
 class AdditionalSupport extends React.Component<any> {
   componentDidMount() {
     window.scrollTo(0, 0);

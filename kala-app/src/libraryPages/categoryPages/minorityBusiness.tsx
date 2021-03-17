@@ -2,6 +2,9 @@ import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
 
+/**
+Creates the Minority Business page of the library with pertinent resources
+*/
 class MinorityBusiness extends React.Component<any> {
 
   componentDidMount() {

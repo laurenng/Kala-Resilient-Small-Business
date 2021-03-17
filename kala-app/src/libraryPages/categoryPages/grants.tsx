@@ -2,6 +2,9 @@ import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
 
+/**
+Creates the Grants page of the library with pertinent resources
+*/
 class Grants extends React.Component<any> {
   componentDidMount() {
     window.scrollTo(0, 0);
