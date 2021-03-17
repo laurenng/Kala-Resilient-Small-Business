@@ -12,7 +12,7 @@ import reportWebVitals from './performance/reportWebVitals';
 // Redux Imports
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import reducer from './redux-data/reducer';
+import reducer from './reduxData/reducer';
 
 // import pages 
 import App from './App';

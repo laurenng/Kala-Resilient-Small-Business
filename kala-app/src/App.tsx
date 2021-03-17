@@ -1,17 +1,17 @@
 /**
-sets up wiht react router 
+sets up with react router 
 */
 
 import React from 'react';
 import './App.css';
 
 // pages that are linked in navbar
-import SearchHome from './search-pages/searchHome';
-import LibraryHome from './library_pages/libraryHome';
+import SearchHome from './searchPages/searchHome';
+import LibraryHome from './libraryPages/libraryHome';
 import Landing from './mainPages/Landing';
 import ProfileHome from './mainPages/profileHome';
-import FundingExpand from './search-pages/fundExpanded';
-import TaExpand from './search-pages/TaExpanded';
+import FundingExpand from './searchPages/fundExpanded';
+import TaExpand from './searchPages/TaExpanded';
 import NotFoundPage from './mainPages/NotFoundPage';
 
 // React-Router 
@@ -23,7 +23,7 @@ import Link from '@material-ui/core/Link';
 import history from "./customHistory";
 
 //fundingform
-import FundingForm from './funding_form/fundingForm';
+import FundingForm from './fundingForm/fundingForm';
 
 //hamburgerMenu
 import PersistentDrawerRight from './appBar';

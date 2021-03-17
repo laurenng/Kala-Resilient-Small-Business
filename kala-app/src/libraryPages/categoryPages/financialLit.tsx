@@ -2,6 +2,9 @@ import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
 
+/**
+Creates the Financial Literacy page of the library with pertinent resources
+*/
 class FinancialLiteracy extends React.Component<any> {
     componentDidMount() {
       window.scrollTo(0, 0);

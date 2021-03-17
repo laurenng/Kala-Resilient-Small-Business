@@ -2,6 +2,9 @@ import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
 
+/**
+Creates the Tribal Business page of the library with pertinent resources
+*/
 class Tribal extends React.Component<any> { 
   
   componentDidMount() {
@@ -13,7 +16,6 @@ class Tribal extends React.Component<any> {
           <div>
             <h4>We understand that Tribal owned businesses have different needs and processes when it comes to 
                 operating as well as receiving funding. Here are some resources that cater specifically to Native Americans.</h4>
-            
             {createResource("Potlach Fund", "http://www.potlatchfund.org/", "potlatchfund.org")}
             {createResource("Small Business Administration (SBA) for Tribes", "https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-native-american-affairs/office-native-american-affairs-resources", "sba.gov")}
             {createResource("First Nations Grantseeking Resources", "https://www.firstnations.org/grantmaking/grantseeker-resources/", "firstnations.org")}

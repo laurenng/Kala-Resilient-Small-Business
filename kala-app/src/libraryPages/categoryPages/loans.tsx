@@ -2,6 +2,9 @@ import React from 'react';
 import './category.css';
 import {createResource} from './createResource';
 
+/**
+Creates the Loans page of the library with pertinent resources
+*/
 class Loans extends React.Component<any> {
     componentDidMount() {
       window.scrollTo(0, 0);

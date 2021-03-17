@@ -1,10 +1,10 @@
 import React from 'react';
 import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
-import { updateTA } from "../redux-data/actions";
+import { updateTA } from "../reduxData/actions";
 import { connect } from "react-redux";
-import { AppState, Filters, TA} from '../redux-data/types';
-import fetchFromAPI from '../redux-data/fetchFromAPI';
+import { AppState, Filters, TA} from '../reduxData/types';
+import fetchFromAPI from '../reduxData/fetchFromAPI';
 import booleanCheck from './filterCheck';
 
 interface props extends RouteComponentProps<any> {

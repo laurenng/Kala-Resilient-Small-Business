@@ -2,10 +2,10 @@
 import React from 'react';
 import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
-import { updateFund } from "../redux-data/actions";
+import { updateFund } from "../reduxData/actions";
 import { connect } from "react-redux";
-import { AppState, Fund, Filters} from "../redux-data/types";
-import fetchFromAPI from "../redux-data/fetchFromAPI";
+import { AppState, Fund, Filters} from "../reduxData/types";
+import fetchFromAPI from "../reduxData/fetchFromAPI";
 import booleanCheck from './filterCheck';
 
 // font awesome icons
