@@ -1,3 +1,7 @@
+/**
+Error not found page. we need to work on this some more
+*/
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 

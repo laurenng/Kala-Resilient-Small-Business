@@ -1,3 +1,8 @@
+/*
+This is the main Funding and Assistance component. It renders the header 
+with introduction and funding/assistnace buttons and calls to render the 
+selected data list. 
+*/
 import React from 'react';
 import './searchStyle.css';
 import FundingRect  from './FundingRect';

@@ -1,3 +1,7 @@
+/**
+The profile page component that should display lists of funding for the user. 
+*/
+
 import React from 'react';
 
 // properties that belong to SearchHome

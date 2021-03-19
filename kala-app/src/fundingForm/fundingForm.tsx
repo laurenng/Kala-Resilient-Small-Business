@@ -1,3 +1,8 @@
+/**
+The funding questionaire homepage where users are taken through the 
+entire process. From the introduction to submission. 
+*/
+
 // import { Divider } from '@material-ui/core';
 import React from 'react';
 import './fundingForm.css';

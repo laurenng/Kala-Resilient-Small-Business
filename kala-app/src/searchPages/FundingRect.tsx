@@ -1,3 +1,11 @@
+/*
+This creates the funding opportunity list. Each funding opportunity includes
+the name, link to additional information, and url. 
+
+This class also utilizes filtering criterias 
+from the search form to narrow the list of displayed funding providers.
+*/
+
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import './searchStyle.css';

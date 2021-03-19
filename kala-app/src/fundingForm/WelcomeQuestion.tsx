@@ -1,3 +1,7 @@
+/**
+The welcome to questionaire introduction to give users insights 
+into what this form is used for. 
+*/
 import './fundingForm.css';
 import kala from '../assets/kala_orange_solid 3.svg';
 

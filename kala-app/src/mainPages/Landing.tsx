@@ -1,6 +1,8 @@
 /**
-LAUREN 
+The landing page offers a brief overview of everything the application 
+has to offer. 
 */
+
 import React from 'react';
 import './styles/landing.css';
 import image from './../assets/landingPage/landing-pg.jpg';

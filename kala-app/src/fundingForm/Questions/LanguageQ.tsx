@@ -1,3 +1,8 @@
+/**
+Creates the language question component with forms for users to select
+prefered language. Data is temporarily saved to redux 
+*/
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateFilters } from '../../reduxData/actions';
