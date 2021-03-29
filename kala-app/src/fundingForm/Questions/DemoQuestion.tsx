@@ -1,3 +1,7 @@
+/**
+Creates the demographics question component with forms for users to select their
+demographics. Data is temporarily saved to redux 
+*/
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateFilters } from '../../reduxData/actions';

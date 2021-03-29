@@ -1,3 +1,8 @@
+/*
+This is a detailed view of the selected technical assistance provider. Here, we provide phone, email,
+suppor areas, location, and brief description. If the user is interested, we also 
+provide a link to connect user to organization. 
+*/
 import React from 'react';
 import './searchStyle.css';
 import { connect } from "react-redux";

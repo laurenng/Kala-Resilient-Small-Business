@@ -1,3 +1,8 @@
+/**
+Creates the when do you need funding component with forms for users to 
+let us know when they need funding. Data is temporarily saved to redux 
+*/
+
 import { connect } from 'react-redux';
 import React from 'react';
 import { updateFilters } from '../../reduxData/actions';

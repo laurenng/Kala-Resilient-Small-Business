@@ -1,6 +1,7 @@
 /*
-
-dfasdfas
+This is a detailed view of the selected funding opportuntity. Here, we provide funding type,
+provider, details, terms, uses, and a brief description. If the user is interested, we also 
+provide a link to the application. 
 */
 
 import React from 'react';

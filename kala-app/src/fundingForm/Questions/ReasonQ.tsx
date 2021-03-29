@@ -1,3 +1,8 @@
+/**
+Creates the funding reason question component with forms for users to select
+the reason(s) they need funding. Data is temporarily saved to redux 
+*/
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateFilters } from '../../reduxData/actions';

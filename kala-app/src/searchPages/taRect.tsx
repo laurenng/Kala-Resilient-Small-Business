@@ -1,3 +1,10 @@
+/*
+This creates the technical assistance provider list. Each 
+technical assistant provider includes the name, link to additional
+information, and url. This class also utilizes filtering criterias 
+from the search form to narrow the list of displayed TA providers.
+*/
+
 import React from 'react';
 import './searchStyle.css';
 import { RouteComponentProps, withRouter } from 'react-router'; 
