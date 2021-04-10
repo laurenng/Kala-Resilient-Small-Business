@@ -80,8 +80,10 @@ class FundingForm extends React.Component<any, any> {
           <br></br>
           <div className="controls">
             <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
-            <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
-            {nextBtn}
+            <div className="inline">
+              <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
+              {nextBtn}
+            </div>
           </div>
         </div>
       )

@@ -100,18 +100,20 @@ class DemoQuestion extends React.Component<props, state> {
                   <img src={kala} alt="Kala the squid"/>
                   <div>
                     <h5 className="questionInstructions">Select that apply to you.</h5>
-                    {this.demoOptions.map(answer => {
-                        // @ts-ignore 
-                        let booleanChecked = this.state[answer.label];
-                        return(
-                            <div key={answer.label}>
-                                {/* @ts-ignore */}
-                                <input className="answer" type="checkbox" checked={booleanChecked}
-                                id={answer.label} value={answer.label} onChange={this.handleChange}></input>
-                                <label htmlFor={answer.value}>{answer.value}</label>
-                            </div>
-                        )
-                    })}
+                    <div id="optionList">
+                        {this.demoOptions.map(answer => {
+                            // @ts-ignore 
+                            let booleanChecked = this.state[answer.label];
+                            return(
+                                <div className="option" key={answer.label}>
+                                    {/* @ts-ignore */}
+                                    <input className="answer" type="checkbox" checked={booleanChecked}
+                                    id={answer.label} value={answer.label} onChange={this.handleChange}></input>
+                                    <label htmlFor={answer.value}>{answer.value}</label>
+                                </div>
+                            )
+                        })}
+                    </div>
                     <br></br>
                     {tribalAffQ}
                     

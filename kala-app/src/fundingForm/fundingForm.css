@@ -79,9 +79,16 @@
 }
 
 .controls {
+    width: 90%;
+    margin: auto;
     display: flex;
     flex-direction: row;
-    /* justify-content: flex-end; */
+    justify-content:space-between;
+}
+
+.inline {
+    display: flex;
+    flex-direction: row;
 }
 
 .questionBubble {
@@ -94,8 +101,8 @@
     top: 68px;
     margin: 3%;
     text-align: left;
-    width: 13em;
-    margin-left: 65px;
+    width: 80%;
+    margin-left: 13%;
 }  
 
 .question {
@@ -190,3 +197,40 @@
     justify-content: center;
     width: 100%;
 }
+
+@media (min-width: 1000px) {
+    label {
+        font-size: 1.1em;
+    }
+
+    .page {
+        width: 85%;
+        margin: auto;
+        padding: 5%;
+    }
+
+    #optionList { 
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        flex-wrap: wrap;
+    }
+
+    .option {
+        flex: 2; 
+        width: 200px
+    }
+}
+/* 
+@media (max-width: 800px) {
+    body {
+        background-color: pink;
+        font-size: 7em;
+    }
+
+    .page {
+        width: 75%;
+        margin: auto;
+        padding: 5%;
+    }
+} */

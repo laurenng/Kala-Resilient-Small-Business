@@ -17,7 +17,7 @@
   /* Centered text */
   .centered_text {
     position: absolute;
-    top: 62%;
+    top: 50%;
     left: 50%;
     width: 70%;
     text-align: left;
