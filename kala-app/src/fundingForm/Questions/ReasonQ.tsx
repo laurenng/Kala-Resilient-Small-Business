@@ -65,7 +65,7 @@ class ReasonQ extends React.Component<props, state> {
                   </div>
                   <div className="sideByside">
                   <img src={kala} alt="Kala the squid"/>
-                  <div>
+                  <div id="optionList">
                   {this.q1Options.map(answer => {
                       // @ts-ignore 
                       let booleanChecked = this.state[answer.label];

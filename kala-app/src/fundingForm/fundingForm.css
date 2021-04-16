@@ -67,11 +67,10 @@
 
 #beginForm {
     margin-left: 75%;
+    width: 7em;
 }
 
 .backBtn {
-    margin-left: 40%;
-    margin-right: 5px;
     color: black;
     background-color: white;
     border: #0A7088 2px solid;
@@ -91,9 +90,13 @@
     flex-direction: row;
 }
 
+button {
+    width: 5em;
+}
+
 .questionBubble {
     border: solid black 5px;
-    border-radius: 50px;
+    border-radius: 30px;
     border-bottom-left-radius: 0;
     padding-left: 5%;
     padding-right: 5%;
@@ -102,11 +105,14 @@
     margin: 3%;
     text-align: left;
     width: 80%;
+    max-height: 8em;
     margin-left: 13%;
+    overflow: scroll;
+    overflow-y: scroll;
 }  
 
 .question {
-    font-size: 24px;
+    font-size: 1em;
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -204,33 +210,36 @@
     }
 
     .page {
-        width: 85%;
         margin: auto;
         padding: 5%;
+        width: 85%;
+    }
+
+    .answer {
+        width: 1.5em;
+        height: 1.5em;
     }
 
     #optionList { 
-        display: flex;
-        flex-direction: column;
-        height: 200px;
-        flex-wrap: wrap;
+        display: grid;
+        width: 85%;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: auto auto auto; 
+        column-gap: 5px;
+        row-gap: 5px;
     }
 
-    .option {
-        flex: 2; 
-        width: 200px
+    .dropDownList {
+        margin: auto;
+    }
+
+    button {
+        width: 7em;
+        margin-left: 0.3em;
+        margin-right: 0.3em;
+    }
+
+    #beginForm{
+        margin-left: 50%;
     }
 }
-/* 
-@media (max-width: 800px) {
-    body {
-        background-color: pink;
-        font-size: 7em;
-    }
-
-    .page {
-        width: 75%;
-        margin: auto;
-        padding: 5%;
-    }
-} */

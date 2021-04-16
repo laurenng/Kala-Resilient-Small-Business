@@ -18,7 +18,7 @@ h1, h3, p, ul{
 
 h1 {
     margin:0;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .title {
@@ -27,7 +27,7 @@ h1 {
 }
 
 .fundBox {
-    margin: 1.5em;
+    margin: .5em;
 }
 
 .fundBox h1 {
@@ -105,8 +105,8 @@ h1 {
     border: 2px white solid;
     width: 95%;
     margin: auto;
-
 }
+
 .inline {
     display: flex;
     flex-direction: row;
@@ -189,3 +189,32 @@ h1 {
     font-size: 1.4em;
     font-weight: bolder;
 }
+
+@media (min-width: 1000px) {
+    .fundBox {
+        width: 17em;
+    }
+
+    .fundBoxTop {
+        width: 17em;
+        height: 13em;
+    }
+
+    #fundGroup {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .either {
+        margin-left: 2em;
+        justify-content: start;
+    }
+
+    .either > div {
+        margin-left: .6em;
+        margin-right: .4em;
+    }
+}
+
+

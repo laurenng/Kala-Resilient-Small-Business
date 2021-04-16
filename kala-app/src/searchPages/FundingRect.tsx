@@ -57,7 +57,7 @@ class FundingRect extends React.Component<props, state> {
       console.log(this.state.fundingOpps)
       
       return (
-          <div>
+          <div id="fundGroup">
             {displayContent}
           </div>
       );

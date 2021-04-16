@@ -6,4 +6,8 @@
   font-family: 'Roboto', sans-serif;
 }
 
-
+#copyrightFooter {
+  background-color: lightgrey;
+  margin-top: 10%;
+  padding: 10px;
+}

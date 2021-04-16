@@ -37,7 +37,7 @@ class App extends React.Component<any> {
   Copyright = () => {
     return (
       <footer id="copyrightFooter">
-        <img src={commerceLogo} alt="WA Commerce Department logo" height='20%' width='50%'/>
+        <img src={commerceLogo} alt="WA Commerce Department logo" height='30px' width='auto'/>
         <Typography variant="body2" color="textSecondary" align="left">
           {/* {'Copyright © '} {' '} 
           {new Date().getFullYear()}

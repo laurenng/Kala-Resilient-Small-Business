@@ -116,7 +116,7 @@ class FundingForm extends React.Component<any, any> {
           <div>
             {/* <p id="welcomeMsg">Welcome</p> */}
             <WelcomeQuestion /> 
-            <button onClick={this.beginForm} type="button" id="beginForm">Begin Form</button>
+            <button onClick={this.beginForm} type="button" id="beginForm">Begin</button>
           </div>
       } else if (this.state.questionIndex <= NUM_QUESTIONS) { // going through each question (number in if statement = number of questions)
         displayScreen = 
