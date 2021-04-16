@@ -12,12 +12,14 @@ class MinorityBusiness extends React.Component<any> {
   };
     render() {
       return (
-          <main>
+        <main>
             <h4>If you are a minority, woman, or LGBTQ+ small business owner, then the
                following resources may be useful for supporting your business.</h4>
+            <div className="resourceContainer">
             {createResource("Office of Minority and Women Business Enterprise Small Business Assistance", "https://omwbe.wa.gov/small-business-assistance", "omwbe.wa.gov")}
             {createResource("Small Business Administration Business Guide for Minority Businesses", "https://www.sba.gov/business-guide/grow-your-business/get-more-funding", "sba.gov")}
             {createResource("Minority Business Development Agency", "https://www.mbda.gov/", "mbda.gov")}
+            </div>
         </main>
       );
         
