@@ -6,4 +6,92 @@
   font-family: 'Roboto', sans-serif;
 }
 
+footer {
+  background-color: rgba(196, 196, 196);
+  padding-top: 0.5em;
+  /* margin-left: 0; */
+  width: 100%;
+  margin-top: 25%;
+}
+
+footer img {
+  height: 20%;
+  width: 50%;
+  padding-right: 5%;
+}
+
+@media (min-width: 1000px) {
+    footer {
+      display: flex;
+      flex-flow: row;
+      padding: 1em;
+      margin-top: 15%;
+    }
+
+    footer img {
+      width: 10%;
+    }
+
+    footer > * {
+      margin-left: 5%;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 0.8em;
+    }
+
+    #navTitle {
+      font-size: 1.4em;
+      font-weight: bold;
+      width: 35%;
+      padding-top: 1%;
+    }
+
+    nav a {
+      text-decoration: none;
+      display: flex;
+      /* height: 15%; */
+      /* width: 15%; */
+      
+      color: #D6775A;
+    }
+
+    .navTabs {
+      align-items: flex-end;
+      width: 100%;
+      font-size: 1.2em;
+      justify-content: space-evenly;
+      /* padding-right: 2%; */
+      align-items: stretch;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    .navTab {
+      padding-top: 1%;
+      padding-bottom: 1%;
+      width: 100%;
+    }
+
+    .navTab p {
+      margin-top: 0.3em;
+    }
+
+
+    .navTabs svg {
+      /* padding-right: 8%; */
+      padding-left: 8%;
+    }
+
+    nav img {
+      width: 4em;
+      height: 4em;
+    }
+
+}
+
 

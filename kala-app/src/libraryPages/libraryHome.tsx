@@ -37,13 +37,21 @@ interface libraryProp extends RouteComponentProps<any> {
     }
 }
 
+const desktopGrid: number = 3;
+const mobileGrid: number = 6;
+
+
 /**
  * This class is renders and controls the library feature. It includes the library home
  * as well as the switching of displays between different library category views.
  */
 class LibraryHome extends React.Component<libraryProp, libraryState> {
+  rowSpacing: any;
+  langRedirect: boolean;
+
   componentDidMount() {
     window.scrollTo(0, 0); // Scrolls to the top of the page on mount
+    this.langRedirectFunc();
   }
 
   constructor(props: libraryProp, state: libraryState){
@@ -52,12 +60,23 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       this.state = {
         cat: "lang"
       };
+      this.langRedirect = true;
 
     } else {
       this.state = {
         cat: "home"
       };
+      this.langRedirect = false;
     }
+
+    // Only changes on refresh
+    var windowMatches = window.matchMedia('(min-width: 1000px)');
+    if (windowMatches.matches) {
+      this.rowSpacing = desktopGrid;
+    } else {
+      this.rowSpacing = mobileGrid;
+    }
+
     
   }
 
@@ -68,56 +87,56 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       switch (category) {
         case "loans":
           displayContent  = 
-          <div id="loans">
+          <div id="loans" className="catContainer">
             {this.createBanner("Loans", loansImg)}
             <Loans/>
           </div>
           break;
         case "grants":
           displayContent  = 
-            <div id="grants">
+            <div id="grants" className="catContainer">
               {this.createBanner("Grants", grantsImg)}
               <Grants/>
             </div>
           break;
         case "minorities":
           displayContent  = 
-            <div id="minorities">
+            <div id="minorities" className="catContainer">
               {this.createBanner("Minority Owned Small Businesses", minorityImg)}
               <MinorityBusiness/>
             </div>
           break;
         case "tribal":
           displayContent  = 
-            <div id="tribal">
+            <div id="tribal" className="catContainer">
               {this.createBanner("Tribally Owned Small Businesses", tribalImg)}
               <Tribal/>
             </div>
           break;
         case "finLit":
         displayContent  = 
-          <div id="finLit">
+          <div id="finLit" className="catContainer">
             {this.createBanner("Financial Literacy and Education", finLitImg)}
             <FinancialLiteracy/>
           </div>
         break;
         case "lang":
         displayContent  = 
-          <div id="lang">
+          <div id="lang" className="catContainer">
             {this.createBanner("Language Support", languageImg)}
             <LanguageSupport/>
           </div>
         break;
         case "covid":
         displayContent  = 
-          <div id="covid">
+          <div id="covid" className="catContainer">
             {this.createBanner("COVID Resource", covidImg)}
             <CovidSupport/>
           </div>
         break;
         case "additional":
         displayContent  = 
-          <div id="additional">
+          <div id="additional" className="catContainer">
             {this.createBanner("Additional Support", addImg)}
             <AdditionalSupport/>
           </div>
@@ -128,7 +147,6 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
               <h1>Library</h1>
               <p>In this library you can find resources to guide you as you apply for funding.</p>
             </div>
-            
       }
 
       return (
@@ -137,36 +155,48 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
             {displayContent}
             <br></br>
             <div className="gridContainer" id="libraryCats">
-            <Grid container spacing={2}> {/* id="libraryCats" */}
-              <Grid item xs={6}>
+            <div id="grid" > {/* id="libraryCats" */}
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("loans")}>{this.createCategory("Loans", loansImg)}</div> 
-              </Grid>
-              <Grid item xs={6}>
+              </div>
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("grants")}>{this.createCategory("Grants", grantsImg)}</div>
-              </Grid>
-              <Grid item xs={6}>
+              </div>
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("minorities")}>{this.createCategory("Minority Owned Small Businesses", minorityImg)}</div>
-              </Grid>
-              <Grid item xs={6}>
+              </div>
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("tribal")}>{this.createCategory("Tribally Owned Small Businesses", tribalImg)}</div>
-              </Grid>
-              <Grid item xs={6}>
+              </div>
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("finLit")}>{this.createCategory("Financial Literacy and Education", finLitImg)}</div>
-              </Grid>
-              <Grid item xs={6}>
+              </div>
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("lang")}>{this.createCategory("Language Support", languageImg)}</div>
-              </Grid>
-              <Grid item xs={6}>
+              </div>
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("covid")}>{this.createCategory("COVID Resources", covidImg)}</div>
-              </Grid>
-              <Grid item xs={6}>
+              </div>
+              <div className="gridItem">
                   <div onClick={() => this.categoryClick("additional")}>{this.createCategory("Additional Support", addImg)}</div>
-              </Grid>
-            </Grid>
+              </div>
             </div>
-            
+            </div>
           </main>
       );  
+    }
+
+    
+    // Function hides library categories when user is directed to lang support
+    // page from nav
+    private langRedirectFunc = () => {
+      if (this.langRedirect) {
+        var cats = document.getElementById("libraryCats");
+        if (cats != null) {
+          cats.classList.add("hidden");
+        }
+        this.langRedirect = false;
+      }
     }
 
     /**

@@ -11,9 +11,6 @@
     right: 10px;
 }
 
-.backNavArrow {
-    /*  */
-}
 
 .categoryContainer {
     display: flex;
@@ -44,11 +41,6 @@
     padding: 3%;
 }
 
-main {
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
 .translatorBtn {
     /* border-radius: 3em; */
     /* border: black solid 1px; */
@@ -73,8 +65,10 @@ main {
 }
 
 .libraryHeader {
-    padding: 5%;
-    margin: -1.3em;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 2%;
+    /* margin: -1.3em; */
     align-items: left;
     background-color: #808080;
     color: white
@@ -83,9 +77,52 @@ main {
 .libraryHeader h1 {
     font-size: 2em;
     font-weight: bolder;
+    /* margin-left: 1em; */
 }
+
+/* .libraryHeader p {
+    margin-left: 2em;
+} */
 
 .bannerTitle {
     font-size: 2em;
     font-weight: bolder;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    justify-content: center;
+    grid-gap: 1em;
+}
+
+/* ask about why hamburger menu */
+@media (min-width: 1000px) {
+    .libraryHeader {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        /* margin-top: -2.3em; */
+        margin-bottom: 1em;
+        margin-left: -5.3em;
+        margin-top: -1.3em;
+        padding-left: 0;
+        padding-right: 0;
+        width: auto;
+    }
+
+    .libraryHeader h1, p {
+        margin-left: 10%;
+    }
+
+    /* .categoryContainer {
+        width: 60%;
+        margin-left: 20%;
+    } */
+
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(4, 20%);
+        justify-content: center;
+        grid-gap: 3em;
+    }
 }

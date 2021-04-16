@@ -1,4 +1,4 @@
-// const apiURL = "http://kala.eba-ygpy7sha.us-west-2.elasticbeanstalk.com/";
+// const apiURL = "https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb";
 
 /**
 Fetches data from the backend API

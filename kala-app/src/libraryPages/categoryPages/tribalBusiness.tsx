@@ -13,9 +13,10 @@ class Tribal extends React.Component<any> {
 
     render() {
       return (
-          <div>
+          <main>
             <h4>We understand that Tribal owned businesses have different needs and processes when it comes to 
                 operating as well as receiving funding. Here are some resources that cater specifically to Native Americans.</h4>
+            <div className="resourceContainer">
             {createResource("Potlach Fund", "http://www.potlatchfund.org/", "potlatchfund.org")}
             {createResource("Small Business Administration (SBA) for Tribes", "https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-native-american-affairs/office-native-american-affairs-resources", "sba.gov")}
             {createResource("First Nations Grantseeking Resources", "https://www.firstnations.org/grantmaking/grantseeker-resources/", "firstnations.org")}
@@ -23,8 +24,8 @@ class Tribal extends React.Component<any> {
             {createResource("Sister Sky Business Management Services", "https://sisterskyinc.com/", "sisterskyinc.com")}
             {createResource("WA Department of Commerce Tribal Government COVID-19 Grants & Relief", "https://www.commerce.wa.gov/serving-communities/homelessness/tribal-government-covid-19-emergency-response-grants/", "commerce.wa.gov")}
             {createResource("Affiliated Tribes of Northwest Indians Economic Development Corporation (ATNI-EDC)", "https://atniedc.com/", "atniedc.com")}
-
-        </div>
+            </div>
+        </main>
       );
         
     }
