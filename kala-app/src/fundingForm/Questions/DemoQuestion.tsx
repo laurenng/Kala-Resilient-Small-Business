@@ -95,11 +95,11 @@ class DemoQuestion extends React.Component<props, state> {
             <div className="formQuestion" id="question1">
                   <div className="questionBubble">
                     <h4 className="question" >Tell me more about yourself.</h4>
+                    <h5 className="questionInstructions">Select that apply to you.</h5>
                   </div>
                   <div className="sideByside">
                   <img src={kala} alt="Kala the squid"/>
                   <div>
-                    <h5 className="questionInstructions">Select that apply to you.</h5>
                     <div id="optionList">
                         {this.demoOptions.map(answer => {
                             // @ts-ignore 
@@ -133,10 +133,6 @@ class DemoQuestion extends React.Component<props, state> {
             value: "Man"
         },
         {
-            label: "native", 
-            value: "Native American or Alaskan Native"
-        },
-        {
             label: "hispanic", 
             value: "Latinx or Hispanic"
         },
@@ -145,17 +141,8 @@ class DemoQuestion extends React.Component<props, state> {
             value: "Asian"
         },
         {
-            label: "black", 
-            value: "Black or African American"
-        },
-        {
             label: "islander", 
             value: "Pacific Islander"
-        },
-        
-        {
-            label: "mideast", 
-            value: "Middle Eastern or North African"
         },
         {
             label: "mixed", 
@@ -168,6 +155,22 @@ class DemoQuestion extends React.Component<props, state> {
         {
             label: "veteran", 
             value: "Veteran"
+        }, 
+        {
+            label: "lgbtq", 
+            value: "lgbtq"
+        }, 
+        {
+            label: "mideast", 
+            value: "Middle Eastern or North African"
+        },
+        {
+            label: "black", 
+            value: "Black or African American"
+        },
+        {
+            label: "native", 
+            value: "Native American or Alaskan Native"
         }];
 }
 

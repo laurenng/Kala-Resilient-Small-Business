@@ -18,7 +18,9 @@ class Grants extends React.Component<any> {
             <h4>Grants are disbursed capital/money that does not require repayment. The qualifications may vary depending
                  on the grant and grant provider but these resources will help you figure out which grant might be
                   best suited for your business as well as help you prepare for filling out an application.</h4>
+                  <div className="resourceContainer">
             {createResource("Grant Terminology Dictionary", "https://www.grants.gov/web/grants/learn-grants/grant-terminology.html", "grants.gov")}
+          </div>
         </main>
       );
         

@@ -138,7 +138,7 @@ class FundingForm extends React.Component<any, any> {
       let dots = [...Array(NUM_QUESTIONS)].map((e, i) => <span key={i} className="dot"></span>)
       this.fillProgress();
       return (
-        <main>
+        <main id="fundingPage">
             <br></br>
             <div id="progressBar">
               {dots}

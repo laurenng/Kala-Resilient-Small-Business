@@ -47,6 +47,7 @@
     font-size: 42px;
     margin-bottom: 5px;
     margin-top: 5px;
+    text-align: center;
 }
 
 .hidden {
@@ -104,7 +105,7 @@ button {
     top: 68px;
     margin: 3%;
     text-align: left;
-    width: 80%;
+    width: fit-content;
     max-height: 8em;
     margin-left: 13%;
     overflow: scroll;
@@ -209,12 +210,15 @@ button {
         font-size: 1.1em;
     }
 
-    .page {
+    #fundingPage {
         margin: auto;
         padding: 5%;
-        width: 85%;
+        width: 60%;
     }
 
+    #WelcomeMsg {
+        margin: auto;
+    }
     .answer {
         width: 1.5em;
         height: 1.5em;
@@ -223,14 +227,26 @@ button {
     #optionList { 
         display: grid;
         width: 85%;
-        grid-template-columns: 25% 25% 25% 25%;
-        grid-template-rows: auto auto auto; 
+        grid-template-columns:  33% 33% 33%; /*25% 25% 25% 25%;*/
+        grid-template-rows: auto auto auto auto; 
         column-gap: 5px;
         row-gap: 5px;
     }
 
     .dropDownList {
         margin: auto;
+    }
+
+    .questionBubble h4 {
+        font-size: 1.7em;
+        width: 100%;
+        margin: .4em;
+    }
+
+    .questionBubble h5 {
+        font-size: 1em;
+        width: 100%;
+        margin: 0.4em;
     }
 
     button {

@@ -110,13 +110,14 @@ createStyles({
     },
     kala: {
       width: '4em',
-      height: '4em'
+      height: '4em',
+      paddingRight: '0.6em'
     }
   }),
 );
 
 /**
- * Creates & returns the right aligned hamburger menu navigation bar for the app
+ * Creates & returns the right aligned hamburger menu navigation bar for the mobile view of site
  * Uses react router and custom browser history for navigation/routing
  */
 export default function PersistentDrawerRight() {

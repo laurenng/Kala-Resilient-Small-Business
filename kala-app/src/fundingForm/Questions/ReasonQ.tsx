@@ -101,10 +101,6 @@ class ReasonQ extends React.Component<props, state> {
             label: "employees", 
             value: "Pay employees"
         },
-        {
-            label: "equipment", 
-            value: "Purchase machinery or equipment"
-        },
         
         {
             label: "insurance", 
@@ -127,6 +123,10 @@ class ReasonQ extends React.Component<props, state> {
         {
             label: "rent", 
             value: "Rent/Utility Bills"
+        }, 
+        {
+            label: "equipment", 
+            value: "Purchase machinery or equipment"
         }];
 }
 

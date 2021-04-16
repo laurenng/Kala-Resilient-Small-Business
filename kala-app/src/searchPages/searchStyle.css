@@ -192,18 +192,21 @@ h1 {
 
 @media (min-width: 1000px) {
     .fundBox {
-        width: 17em;
+        width: 90%;
     }
 
     .fundBoxTop {
-        width: 17em;
+        width: 75%;
         height: 13em;
     }
 
     #fundGroup {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        display: grid;
+        width: 85%;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: auto auto auto; 
+        column-gap: 5px;
+        row-gap: 5px;
     }
 
     .either {

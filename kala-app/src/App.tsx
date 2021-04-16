@@ -15,7 +15,7 @@ import TaExpand from './searchPages/TaExpanded';
 import NotFoundPage from './mainPages/NotFoundPage';
 
 // React-Router 
-import {Route, Router, Switch} from 'react-router-dom' // fixed compenent not rendering got rid of browserRouter
+import {Route, Router, Switch} from 'react-router-dom'
 
 // material-ui
 import Typography from '@material-ui/core/Typography';
@@ -27,17 +27,19 @@ import FundingForm from './fundingForm/fundingForm';
 
 //hamburgerMenu
 import PersistentDrawerRight from './appBar';
+import DesktopNavBar from './navBar';
 
 import commerceLogo from './assets/Logo__Standard_RGB.png';
 
 
 class App extends React.Component<any> {
-  
+
+
   // example material-ui code
   Copyright = () => {
     return (
       <footer id="copyrightFooter">
-        <img src={commerceLogo} alt="WA Commerce Department logo" height='30px' width='auto'/>
+        <img src={commerceLogo} alt="WA Commerce Department logo"/>
         <Typography variant="body2" color="textSecondary" align="left">
           {/* {'Copyright © '} {' '} 
           {new Date().getFullYear()}
@@ -53,8 +55,12 @@ class App extends React.Component<any> {
   render() {
     return (
       <div>
-        {/* Hamburger Menu*/}
-        <PersistentDrawerRight />
+        {/* Hamburger Menu or Nav Bar*/}
+        {/* Only changes on refresh - determines window size */}
+        {window.matchMedia('(min-width: 1000px)').matches ? <DesktopNavBar /> : <PersistentDrawerRight />}
+
+
+        
         <Router history={history}>
   
         <div className="page">
