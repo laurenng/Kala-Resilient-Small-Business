@@ -65,7 +65,7 @@ class ReasonQ extends React.Component<props, state> {
                   </div>
                   <div className="sideByside">
                   <img src={kala} alt="Kala the squid"/>
-                  <div>
+                  <div id="optionList">
                   {this.q1Options.map(answer => {
                       // @ts-ignore 
                       let booleanChecked = this.state[answer.label];
@@ -101,10 +101,6 @@ class ReasonQ extends React.Component<props, state> {
             label: "employees", 
             value: "Pay employees"
         },
-        {
-            label: "equipment", 
-            value: "Purchase machinery or equipment"
-        },
         
         {
             label: "insurance", 
@@ -127,6 +123,10 @@ class ReasonQ extends React.Component<props, state> {
         {
             label: "rent", 
             value: "Rent/Utility Bills"
+        }, 
+        {
+            label: "equipment", 
+            value: "Purchase machinery or equipment"
         }];
 }
 

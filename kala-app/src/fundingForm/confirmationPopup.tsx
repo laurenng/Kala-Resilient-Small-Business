@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import kala from '../assets/kala_orange_solid 3.svg';
@@ -8,12 +9,17 @@ import { Link } from "react-router-dom";
 
 // styling courtesy of material-ui
 function getModalStyle() {
-    const top = 75;
-    const left = 70;
+    const { innerWidth: width, innerHeight: height } = window;
+    let top = 30;
+    let left = 15;
+    if (width > 1000 && height > 200) {
+        top = 30;
+        left = 35
+    }
     return {
-        marginTop: `${top}%`,
-        marginLeft: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
+        top: `${top}%`,
+        left: `${left}%`,
+        
     };
 }
 
@@ -26,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         position: 'absolute',
-        width: 250,
+        width: '70%',
+        maxWidth: 350,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),

@@ -44,7 +44,7 @@ class TaRect extends React.Component<props, state> {
       })
       
       return (
-          <div>
+          <div id="fundGroup">
             {displayContent}
           </div>
       );

@@ -14,7 +14,7 @@ import { faSearch , faBook , faMoneyBillWave} from '@fortawesome/free-solid-svg-
 class Landing extends React.Component<any> {
   render() {
     return (
-      <div>
+      <div id="landingPage">
         <div className="centered_text"><h1>Washington state small businesses, start your funding search here.</h1></div>
         <div className="text-image-container">
           <img id="banner" src={image} alt="Snow" />

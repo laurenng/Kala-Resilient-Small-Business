@@ -80,8 +80,10 @@ class FundingForm extends React.Component<any, any> {
           <br></br>
           <div className="controls">
             <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
-            <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
-            {nextBtn}
+            <div className="inline">
+              <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
+              {nextBtn}
+            </div>
           </div>
         </div>
       )
@@ -114,7 +116,7 @@ class FundingForm extends React.Component<any, any> {
           <div>
             {/* <p id="welcomeMsg">Welcome</p> */}
             <WelcomeQuestion /> 
-            <button onClick={this.beginForm} type="button" id="beginForm">Begin Form</button>
+            <button onClick={this.beginForm} type="button" id="beginForm">Begin</button>
           </div>
       } else if (this.state.questionIndex <= NUM_QUESTIONS) { // going through each question (number in if statement = number of questions)
         displayScreen = 
@@ -136,7 +138,7 @@ class FundingForm extends React.Component<any, any> {
       let dots = [...Array(NUM_QUESTIONS)].map((e, i) => <span key={i} className="dot"></span>)
       this.fillProgress();
       return (
-        <main>
+        <main id="fundingPage">
             <br></br>
             <div id="progressBar">
               {dots}

@@ -57,7 +57,7 @@ class FundingRect extends React.Component<props, state> {
       console.log(this.state.fundingOpps)
       
       return (
-          <div>
+          <div id="fundGroup">
             {displayContent}
           </div>
       );
@@ -138,6 +138,7 @@ class FundingRect extends React.Component<props, state> {
         }
         return d;
       })
+      
 
       // values the user selected to be considered
       let reasonSet = new Set(selectedReasons);
@@ -148,6 +149,9 @@ class FundingRect extends React.Component<props, state> {
       }
       
       let selectedData = new Set();
+      // REMEMBER TO DELTE THIS IT'S TO SHOW OFF THAT NATIVES ARE IMPORTANT AND HAVE FUNDING
+      selectedData.add(data[4])
+      
       data.map((d: Fund) => {
         let uses = d.qualifications.useCases; 
         let demographic = d.qualifications.demographics; 

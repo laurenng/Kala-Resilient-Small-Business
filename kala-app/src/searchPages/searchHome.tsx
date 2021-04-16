@@ -57,7 +57,7 @@ class SearchHome extends React.Component<searchProp, searchState> {
                  your results. </p>
             </div>
 
-            <div className= "inline">
+            <div className= "inline either">
               <div className = {this.state.tab === "provider" ? "selected" : ""} onClick={this.providerClick}>
                 <h1>Assistance</h1>
               </div>

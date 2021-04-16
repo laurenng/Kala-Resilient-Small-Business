@@ -7,8 +7,9 @@
 }
 
 
-body {
+#landingPage {
   background-color: #D6775A !important;
+  color: white;
 }
 
 .blackLayer{
@@ -101,10 +102,6 @@ body {
   height: 17em;
 }
 
-body > * {
-  color: white;
-}
-
 @media (min-width: 1000px) {
     #banner {
       height: 17em;
@@ -122,7 +119,10 @@ body > * {
     .centered_text h1 {
       font-weight: bold;
       width: 50%;
+    }
 
+    #landingPage p {
+      margin-bottom: .5em;
     }
 
     .page {

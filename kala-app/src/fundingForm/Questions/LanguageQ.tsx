@@ -65,19 +65,19 @@ class LanguageQ extends React.Component<props, state> {
                 </div>
                 <div className="sideByside">
                   <img src={kala} alt="Kala the squid"/>
-                  <div>
-                  {this.q1Options.map(answer => {
-                      // @ts-ignore 
-                      let booleanChecked = this.state[answer.value];
-                      return(
-                        <div key={answer.value} onChange={this.handleChange}>
-                            {/* @ts-ignore */}
-                            <input className="answer" type="checkbox" onChange={this.handleChange} checked={booleanChecked}
-                            id={answer.value} value={answer.value}></input>
-                            <label htmlFor={answer.value}>{answer.label}</label>
-                        </div>
-                      )
-                  })}
+                  <div id="optionList">
+                    {this.q1Options.map(answer => {
+                        // @ts-ignore 
+                        let booleanChecked = this.state[answer.value];
+                        return(
+                            <div key={answer.value} onChange={this.handleChange}>
+                                {/* @ts-ignore */}
+                                <input className="answer" type="checkbox" onChange={this.handleChange} checked={booleanChecked}
+                                id={answer.value} value={answer.value}></input>
+                                <label htmlFor={answer.value}>{answer.label}</label>
+                            </div>
+                        )
+                    })}
                   </div>
                   </div>
                 </div>
