@@ -11,6 +11,39 @@ export interface Filters {
     [key: string]: {value: any, label: string}
 }
 
+export const createFilter = {
+    create: false
+}
+
+export const fundingFilter = {
+    choice: "none"
+    // tenK: false,
+    // fiftyK: false,
+    // hundredK: false,
+    // twofiftyK: false
+}
+
+export const needByFilter = {
+    // choice: "none"
+    asap: false,
+    fewMonths: false,
+    anytime: false
+}
+
+export const grossRevFilter = {
+    choice: "none"
+    // tenK: false,
+    // fiftyK: false,
+    // hundredK: false,
+    // twofiftyK: false,
+    // unknown: false
+}
+
+export const contactMethods = {
+    phone: false,
+    email: false
+}
+
 export const reasonFilter  = {
     property: false, 
     insurance: false, 
@@ -77,7 +110,18 @@ export const filters : Filters = {
     established: {value: establishedDate, label: "established"},
     industryType: {value: industryFilter, label: "industryType"},
     demographic: {value: demoFilter, label: "demographic"},
-    tribalAff: {value: "", label: "tribalAff"}
+    tribalAff: {value: "", label: "tribalAff"},
+    createAccount: {value: createFilter, label: "create"},
+    fundingAmount: {value: fundingFilter, label: "fundingAmount"},
+    needBy: {value: needByFilter, label: "needBy"},
+    grossRev: {value: grossRevFilter, label: "grossRev"},
+    // Point of Contact -- Probably should go in diff object but worry about it later
+    contactMethod: {value: contactMethods, label: "contactMethod"},
+    contactFirstName: {value: "", label: "contactFirstName"},
+    contactLastName: {value: "", label: "contactLastName"},
+    contactPhone: {value: "", label: "contactPhone"},
+    contactEmail: {value: "", label: "contactEmail"}
+
 }
 
 export interface Fund {

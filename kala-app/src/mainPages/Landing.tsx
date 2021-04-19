@@ -9,7 +9,7 @@ import image from './../assets/landingPage/landing-pg.jpg';
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch , faBook , faMoneyBillWave} from '@fortawesome/free-solid-svg-icons';
+import { faSearch , faBook , faMoneyBillWave, faUser} from '@fortawesome/free-solid-svg-icons';
 
 class Landing extends React.Component<any> {
   render() {
@@ -25,7 +25,7 @@ class Landing extends React.Component<any> {
 
         <div className="two-column">
             <div className="icon_styling">
-              {/* icon */}
+              <FontAwesomeIcon icon={faUser} size="2x" color="white" />
             </div>
           
             <div className="right-column">

@@ -11,6 +11,9 @@ import ReasonQ from './Questions/ReasonQ';
 // import WhenQ from './Questions/WhenQ';
 import BizQ from './Questions/BizQ';
 import DemoQuestion from './Questions/DemoQuestion';
+import CreateAccountQ from './Questions/CreateAccountQ';
+import MoneyQ from './Questions/MoneyQ';
+import PointOfContactQ from './Questions/PointOfContactQ';
 import WelcomeQuestion from './WelcomeQuestion';
 import { Link } from "react-router-dom";
 
@@ -58,15 +61,15 @@ class FundingForm extends React.Component<any, any> {
       let nextBtn; // dependent on whether there are more questions or form should be submitted
       switch (num) {
         case 1:
-          question = <LanguageQ/>
+          question = <CreateAccountQ/>
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         case 2:
-          question  = <ReasonQ />
+          question  = <MoneyQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         case 3:
-          question  = <BizQ />
+          question  = <PointOfContactQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         default: // last question - form submission case
