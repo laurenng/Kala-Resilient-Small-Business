@@ -58,6 +58,7 @@ class FundingForm extends React.Component<any, any> {
     // Work in progress - Fence post issue with questionNumber & currState
     selectQuestion = (num: number) => {
       let question;
+      let skipBtn = <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
       let nextBtn; // dependent on whether there are more questions or form should be submitted
       switch (num) {
         case 1:
@@ -74,6 +75,7 @@ class FundingForm extends React.Component<any, any> {
           break;
         default: // last question - form submission case
           question  = <DemoQuestion />
+          skipBtn = <div></div>
           nextBtn = <ConfirmPopup></ConfirmPopup>
       }
       // displaying the question with additional buttons (skip, back, next buttons)
@@ -82,7 +84,7 @@ class FundingForm extends React.Component<any, any> {
           {question}
           <br></br>
           <div className="controls">
-            <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
+            {skipBtn}
             <div className="inline">
               <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
               {nextBtn}
@@ -127,15 +129,16 @@ class FundingForm extends React.Component<any, any> {
             {this.selectQuestion(this.state.questionIndex)}
           </div>
       } else { // end screen after questions are done 
-        displayScreen = 
-          <div>
-            <p>You've completed all our questions! Are you sure you want to submit your answers?</p>
-            <Link to="/search">
-                  <div className="moreDetailsBox url centeredForm">
-                      <h1>Go to Search Home</h1>
-                  </div>
-              </Link>
-          </div>
+        // displayScreen = 
+          // <ConfirmPopup></ConfirmPopup>
+          // <div>
+          //   <p>You've completed all our questions! Are you sure you want to submit your answers?</p>
+          //   <Link to="/search">
+          //         <div className="moreDetailsBox url centeredForm">
+          //             <h1>Go to Search Home</h1>
+          //         </div>
+          //     </Link>
+          // </div>
       }
 
       let dots = [...Array(NUM_QUESTIONS)].map((e, i) => <span key={i} className="dot"></span>)
