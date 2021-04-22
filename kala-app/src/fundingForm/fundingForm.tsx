@@ -16,6 +16,7 @@ import MoneyQ from './Questions/MoneyQ';
 import PointOfContactQ from './Questions/PointOfContactQ';
 import WelcomeQuestion from './WelcomeQuestion';
 import { Link } from "react-router-dom";
+import { Prompt } from 'react-router';
 
 // popup
 import ConfirmPopup from './confirmationPopup';
@@ -27,7 +28,24 @@ class FundingForm extends React.Component<any, any> {
       this.state = {
         questionIndex: 0
       };
+
+      window.addEventListener('beforeunload', this.warningPopup); // gives user warning when trying to refresh page/form
     }
+
+    shouldBlockNavigation = true
+
+    warningPopup (e: any) {
+      // Cancel the event
+      e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+      // Chrome requires returnValue to be set
+      e.returnValue = '';
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('beforeunload', this.warningPopup);
+    }
+
+    
 
     // next button functionality 
     handleNext = (event: { target: any; }) => {
@@ -76,11 +94,16 @@ class FundingForm extends React.Component<any, any> {
         default: // last question - form submission case
           question  = <DemoQuestion />
           skipBtn = <div></div>
+          this.shouldBlockNavigation = false
           nextBtn = <ConfirmPopup></ConfirmPopup>
       }
       // displaying the question with additional buttons (skip, back, next buttons)
       return (
         <div>
+          <Prompt
+            when={this.shouldBlockNavigation}
+            message='You have unsaved changes, are you sure you want to leave?'
+          />
           {question}
           <br></br>
           <div className="controls">

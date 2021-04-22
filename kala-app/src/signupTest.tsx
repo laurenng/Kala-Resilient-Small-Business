@@ -63,7 +63,7 @@ class SignupTest extends React.Component<props, state> {
                         <input className="checkBox" type="checkbox" value="test2" required />
                         <p>I agree to be contacted by the Washington State Deparement of Commerece about potential business opportunities</p>
                     </div>
-                    <button id="signupBtn">Sign Up</button>
+                    <button id="signupBtn">Sign Up</button> {/* dont actually submit - go to user onboarding*/}
                 </form>
 
                 </div>
