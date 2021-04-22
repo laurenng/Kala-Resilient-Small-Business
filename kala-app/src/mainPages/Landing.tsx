@@ -31,11 +31,11 @@ class Landing extends React.Component<any> {
             <div className="right-column">
               <h3>Create an account</h3>
               <p>Save the funding and assistance that best matches with your business(es).</p>
-              {/* <Link to="/" style={{ textDecoration: 'none' }}> */}
+              <Link to="/login" style={{ textDecoration: 'none' }}>
                     <div className="redirect_button">
                         <h1 className="button_text">Sign up or Log in</h1>
                     </div>
-                {/* </Link> */}
+                </Link>
             </div>
           </div>
 
