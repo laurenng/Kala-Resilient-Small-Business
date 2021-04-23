@@ -36,36 +36,37 @@ class SignupTest extends React.Component<props, state> {
 
     render() {
         return(
-            <div id="signupPage">
-                <div className="sideByside">
-                <img src={kala} alt="Kala the squid"/>
-                <div className="questionBubble">
-                    <h4 className="question">Let's create an account.</h4>
-                    <h5 className="questionInstructions">This account will allow you to view saved searches
-                                                        for any of the businesses you own.</h5>
-                </div>
-                </div>
-                
-
-                <form onSubmit={this.handleSignup} id="signupForm">
-                    <h2>Email</h2>
-                    <input type="email" title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
-                    <h2>Password</h2>
-                    <input type="password" required></input>
-                    <br></br>
+            <div id="signupBody">
+                <div id="signupPage">
                     <div className="sideByside">
-                        <input className="checkBox" type="checkbox" value="test1" required />
-                        <p>I agree to Funding Finder's <PrivacyPolicyPopup></PrivacyPolicyPopup></p> {/* add href later*/}
-                        
+                        <img src={kala} alt="Kala the squid"/>
+                        <div className="questionBubble">
+                            <h4 className="question">Let's create an account.</h4>
+                            <h5 className="questionInstructions">This account will allow you to view saved searches
+                                                                for any of the businesses you own.</h5>
+                        </div>
                     </div>
+                   
+                    <form onSubmit={this.handleSignup} id="signupForm">
+                        <h2>Email</h2>
+                        <input type="email" title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
+                        <h2>Password</h2>
+                        <input type="password" required></input>
+                        <br></br>
+                        <div className="sideByside">
+                            <input className="checkBox" type="checkbox" value="test1" required />
+                            <p>I agree to Funding Finder's <PrivacyPolicyPopup></PrivacyPolicyPopup></p> {/* add href later*/}
+                            
+                        </div>
 
-                    <div className="sideByside">
-                        <input className="checkBox" type="checkbox" value="test2" required />
-                        <p>I agree to be contacted by the Washington State Deparement of Commerece about potential business opportunities</p>
+                        <div className="sideByside">
+                            <input className="checkBox" type="checkbox" value="test2" required />
+                            <p>I agree to be contacted by the Washington State Deparement of Commerece about potential business opportunities</p>
+                        </div>
+                        <button id="signupBtn">Sign Up</button> {/* dont actually submit - go to user onboarding*/}
+                    </form>
+
                     </div>
-                    <button id="signupBtn">Sign Up</button> {/* dont actually submit - go to user onboarding*/}
-                </form>
-
                 </div>
 
         );

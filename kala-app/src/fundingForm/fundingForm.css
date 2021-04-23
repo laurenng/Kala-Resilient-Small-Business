@@ -205,6 +205,11 @@ button {
     width: 100%;
 }
 
+#moneyQuestions, #pointOfContactQuestions {
+    display: flex;
+    flex-flow: column;
+}
+
 @media (min-width: 1000px) {
     label {
         font-size: 1.1em;

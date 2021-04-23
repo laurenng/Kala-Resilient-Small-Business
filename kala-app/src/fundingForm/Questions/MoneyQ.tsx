@@ -79,44 +79,46 @@ class MoneyQ extends React.Component<props, state> {
                 <div className="sideByside">
                 <img src={kala} alt="Kala the squid"/>
 
-                <FormControl className="dropdown-form">
-                            <h3>Amount of funding needed</h3>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={this.state.fundingAmount}
-                            className="dropdown-form"
-                            onChange={this.handleChangeFunding}
-                            >
-                                {this.moneyQAmountOptions.map(answer => (
-                                    <MenuItem value={answer} key={answer}>{answer}</MenuItem>
-                                ))}
-                            </Select>
-                </FormControl>
+                <div id="moneyQuestions">
+                    <FormControl className="dropdown-form">
+                                <h3>Amount of funding needed</h3>
+                                <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={this.state.fundingAmount}
+                                className="dropdown-form"
+                                onChange={this.handleChangeFunding}
+                                >
+                                    {this.moneyQAmountOptions.map(answer => (
+                                        <MenuItem value={answer} key={answer}>{answer}</MenuItem>
+                                    ))}
+                                </Select>
+                    </FormControl>
 
-                <FormControl component="fieldset">
-                <h3>When do you need it</h3>
-                <RadioGroup aria-label="needBy" name="needBy" value={this.state.needBy} onChange={this.handleChangeNeedBy}>
-                    <FormControlLabel value="asap" control={<Radio />} label="Immediately" />
-                    <FormControlLabel value="fewMonths" control={<Radio />} label="1-2 months" />
-                    <FormControlLabel value="anytime" control={<Radio />} label="Anytime" />
-                </RadioGroup>
-                </FormControl>
+                    <FormControl component="fieldset">
+                    <h3>When do you need it</h3>
+                    <RadioGroup aria-label="needBy" name="needBy" value={this.state.needBy} onChange={this.handleChangeNeedBy}>
+                        <FormControlLabel value="asap" control={<Radio />} label="Immediately" />
+                        <FormControlLabel value="fewMonths" control={<Radio />} label="1-2 months" />
+                        <FormControlLabel value="anytime" control={<Radio />} label="Anytime" />
+                    </RadioGroup>
+                    </FormControl>
 
-                <FormControl className="dropdown-form">
-                            <h3>Approximate gross revenue</h3>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={this.state.grossRev}
-                            className="dropdown-form"
-                            onChange={this.handleChangeRevenue}
-                            >
-                                {this.moneyQRevenueOptions.map(answer => (
-                                    <MenuItem value={answer} key={answer}>{answer}</MenuItem>
-                                ))}
-                            </Select>
-                </FormControl>
+                    <FormControl className="dropdown-form">
+                                <h3>Approximate gross revenue</h3>
+                                <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={this.state.grossRev}
+                                className="dropdown-form"
+                                onChange={this.handleChangeRevenue}
+                                >
+                                    {this.moneyQRevenueOptions.map(answer => (
+                                        <MenuItem value={answer} key={answer}>{answer}</MenuItem>
+                                    ))}
+                                </Select>
+                    </FormControl>
+                </div>
 
                 </div>
         </div>
