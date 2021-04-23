@@ -67,12 +67,13 @@ class loggedIn extends React.Component<props, state> {
                 </div>
             )
         })
+
+        let userFirst = this.props.currentUser.contactFirstName.value
         return(
             <div id="loggedIn">
                 <div className="sideByside">
                     <div className="questionBubble">
-                        <h4 className="question">Welcome</h4>
-                        <h5>Click on a business to view its funding and assistance matches or add a new business’ matches.</h5>
+                        <h4 className="question">Welcome, {userFirst}</h4>
                     </div>
                     <button id="logoutButton">Log-out</button>
                 </div>
@@ -92,8 +93,8 @@ class loggedIn extends React.Component<props, state> {
                     </div>
                 </div>
 
-                    
-                </div>
+                <br></br>
+            </div>
         );
     }
 
