@@ -158,7 +158,7 @@ class DemoQuestion extends React.Component<props, state> {
         }, 
         {
             label: "lgbtq", 
-            value: "lgbtq"
+            value: "LGBTQ+"
         }, 
         {
             label: "mideast", 

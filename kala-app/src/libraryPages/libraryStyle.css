@@ -110,7 +110,7 @@
         width: auto;
     }
 
-    .libraryHeader h1, p {
+    .libraryHeader h1, .libraryHeader p {
         margin-left: 10%;
     }
 

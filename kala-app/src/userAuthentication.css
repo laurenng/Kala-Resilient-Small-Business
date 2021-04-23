@@ -1,0 +1,132 @@
+.hidden {
+    display: none;
+}
+
+#loginErrMsg {
+    color: red;
+}
+
+#signupBtn {
+    align-items: center;
+    padding: 8px 12px;
+    background-color: white;
+    border: #0A7088 2px solid;
+    border-radius: 1em;
+    color: black;
+    width: 100%;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+#loginBtn {
+    border-radius: 1em;
+    padding: 8px 12px;
+    color: white;
+    align-self: end;
+    color: white;
+    background-color: #0A7088;
+    border: solid 2px #0A7088;
+    width: 100%;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+#loginPage, #signupPage {
+    width: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: left;
+}
+
+
+
+#loginPage h3, #signupPage h3{
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+#loginPage h2, #signupPage h2 {
+    font-size: 1.4em;
+}
+
+#loginPage h1, #signupPage h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    align-self: left;
+}
+
+#loginForm, #signupForm {
+    width: 60%;
+}
+
+#loginForm input, #signupForm input {
+    width: 100%;
+    height: 2.5em;
+}
+
+#signupForm input[type="checkbox"] {
+    width: auto;
+    height: auto;
+}
+
+#lineBreak {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+#lineBreak hr {
+    width: 40%;
+    height: 3px;
+    color: black;
+    border-width: 0;
+    background-color: black;
+}
+
+#signupBtn a {
+    text-decoration: none;
+    color: black
+}
+
+
+.questionBubble {
+    border: solid black 5px;
+    border-radius: 30px;
+    border-bottom-left-radius: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    left: 111px;
+    top: 68px;
+    margin: 3%;
+    text-align: left;
+    width: fit-content;
+    max-height: 8em;
+    /* margin-left: 13%; */
+    overflow: scroll;
+    overflow-y: scroll;
+}  
+
+.question {
+    font-size: 1em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.questionInstructions {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.formQuestion img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.sideByside {
+    display: flex;
+    flex-flow: row;
+}

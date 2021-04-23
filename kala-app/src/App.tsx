@@ -31,6 +31,9 @@ import DesktopNavBar from './navBar';
 
 import commerceLogo from './assets/Logo__Standard_RGB.png';
 
+import LoginTest from './loginTest';
+import SignupTest from './signupTest';
+
 
 class App extends React.Component<any> {
 
@@ -72,6 +75,8 @@ class App extends React.Component<any> {
                 <Route exact path="/expandFunds" component={FundingExpand} />
                 <Route exact path="/expandTA" component={TaExpand} />
                 <Route exact path="/form" component={FundingForm} />
+                <Route exact path="/login" component={LoginTest} />
+                <Route exact path="/signup" component={SignupTest} />
                 <Route path="*" component={NotFoundPage} />
             </Switch>
         </div>

@@ -11,8 +11,12 @@ import ReasonQ from './Questions/ReasonQ';
 // import WhenQ from './Questions/WhenQ';
 import BizQ from './Questions/BizQ';
 import DemoQuestion from './Questions/DemoQuestion';
+import CreateAccountQ from './Questions/CreateAccountQ';
+import MoneyQ from './Questions/MoneyQ';
+import PointOfContactQ from './Questions/PointOfContactQ';
 import WelcomeQuestion from './WelcomeQuestion';
 import { Link } from "react-router-dom";
+import { Prompt } from 'react-router';
 
 // popup
 import ConfirmPopup from './confirmationPopup';
@@ -24,7 +28,24 @@ class FundingForm extends React.Component<any, any> {
       this.state = {
         questionIndex: 0
       };
+
+      window.addEventListener('beforeunload', this.warningPopup); // gives user warning when trying to refresh page/form
     }
+
+    shouldBlockNavigation = true
+
+    warningPopup (e: any) {
+      // Cancel the event
+      e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+      // Chrome requires returnValue to be set
+      e.returnValue = '';
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('beforeunload', this.warningPopup); // removes navigate away blocker when they leave form page
+    }
+
+    
 
     // next button functionality 
     handleNext = (event: { target: any; }) => {
@@ -55,31 +76,39 @@ class FundingForm extends React.Component<any, any> {
     // Work in progress - Fence post issue with questionNumber & currState
     selectQuestion = (num: number) => {
       let question;
+      let skipBtn = <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
       let nextBtn; // dependent on whether there are more questions or form should be submitted
       switch (num) {
         case 1:
-          question = <LanguageQ/>
+          question = <CreateAccountQ/>
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         case 2:
-          question  = <ReasonQ />
+          question  = <MoneyQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         case 3:
-          question  = <BizQ />
+          question  = <PointOfContactQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         default: // last question - form submission case
           question  = <DemoQuestion />
+          skipBtn = <div></div>
+          this.shouldBlockNavigation = false
           nextBtn = <ConfirmPopup></ConfirmPopup>
       }
       // displaying the question with additional buttons (skip, back, next buttons)
       return (
         <div>
+          {/* Navigate away from page warning */}
+          <Prompt
+            when={this.shouldBlockNavigation}
+            message='You have unsaved changes, are you sure you want to leave?'
+          />
           {question}
           <br></br>
           <div className="controls">
-            <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
+            {skipBtn}
             <div className="inline">
               <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
               {nextBtn}
@@ -124,15 +153,16 @@ class FundingForm extends React.Component<any, any> {
             {this.selectQuestion(this.state.questionIndex)}
           </div>
       } else { // end screen after questions are done 
-        displayScreen = 
-          <div>
-            <p>You've completed all our questions! Are you sure you want to submit your answers?</p>
-            <Link to="/search">
-                  <div className="moreDetailsBox url centeredForm">
-                      <h1>Go to Search Home</h1>
-                  </div>
-              </Link>
-          </div>
+        // displayScreen = 
+          // <ConfirmPopup></ConfirmPopup>
+          // <div>
+          //   <p>You've completed all our questions! Are you sure you want to submit your answers?</p>
+          //   <Link to="/search">
+          //         <div className="moreDetailsBox url centeredForm">
+          //             <h1>Go to Search Home</h1>
+          //         </div>
+          //     </Link>
+          // </div>
       }
 
       let dots = [...Array(NUM_QUESTIONS)].map((e, i) => <span key={i} className="dot"></span>)
