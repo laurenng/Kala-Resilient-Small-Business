@@ -42,7 +42,7 @@ class FundingForm extends React.Component<any, any> {
     }
 
     componentWillUnmount() {
-      window.removeEventListener('beforeunload', this.warningPopup);
+      window.removeEventListener('beforeunload', this.warningPopup); // removes navigate away blocker when they leave form page
     }
 
     
@@ -100,6 +100,7 @@ class FundingForm extends React.Component<any, any> {
       // displaying the question with additional buttons (skip, back, next buttons)
       return (
         <div>
+          {/* Navigate away from page warning */}
           <Prompt
             when={this.shouldBlockNavigation}
             message='You have unsaved changes, are you sure you want to leave?'
