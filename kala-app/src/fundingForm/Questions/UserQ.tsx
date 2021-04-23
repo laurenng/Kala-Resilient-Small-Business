@@ -22,8 +22,8 @@ interface state {
 class UserQ extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
-        let name = this.props.currentUser.user;
-        let number = this.props.currentUser.password;
+        let name = this.props.currentUser.user.value;
+        let number = this.props.currentUser.password.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
             user: name,
@@ -33,8 +33,8 @@ class UserQ extends React.Component<props, state> {
 
     componentWillUnmount() {
         let changes = this.props.currentUser;
-        changes.user = this.state.user;
-        changes.password = this.state.password;
+        changes.user.value = this.state.user;
+        changes.password.value = this.state.password;
         updateUser(changes);
     }
 

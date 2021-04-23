@@ -30,7 +30,7 @@ interface props {
     updateFilters: (newFilters: Filters) => void,
 }
 
-class DemoQuestion extends React.Component<props, state> {
+class DemoQ extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
         let allProps = this.props.currentFilter.demographic.value;
@@ -158,7 +158,7 @@ class DemoQuestion extends React.Component<props, state> {
         }, 
         {
             label: "lgbtq", 
-            value: "lgbtq"
+            value: "LGBTQ+"
         }, 
         {
             label: "mideast", 
@@ -186,4 +186,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DemoQuestion);
+export default connect(mapStateToProps, mapDispatchToProps)(DemoQ);

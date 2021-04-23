@@ -12,6 +12,34 @@ export interface Filters {
     [key: string]: {value: any, label: string}
 }
 
+export const createFilter = {
+    create: false
+}
+
+export const fundingFilter = {
+    choice: "none"
+    // tenK: false,
+    // fiftyK: false,
+    // hundredK: false,
+    // twofiftyK: false
+}
+
+export const needByFilter = {
+    // choice: "none"
+    asap: false,
+    fewMonths: false,
+    anytime: false
+}
+
+export const grossRevFilter = {
+    choice: "none"
+    // tenK: false,
+    // fiftyK: false,
+    // hundredK: false,
+    // twofiftyK: false,
+    // unknown: false
+}
+
 export const reasonFilter  = {
     property: false, 
     insurance: false, 
@@ -70,6 +98,11 @@ export const industryFilter = {
     choice: "none"
 }
 
+export const contactMethods = {
+    phone: false,
+    email: false
+}
+
 export const filters : Filters = {
     language: {value: languageFilter, label: "language"},
     reason: {value: reasonFilter, label: "reason"},
@@ -80,7 +113,11 @@ export const filters : Filters = {
     demographic: {value: demoFilter, label: "demographic"},
     tribalAff: {value: "", label: "tribalAff"},
     bizName: {value: "", label: "bizName"},
-    employeeNum: {value: "", label: "employeeNum"}
+    employeeNum: {value: "", label: "employeeNum"}, 
+    createAccount: {value: createFilter, label: "create"},
+    fundingAmount: {value: fundingFilter, label: "fundingAmount"},
+    needBy: {value: needByFilter, label: "needBy"},
+    grossRev: {value: grossRevFilter, label: "grossRev"},
 }
 
 export interface Fund {
@@ -118,14 +155,18 @@ export interface TA {
 }
 
 export interface UserInfo {
-    user: string,
-    password: string
+    [key: string]: {value: any, label: string}
 }
 
 // initializing data 
 export const initialUser : UserInfo = {
-    user: "",
-    password: ""
+    user: {value: "", label: "user"}, 
+    password: {value: "", label: "password"},
+    contactMethod: {value: contactMethods, label: "contactMethod"}, 
+    contactFirstName: {value: "", label: "contactFirstName"},
+    contactLastName: {value: "", label: "contactLastName"},
+    contactPhone: {value: "", label: "contactPhone"},
+    contactEmail: {value: "", label: "contactEmail"}
 }
 
 export const initialFund : Fund = {
