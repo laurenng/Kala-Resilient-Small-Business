@@ -167,12 +167,13 @@ class BizQ extends React.Component<props, state> {
                         </LocalizaitonProvider>
 
                         <div>
-                            <h5 className="questionInstructions">Business Name</h5>
+                            <h3>Business Name</h3>
                             <input type="text" value={this.state.bizName} onChange={this.bizChange}></input>
                         </div>
                         
+                        <br></br>
                         <div>
-                            <h5 className="questionInstructions">Employee Count</h5>
+                            <h3>Employee Count</h3>
                             <input type="text" value={this.state.employeeNum} onChange={this.employeeChange}></input>
                         </div>
 

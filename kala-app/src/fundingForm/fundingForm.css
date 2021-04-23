@@ -204,6 +204,21 @@ button {
     width: 100%;
 }
 
+#moneyQuestions, #pointOfContactQuestions {
+    display: flex;
+    flex-flow: column;
+}
+
+input {
+    height: 2.5em;
+    width: 80%;
+}
+
+/* temporary bc it looks wack right now*/
+#pointOfContactQuestions {
+    width: 55%;
+}
+
 @media (min-width: 1000px) {
     label {
         font-size: 1.1em;

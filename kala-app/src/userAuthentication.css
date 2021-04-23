@@ -102,7 +102,6 @@
     text-align: left;
     width: fit-content;
     max-height: 8em;
-    /* margin-left: 13%; */
     overflow: scroll;
     overflow-y: scroll;
 }  
@@ -129,4 +128,16 @@
 .sideByside {
     display: flex;
     flex-flow: row;
+}
+
+@media (min-width: 1000px) {
+    #loginBody, #signupBody {
+        display: flex;
+        justify-content: center;
+    }
+
+    #loginPage, #signupPage {
+        width: 60%;
+    }
+
 }
