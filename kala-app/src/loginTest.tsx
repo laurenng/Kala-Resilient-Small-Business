@@ -78,25 +78,26 @@ class LoginTest extends React.Component<props, state> {
 
     render() {
         return(
-            <div id="loginPage">
-                <h1>Log in</h1>
-                <h3><a>If you are from Commerce, log in or sign up here</a></h3> {/* add href to commerece later */}
-                <h3 id="loginErrMsg" className="hidden">There was a problem trying to login, please check your email or password and try again.</h3>
-                <form id="loginForm" onSubmit={this.handleLogin}>
-                    <label>Email</label>
-                    <input id="userEmail" type="email" title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
-                    <label>Password</label>
-                    <input id="userPassword" type="password" required></input>
-                    <br></br>
-                    <button type="submit" id="loginBtn">Log In</button>
-                    <div id="lineBreak">
-                        <hr/>
-                        <p>OR</p>
-                        <hr/>
-                    </div>
-                    <button type="button" id="signupBtn"><Link to="/signup">Sign Up</Link></button>
-                </form>
- 
+            <div id="loginBody">
+                <div id="loginPage">
+                    <h1>Log in</h1>
+                    <h3><a>If you are from Commerce, log in or sign up here</a></h3> {/* add href to commerece later */}
+                    <h3 id="loginErrMsg" className="hidden">There was a problem trying to login, please check your email or password and try again.</h3>
+                    <form id="loginForm" onSubmit={this.handleLogin}>
+                        <label>Email</label>
+                        <input id="userEmail" type="email" title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
+                        <label>Password</label>
+                        <input id="userPassword" type="password" required></input>
+                        <br></br>
+                        <button type="submit" id="loginBtn">Log In</button>
+                        <div id="lineBreak">
+                            <hr/>
+                            <p>OR</p>
+                            <hr/>
+                        </div>
+                        <button type="button" id="signupBtn"><Link to="/signup">Sign Up</Link></button>
+                    </form>
+                </div>
             </div>
         );
     }

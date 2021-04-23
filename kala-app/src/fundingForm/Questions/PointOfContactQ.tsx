@@ -96,32 +96,34 @@ class PointOfContactQ extends React.Component<props, state> {
                 <div className="sideByside">
                 <img src={kala} alt="Kala the squid"/>
 
-                <div>
-                    <h5 className="questionInstructions">First Name</h5>
-                    <input type="text" value={this.state.contactFirstName} onChange={this.handleChangeFirstName}></input>
-                </div>
+                <div id="pointOfContactQuestions">
+                    <div>
+                        <h5 className="questionInstructions">First Name</h5>
+                        <input type="text" value={this.state.contactFirstName} onChange={this.handleChangeFirstName}></input>
+                    </div>
 
-                <div>
-                    <h5 className="questionInstructions">Last Name</h5>
-                    <input type="text" value={this.state.contactLastName} onChange={this.handleChangeLastName}></input>
-                </div>
+                    <div>
+                        <h5 className="questionInstructions">Last Name</h5>
+                        <input type="text" value={this.state.contactLastName} onChange={this.handleChangeLastName}></input>
+                    </div>
 
 
-                <FormControl component="fieldset">
-                <RadioGroup aria-label="contactMethod" name="contactMethod" value={this.state.contactMethod} onChange={this.handleChangeContact}>
-                    <FormControlLabel value="phone" control={<Radio />} label="Phone" />
-                    <FormControlLabel value="email" control={<Radio />} label="Email" />
-                </RadioGroup>
-                </FormControl>
+                    <FormControl component="fieldset">
+                    <RadioGroup aria-label="contactMethod" name="contactMethod" value={this.state.contactMethod} onChange={this.handleChangeContact}>
+                        <FormControlLabel value="phone" control={<Radio />} label="Phone" />
+                        <FormControlLabel value="email" control={<Radio />} label="Email" />
+                    </RadioGroup>
+                    </FormControl>
 
-                <div>
-                    <h5 className="questionInstructions">Phone Number</h5>
-                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" value={this.state.contactPhone} onChange={this.handleChangePhone}></input>
-                </div>
+                    <div>
+                        <h5 className="questionInstructions">Phone Number</h5>
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" value={this.state.contactPhone} onChange={this.handleChangePhone}></input>
+                    </div>
 
-                <div>
-                    <h5 className="questionInstructions">Email Address</h5>
-                    <input type="email" value={this.state.contactEmail} onChange={this.handleChangeEmail}></input>
+                    <div>
+                        <h5 className="questionInstructions">Email Address</h5>
+                        <input type="email" value={this.state.contactEmail} onChange={this.handleChangeEmail}></input>
+                    </div>
                 </div>
 
                 </div>
