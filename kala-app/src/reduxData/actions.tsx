@@ -1,5 +1,5 @@
 // Actions and their types
-import { Fund, TA, Filters} from "./types";
+import { Fund, TA, Filters, UserInfo} from "./types";
 // import PostPage from "../components/postPage";
 
 export enum actionIdentifier {
@@ -7,7 +7,8 @@ export enum actionIdentifier {
   GETFUND,
   UPDATETA,
   GETTA,
-  UPDATEFILTERS
+  UPDATEFILTERS,
+  UPDATEUSER
 }
 
 
@@ -24,6 +25,11 @@ export interface updateFiltersAction {
 export interface updateTAObjectAction {
   type: actionIdentifier,
   payload: TA 
+};
+
+export interface updateUserAction {
+  type: actionIdentifier,
+  payload: UserInfo 
 };
 
 // Action creators
@@ -50,5 +56,12 @@ export function updateFilters(filter: Filters) : updateFiltersAction {
   }
 };
 
-export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction; 
+export function updateUser(info: UserInfo) : updateUserAction {
+  return {
+    type: actionIdentifier.UPDATEUSER,
+    payload: info
+  }
+};
+
+export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction | updateUserAction; 
 

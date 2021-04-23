@@ -3,6 +3,7 @@ export interface AppState {
     currentFund: Fund;
     currentTA: TA;
     currentFilter: Filters;
+    currentUser: UserInfo;
 }
 
 export default AppState;
@@ -77,7 +78,9 @@ export const filters : Filters = {
     established: {value: establishedDate, label: "established"},
     industryType: {value: industryFilter, label: "industryType"},
     demographic: {value: demoFilter, label: "demographic"},
-    tribalAff: {value: "", label: "tribalAff"}
+    tribalAff: {value: "", label: "tribalAff"},
+    bizName: {value: "", label: "bizName"},
+    employeeNum: {value: "", label: "employeeNum"}
 }
 
 export interface Fund {
@@ -114,7 +117,17 @@ export interface TA {
     locations: string[]
 }
 
+export interface UserInfo {
+    user: string,
+    password: string
+}
+
 // initializing data 
+export const initialUser : UserInfo = {
+    user: "",
+    password: ""
+}
+
 export const initialFund : Fund = {
     id: 1,
     fundingName: "Economic Injury Disaster Loans (EIDL)",
