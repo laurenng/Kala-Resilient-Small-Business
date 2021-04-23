@@ -138,7 +138,6 @@ button {
 .sideByside {
     display: flex;
     flex-flow: row;
-    
 }
 
 .dropDownList {

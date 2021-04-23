@@ -1,6 +1,6 @@
 /**
-Creates the business question component with forms for users to input their
-business industry, type and date. Data is temporarily saved to redux 
+TRASHSHEEDD GO TO SIGNUPTEST.TSX
+same content, but signuptest is better 
 */
 import { connect } from 'react-redux';
 import React from 'react';
