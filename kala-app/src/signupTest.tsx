@@ -80,12 +80,12 @@ class SignupTest extends React.Component<props, state> {
                         <div className="sideByside">
                             <input className="checkBox" type="checkbox" value="test1" required />
                             <p>I agree to Funding Finder's <PrivacyPolicyPopup></PrivacyPolicyPopup></p> {/* add href later*/}
-                            
                         </div>
 
                         <div className="sideByside">
                             <input className="checkBox" type="checkbox" value="test2" required />
-                            <p>I agree to be contacted by the Washington State Deparement of Commerece about potential business opportunities</p>
+                            <p>I am aware that the Washington State Department of Commerce
+                                will be able to view the information that I provide on this site</p>
                         </div>
                         <button id="signupBtn">Sign Up</button> {/* dont actually submit - go to user onboarding*/}
                     </form>

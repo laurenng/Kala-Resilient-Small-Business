@@ -53,7 +53,7 @@ export default function DesktopNavBar() {
                         <p>Funding & Assistance</p>
                     </Link>
 
-                    <Link to="/" onClick={ () => pushHistory("/loggedIn")} className="navTab">
+                    <Link to="/" onClick={ () => pushHistory("/profile")} className="navTab">
                         <FontAwesomeIcon icon={faUser} size="2x" color="black" />
                         <p>Profile</p>
                     </Link>

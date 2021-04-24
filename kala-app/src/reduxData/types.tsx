@@ -79,7 +79,8 @@ export const demoFilter  = {
     mideast: false,
     veteran: false,
     lgbtq: false,
-    white: false
+    white: false,
+    dne: false
 }
 
 export const whenFilter = {
