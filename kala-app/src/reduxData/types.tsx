@@ -4,6 +4,8 @@ export interface AppState {
     currentTA: TA;
     currentFilter: Filters;
     currentUser: UserInfo;
+    currentBiz: String;
+    signedIn: boolean;
 }
 
 export default AppState;

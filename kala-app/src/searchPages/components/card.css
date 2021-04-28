@@ -1,0 +1,124 @@
+#searchMain {
+    background-color: white;
+}
+
+.main {
+    width: 85%;
+    margin: auto;
+}
+
+strong {
+    color: black;
+}
+
+h1, h3, p, ul{
+    margin: 0; 
+    font-weight: normal;
+}
+
+h1 {
+    margin:0;
+    font-size: 1.3em;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 2.5em;
+}
+
+.fundBox {
+    margin: .5em;
+}
+
+.fundBox h1 {
+    font-weight: bolder;
+}
+
+.fundBoxTop {
+    border: solid 2px gray;
+    border-bottom: none;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: white;
+    padding: 1.5em;
+    padding-bottom: 0;
+}
+
+.fundBox:hover {
+    background-color: rgb(218, 214, 214);
+}
+
+.fundingFont {
+    font-weight: normal;
+    color: rgb(83, 82, 82);
+}
+
+.moreDetailsBox {
+    margin: 0;
+    margin-top: 0.5em;
+    padding: 0.5em;
+    width: fit-content;
+    border-radius: 0.5em;
+    background-color: #0A7088;
+    border: solid 0.2em #0A7088;
+}
+
+.turquoise-box {
+    margin: 0;
+    margin-top: 0.5em;
+    padding: 0.5em;
+    width: fit-content;
+    border-radius: 0.5em;
+    border: solid 0.2em #0A7088;
+}
+
+.turquoise-box a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    font-size: .8em;
+}
+
+.learnMoreBox {
+    background-color: #0A7088;
+    display: flex;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    justify-content: center;
+}
+
+.learnMoreBox h1 {
+    padding: .7em;
+    color: white;
+    font-size: 1.4em;
+    font-weight: bolder;
+}
+
+@media (min-width: 1000px) {
+    .fundBox {
+        width: 90%;
+    }
+
+    .fundBoxTop {
+        height: 11em;
+    }
+
+    #fundGroup {
+        display: grid;
+        width: 85%;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: auto auto auto; 
+        column-gap: 5px;
+        row-gap: 5px;
+    }
+
+    .either {
+        margin-left: 2em;
+        justify-content: start;
+    }
+
+    .either > div {
+        margin-left: .6em;
+        margin-right: .4em;
+    }
+}

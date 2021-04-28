@@ -8,7 +8,9 @@ export enum actionIdentifier {
   UPDATETA,
   GETTA,
   UPDATEFILTERS,
-  UPDATEUSER
+  UPDATEUSER,
+  UPDATESIGNIN,
+  LOG_OUT_USER
 }
 
 
@@ -32,12 +34,24 @@ export interface updateUserAction {
   payload: UserInfo 
 };
 
+export interface updateSignInAction {
+  type: actionIdentifier,
+  payload: Boolean 
+};
+
 // Action creators
 export function updateFund(fund: Fund) : updateFundObjectAction {
   console.log("UPDATING Fund ");
   return {
     type: actionIdentifier.UPDATEFUND,
     payload: fund
+  }
+};
+
+export function updateSignIn(statement: Boolean) : updateSignInAction {
+  return {
+    type: actionIdentifier.UPDATESIGNIN,
+    payload: statement
   }
 };
 
@@ -63,5 +77,12 @@ export function updateUser(info: UserInfo) : updateUserAction {
   }
 };
 
-export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction | updateUserAction; 
+export function clearData() {
+  console.log("dsfhjadsfls")
+  return {
+    type: actionIdentifier.LOG_OUT_USER
+  }
+};
+
+export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction | updateUserAction | updateSignInAction; 
 

@@ -12,8 +12,9 @@ import Landing from './mainPages/Landing';
 import FundingExpand from './searchPages/fundExpanded';
 import TaExpand from './searchPages/TaExpanded';
 import NotFoundPage from './mainPages/NotFoundPage';
-
+import SignUpForm from './fundingForm/signUpForm';
 import Profile from './profile/profile';
+import bizExpand from './profile/bizExpand';
 
 // React-Router 
 import {Route, Router, Switch} from 'react-router-dom'
@@ -77,7 +78,8 @@ class App extends React.Component<any> {
                 <Route exact path="/expandTA" component={TaExpand} />
                 <Route exact path="/form" component={FundingForm} />
                 <Route exact path="/login" component={LoginTest} />
-                <Route exact path="/signup" component={SignupTest} />
+                <Route exact path="/signup" component={SignUpForm} />
+                <Route exact path="/expandBiz" component={bizExpand} />
                 <Route path="*" component={NotFoundPage} />
             </Switch>
         </div>

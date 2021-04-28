@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import React from 'react';
 import './profile.css';
 import kala from '../assets/kala_orange_solid 3.svg';
-
+import { RouteComponentProps, withRouter } from 'react-router'; 
 import { updateUser } from '../reduxData/actions';
 import AppState, { UserInfo } from '../reduxData/types';
 
-interface props {
+interface props extends RouteComponentProps<any>{
     currentUser: UserInfo,
     updateUser: (newUser: UserInfo) => void,
 }
@@ -30,9 +30,8 @@ class Profile extends React.Component<props, state> {
     } 
 
     private handleClick (d: string) {
-        console.log(d);
-        // this.props.history.push('/expandFunds');
-      }
+        this.props.history.push('/expandBiz');
+    }
 
     render() {
         let shopList = this.shops.map((shop) => {

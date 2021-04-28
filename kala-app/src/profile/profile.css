@@ -63,9 +63,16 @@
     flex-direction: column;
 }
 
+
+
 @media (min-width: 1000px) {
     #loggedIn {
         width: 80%;
         margin: auto;
+    }
+
+    .cardDisplay {
+        display: flex;
+        flex-direction: row;
     }
 }
