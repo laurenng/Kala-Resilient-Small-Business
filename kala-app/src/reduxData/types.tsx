@@ -3,6 +3,9 @@ export interface AppState {
     currentFund: Fund;
     currentTA: TA;
     currentFilter: Filters;
+    currentUser: UserInfo;
+    currentBiz: String;
+    signedIn: boolean;
 }
 
 export default AppState;
@@ -37,11 +40,6 @@ export const grossRevFilter = {
     // hundredK: false,
     // twofiftyK: false,
     // unknown: false
-}
-
-export const contactMethods = {
-    phone: false,
-    email: false
 }
 
 export const reasonFilter  = {
@@ -83,7 +81,8 @@ export const demoFilter  = {
     mideast: false,
     veteran: false,
     lgbtq: false,
-    white: false
+    white: false,
+    dne: false
 }
 
 export const whenFilter = {
@@ -102,6 +101,11 @@ export const industryFilter = {
     choice: "none"
 }
 
+export const contactMethods = {
+    phone: false,
+    email: false
+}
+
 export const filters : Filters = {
     language: {value: languageFilter, label: "language"},
     reason: {value: reasonFilter, label: "reason"},
@@ -111,17 +115,12 @@ export const filters : Filters = {
     industryType: {value: industryFilter, label: "industryType"},
     demographic: {value: demoFilter, label: "demographic"},
     tribalAff: {value: "", label: "tribalAff"},
+    bizName: {value: "", label: "bizName"},
+    employeeNum: {value: "", label: "employeeNum"}, 
     createAccount: {value: createFilter, label: "create"},
     fundingAmount: {value: fundingFilter, label: "fundingAmount"},
     needBy: {value: needByFilter, label: "needBy"},
     grossRev: {value: grossRevFilter, label: "grossRev"},
-    // Point of Contact -- Probably should go in diff object but worry about it later
-    contactMethod: {value: contactMethods, label: "contactMethod"},
-    contactFirstName: {value: "", label: "contactFirstName"},
-    contactLastName: {value: "", label: "contactLastName"},
-    contactPhone: {value: "", label: "contactPhone"},
-    contactEmail: {value: "", label: "contactEmail"}
-
 }
 
 export interface Fund {
@@ -158,7 +157,21 @@ export interface TA {
     locations: string[]
 }
 
+export interface UserInfo {
+    [key: string]: {value: any, label: string}
+}
+
 // initializing data 
+export const initialUser : UserInfo = {
+    user: {value: "", label: "user"}, 
+    password: {value: "", label: "password"},
+    contactMethod: {value: contactMethods, label: "contactMethod"}, 
+    contactFirstName: {value: "", label: "contactFirstName"},
+    contactLastName: {value: "", label: "contactLastName"},
+    contactPhone: {value: "", label: "contactPhone"},
+    contactEmail: {value: "", label: "contactEmail"}
+}
+
 export const initialFund : Fund = {
     id: 1,
     fundingName: "Economic Injury Disaster Loans (EIDL)",

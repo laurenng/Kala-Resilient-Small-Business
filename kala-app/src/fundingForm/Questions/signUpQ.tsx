@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from "react-router-dom";
-import './userAuthentication.css';
-import kala from './assets/kala_orange_solid 3.svg';
-import PrivacyPolicyPopup from './privacyPopup';
+import '../../userAuthentication.css';
+import kala from '../../assets/kala_orange_solid 3.svg';
+import PrivacyPolicyPopup from '../../privacyPopup';
 
 
-import { updateUser } from './reduxData/actions';
-import AppState, { UserInfo } from './reduxData/types';
+import { updateUser } from '../../reduxData/actions';
+import AppState, { UserInfo } from '../../reduxData/types';
 
 interface props {
     currentUser: UserInfo,
@@ -19,7 +19,7 @@ interface state {
     password: string
 }
 
-class SignupTest extends React.Component<props, state> {
+class SignupQ extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
@@ -37,13 +37,6 @@ class SignupTest extends React.Component<props, state> {
         changes.user.value = this.state.user;
         changes.password.value = this.state.password;
         updateUser(changes);
-    }
-
-    handleSignup = (event: any) => {
-        event.preventDefault();
-        // Send Fetch Request to API to see if email isn't taken??
-        // or should I go to next page
-        // unsure of the flow/behavior from a code perspective
     }
 
     private userChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +64,7 @@ class SignupTest extends React.Component<props, state> {
                         </div>
                     </div>
                    
-                    <form onSubmit={this.handleSignup} id="signupForm">
+                    <div id="signupForm">
                         <h2>Email</h2>
                         <input type="email" title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
                         <h2>Password</h2>
@@ -87,8 +80,7 @@ class SignupTest extends React.Component<props, state> {
                             <p>I am aware that the Washington State Department of Commerce
                                 will be able to view the information that I provide on this site</p>
                         </div>
-                        <button id="signupBtn">Sign Up</button> {/* dont actually submit - go to user onboarding*/}
-                    </form>
+                    </div>
 
                     </div>
                 </div>
@@ -108,4 +100,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupTest);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupQ);

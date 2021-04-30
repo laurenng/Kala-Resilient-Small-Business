@@ -6,14 +6,14 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import { connect } from 'react-redux';
-import { updateFilters } from '../../reduxData/actions';
-import AppState, { Filters } from '../../reduxData/types';
+import { updateUser } from '../../reduxData/actions';
+import AppState, { UserInfo } from '../../reduxData/types';
 import '../fundingForm.css';
 import kala from '../../assets/kala_orange_solid 3.svg';
 
 interface props {
-    currentFilter: Filters,
-    updateFilters: (newFilters: Filters) => void,
+    currentUser: UserInfo,
+    updateUser: (newUser: UserInfo) => void,
 }
 
 interface state {
@@ -28,11 +28,11 @@ class PointOfContactQ extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let contactMethod = this.props.currentFilter.contactMethod.value
-        let contactFirstName = this.props.currentFilter.contactFirstName.value
-        let contactLastName = this.props.currentFilter.contactLastName.value
-        let contactPhone = this.props.currentFilter.contactPhone.value
-        let contactEmail = this.props.currentFilter.contactEmail.value
+        let contactMethod = this.props.currentUser.contactMethod.value
+        let contactFirstName = this.props.currentUser.contactFirstName.value
+        let contactLastName = this.props.currentUser.contactLastName.value
+        let contactPhone = this.props.currentUser.contactPhone.value
+        let contactEmail = this.props.currentUser.contactEmail.value
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
             contactMethod: contactMethod,
@@ -44,14 +44,14 @@ class PointOfContactQ extends React.Component<props, state> {
     } 
 
     componentWillUnmount() {
-        console.log(this.props.currentFilter)
-        let changes = this.props.currentFilter;
+        console.log(this.props.currentUser)
+        let changes = this.props.currentUser;
         changes.contactMethod.value = this.state.contactMethod;
         changes.contactFirstName.value = this.state.contactFirstName;
         changes.contactLastName.value = this.state.contactLastName;
         changes.contactPhone.value = this.state.contactPhone;
         changes.contactEmail.value = this.state.contactEmail;
-        updateFilters(changes);
+        updateUser(changes);
     }
 
 
@@ -134,13 +134,13 @@ class PointOfContactQ extends React.Component<props, state> {
 
 function mapStateToProps(state: AppState) {
     return { 
-        currentFilter: state.currentFilter
+        currentUser: state.currentUser
     }
 }
 
 function mapDispatchToProps(dispatch: any)  {
     return {
-        updateFilters: (  newFilters: Filters ) => dispatch(updateFilters(newFilters))
+        updateUser: (  newUser: UserInfo ) => dispatch(updateUser(newUser))
     }    
 } 
 

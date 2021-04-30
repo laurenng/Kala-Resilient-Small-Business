@@ -1,0 +1,78 @@
+.questionBubble {
+    border: solid black 5px;
+    border-radius: 30px;
+    border-bottom-left-radius: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    left: 111px;
+    top: 68px;
+    margin: 3%;
+    text-align: left;
+    width: fit-content;
+    max-height: 8em;
+    margin-left: 13%;
+    overflow: scroll;
+    overflow-y: scroll;
+}  
+
+.sideByside {
+    display: flex;
+    flex-flow: row;
+}
+
+#logoutButton {
+    height: fit-content;
+    padding: .5em;
+    align-self: flex-end;
+}
+
+.kalaLogo {
+    margin-left: 3em;
+}
+
+.businessRect {
+    margin: .5em;
+    background-color: #0A7088;
+    border-radius:  5em;
+    padding-left: .5em;
+    padding-right: .5em;
+    padding: .3em;
+    color: white;
+    width: 50%;
+    text-align: center;
+}
+
+#addBiz{
+    border: 3px solid #0A7088;
+    border-radius: 1em;
+    padding: .5em;
+    width: 50%;
+    text-align: center;
+}
+
+#addBizText {
+    font-size: 1.5em;
+    color: black;
+    font-weight: bolder;
+}
+
+.businessGroups{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+@media (min-width: 1000px) {
+    #loggedIn {
+        width: 80%;
+        margin: auto;
+    }
+
+    .cardDisplay {
+        display: flex;
+        flex-direction: row;
+    }
+}
