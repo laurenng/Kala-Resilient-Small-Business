@@ -80,7 +80,7 @@ class TaRect extends React.Component<props, state> {
 
     async componentDidMount() {
       
-      let url ="https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb/assistance";
+      let url ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/";
       await fetchFromAPI(url).then(data => {
         let selectedData = this.compareLanguages(data);
         // console.log(selectedData);

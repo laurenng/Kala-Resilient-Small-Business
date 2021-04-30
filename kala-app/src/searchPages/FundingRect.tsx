@@ -106,7 +106,7 @@ class FundingRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      let url ="https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb/funding";
+      let url ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/";
       await fetchFromAPI(url).then(data => {
         let selectedData = this.filterData(data);
         console.log(selectedData);

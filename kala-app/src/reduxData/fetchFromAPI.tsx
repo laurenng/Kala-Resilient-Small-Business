@@ -1,4 +1,4 @@
-// const apiURL = "https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb";
+// const apiURL = "https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/";
 
 /**
 Fetches data from the backend API
