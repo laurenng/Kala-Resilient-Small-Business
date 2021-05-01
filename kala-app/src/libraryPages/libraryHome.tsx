@@ -155,7 +155,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
             {displayContent}
             <br></br>
             <div className="gridContainer" id="libraryCats">
-            <div id="grid" > {/* id="libraryCats" */}
+            <div id="lib-grid" > {/* id="libraryCats" */}
               <div className="gridItem">
                   <div onClick={() => this.categoryClick("loans")}>{this.createCategory("Loans", loansImg)}</div> 
               </div>

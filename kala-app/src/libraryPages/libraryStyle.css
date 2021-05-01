@@ -119,7 +119,7 @@
         margin-left: 20%;
     } */
 
-    #grid {
+    #lib-grid {
         display: grid;
         grid-template-columns: repeat(4, 20%);
         justify-content: center;
