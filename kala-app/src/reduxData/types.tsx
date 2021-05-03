@@ -134,14 +134,12 @@ export interface Fund {
     uses: string[],
     description: string,
     terms: string[],
-    qualifications: {
-        NAICS: number[],
-        maxEmployees: number,
-        isCollateralReq: boolean,
-        establishedBy: string,
-        useCases: string[],
-        demographics: string[]
-    }
+    NAICS: number[],
+    maxEmployees: number,
+    isCollateralReq: boolean,
+    establishedBy: string,
+    useCases: string[],
+    demographics: string[]
 }
 
 export interface TA {
@@ -183,14 +181,13 @@ export const initialFund : Fund = {
     uses: ["Working capital","insurance"],
     description: "In response to the Coronavirus (COVID-19) pandemic, small business owners, including agricultural businesses, and nonprofit organizations in all U.S. states, Washington D.C., and territories can apply for an Economic Injury Disaster Loan. The EIDL program is designed to provide economic relief to businesses that are currently experiencing a temporary loss of revenue due to COVID-19.",
     terms: ["3.75% for businesses (fixed)", "2.75% for nonprofits (fixed)", "30 years", "No pre-payment penalty or fees"],
-    qualifications: {
-        NAICS: [11],
-        maxEmployees: 1,
-        isCollateralReq: false,
-        establishedBy: "2019-01-01",
-        useCases: ["none", "none"],
-        demographics: ["none"]
-    }
+
+    NAICS: [11],
+    maxEmployees: 1,
+    isCollateralReq: false,
+    establishedBy: "2019-01-01",
+    useCases: ["none", "none"],
+    demographics: ["none"]
 }
 
 export const initialTA : TA = {

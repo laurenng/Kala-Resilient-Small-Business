@@ -30,7 +30,7 @@ class Profile extends React.Component<props, state> {
     } 
 
     private handleClick (d: string) {
-        this.props.history.push('/expandBiz');
+        this.props.history.push('/editBiz');
     }
 
     render() {

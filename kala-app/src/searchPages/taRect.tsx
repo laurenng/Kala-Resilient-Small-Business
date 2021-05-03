@@ -23,13 +23,15 @@ interface props extends RouteComponentProps<any> {
 // states that belong to SearchHome
 interface state {
   technicalAssistance: any[],
+  technicalAssistance2: any[]
 }
 
 class TaRect extends React.Component<props, state> {
     constructor(props: props, state: state){
       super(props);
       this.state = {
-        technicalAssistance: []
+        technicalAssistance: [],
+        technicalAssistance2: []
       };
     }
 
@@ -42,11 +44,30 @@ class TaRect extends React.Component<props, state> {
           </div>
         )
       })
+
+      let displayContent2 = this.state.technicalAssistance2.map((d: any, i: number) => {
+        return(
+          <div key = {i}>
+            {this.individualRect(d)}
+          </div>
+        )
+      }) 
       
       return (
-          <div id="fundGroup">
-            {displayContent}
-          </div>
+        <div>
+        {this.state.technicalAssistance2.length > 0 ? 
+          <div><h3> Your matches</h3><p>{this.state.technicalAssistance.length} matches</p></div> : <h3></h3>
+        }
+        <div id="fundGroup">
+          {displayContent}
+        </div>
+    
+        {this.state.technicalAssistance2.length > 0 ? <h3>Other</h3> : <h3></h3>}
+        <div id="fundGroup">
+          {displayContent2}
+        </div>
+      </div>
+
       );
     }
 
@@ -79,7 +100,7 @@ class TaRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      let url ="https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb/assistance";
+      let url ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/assistance";
       await fetchFromAPI(url).then(data => {
         let selectedData = this.compareLanguages(data);
         // console.log(selectedData);
@@ -94,7 +115,6 @@ class TaRect extends React.Component<props, state> {
       let languageFilter = this.props.currentFilter.language.value;
       // object of selected demographics the user selected in onboarding form
       let demoFilters = this.props.currentFilter.demographic.value;
-      // console.log(this.props.currentFilter);
       // this could be more efficient with hashset + O(1) lookup...
       // currently we are at O(n)
 
@@ -126,6 +146,8 @@ class TaRect extends React.Component<props, state> {
       }
 
       let selectedData = new Set();
+      let secondaryData = new Set();
+
       data.map((d: TA) => {
         // String[] of API data of TAs
         let languages = d.languages;
@@ -135,9 +157,17 @@ class TaRect extends React.Component<props, state> {
         let demoBoolean = booleanCheck(demoSet, demographics); 
         if (langBoolean || demoBoolean) {
           selectedData.add(d);
+        } else {
+          secondaryData.add(d);
         }
         return null;
       })
+
+      this.setState({
+        technicalAssistance2: Array.from(secondaryData)
+        
+      })
+      
       // change set into array 
       // console.log(selectedData);
       return Array.from(selectedData);
