@@ -24,6 +24,10 @@
     background-color: #0A7088;
 }
 
+.backNavArrow {
+    transform: scale(1.8);
+}
+
 .categoryContainer:hover {
     background-color: #D6775A
 }

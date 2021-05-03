@@ -61,7 +61,7 @@ class LoginTest extends React.Component<props, state> {
         var email = (document.getElementById("userEmail") as HTMLInputElement).value;
         var password = (document.getElementById("userPassword") as HTMLInputElement).value;
         // if (email != null && password != null) {
-        this.fetchTokenFromAPI("https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/", email, password)
+        this.fetchTokenFromAPI("https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/login", email, password)
             .then((data) => {
                 if (data.error != null) { // error occured
                     document.getElementById("loginErrMsg")?.classList.remove("hidden");

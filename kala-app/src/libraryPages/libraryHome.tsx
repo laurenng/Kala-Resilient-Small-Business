@@ -9,14 +9,14 @@ import FinancialLiteracy from './categoryPages/financialLit';
 import LanguageSupport from './categoryPages/langSupport';
 import CovidSupport from './categoryPages/covidSupport';
 import AdditionalSupport from './categoryPages/additionalSupport';
-import {ArrowBackIos} from '@material-ui/icons';
+import {ArrowBack} from '@material-ui/icons';
 import Grid from '@material-ui/core/Grid';
 // Category resource banner images
 import loansImg from '../assets/libraryBanners/loans-16-9.jpg';
 import finLitImg from '../assets/libraryBanners/fin-lit-and-education-16-9.jpg';
 import tribalImg from '../assets/libraryBanners/tribal-owned-16-9.jpg';
 import minorityImg from '../assets/libraryBanners/minority-owned-16-9.jpg';
-import languageImg from '../assets/libraryBanners/language-16-9.jpg';
+import languageImg from '../assets/libraryBanners/language2-16-9.jpg';
 import covidImg from '../assets/libraryBanners/covid-related-16-9.jpg';
 import addImg from '../assets/libraryBanners/additional-16-9.jpg';
 import grantsImg from '../assets/libraryBanners/grants-16-9.jpg';
@@ -215,7 +215,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
     }
       return (
       <div className="catTitle" style={styles}>
-        <ArrowBackIos className="backNavArrow" onClick={this.libraryLoad}></ArrowBackIos>
+        <ArrowBack className="backNavArrow" onClick={this.libraryLoad}></ArrowBack>
         <h1 className="bannerTitle">{title}</h1>
       </div>);
     }
