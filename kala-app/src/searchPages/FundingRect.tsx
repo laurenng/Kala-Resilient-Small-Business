@@ -99,7 +99,7 @@ class FundingRect extends React.Component<props, state> {
       )
     }
 
-    handleClick (d: Fund) {
+    private handleClick (d: Fund) {
       console.log(d);
       this.props.history.push('/expandFunds');
       this.props.updateFund(d);

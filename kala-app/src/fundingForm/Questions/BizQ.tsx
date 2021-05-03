@@ -27,7 +27,9 @@ interface props {
 interface state {
     bizType: string,
     established: Date | null,
-    industry: string
+    industry: string,
+    bizName: string,
+    employeeNum: string
 }
 
 class BizQ extends React.Component<props, state> {
@@ -36,11 +38,15 @@ class BizQ extends React.Component<props, state> {
         let type = this.props.currentFilter.bizType.value;
         let established = this.props.currentFilter.established.value;
         let industryType = this.props.currentFilter.industryType.value;
+        let name = this.props.currentFilter.bizName.value;
+        let number = this.props.currentFilter.employeeNum.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
             bizType: type,
             established: established,
-            industry: industryType
+            industry: industryType,
+            bizName: name,
+            employeeNum: number
         };
     } 
 
@@ -50,11 +56,13 @@ class BizQ extends React.Component<props, state> {
         changes.bizType.value = this.state.bizType;
         changes.established.value = this.state.established;
         changes.industryType.value = this.state.industry;
+        changes.employeeNum.value = this.state.employeeNum;
+        changes.bizName.value = this.state.bizName;
         updateFilters(changes);
     }
 
     // adding redux here to change filters properties 
-    handleChangeType = (event:  React.ChangeEvent<{ name?: string; value: unknown }>) =>{
+    private handleChangeType = (event:  React.ChangeEvent<{ name?: string; value: unknown }>) =>{
         let type_name = String(event.target.value);
         this.setState({
             bizType: type_name
@@ -62,7 +70,7 @@ class BizQ extends React.Component<props, state> {
     }
 
     // adding redux here to change filters properties 
-    handleChangeIndustry = (event: React.ChangeEvent<{ name?: string; value: unknown }>) =>{
+    private handleChangeIndustry = (event: React.ChangeEvent<{ name?: string; value: unknown }>) =>{
         let type_industry = String(event.target.value);
         this.setState({
             industry: type_industry
@@ -70,7 +78,7 @@ class BizQ extends React.Component<props, state> {
     }
 
     // adding redux here to change filters properties 
-    handleChangeDate = (date: Date | null) =>{
+    private handleChangeDate = (date: Date | null) =>{
         if (date !== null) {
             console.log(date);
             // console.log(date?.getMonth() + 1)
@@ -79,6 +87,18 @@ class BizQ extends React.Component<props, state> {
                 established: date
             })
         }
+    }
+
+    private bizChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            bizName: event.target.value
+        })
+    }
+
+    private employeeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            employeeNum: event.target.value
+        })
     }
 
     render() {
@@ -145,6 +165,18 @@ class BizQ extends React.Component<props, state> {
                             />
                             </div>
                         </LocalizaitonProvider>
+
+                        <div>
+                            <h3>Business Name</h3>
+                            <input type="text" value={this.state.bizName} onChange={this.bizChange}></input>
+                        </div>
+                        
+                        <br></br>
+                        <div>
+                            <h3>Employee Count</h3>
+                            <input type="text" value={this.state.employeeNum} onChange={this.employeeChange}></input>
+                        </div>
+
                     </div>
                 </div>
             </div>

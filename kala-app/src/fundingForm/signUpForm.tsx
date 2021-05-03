@@ -14,7 +14,7 @@ import DemoQ from './Questions/DemoQ';
 import CreateAccountQ from './Questions/CreateAccountQ';
 import MoneyQ from './Questions/MoneyQ';
 import PointOfContactQ from './Questions/PointOfContactQ';
-import SignupTest from '../signupTest';
+import SignupQ from './Questions/signUpQ';
 import WelcomeQuestion from './WelcomeQuestion';
 import { Link } from "react-router-dom";
 import { Prompt } from 'react-router';
@@ -22,8 +22,21 @@ import { Prompt } from 'react-router';
 // popup
 import ConfirmPopup from './confirmationPopup';
 
-const NUM_QUESTIONS = 8; 
-class FundingForm extends React.Component<any, any> {
+// redux
+import { clearData, updateFilters, updateUser } from '../reduxData/actions';
+import AppState, { UserInfo, initialUser, Filters, filters } from '../reduxData/types';
+import { connect } from 'react-redux';
+
+interface props {
+    currentUser: UserInfo,
+    updateUser: (newUser: UserInfo) => void,
+    updateFilters: (newFilters: Filters) => void,
+    clearData: () => void,
+    currentFilter: Filters
+}
+
+const NUM_QUESTIONS = 7; 
+class SignUpForm extends React.Component<props, any> {
     constructor(props: any) {
       super(props)
       this.state = {
@@ -43,10 +56,39 @@ class FundingForm extends React.Component<any, any> {
     }
 
     componentWillUnmount() {
-      window.removeEventListener('beforeunload', this.warningPopup); // removes navigate away blocker when they leave form page
-    }
+        window.removeEventListener('beforeunload', this.warningPopup); // removes navigate away blocker when they leave form page
+        console.log("get rid of the data u unmounted")
+        
+        let changes = this.props.currentUser;
 
-    
+        changes.contactMethod.value = undefined;
+        changes.contactFirstName.value = undefined;
+        changes.contactMethod.value = undefined;
+        changes.contactLastName.value = undefined;
+        changes.contactPhone.value = undefined;
+        changes.contactEmail.value = undefined;
+
+        updateUser(changes);
+        
+        let filterChanges = this.props.currentFilter; 
+
+        // filterChanges.language.value = undefined;
+        // filterChanges.reason.value = undefined;
+        // filterChanges.when.value = undefined;
+        // filterChanges.bizType.value = undefined;
+        // filterChanges.established.value = undefined;
+        // filterChanges.industryType.value = undefined;
+        // filterChanges.demographic.value = undefined;
+        // filterChanges.tribalAff.value = undefined;
+        // filterChanges.bizName.value = undefined;
+        // filterChanges.employeeNum.value = undefined;
+        // filterChanges.createAccount.value = undefined;
+        // filterChanges.fundingAmount.value = undefined;
+        // filterChanges.needBy.value = undefined;
+        // filterChanges.grossRev.value = undefined;
+
+        // updateFilters(filterChanges)
+    }
 
     // next button functionality 
     handleNext = (event: { target: any; }) => {
@@ -81,12 +123,14 @@ class FundingForm extends React.Component<any, any> {
       let nextBtn; // dependent on whether there are more questions or form should be submitted
       switch (num) {
         case 1:
-          question = <LanguageQ />
+          question = <SignupQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
+          skipBtn = <div></div>
           break;
         case 2:
-          question  = <ReasonQ />
+          question  = <PointOfContactQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
+          skipBtn = <div></div>
           break;
         case 3:
           question  = <BizQ />
@@ -101,16 +145,11 @@ class FundingForm extends React.Component<any, any> {
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         case 6:
-          question  = <CreateAccountQ />
-          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
-          break;
-        case 7:
-          question  = <SignupTest />
+          question  = <ReasonQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
         default: // last question - form submission case
-          question  = <PointOfContactQ />
-          skipBtn = <div></div>
+          question  = <LanguageQ />
           this.shouldBlockNavigation = false
           nextBtn = <ConfirmPopup></ConfirmPopup>
       }
@@ -120,7 +159,7 @@ class FundingForm extends React.Component<any, any> {
           {/* Navigate away from page warning */}
           <Prompt
             when={this.shouldBlockNavigation}
-            message='You have not finished the questions, are you sure you want to leave?'
+            message='You have unsaved changes, are you sure you want to leave?'
           />
           {question}
           <br></br>
@@ -199,5 +238,19 @@ class FundingForm extends React.Component<any, any> {
     }
 }
 
-export default FundingForm;
+function mapStateToProps(state: AppState) {
+    return { 
+        currentUser: state.currentUser
+    }
+}
+
+function mapDispatchToProps(dispatch: any)  {
+    return {
+        updateUser: (  newUser: UserInfo ) => dispatch(updateUser(newUser)),
+        updateFilters: (  newFilters: Filters ) => dispatch(updateFilters(newFilters)),
+        clearData: () => dispatch(clearData()),
+    }    
+} 
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
     

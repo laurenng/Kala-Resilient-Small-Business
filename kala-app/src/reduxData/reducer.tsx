@@ -1,5 +1,5 @@
-import { actionIdentifier, actions, updateFundObjectAction, updateFiltersAction} from './actions';
-import { AppState, filters, initialFund, initialTA } from './types';
+import { actionIdentifier, actions, updateFundObjectAction, updateFiltersAction, updateUserAction, updateSignInAction} from './actions';
+import { AppState, filters, initialFund, initialTA, initialUser } from './types';
 
 // Reducer
 // The reducer is a function that takes the previous 
@@ -13,7 +13,13 @@ import { AppState, filters, initialFund, initialTA } from './types';
 
 // https://redux.js.org/advanced/usage-with-react-router
 
-const intialState: AppState = { currentFund: initialFund, currentTA: initialTA, currentFilter: filters}
+const intialState: AppState = { 
+    currentFund: initialFund, 
+    currentTA: initialTA, 
+    currentFilter: filters, 
+    currentUser: initialUser,
+    currentBiz: "",
+    signedIn: false }
 
 
 function reducer(state: AppState | undefined, action: actions) : AppState {
@@ -41,6 +47,27 @@ function reducer(state: AppState | undefined, action: actions) : AppState {
             newState.currentFilters = addAction.payload;
             return newState;
         }
+        case actionIdentifier.UPDATEUSER: {
+            let addAction = action as updateUserAction; //  treat the `action` object as a JoinObject
+
+            const newState = JSON.parse(JSON.stringify(state));
+            newState.currentUser = addAction.payload;
+            return newState;
+        }
+        case actionIdentifier.UPDATESIGNIN: {
+            let addAction = action as updateSignInAction; //  treat the `action` object as a JoinObject
+
+            const newState = JSON.parse(JSON.stringify(state));
+            newState.signedIn = addAction.payload;
+            return newState;
+        }
+        case actionIdentifier.LOG_OUT_USER: {
+            console.log("EMPTY U BUTT")
+            const newState = JSON.parse(JSON.stringify(state));
+            newState.currentUser = undefined
+            newState.currentFilter = undefined
+            return newState;
+        };
         default:
             return state;
     }

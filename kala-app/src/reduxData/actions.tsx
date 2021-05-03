@@ -1,5 +1,5 @@
 // Actions and their types
-import { Fund, TA, Filters} from "./types";
+import { Fund, TA, Filters, UserInfo} from "./types";
 // import PostPage from "../components/postPage";
 
 export enum actionIdentifier {
@@ -7,7 +7,10 @@ export enum actionIdentifier {
   GETFUND,
   UPDATETA,
   GETTA,
-  UPDATEFILTERS
+  UPDATEFILTERS,
+  UPDATEUSER,
+  UPDATESIGNIN,
+  LOG_OUT_USER
 }
 
 
@@ -26,12 +29,29 @@ export interface updateTAObjectAction {
   payload: TA 
 };
 
+export interface updateUserAction {
+  type: actionIdentifier,
+  payload: UserInfo 
+};
+
+export interface updateSignInAction {
+  type: actionIdentifier,
+  payload: Boolean 
+};
+
 // Action creators
 export function updateFund(fund: Fund) : updateFundObjectAction {
   console.log("UPDATING Fund ");
   return {
     type: actionIdentifier.UPDATEFUND,
     payload: fund
+  }
+};
+
+export function updateSignIn(statement: Boolean) : updateSignInAction {
+  return {
+    type: actionIdentifier.UPDATESIGNIN,
+    payload: statement
   }
 };
 
@@ -50,5 +70,19 @@ export function updateFilters(filter: Filters) : updateFiltersAction {
   }
 };
 
-export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction; 
+export function updateUser(info: UserInfo) : updateUserAction {
+  return {
+    type: actionIdentifier.UPDATEUSER,
+    payload: info
+  }
+};
+
+export function clearData() {
+  console.log("dsfhjadsfls")
+  return {
+    type: actionIdentifier.LOG_OUT_USER
+  }
+};
+
+export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction | updateUserAction | updateSignInAction; 
 

@@ -47,7 +47,7 @@ class FundingExpand extends React.Component<fundProps, fundState> {
           {/* All else are optional and render conditionally */}
           <h1 className="title">{post.fundingName}</h1>
           <div className ="moreDetailsBox url">
-            <a href={post.website} rel="noreferrer" target="_blank">Visit {shortenWebsite}</a>
+            <a href={post.website} rel="noreferrer" target="_blank">Apply Here</a>
           </div>
           <p><strong>Description: </strong> {post.description}</p>
           {post.endDate !== null ? (<p><strong>Application Due Date: </strong> {post.endDate}</p>) : (null)}

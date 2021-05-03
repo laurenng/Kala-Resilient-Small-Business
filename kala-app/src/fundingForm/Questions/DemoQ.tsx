@@ -21,7 +21,8 @@ interface state {
     mideast: boolean,
     veteran: boolean,
     lgbtq: boolean,
-    white: boolean
+    white: boolean,
+    dne: boolean,
     tribalAff: string
 }
 
@@ -30,7 +31,7 @@ interface props {
     updateFilters: (newFilters: Filters) => void,
 }
 
-class DemoQuestion extends React.Component<props, state> {
+class DemoQ extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
         let allProps = this.props.currentFilter.demographic.value;
@@ -55,7 +56,8 @@ class DemoQuestion extends React.Component<props, state> {
             mideast: this.state.mideast,
             veteran: this.state.veteran,
             lgbtq: this.state.lgbtq,
-            white: this.state.white
+            white: this.state.white,
+            dne: this.state.dne
         }
         changes.demographic.value = reasonSet;
         changes.tribalAff.value = this.state.tribalAff;
@@ -171,6 +173,10 @@ class DemoQuestion extends React.Component<props, state> {
         {
             label: "native", 
             value: "Native American or Alaskan Native"
+        },
+        {
+            label: "dne", 
+            value: "Prefer not to disclose"
         }];
 }
 
@@ -186,4 +192,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DemoQuestion);
+export default connect(mapStateToProps, mapDispatchToProps)(DemoQ);

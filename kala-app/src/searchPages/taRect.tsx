@@ -22,7 +22,7 @@ interface props extends RouteComponentProps<any> {
 
 // states that belong to SearchHome
 interface state {
-  technicalAssistance: any,
+  technicalAssistance: any[],
 }
 
 class TaRect extends React.Component<props, state> {
@@ -79,8 +79,7 @@ class TaRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      
-      let url ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/";
+      let url ="https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb/assistance";
       await fetchFromAPI(url).then(data => {
         let selectedData = this.compareLanguages(data);
         // console.log(selectedData);
@@ -88,7 +87,6 @@ class TaRect extends React.Component<props, state> {
           technicalAssistance: selectedData
         })
       });
-      
     }
 
     private compareLanguages(data: TA[]) {

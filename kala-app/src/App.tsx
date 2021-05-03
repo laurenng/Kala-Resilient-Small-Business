@@ -9,11 +9,16 @@ import './App.css';
 import SearchHome from './searchPages/searchHome';
 import LibraryHome from './libraryPages/libraryHome';
 import Landing from './mainPages/Landing';
+
 import TAPage from './mainPages/technicalAssistance';
 import ProfileHome from './mainPages/profileHome';
+
 import FundingExpand from './searchPages/fundExpanded';
 import TaExpand from './searchPages/TaExpanded';
 import NotFoundPage from './mainPages/NotFoundPage';
+import SignUpForm from './fundingForm/signUpForm';
+import Profile from './profile/profile';
+import bizExpand from './profile/bizExpand';
 
 // React-Router 
 import {Route, Router, Switch} from 'react-router-dom'
@@ -72,13 +77,15 @@ class App extends React.Component<any> {
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/search" component={SearchHome} />
                 <Route exact path="/library" component={LibraryHome} />
-                <Route exact path="/profile" component={ProfileHome} />
+                <Route exact path="/profile" component={Profile} />
                 <Route exact path="/expandFunds" component={FundingExpand} />
                 <Route exact path="/expandTA" component={TaExpand} />
                 <Route exact path="/form" component={FundingForm} />
                 <Route exact path="/login" component={LoginTest} />
                 <Route exact path="/signup" component={SignupTest} />
                 <Route exact path="/ta" component={TAPage} />
+                <Route exact path="/signup" component={SignUpForm} />
+                <Route exact path="/expandBiz" component={bizExpand} />
                 <Route path="*" component={NotFoundPage} />
             </Switch>
         </div>
