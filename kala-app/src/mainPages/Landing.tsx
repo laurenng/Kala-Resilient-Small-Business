@@ -9,7 +9,7 @@ import image from './../assets/landingPage/landing-pg.jpg';
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch , faBook , faMoneyBillWave, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faSearch , faBook , faMoneyBillWave, faUser, faQuestion, faComments} from '@fortawesome/free-solid-svg-icons';
 
 class Landing extends React.Component<any> {
   render() {
@@ -21,66 +21,66 @@ class Landing extends React.Component<any> {
           <div className ="blackLayer"></div>
           
         </div>
-        <div className="page-options">
 
-        <div className="two-column">
-            <div className="icon_styling">
-              <FontAwesomeIcon icon={faUser} size="2x" color="white" />
-            </div>
-          
-            <div className="right-column">
-              <h3>Create an account</h3>
-              <p>Save the funding and assistance that best matches with your business(es).</p>
-              <Link to="/login" style={{ textDecoration: 'none' }}>
-                    <div className="redirect_button">
-                        <h1 className="button_text">Sign up or Log in</h1>
-                    </div>
-                </Link>
-            </div>
-          </div>
+        <div className="centered_text"><h2>Where will <em>you</em> start?</h2></div>
 
-          <div className="two-column">
-            <div className="icon_styling">
-              <FontAwesomeIcon icon={faBook} size="2x" color="white" />
-            </div>
-          
-            <i className="fas fa-book"></i>
-            <div className="right-column">
-              <h3>Financial Literacy Library</h3>
-              <p>This library contains resources you can use to familiarize yourself with terminology while applying for funding.</p>
-              <Link to="/library" style={{ textDecoration: 'none' }}>
-                    <div className="redirect_button">
-                        <h1 className="button_text">Go to library</h1>
-                    </div>
-                </Link>
-            </div>
-          </div>
+        <div className="center-div">
+          <div className="page-options" id="grid">
+          <Link to="/ta" style={{ textDecoration: 'none', color: 'white' }}>
+            <div className="two-column">
+                <div className="icon_styling">
+                  <FontAwesomeIcon icon={faComments} size="2x" color="white" />
+                </div>
+              
+                <div className="right-column">
+                  <h3>Talk to Assistance</h3>
+                  <p>Assistance organizations are free. You might be a <b>first time
+                    funding applicant</b> who’d prefer to <b>learn from a real person or
+                      someone who needs help</b> acquiring a loan or grant.</p>
+                </div>
+              </div>
+            </Link>
 
-          <div className="two-column">
-          <div className="icon_styling">
-              <FontAwesomeIcon icon={faSearch} size="2x" color="white" />
+            <Link to="/library" style={{ textDecoration: 'none', color: 'white' }}>
+            <div className="two-column">
+              <div className="icon_styling">
+                <FontAwesomeIcon icon={faBook} size="2x" color="white" />
+              </div>
+            
+              <i className="fas fa-book"></i>
+              <div className="right-column">
+                <h3>Financial Literacy Library</h3>
+                <p>This is for <b>businesses currently applying to funding</b> who need some financial knowledge resources.</p>
+              </div>
             </div>
-            <div className="right-column">
-              <h3>Search Tool</h3>
-              <p>Here you can find what funding and assistance best match your business.</p>
-                <Link to="/form" style={{ textDecoration: 'none' }}>
-                    <div className="redirect_button">
-                        <h1 className="button_text">Go to the search tool</h1>
-                    </div>
-                </Link>
-            </div>
-          </div>
+            </Link>
 
-          <div className="two-column">
-            <div className="icon_styling">
-              <FontAwesomeIcon icon={faMoneyBillWave} size="2x" color="white" />
-            </div>
-            <div className="right-column">
-              <h3>Get Funding</h3>
-              <p>Start applying on your own or reach out to an assistance to guide you thorugh applying. </p>
-            </div>
+            <Link to="/search" style={{ textDecoration: 'none', color: 'white' }}>
+              <div className="two-column">
+              <div className="icon_styling">
+                  <FontAwesomeIcon icon={faSearch} size="2x" color="white" />
+                </div>
+                <div className="right-column">
+                  <h3>Loans and Grants List</h3>
+                  <p>Browse what funding options are available.</p>
+                </div>
+              </div>
+            </Link>
+
+
+            <Link to="/form" style={{ textDecoration: 'none', color: 'white' }}>
+              <div className="two-column">
+                <div className="icon_styling">
+                  <FontAwesomeIcon icon={faQuestion} size="2x" color="white" />
+                </div>
+                <div className="right-column">
+                  <h3>Fill out our form</h3>
+                  <p>We can match you to what funding/assistance best fits your business.</p>
+                </div>
+              </div>
+            </Link> 
           </div> 
-        </div> 
+        </div>
       </div>
     );
   }

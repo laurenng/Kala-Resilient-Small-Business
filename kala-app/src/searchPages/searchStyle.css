@@ -183,6 +183,10 @@ h1 {
     justify-content: center;
 }
 
+.fundBox:hover .learnMoreBox {
+    background-color: #D6775A;
+}
+
 .learnMoreBox h1 {
     padding: .7em;
     color: white;
