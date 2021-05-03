@@ -9,6 +9,10 @@ import './App.css';
 import SearchHome from './searchPages/searchHome';
 import LibraryHome from './libraryPages/libraryHome';
 import Landing from './mainPages/Landing';
+
+import TAPage from './mainPages/technicalAssistance';
+import ProfileHome from './mainPages/profileHome';
+
 import FundingExpand from './searchPages/fundExpanded';
 import TaExpand from './searchPages/TaExpanded';
 import NotFoundPage from './mainPages/NotFoundPage';
@@ -78,6 +82,8 @@ class App extends React.Component<any> {
                 <Route exact path="/expandTA" component={TaExpand} />
                 <Route exact path="/form" component={FundingForm} />
                 <Route exact path="/login" component={LoginTest} />
+                <Route exact path="/signup" component={SignupTest} />
+                <Route exact path="/ta" component={TAPage} />
                 <Route exact path="/signup" component={SignUpForm} />
                 <Route exact path="/expandBiz" component={bizExpand} />
                 <Route path="*" component={NotFoundPage} />

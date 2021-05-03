@@ -35,11 +35,25 @@
   margin-top: 2.5em;
 }
 
+.centered_text h2 {
+  width: 100%;
+  text-align: center;
+  align-self: center;
+  /* transform: translate(-50%, -50%); */
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  margin-top: .2em;
+}
+
 /* styling 2-sided descriptions*/
 .two-column {
   margin: 1em;
   display: flex;
   flex-direction: row;
+  background-color: grey;
+  border-radius: .5em;
+  padding: .4em;
 }
 
 .two-column h3 {
@@ -102,6 +116,18 @@
   height: 17em;
 }
 
+#grid {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  grid-gap: 1em;
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 1000px) {
     #banner {
       height: 17em;
@@ -133,8 +159,7 @@
     .page-options {
       display: flex;
       flex-direction: row;
-      width: 75%;
-      margin-left: 10%;
+      width: 50%;
       justify-content: center;
     }
 }

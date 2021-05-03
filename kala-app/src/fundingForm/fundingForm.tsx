@@ -120,7 +120,7 @@ class FundingForm extends React.Component<any, any> {
           {/* Navigate away from page warning */}
           <Prompt
             when={this.shouldBlockNavigation}
-            message='You have unsaved changes, are you sure you want to leave?'
+            message='You have not finished the questions, are you sure you want to leave?'
           />
           {question}
           <br></br>
