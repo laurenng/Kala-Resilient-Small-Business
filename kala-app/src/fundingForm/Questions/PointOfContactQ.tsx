@@ -6,14 +6,14 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import { connect } from 'react-redux';
-import { updateUser } from '../../reduxData/actions';
+import { updatePOC } from '../../reduxData/actions';
 import AppState, { UserInfo } from '../../reduxData/types';
 import '../fundingForm.css';
 import kala from '../../assets/kala_orange_solid 3.svg';
 
 interface props {
-    currentUser: UserInfo,
-    updateUser: (newUser: UserInfo) => void,
+    currentPOC: UserInfo,
+    updatePOC: (newUser: UserInfo) => void,
 }
 
 interface state {
@@ -28,11 +28,11 @@ class PointOfContactQ extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let contactMethod = this.props.currentUser.contactMethod.value
-        let contactFirstName = this.props.currentUser.contactFirstName.value
-        let contactLastName = this.props.currentUser.contactLastName.value
-        let contactPhone = this.props.currentUser.contactPhone.value
-        let contactEmail = this.props.currentUser.contactEmail.value
+        let contactMethod = this.props.currentPOC.contactMethod.value
+        let contactFirstName = this.props.currentPOC.contactFirstName.value
+        let contactLastName = this.props.currentPOC.contactLastName.value
+        let contactPhone = this.props.currentPOC.contactPhone.value
+        let contactEmail = this.props.currentPOC.contactEmail.value
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
             contactMethod: contactMethod,
@@ -44,14 +44,14 @@ class PointOfContactQ extends React.Component<props, state> {
     } 
 
     componentWillUnmount() {
-        console.log(this.props.currentUser)
-        let changes = this.props.currentUser;
+        console.log(this.props.currentPOC)
+        let changes = this.props.currentPOC;
         changes.contactMethod.value = this.state.contactMethod;
         changes.contactFirstName.value = this.state.contactFirstName;
         changes.contactLastName.value = this.state.contactLastName;
         changes.contactPhone.value = this.state.contactPhone;
         changes.contactEmail.value = this.state.contactEmail;
-        updateUser(changes);
+        updatePOC(changes);
     }
 
 
@@ -134,13 +134,13 @@ class PointOfContactQ extends React.Component<props, state> {
 
 function mapStateToProps(state: AppState) {
     return { 
-        currentUser: state.currentUser
+        currentPOC: state.currentPOC
     }
 }
 
 function mapDispatchToProps(dispatch: any)  {
     return {
-        updateUser: (  newUser: UserInfo ) => dispatch(updateUser(newUser))
+        updatePOC: (  newUser: UserInfo ) => dispatch(updatePOC(newUser))
     }    
 } 
 

@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import React from 'react';
 import './profile.css';
 import kala from '../assets/kala_orange_solid 3.svg';
-import { RouteComponentProps, withRouter } from 'react-router'; 
-import { updateUser } from '../reduxData/actions';
+import { RouteComponentProps } from 'react-router'; 
 import AppState, { UserInfo } from '../reduxData/types';
+import { Redirect } from 'react-router-dom';
 
 interface props extends RouteComponentProps<any>{
-    currentUser: UserInfo,
+    currentPOC: UserInfo,
     updateUser: (newUser: UserInfo) => void,
 }
 
@@ -20,20 +20,30 @@ class Profile extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let name = this.props.currentUser.user.value;
-        let number = this.props.currentUser.password.value;
+        let name = this.props.currentPOC.user.value;
+        let number = this.props.currentPOC.password.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
             user: name,
             password: number
         };
     } 
-
+    
     private handleClick (d: string) {
         this.props.history.push('/editBiz');
     }
 
+    private logout() {
+        sessionStorage.removeItem("fundingToken");
+    }
     render() {
+        const isLogin = false // this.state.isLogin; // get redux state here
+        console.log("work??? islogin")
+        const loggedInVar = (sessionStorage.getItem('fundingToken') !== null)
+        // check if the token is valid 
+        
+        console.log(loggedInVar)
+
         let shopList = this.shops.map((shop) => {
             return(
                 <div key={shop} className="businessRect" onClick={() => this.handleClick(shop)}>
@@ -42,14 +52,17 @@ class Profile extends React.Component<props, state> {
             )
         })
 
-        let userFirst = this.props.currentUser.contactFirstName.value
-        return(
+        let userFirst = this.props.currentPOC.contactFirstName.value
+        let page = 
             <div id="loggedIn">
                 <div className="sideByside">
                     <div className="questionBubble">
                         <h4 className="question">Welcome, {userFirst}</h4>
                     </div>
-                    <button id="logoutButton">Log-out</button>
+                    <button id="logoutButton" onClick={() => {
+                                                            this.props.history.push('/login');
+                                                            this.logout();
+                                                        }}>Log-out</button>
                 </div>
                 <div className="kalaLogo">
                     <img src={kala} alt="Kala the squid"/>
@@ -69,7 +82,11 @@ class Profile extends React.Component<props, state> {
 
                 <br></br>
             </div>
-        );
+
+        if (loggedInVar) {
+            return page;
+        }
+        return <Redirect to="/login" />;
     }
 
     shops = ["Levi's Tea Shop", "Kalamari Stixs", "Turkey Legs Incorporated"];
@@ -77,7 +94,7 @@ class Profile extends React.Component<props, state> {
 
 function mapStateToProps(state: AppState) {
     return { 
-        currentUser: state.currentUser
+        currentPOC: state.currentPOC
     }
 }
 

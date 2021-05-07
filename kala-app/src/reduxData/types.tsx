@@ -3,6 +3,7 @@ export interface AppState {
     currentFund: Fund;
     currentTA: TA;
     currentFilter: Filters;
+    currentPOC: UserInfo;
     currentUser: UserInfo;
     currentBiz: String;
     signedIn: boolean;
@@ -161,6 +162,14 @@ export interface UserInfo {
 
 // initializing data 
 export const initialUser : UserInfo = {
+    email: {value: "", label: "user"}, 
+    password: {value: "", label: "password"},
+    firstName: {value: "", label: "firstname"},
+    lastName: {value: "", label: "lastname"},
+    userID: {value: "", label: "userID"}
+}
+
+export const initialPOC : UserInfo = {
     user: {value: "", label: "user"}, 
     password: {value: "", label: "password"},
     contactMethod: {value: contactMethods, label: "contactMethod"}, 

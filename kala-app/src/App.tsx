@@ -83,7 +83,6 @@ class App extends React.Component<any> {
                 <Route exact path="/expandTA" component={TaExpand} />
                 <Route exact path="/form" component={FundingForm} />
                 <Route exact path="/login" component={LoginTest} />
-                <Route exact path="/signup" component={SignupTest} />
                 <Route exact path="/ta" component={TAPage} />
                 <Route exact path="/signup" component={SignUpForm} />
                 <Route exact path="/expandBiz" component={BizExpand} />

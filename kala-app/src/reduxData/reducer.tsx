@@ -1,5 +1,5 @@
-import { actionIdentifier, actions, updateFundObjectAction, updateFiltersAction, updateUserAction, updateSignInAction} from './actions';
-import { AppState, filters, initialFund, initialTA, initialUser } from './types';
+import { actionIdentifier, actions, updateFundObjectAction, updateFiltersAction, updateUserAction, updatePOCAction, updateSignInAction} from './actions';
+import { AppState, filters, initialFund, initialTA, initialUser, initialPOC } from './types';
 
 // Reducer
 // The reducer is a function that takes the previous 
@@ -18,6 +18,7 @@ const intialState: AppState = {
     currentTA: initialTA, 
     currentFilter: filters, 
     currentUser: initialUser,
+    currentPOC: initialPOC,
     currentBiz: "",
     signedIn: false }
 
@@ -59,6 +60,13 @@ function reducer(state: AppState | undefined, action: actions) : AppState {
 
             const newState = JSON.parse(JSON.stringify(state));
             newState.signedIn = addAction.payload;
+            return newState;
+        }
+        case actionIdentifier.UPDATEPOC: {
+            let addAction = action as updatePOCAction; //  treat the `action` object as a JoinObject
+
+            const newState = JSON.parse(JSON.stringify(state));
+            newState.currentPOC = addAction.payload;
             return newState;
         }
         case actionIdentifier.LOG_OUT_USER: {

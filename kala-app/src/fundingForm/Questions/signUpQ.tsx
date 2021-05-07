@@ -16,27 +16,37 @@ interface props {
 
 interface state {
     user: string,
-    password: string
+    password: string,
+    fname: string,
+    lname: string
 }
 
 class SignupQ extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let name = this.props.currentUser.user.value;
-        let number = this.props.currentUser.password.value;
+        let username = this.props.currentUser.email.value;
+        let password = this.props.currentUser.password.value;
+        let fname = this.props.currentUser.firstName.value;
+        let lname = this.props.currentUser.lastName.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
-            user: name,
-            password: number
+            user: username,
+            password: password,
+            fname: fname,
+            lname: lname
         };
     } 
 
     componentWillUnmount() {
         let changes = this.props.currentUser;
-        changes.user.value = this.state.user;
+        changes.email.value = this.state.user;
         changes.password.value = this.state.password;
+        changes.firstName.value = this.state.fname;
+        changes.lastName.value = this.state.lname;
         updateUser(changes);
+
+        console.log(changes)
     }
 
     private userChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +58,18 @@ class SignupQ extends React.Component<props, state> {
     private passwordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             password: event.target.value
+        })
+    }
+
+    private firstChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            fname: event.target.value
+        })
+    }
+
+    private lastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            lname: event.target.value
         })
     }
 
@@ -66,13 +88,24 @@ class SignupQ extends React.Component<props, state> {
                    
                     <div id="signupForm">
                         <h2>Email</h2>
-                        <input type="email" title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
+                        <input type="email" 
+                               onChange={this.userChange} 
+                               value={this.state.user}
+                               title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
                         <h2>Password</h2>
-                        <input type="password" required></input>
+                        <input type="password" value={this.state.password} onChange={this.passwordChange} required></input>
+                        <h2>First Name</h2>
+                        <input type="text" value={this.state.fname} onChange={this.firstChange} title="Please enter your first name" required></input>
+                        <h2>Last Name</h2>
+                        <input type="text" value={this.state.lname} onChange={this.lastChange} title="Please enter your last name" required></input>
+                        
                         <br></br>
                         <div className="sideByside">
                             <input className="checkBox" type="checkbox" value="test1" required />
-                            <p>I agree to Funding Finder's <PrivacyPolicyPopup></PrivacyPolicyPopup></p> {/* add href later*/}
+                            <div>
+                                <p>I agree to Funding Finder's </p> 
+                                <PrivacyPolicyPopup></PrivacyPolicyPopup>
+                            </div>
                         </div>
 
                         <div className="sideByside">

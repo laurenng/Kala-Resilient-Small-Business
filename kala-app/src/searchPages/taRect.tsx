@@ -40,7 +40,7 @@ class TaRect extends React.Component<props, state> {
       let displayContent = this.state.technicalAssistance.map((d: any, i: number) => {
         return(
           <div key = {i}>
-            {this.individualRect(i)}
+            {this.individualRect(d)}
           </div>
         )
       })
@@ -71,8 +71,7 @@ class TaRect extends React.Component<props, state> {
       );
     }
 
-    private individualRect = (num: number) => {
-      let d = this.state.technicalAssistance[num];
+    private individualRect = (d: any) => {
       // getting a shorten version of the link that only keeps part before 
       // all the mumble jumble 
       let shortenWebsite = d.website.split('/')[2];
