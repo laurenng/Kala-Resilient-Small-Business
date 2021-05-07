@@ -57,7 +57,7 @@ class LoginTest extends React.Component<props, state> {
         // Send Fetch Request to API
         // If Request is Good, add cookie or session thing to state or browser storage
         // Else - show error message
-        
+    
         var email = (document.getElementById("userEmail") as HTMLInputElement).value;
         var password = (document.getElementById("userPassword") as HTMLInputElement).value;
         // if (email != null && password != null) {
@@ -76,12 +76,13 @@ class LoginTest extends React.Component<props, state> {
                     this.setState({"isLogin": true} as any); // need to hook up to actual state
                 }
             });
-
     }
 
     render() {
+        
         const isLogin = this.state.isLogin; // get redux state here
         const loggedIn = (sessionStorage.getItem('fundingToken') !== null)
+        
         console.log("has just logged in " + isLogin + " | already logged in " + loggedIn)
         const loginPage = 
         <div id="loginBody">
@@ -101,7 +102,7 @@ class LoginTest extends React.Component<props, state> {
                         <p>OR</p>
                         <hr/>
                     </div>
-                    <button type="button" id="signupBtn"><Link to="/signup">Sign Up</Link></button>
+                    <Link to="/signup"><button type="button" id="signupBtn">Sign Up</button></Link>
                 </form>
             </div>
         </div>

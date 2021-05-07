@@ -15,9 +15,16 @@
     overflow-y: scroll;
 }  
 
+h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: bolder;
+    margin-bottom: .2em;
+}
 .sideByside {
     display: flex;
     flex-flow: row;
+    justify-content: left;
 }
 
 #logoutButton {
@@ -63,16 +70,46 @@
     flex-direction: column;
 }
 
+button {
+    border-radius: 1em;
+    align-items: center;
+    border: #0A7088 2px solid;
+    padding: 8px 12px;
+    font-size: 1em;
+    height: 3em;
+}
 
+#saveChanges {
+    background-color: #0A7088;
+    border: #0A7088 2px solid;
+    color: white;
+}
+
+
+#deleteButton {
+    border: red 2px solid;
+}
+
+#editBiz h5 {
+    font-size: 1.2em;
+    font-weight: normal;
+    margin: 0.2em;
+}
 
 @media (min-width: 1000px) {
-    #loggedIn {
-        width: 80%;
+    #loggedIn, #editBiz, #bizExpand {
+        width: 70%;
         margin: auto;
     }
 
     .cardDisplay {
         display: flex;
         flex-direction: row;
+    }
+
+    button {
+        width: 7em;
+        margin-left: 0.3em;
+        margin-right: 0.3em;
     }
 }

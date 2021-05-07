@@ -10,7 +10,8 @@ export enum actionIdentifier {
   UPDATEFILTERS,
   UPDATEUSER,
   UPDATESIGNIN,
-  LOG_OUT_USER
+  LOG_OUT_USER,
+  UPDATEPOC
 }
 
 
@@ -34,10 +35,17 @@ export interface updateUserAction {
   payload: UserInfo 
 };
 
+export interface updatePOCAction {
+  type: actionIdentifier,
+  payload: UserInfo 
+};
+
 export interface updateSignInAction {
   type: actionIdentifier,
   payload: Boolean 
 };
+
+
 
 // Action creators
 export function updateFund(fund: Fund) : updateFundObjectAction {
@@ -77,6 +85,13 @@ export function updateUser(info: UserInfo) : updateUserAction {
   }
 };
 
+export function updatePOC(info: UserInfo) : updatePOCAction {
+  return {
+    type: actionIdentifier.UPDATEPOC,
+    payload: info
+  }
+};
+
 export function clearData() {
   console.log("dsfhjadsfls")
   return {
@@ -84,5 +99,6 @@ export function clearData() {
   }
 };
 
-export type actions = updateFundObjectAction | updateTAObjectAction | updateFiltersAction | updateUserAction | updateSignInAction; 
+export type actions = updateFundObjectAction | updateTAObjectAction | 
+                      updateFiltersAction | updateUserAction | updateSignInAction | updatePOCAction; 
 

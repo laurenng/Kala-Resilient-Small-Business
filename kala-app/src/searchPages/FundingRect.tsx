@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 /*
 This creates the funding opportunity list. Each funding opportunity includes
 the name, link to additional information, and url. 
@@ -30,42 +31,60 @@ interface props extends RouteComponentProps<any> {
 // states that belong to SearchHome
 interface state {
   fundingOpps: any,
+  fundingOpps2: any,
+  filteringChosen: any
 }
 
 class FundingRect extends React.Component<props, state> {
     constructor(props: props, state: state){
       super(props);
       this.state = {
-        fundingOpps: []
+        fundingOpps: [],
+        fundingOpps2: [],
+        filteringChosen: []
       };
     }
 
     render() {
       // map through every technical assistance to display all
       
+      console.log(this.state.fundingOpps2)
+
       let displayContent = this.state.fundingOpps.map((d: any, i: number) => {
         return(
           <div key = {i}>
-            {this.individualRect(i)}
+            {this.individualRect(d)}
           </div>
         )
       }) 
-      // if no funding avaliable, this is message we will have in place 
-      if (this.state.fundingOpps.length === 0) {
-        displayContent = <h3>Please change your filters we don't have options for you</h3>
-      } 
-      console.log(this.state.fundingOpps)
       
+      let displayContent2 = this.state.fundingOpps2.map((d: any, i: number) => {
+        return(
+          <div key = {i}>
+            {this.individualRect(d)}
+          </div>
+        )
+      }) 
+
       return (
-          <div id="fundGroup">
-            {displayContent}
+          <div>
+            {this.state.fundingOpps2.length > 0 ? 
+              <div><h3> Your matches</h3><p>{this.state.fundingOpps.length} matches</p></div> : <h3></h3>
+            }
+            <div id="fundGroup">
+              {displayContent}
+            </div>
+        
+            {this.state.fundingOpps2 > 0 ? <h3>Other</h3> : <h3></h3>}
+            <div id="fundGroup">
+              {displayContent2}
+            </div>
           </div>
       );
     }
 
-    private individualRect = (num: number) => {
+    private individualRect = ( d: Fund) => {
       // getting the object specific at the index represented at num
-      let d = this.state.fundingOpps[num];
       let funding = null;
 
       
@@ -106,17 +125,19 @@ class FundingRect extends React.Component<props, state> {
     }
 
     async componentDidMount() {
-      let url ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/";
+      let url ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/funding";
       await fetchFromAPI(url).then(data => {
         let selectedData = this.filterData(data);
         console.log(selectedData);
         this.setState({
-          fundingOpps: selectedData
+          fundingOpps: selectedData,
+          // fundingOpps2: secondaryData
         })
       });
     }
 
     private filterData(data: Fund[]) {
+      console.log(data)
       // selected languages user selected in onboarding form
       let useFilters = this.props.currentFilter.reason.value;
       let demoFilters = this.props.currentFilter.demographic.value;
@@ -150,22 +171,34 @@ class FundingRect extends React.Component<props, state> {
       
       let selectedData = new Set();
       // REMEMBER TO DELTE THIS IT'S TO SHOW OFF THAT NATIVES ARE IMPORTANT AND HAVE FUNDING
-      selectedData.add(data[4])
+      // selectedData.add(data[4])
       
+      console.log(data)
+
+
+      let secondaryData = new Set();
+
       data.map((d: Fund) => {
-        let uses = d.qualifications.useCases; 
-        let demographic = d.qualifications.demographics; 
+        let uses = d.useCases; 
+        let demographic = d.demographics; 
 
         let useBoolean = booleanCheck(reasonSet, uses); 
         let demoBoolean = booleanCheck(demoSet, demographic); 
         
         if (demoBoolean || useBoolean) {
           selectedData.add(d);
+        } else {
+          secondaryData.add(d);
         }
         return null;
       })
-      // change set into array 
-      // console.log(selectedData);
+
+
+      this.setState({
+        filteringChosen: Array.from(selectedReasons),
+        fundingOpps2: Array.from(secondaryData)
+        
+      })
       return Array.from(selectedData);
     }
   }

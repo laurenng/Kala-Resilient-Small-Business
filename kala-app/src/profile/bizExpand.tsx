@@ -7,8 +7,10 @@ import { updateUser } from '../reduxData/actions';
 import AppState, { UserInfo } from '../reduxData/types';
 import fetchFromAPI from '../reduxData/fetchFromAPI';
 import fundingCard from '../searchPages/components/fundingCard';
+import { RouteComponentProps } from 'react-router-dom';
 
-interface props {
+
+interface props extends RouteComponentProps<any>{
     currentUser: UserInfo,
     updateUser: (newUser: UserInfo) => void,
 }
@@ -20,7 +22,7 @@ interface state {
     fundingOpps: any[]
 }
 
-class bizExpand extends React.Component<props, state> {
+class BizExpand extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
@@ -36,7 +38,7 @@ class bizExpand extends React.Component<props, state> {
     } 
     
     async componentDidMount() {
-        let assistanceLink ="https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb/assistance";
+        let assistanceLink ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/assistance";
         await fetchFromAPI(assistanceLink).then(data => {
           let selectedData = data.filter((type: any, index: number) => { return index < 4 } )
           // console.log(selectedData);
@@ -45,7 +47,7 @@ class bizExpand extends React.Component<props, state> {
           })
         });
 
-        let fundingLink ="https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb/funding";
+        let fundingLink ="https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/funding";
         await fetchFromAPI(fundingLink).then(data => {
             let selectedData = data.filter((type: any, index: number) => { return index < 4 } )
             this.setState({
@@ -57,7 +59,7 @@ class bizExpand extends React.Component<props, state> {
 
     private handleClick (d: string) {
         console.log(d);
-        // this.props.history.push('/expandFunds');
+        this.props.history.push('/editBiz');
       }
 
     render() {
@@ -68,14 +70,15 @@ class bizExpand extends React.Component<props, state> {
         console.log(this.state.technicalAssistance)
         return(
             <div id="bizExpand">
-                <h1> Assistance Match</h1>
+                <h1>INSERT BIZ HERE</h1>
+                <h2> Assistance Match</h2>
                 <p> Reach out to these businesses to strengthen your business and funding applications. </p>
                 <div className="cardDisplay">
                     {cards}
                 </div>
                 <br></br>
 
-                <h1>Funding Matches</h1>
+                <h2>Funding Matches</h2>
                 <p>These loans and grants are the best suited to your company. Check them out</p>
                 <div>
                     <p>DUMBY DATA HERE </p>
@@ -83,6 +86,7 @@ class bizExpand extends React.Component<props, state> {
                 <br></br>
 
                 <h2>Your Business Profile</h2>
+                <button onClick={() => this.handleClick("hello")}> Edit</button>
                 <p>These are the details collected from the form you filled out when you added this business to your account. Edit details here. </p>
                 <div>
                     <p>DUMBY DATA HERE </p>
@@ -106,4 +110,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(bizExpand);
+export default connect(mapStateToProps, mapDispatchToProps)(BizExpand);

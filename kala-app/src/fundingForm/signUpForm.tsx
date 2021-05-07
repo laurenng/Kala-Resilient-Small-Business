@@ -23,14 +23,16 @@ import { Prompt } from 'react-router';
 import ConfirmPopup from './confirmationPopup';
 
 // redux
-import { clearData, updateFilters, updateUser } from '../reduxData/actions';
-import AppState, { UserInfo, initialUser, Filters, filters } from '../reduxData/types';
+import { clearData, updateFilters, updatePOC, updateUser } from '../reduxData/actions';
+import AppState, { UserInfo, initialPOC, Filters, filters } from '../reduxData/types';
 import { connect } from 'react-redux';
 
 interface props {
     currentUser: UserInfo,
+    currentPOC: UserInfo,
     updateUser: (newUser: UserInfo) => void,
     updateFilters: (newFilters: Filters) => void,
+    updatePOC: (newPOC: UserInfo) => void,
     clearData: () => void,
     currentFilter: Filters
 }
@@ -59,7 +61,7 @@ class SignUpForm extends React.Component<props, any> {
         window.removeEventListener('beforeunload', this.warningPopup); // removes navigate away blocker when they leave form page
         console.log("get rid of the data u unmounted")
         
-        let changes = this.props.currentUser;
+        let changes = this.props.currentPOC;
 
         changes.contactMethod.value = undefined;
         changes.contactFirstName.value = undefined;
@@ -68,10 +70,10 @@ class SignUpForm extends React.Component<props, any> {
         changes.contactPhone.value = undefined;
         changes.contactEmail.value = undefined;
 
-        updateUser(changes);
+        updatePOC(changes);
         
         let filterChanges = this.props.currentFilter; 
-
+        // TODO:: LAUREN!!!!
         // filterChanges.language.value = undefined;
         // filterChanges.reason.value = undefined;
         // filterChanges.when.value = undefined;
@@ -107,6 +109,64 @@ class SignUpForm extends React.Component<props, any> {
       this.setState({questionIndex: this.state.questionIndex + 1})
     }
 
+    async fetchPostNewUser(url: string, email: string, password: string, firstName: string, lastName: string): Promise<any> {
+        return fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                firstName: firstName,
+                lastName: lastName
+            })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
+          return response.json() as Promise<{ data: string[] }>
+        })
+        .then(data => {
+            // console.log(data)
+            return data
+        })
+    }
+
+    handleUserSubmit = (event: { target: any; }) => {
+      let email = this.props.currentUser.email.value;
+      let password = this.props.currentUser.password.value;
+      let firstName = this.props.currentUser.firstName.value;
+      let lastName = this.props.currentUser.lastName.value;
+
+      this.fetchPostNewUser("https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/users", email, password, firstName, lastName)
+        .then((data) => {
+          // ASK KELSON :)
+          console.log(data)
+            if (data.error != null) { // error occured
+                document.getElementById("signUpErrMsg")?.classList.remove("hidden");
+                console.log(data);
+            } else {
+                document.getElementById("signUpErrMsg")?.classList.add("hidden"); 
+                console.log(data);
+                // add this to state here
+                // sign up was successful so redirect elsewhere
+                sessionStorage.setItem('fundingToken', data.token); // login token
+                // save user id to state or smth
+                console.log(sessionStorage.getItem('fundingToken'));
+
+                let changes = this.props.currentUser
+                changes.userID.value = data.id
+                this.setState({questionIndex: this.state.questionIndex + 1})
+                // this.setState({"isLogin": true} as any); // need to hook up to actual state
+            }
+        });
+      // inside the API if it passes
+      
+    }
+
     // start of the form 
     beginForm = () => {
       this.setState({questionIndex: 1});
@@ -121,10 +181,12 @@ class SignUpForm extends React.Component<props, any> {
       let question;
       let skipBtn = <button className="skipBtn" onClick={this.handleSkip} type="button">Skip</button>
       let nextBtn; // dependent on whether there are more questions or form should be submitted
+      let submitUser;
       switch (num) {
         case 1:
           question = <SignupQ />
-          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
+          nextBtn = <div></div>
+          submitUser = <button className="nextBtn" onClick={this.handleUserSubmit} type="button">Submit</button>
           skipBtn = <div></div>
           break;
         case 2:
@@ -168,6 +230,7 @@ class SignUpForm extends React.Component<props, any> {
             <div className="inline">
               <button className="backBtn" onClick={this.handleBackBtn} type="button">Back</button>
               {nextBtn}
+              {submitUser}
             </div>
           </div>
         </div>
@@ -229,6 +292,7 @@ class SignUpForm extends React.Component<props, any> {
             <div id="progressBar">
               {dots}
             </div>
+            <p id="signUpErrMsg" className="hidden">Something went wrong, please try again</p>
 
             {/* What is being displayed is dictated above in the conditional rendering sequence */}
             {displayScreen}
@@ -240,13 +304,15 @@ class SignUpForm extends React.Component<props, any> {
 
 function mapStateToProps(state: AppState) {
     return { 
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        currentPOC: state.currentPOC
     }
 }
 
 function mapDispatchToProps(dispatch: any)  {
     return {
         updateUser: (  newUser: UserInfo ) => dispatch(updateUser(newUser)),
+        updatePOC: (  newPOC: UserInfo ) => dispatch(updatePOC(newPOC)),
         updateFilters: (  newFilters: Filters ) => dispatch(updateFilters(newFilters)),
         clearData: () => dispatch(clearData()),
     }    
