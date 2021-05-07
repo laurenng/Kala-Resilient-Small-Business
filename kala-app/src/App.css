@@ -34,6 +34,8 @@ footer img {
       margin-top: 0;
       display: absolute;
       bottom: 0;
+      flex-shrink: 0;
+      margin-top: 15%;
     }
 
     footer img {
@@ -48,7 +50,6 @@ footer img {
       background-color: white;
       display: flex;
       flex-direction: row;
-      padding-bottom: 0.8em;
     }
 
     #navTitle {
@@ -71,7 +72,7 @@ footer img {
       align-items: flex-end;
       width: 100%;
       font-size: 1.2em;
-      justify-content: space-evenly;
+      
       /* padding-right: 2%; */
       align-items: stretch;
       display: flex;
@@ -83,6 +84,7 @@ footer img {
       padding-top: 1%;
       padding-bottom: 1%;
       width: 100%;
+      justify-content: center;
     }
 
     .navTab p {

@@ -39,22 +39,21 @@ export default function DesktopNavBar() {
                 <div className="navTabs">
 
                     <Link to="/library?lang" onClick={ () => pushHistorySearch("/library", "lang")} className="navTab">
-                        <FontAwesomeIcon icon={faLanguage} size="2x" color="black" />
+                        {/* <FontAwesomeIcon icon={faLanguage} size="2x" color="black" /> */}
                         <p>Language Help</p>
                     </Link>
                 
                     <Link to="/library" onClick={ () => pushHistory("/library")} className="navTab">
-                        <FontAwesomeIcon icon={faBook} size="2x" color="black" />
+                        {/* <FontAwesomeIcon icon={faBook} size="2x" color="black" /> */}
                         <p>Library</p>
                     </Link>
 
                     <Link to="/search" onClick={ () => pushHistory("/search")} className="navTab">
-                        <FontAwesomeIcon icon={faMoneyBillWave} size="2x" color="black" />
-                        <p>Funding & Assistance</p>
+                        {/* <FontAwesomeIcon icon={faMoneyBillWave} size="2x" color="black" /> */}
+                        <p>Funding &amp; Assistance</p>
                     </Link>
                     <Link to="/profile" onClick={ () => pushHistory("/profile")} className="navTab">
-
-                        <FontAwesomeIcon icon={faUser} size="2x" color="black" />
+                        {/* <FontAwesomeIcon icon={faUser} size="2x" color="black" /> */}
                         <p>Profile</p>
                     </Link>
 

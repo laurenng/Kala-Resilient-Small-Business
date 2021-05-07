@@ -49,12 +49,17 @@ class SearchHome extends React.Component<searchProp, searchState> {
               <Link to="/form" style={{ textDecoration: 'none' }}>
                   <div className="blue-box inline">
                     <FontAwesomeIcon icon={faFilter} size="1x" color="white" />
-                    <h2> Filter results here</h2>
+                    <h2>Filter results here</h2>
                   </div>
               </Link>
+
               <p>Find technical assistance (e.g. legal and financial experts) and
                  funding (loans and grants) here. Answer these questions to narrow 
-                 your results. </p>
+                 your results.</p>
+
+              <Link to="/ta">
+                  <h3>Don't know where to start or needs some extra help?</h3>
+              </Link>
             </div>
 
             <div className= "inline either">

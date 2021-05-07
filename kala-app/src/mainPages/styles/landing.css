@@ -3,13 +3,14 @@
 .text-image-container {
   position: relative;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 
 #landingPage {
-  background-color: #D6775A !important;
-  color: white;
+  /* background-color: #D6775A !important; */
+  /* color: white; */
+  color: black;
 }
 
 .blackLayer{
@@ -29,7 +30,7 @@
   text-align: center;
   align-self: center;
   /* transform: translate(-50%, -50%); */
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 2em;
   margin-top: 2.5em;
@@ -40,7 +41,7 @@
   text-align: center;
   align-self: center;
   /* transform: translate(-50%, -50%); */
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 2em;
   margin-top: .2em;
@@ -83,7 +84,7 @@
 }
 
 .button_text{
-  color: white;
+  color: black;
   font-size: 1em;
   text-decoration: none;
   padding: .3em;
@@ -91,7 +92,7 @@
 }
 
 .button_text:link, .button_text:visited {
-  color: white;
+  color: black;
   text-decoration: dotted;
 }
 
