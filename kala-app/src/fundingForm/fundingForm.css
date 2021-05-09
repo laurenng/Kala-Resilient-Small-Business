@@ -226,8 +226,9 @@ input {
 
     #fundingPage {
         margin: auto;
-        padding: 5%;
+        /* padding: 5%; */
         width: 60%;
+        /* padding-bottom: 20%; */
     }
 
     #WelcomeMsg {
