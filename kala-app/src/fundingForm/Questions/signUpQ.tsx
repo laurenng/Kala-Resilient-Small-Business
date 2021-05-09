@@ -37,8 +37,9 @@ class SignupQ extends React.Component<props, state> {
             lname: lname
         };
     } 
-
-    componentWillUnmount() {
+/*
+    saveState() {
+        console.log("saving state");
         let changes = this.props.currentUser;
         changes.email.value = this.state.user;
         changes.password.value = this.state.password;
@@ -47,30 +48,54 @@ class SignupQ extends React.Component<props, state> {
         updateUser(changes);
 
         console.log(changes)
-    }
+    } */
 
     private userChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             user: event.target.value
-        })
+        }, () => {
+            let changes = this.props.currentUser;
+            changes.email.value = this.state.user;
+            // console.log(changes);
+            updateUser(changes);
+        });
+        
     }
 
     private passwordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             password: event.target.value
-        })
+        }, () => {
+            let changes = this.props.currentUser;
+            changes.password.value = this.state.password;
+            // console.log(changes);
+            updateUser(changes);
+        });
+        
     }
 
     private firstChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             fname: event.target.value
-        })
+        }, () => {
+            let changes = this.props.currentUser;
+            changes.firstName.value = this.state.fname;
+            // console.log(changes);
+            updateUser(changes);
+        });
+        
     }
 
     private lastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             lname: event.target.value
-        })
+        }, () => {
+            let changes = this.props.currentUser;
+            changes.lastName.value = this.state.lname;
+            console.log(changes);
+            updateUser(changes);
+        });
+        
     }
 
     render() {
@@ -114,7 +139,7 @@ class SignupQ extends React.Component<props, state> {
                                 will be able to view the information that I provide on this site</p>
                         </div>
                     </div>
-
+                    {/* <button id="signupBtn" onClick={() => this.saveState()}>Sign Up</button>  */}
                     </div>
                 </div>
         );
