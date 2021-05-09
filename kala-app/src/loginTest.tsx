@@ -99,7 +99,7 @@ class LoginTest extends React.Component<props, state> {
                     <button type="submit" id="loginBtn">Log In</button>
                     <div id="lineBreak">
                         <hr/>
-                        <p>OR</p>
+                        
                         <hr/>
                     </div>
                     <Link to="/signup"><button type="button" id="signupBtn">Sign Up</button></Link>

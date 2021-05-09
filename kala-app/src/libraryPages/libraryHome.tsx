@@ -211,7 +211,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
         backgroundImage: "linear-gradient(to right, grey 9%, silver 100%), url(" + bgImg + ")",
         opacity: 0.8,
         backgroundBlendMode: 'multiply',
-        margin: "-1.3em"
+        // margin: "-1.3em"
     }
       return (
       <div className="catTitle" style={styles}>
