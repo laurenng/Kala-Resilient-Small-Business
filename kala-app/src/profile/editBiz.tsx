@@ -11,8 +11,8 @@ import { RouteComponentProps } from 'react-router-dom';
 
 
 interface props extends RouteComponentProps<any>{
-    currentPOC: UserInfo,
     updateUser: (newUser: UserInfo) => void,
+    currentUser: UserInfo,
     currentFilter: Filters,
     updateFilters: (newFilters: Filters) => void,
 }
@@ -27,8 +27,8 @@ class EditBiz extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let name = this.props.currentPOC.user.value;
-        let number = this.props.currentPOC.password.value;
+        let name = this.props.currentUser.email.value;
+        let number = this.props.currentUser.password.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
             user: name,
@@ -147,7 +147,7 @@ class EditBiz extends React.Component<props, state> {
 
 function mapStateToProps(state: AppState) {
     return { 
-        currentPOC: state.currentPOC,
+        currentUser: state.currentUser,
         currentFilter: state.currentFilter
     }
 }

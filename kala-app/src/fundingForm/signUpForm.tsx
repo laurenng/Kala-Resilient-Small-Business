@@ -23,8 +23,8 @@ import { Prompt } from 'react-router';
 import ConfirmPopup from './confirmationPopup';
 
 // redux
-import { clearData, updateFilters, updatePOC, updateUser } from '../reduxData/actions';
-import AppState, { UserInfo, initialPOC, Filters, filters } from '../reduxData/types';
+import { clearData, updateFilters, updateUser } from '../reduxData/actions';
+import AppState, { UserInfo, Filters, filters } from '../reduxData/types';
 import { connect } from 'react-redux';
 
 interface props {
@@ -32,7 +32,6 @@ interface props {
     currentPOC: UserInfo,
     updateUser: (newUser: UserInfo) => void,
     updateFilters: (newFilters: Filters) => void,
-    updatePOC: (newPOC: UserInfo) => void,
     clearData: () => void,
     currentFilter: Filters
 }
@@ -61,16 +60,16 @@ class SignUpForm extends React.Component<props, any> {
         window.removeEventListener('beforeunload', this.warningPopup); // removes navigate away blocker when they leave form page
         console.log("get rid of the data u unmounted")
         
-        let changes = this.props.currentPOC;
+        // let changes = this.props.currentPOC;
 
-        changes.contactMethod.value = undefined;
-        changes.contactFirstName.value = undefined;
-        changes.contactMethod.value = undefined;
-        changes.contactLastName.value = undefined;
-        changes.contactPhone.value = undefined;
-        changes.contactEmail.value = undefined;
+        // changes.contactMethod.value = undefined;
+        // changes.contactFirstName.value = undefined;
+        // changes.contactMethod.value = undefined;
+        // changes.contactLastName.value = undefined;
+        // changes.contactPhone.value = undefined;
+        // changes.contactEmail.value = undefined;
 
-        updatePOC(changes);
+        // updatePOC(changes);
         
         let filterChanges = this.props.currentFilter; 
         // TODO:: LAUREN!!!!
@@ -309,14 +308,12 @@ class SignUpForm extends React.Component<props, any> {
 function mapStateToProps(state: AppState) {
     return { 
         currentUser: state.currentUser,
-        currentPOC: state.currentPOC
     }
 }
 
 function mapDispatchToProps(dispatch: any)  {
     return {
         updateUser: (  newUser: UserInfo ) => dispatch(updateUser(newUser)),
-        updatePOC: (  newPOC: UserInfo ) => dispatch(updatePOC(newPOC)),
         updateFilters: (  newFilters: Filters ) => dispatch(updateFilters(newFilters)),
         clearData: () => dispatch(clearData()),
     }    

@@ -6,14 +6,13 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import { connect } from 'react-redux';
-import { updatePOC } from '../../reduxData/actions';
-import AppState, { UserInfo } from '../../reduxData/types';
 import '../fundingForm.css';
 import kala from '../../assets/kala_orange_solid 3.svg';
+import AppState from '../../reduxData/types';
 
 interface props {
-    currentPOC: UserInfo,
-    updatePOC: (newUser: UserInfo) => void,
+    // currentPOC: UserInfo,
+    // updatePOC: (newUser: UserInfo) => void,
 }
 
 interface state {
@@ -28,30 +27,30 @@ class PointOfContactQ extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let contactMethod = this.props.currentPOC.contactMethod.value
-        let contactFirstName = this.props.currentPOC.contactFirstName.value
-        let contactLastName = this.props.currentPOC.contactLastName.value
-        let contactPhone = this.props.currentPOC.contactPhone.value
-        let contactEmail = this.props.currentPOC.contactEmail.value
-        // setting state to what is dictated in redux (aka storing prev values here)
+        // let contactMethod = this.props.currentPOC.contactMethod.value
+        // let contactFirstName = this.props.currentPOC.contactFirstName.value
+        // let contactLastName = this.props.currentPOC.contactLastName.value
+        // let contactPhone = this.props.currentPOC.contactPhone.value
+        // let contactEmail = this.props.currentPOC.contactEmail.value
+        // // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
-            contactMethod: contactMethod,
-            contactFirstName: contactFirstName,
-            contactLastName: contactLastName,
-            contactPhone: contactPhone,
-            contactEmail: contactEmail
+            contactMethod: "",
+            contactFirstName: "",
+            contactLastName: "",
+            contactPhone: "",
+            contactEmail: ""
         };
     } 
 
     componentWillUnmount() {
-        console.log(this.props.currentPOC)
-        let changes = this.props.currentPOC;
-        changes.contactMethod.value = this.state.contactMethod;
-        changes.contactFirstName.value = this.state.contactFirstName;
-        changes.contactLastName.value = this.state.contactLastName;
-        changes.contactPhone.value = this.state.contactPhone;
-        changes.contactEmail.value = this.state.contactEmail;
-        updatePOC(changes);
+        // console.log(this.props.currentPOC)
+        // let changes = this.props.currentPOC;
+        // changes.contactMethod.value = this.state.contactMethod;
+        // changes.contactFirstName.value = this.state.contactFirstName;
+        // changes.contactLastName.value = this.state.contactLastName;
+        // changes.contactPhone.value = this.state.contactPhone;
+        // changes.contactEmail.value = this.state.contactEmail;
+        // updatePOC(changes);
     }
 
 
@@ -134,13 +133,13 @@ class PointOfContactQ extends React.Component<props, state> {
 
 function mapStateToProps(state: AppState) {
     return { 
-        currentPOC: state.currentPOC
+        // currentPOC: state.currentPOC
     }
 }
 
 function mapDispatchToProps(dispatch: any)  {
     return {
-        updatePOC: (  newUser: UserInfo ) => dispatch(updatePOC(newUser))
+        // updatePOC: (  newUser: UserInfo ) => dispatch(updatePOC(newUser))
     }    
 } 
 

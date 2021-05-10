@@ -75,7 +75,9 @@ class FundingRect extends React.Component<props, state> {
               {displayContent}
             </div>
         
-            {this.state.fundingOpps2 > 0 ? <h3>Other</h3> : <h3></h3>}
+            {this.state.fundingOpps2.length > 0 ? 
+              <div><h3>Other</h3></div> : <h3></h3>
+            }
             <div id="fundGroup">
               {displayContent2}
             </div>

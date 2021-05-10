@@ -7,7 +7,7 @@ import AppState, { UserInfo } from '../reduxData/types';
 import { Redirect } from 'react-router-dom';
 
 interface props extends RouteComponentProps<any>{
-    currentPOC: UserInfo,
+    currentUser: UserInfo,
     updateUser: (newUser: UserInfo) => void,
 }
 
@@ -20,8 +20,8 @@ class Profile extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let name = this.props.currentPOC.user.value;
-        let number = this.props.currentPOC.password.value;
+        let name = this.props.currentUser.user.value;
+        let number = this.props.currentUser.password.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
             user: name,
@@ -52,7 +52,7 @@ class Profile extends React.Component<props, state> {
             )
         })
 
-        let userFirst = this.props.currentPOC.contactFirstName.value
+        let userFirst = this.props.currentUser.firstName.value
         let page = 
             <div id="loggedIn">
                 <div className="sideByside">
@@ -94,7 +94,7 @@ class Profile extends React.Component<props, state> {
 
 function mapStateToProps(state: AppState) {
     return { 
-        currentPOC: state.currentPOC
+        currentUser: state.currentUser
     }
 }
 
