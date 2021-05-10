@@ -20,7 +20,7 @@ class Profile extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let name = this.props.currentUser.user.value;
+        let name = this.props.currentUser.email.value;
         let number = this.props.currentUser.password.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {

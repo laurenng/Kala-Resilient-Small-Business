@@ -9,6 +9,13 @@ import fetchFromAPI from '../reduxData/fetchFromAPI';
 import fundingCard from '../searchPages/components/fundingCard';
 import { RouteComponentProps } from 'react-router-dom';
 
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 interface props extends RouteComponentProps<any>{
     updateUser: (newUser: UserInfo) => void,
@@ -83,7 +90,75 @@ class EditBiz extends React.Component<props, state> {
                             )
                         })}
                     </div>
+
+                    <FormControl className="dropdown-form">
+                                <h3>Amount of funding needed</h3>
+                                <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                // value={this.state.fundingAmount}
+                                className="dropdown-form"
+                                // onChange={this.handleChangeFunding}
+                                >
+                                    {this.moneyQAmountOptions.map(answer => (
+                                        <MenuItem value={answer} key={answer}>{answer}</MenuItem>
+                                    ))}
+                                </Select>
+                    </FormControl>
+                    <br></br>
+                    <FormControl component="fieldset">
+                    <h3>When do you need it</h3>
+                    {/* value={this.state.needBy} onChange={this.handleChangeNeedBy} */}
+                    <RadioGroup aria-label="needBy" name="needBy" >
+                        <FormControlLabel value="asap" control={<Radio />} label="Immediately" />
+                        <FormControlLabel value="fewMonths" control={<Radio />} label="1-2 months" />
+                        <FormControlLabel value="anytime" control={<Radio />} label="Anytime" />
+                    </RadioGroup>
+                    </FormControl>
+                    <br></br>
+                    <FormControl className="dropdown-form">
+                                <h3>Approximate gross revenue</h3>
+                                <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                // value={this.state.grossRev}
+                                className="dropdown-form"
+                                // onChange={}
+                                >
+                                    {this.moneyQRevenueOptions.map(answer => (
+                                        <MenuItem value={answer} key={answer}>{answer}</MenuItem>
+                                    ))}
+                                </Select>
+                    </FormControl>
                     
+                    {this.languageOptions.map(answer => {
+                        // @ts-ignore 
+                        let booleanChecked = this.state[answer.value];
+                        return(
+                            // onChange={this.handleChange}
+                            <div key={answer.value} > 
+                                {/* @ts-ignore */}
+                                <input className="answer" type="checkbox" onChange={this.handleChange} checked={booleanChecked}
+                                id={answer.value} value={answer.value}></input>
+                                <label htmlFor={answer.value}>{answer.label}</label>
+                            </div>
+                        )
+                    })}
+
+                    {this.whenArray.map(answer => {
+                    //   let selectedValue = (answer.label === this.state.choice) ? true : false;
+                      // @ts-ignore 
+                      return(
+                          // onChange={this.handleChange} onChange={this.handleChange} checked={selectedValue}
+                        <div key={answer.label} >
+                            {/* @ts-ignore */}
+                            <input type="radio" name="q2" value={answer.label} 
+                             ></input>
+                            <label htmlFor={answer.label}>{answer.value}</label>
+                        </div>
+                      )
+                    })}
+
 
                 </div>
 
@@ -98,8 +173,27 @@ class EditBiz extends React.Component<props, state> {
             </div>
         );
     }
-
-    private q1Options = [
+    moneyQAmountOptions = ["Less than $10,000", "$50,000 - $100,000", "$100,000 - $250,000", "$250,001 or more"];
+    moneyQRevenueOptions = ["Less than $10,000", "$50,000 - $100,000", "$100,000 - $250,000", "$250,001 or more", "Don't know"];
+    whenArray = [
+        {
+            label: "now",
+            value: "Immediately"
+        },
+        {
+            label: "month",
+            value: "Within 1-2 months"
+        },
+        {
+            label: "year",
+            value: "Within the next year"
+        },
+        {
+            label: "any",
+            value: "Anytime"
+        }
+    ];
+    q1Options = [
         {
             label: "property", 
             value: "Buy a building/property"
@@ -143,6 +237,52 @@ class EditBiz extends React.Component<props, state> {
             label: "equipment", 
             value: "Purchase machinery or equipment"
         }];
+        private languageOptions = [
+            { 
+                label: "English",
+                value: "English"
+            },
+            { 
+                label: "Español (Spanish)",
+                value: "Spanish"
+            },
+            { 
+                label: "官話 (Mandarin)",
+                value: "Mandarin"
+            },
+            { 
+                label: "Tiếng Việt (Vietnamese)",
+                value: "Vietnamese"
+            },
+            { 
+                label: "Русский язык (Russian)",
+                value: "Russian"
+            },
+            {
+                label: "한글 (Korean)",
+                value: "Korean"
+            },
+            { 
+                label: "Kiswahili (Swahili)",
+                value: "Swahili"
+            },
+            { 
+                label: "français (French)",
+                value: "French"
+            },
+            { 
+                label: "ภาษาล้านนา (Thai)",
+                value: "Thai"
+            },
+            { 
+                label: "ພາສາລາວ (Laotian)",
+                value: "Laotian"
+            },
+            { 
+                label: "American Sign Language (ASL)",
+                value: "ASL"
+            }
+        ];
 }
 
 function mapStateToProps(state: AppState) {
@@ -154,7 +294,8 @@ function mapStateToProps(state: AppState) {
 
 function mapDispatchToProps(dispatch: any)  {
     return {
-        updateFilters: (  newFilters: Filters ) => dispatch(updateFilters(newFilters))
+        updateFilters: (  newFilters: Filters ) => dispatch(updateFilters(newFilters)),
+        updateUser: (newUser: UserInfo ) => dispatch(updateUser(newUser))
     }    
 } 
 

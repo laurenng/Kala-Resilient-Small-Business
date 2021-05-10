@@ -192,23 +192,19 @@ class SignUpForm extends React.Component<props, any> {
           skipBtn = <div></div>
           break;
         case 2:
-          question  = <PointOfContactQ />
+          question  = <BizQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           skipBtn = <div></div>
           break;
         case 3:
-          question  = <BizQ />
-          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
-          break;
-        case 4:
           question  = <MoneyQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
-        case 5:
+        case 4:
           question  = <DemoQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
-        case 6:
+        case 5:
           question  = <ReasonQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
