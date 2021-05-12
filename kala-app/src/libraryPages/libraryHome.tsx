@@ -151,7 +151,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
 
       return (
           <main>
-            <br></br>
+            
             {displayContent}
             <br></br>
             <div className="gridContainer" id="libraryCats">

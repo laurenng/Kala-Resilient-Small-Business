@@ -10,6 +10,10 @@ button {
   filter: drop-shadow(2px 2px 1px #a9a9b3);
 }
 
+.navbar {
+  filter: drop-shadow(2px 2px 2px grey);
+}
+
 footer {
   background-color: rgba(196, 196, 196);
   padding-top: 0.5em;
@@ -48,7 +52,6 @@ li {
     footer > * {
       margin-left: 5%;
     }
-
 
 }
 

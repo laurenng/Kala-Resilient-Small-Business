@@ -31,7 +31,7 @@ h1 {
 }
 
 .fundBox h1 {
-    font-weight: bolder;
+    /* font-weight: bolder; */
 }
 
 .fundBoxTop {
@@ -129,6 +129,15 @@ h1 {
     margin: auto;
 }
 
+.expanded ul {
+ margin-left: .6em;
+}
+
+.expanded li span {
+    position: relative;
+    left: -10px;
+  }
+
 #page-introduction {
     padding: 5%;
     align-items: left;
@@ -171,7 +180,7 @@ h1 {
 .turquoise-box a {
     text-decoration: none;
     color: black;
-    font-weight: bolder;
+    /* font-weight: bolder; */
     font-size: .8em;
 }
 
@@ -192,6 +201,13 @@ h1 {
     color: white;
     font-size: 1.4em;
     font-weight: bolder;
+}
+
+.fundGroup {
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    justify-content: center;
+    grid-gap: 1em;
 }
 
 @media (min-width: 1000px) {

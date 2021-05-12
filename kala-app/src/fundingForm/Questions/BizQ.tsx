@@ -106,10 +106,10 @@ class BizQ extends React.Component<props, state> {
             <div className="formQuestion" id="question3">
                 <div className="questionBubble">
                     <h4 className="question">Tell me about your business.</h4>
-                </div>
                 
-                    <div className="sideByside">
-                    <img src={kala} alt="Kala the squid"/>
+                
+                    <div className="leftAlignDiv">
+                    {/* <img src={kala} alt="Kala the squid"/> */}
                     <div className="dropDownList">
                         <FormControl className="dropdown-form">
                             <h3>Business Industry</h3>
@@ -177,6 +177,7 @@ class BizQ extends React.Component<props, state> {
                             <input type="text" value={this.state.employeeNum} onChange={this.employeeChange}></input>
                         </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

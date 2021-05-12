@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Link} from 'react-router-dom'
 import history from "./customHistory";
+import FFBrand from './assets/FF.png';
 
 export default function BulmaNavBar() { 
 
@@ -27,9 +28,13 @@ export default function BulmaNavBar() {
         <Router>
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <Link to="/" onClick={ () => pushHistory("/")} id="navTitle">
-                        Funding Finder
+               <div className="navbar-item">
+                <img src={FFBrand} />
+                <Link to="/" onClick={ () => pushHistory("/")} id="navTitle" style={{ textDecoration: 'none', color: 'black'}}>
+                            Funding Finder
                 </Link>
+               </div>
+                
 
                 <a role="button" id="bulmaBurger" onClick={toggleBurgerMenu} className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
@@ -49,7 +54,7 @@ export default function BulmaNavBar() {
                     </Link>
 
                     <Link to="/search" onClick={ () => pushHistory("/search")} className="navbar-item">
-                        <p>Funding & Assistance</p>
+                        <p>Funding &amp; Assistance</p>
                     </Link>
                     <Link to="/profile" onClick={ () => pushHistory("/profile")} className="navbar-item">
                         <p>Profile</p>

@@ -28,10 +28,12 @@ h1 {
 
 .fundBox {
     margin: .5em;
+    height: 80%;
 }
 
 .fundBox h1 {
-    font-weight: bolder;
+    /* font-weight: bolder; */
+    font-size: 1.25em !important;
 }
 
 .fundBoxTop {
@@ -42,6 +44,10 @@ h1 {
     background-color: white;
     padding: 1.5em;
     padding-bottom: 0;
+    align-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .fundBox:hover {
@@ -75,8 +81,8 @@ h1 {
 .turquoise-box a {
     text-decoration: none;
     color: black;
-    font-weight: bolder;
-    font-size: .8em;
+    /* font-weight: bolder; */
+    font-size: 16px;
 }
 
 .learnMoreBox {
@@ -88,10 +94,31 @@ h1 {
 }
 
 .learnMoreBox h1 {
-    padding: .7em;
-    color: white;
+    padding: .5em;
+    color: white !important;
     font-size: 1.4em;
-    font-weight: bolder;
+    /* font-weight: bolder; */
+}
+
+.fundBoxContents {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
+
+.fundGroup {
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    justify-content: center;
+    grid-gap: 1em;
+}
+
+.fundBox h3 {
+    font-size: 16px !important;
+}
+
+.fundBoxTop.assistanceGroup .turquoise-box {
+    align-self: center;
 }
 
 @media (min-width: 1000px) {

@@ -5,21 +5,26 @@
     border: #0A7088 2px solid;
     border-radius: 1em;
     color: black;
+    margin-right: .45em;
+}
+
+.leftAlignDiv {
+    margin-left: .5em;
 }
 
 #progressBar {
     margin-top: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 50%;
     margin-left: 25%;
     display: none;
 }
 
 .dot {
-    height: 1em;
-    width: 1em;
+    height: .75em;
+    width: .75em;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -30,13 +35,13 @@
 }
 
 #welcomeQuestion {
-    overflow-y: auto;
+    /* overflow-y: auto; */
     height: 300px;
     font-size: 16px;
     text-align: left;
-    border: solid black 5px;
+    /* border: solid black 5px;
     border-radius: 50px;
-    border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0; */
     
     /* padding-left: 5%;
     padding-right: 5%; */
@@ -47,7 +52,8 @@
     font-size: 42px;
     margin-bottom: 5px;
     margin-top: 5px;
-    text-align: center;
+    text-align: left;
+    margin-left: 13%;
 }
 
 .hidden {
@@ -68,7 +74,7 @@
 
 #beginForm {
     margin-left: 75%;
-    width: 7em;
+    /* width: 7em; */
 }
 
 .backBtn {
@@ -89,6 +95,7 @@
 .inline {
     display: flex;
     flex-direction: row;
+    
 }
 
 button {
@@ -96,29 +103,29 @@ button {
 }
 
 .questionBubble {
-    border: solid black 5px;
+    /* border: solid black 5px;
     border-radius: 30px;
-    border-bottom-left-radius: 0;
-    padding-left: 5%;
+    border-bottom-left-radius: 0; */
+    /* padding-left: 5%; */
     padding-right: 5%;
     left: 111px;
     top: 68px;
     margin: 3%;
     text-align: left;
     width: fit-content;
-    max-height: 8em;
-    margin-left: 13%;
-    overflow-y: auto;
+    /* max-height: 8em; */
+    /* margin-left: 13%; */
+    /* overflow-y: auto; */
 }  
 
 .question {
-    font-size: 1em;
+    font-size: 1.25em;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
 .questionInstructions {
-    font-size: 16px;
+    font-size: 1em;
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -135,8 +142,12 @@ button {
 }
 
 .sideByside {
+    justify-content: center;
     display: flex;
-    flex-flow: row;
+}
+
+.either {
+    font-size: 1.25em;
 }
 
 /* .dropDownList {
@@ -152,7 +163,8 @@ button {
 
 #progressBar.active {
     display: flex;
-    margin-top: 1em;
+    /* margin-top: 1em; */
+    padding-bottom: 2em;
 }
 
 #circleTag  {

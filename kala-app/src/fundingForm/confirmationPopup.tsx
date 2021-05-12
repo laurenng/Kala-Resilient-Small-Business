@@ -77,7 +77,7 @@ export default function ConfirmPopup() {
                     <h4>
                         Are you sure you are ready to submit your answers?
                     </h4>
-                    <img src={kala} alt="Kala the squid"/>
+                    {/* <img src={kala} alt="Kala the squid"/> */}
                     <div className="controls">
                         <button className="backBtn" onClick={handleClose}>No</button>
                         <Link to="/search"><button className="nextBtn">Yes</button></Link> 

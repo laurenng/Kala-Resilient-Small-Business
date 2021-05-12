@@ -78,7 +78,7 @@ class SignupQ extends React.Component<props, state> {
             <div id="signupBody">
                 <div id="signupPage">
                     <div className="sideByside">
-                        <img src={kala} alt="Kala the squid"/>
+                        {/* <img src={kala} alt="Kala the squid"/> */}
                         <div className="questionBubble">
                             <h4 className="question">Let's create an account.</h4>
                             <h5 className="questionInstructions">This account will allow you to view saved searches
