@@ -216,6 +216,7 @@ class LibraryHome extends React.Component<libraryProp, libraryState> {
       return (
       <div className="catTitle" style={styles}>
         <ArrowBack className="backNavArrow" onClick={this.libraryLoad}></ArrowBack>
+        <p>Back to library</p>
         <h1 className="bannerTitle">{title}</h1>
       </div>);
     }

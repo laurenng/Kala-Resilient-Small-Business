@@ -136,16 +136,19 @@ class SignUpForm extends React.Component<props, any> {
     }
 
     handleUserSubmit = (event: { target: any; }) => {
+      console.log("submit");
+      console.log(this.props);
       let email = this.props.currentUser.email.value;
       let password = this.props.currentUser.password.value;
       let firstName = this.props.currentUser.firstName.value;
       let lastName = this.props.currentUser.lastName.value;
+      console.log("Email: " + email + " Pass: " + password + " FN: " + firstName + " LN: " + lastName);
 
       this.fetchPostNewUser("https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb/users", email, password, firstName, lastName)
         .then((data) => {
           // ASK KELSON :)
           console.log(data)
-            if (data.error != null) { // error occured
+            if (data.error != null) { // error occured, need better error handling
                 document.getElementById("signUpErrMsg")?.classList.remove("hidden");
                 console.log(data);
             } else {
@@ -186,7 +189,7 @@ class SignUpForm extends React.Component<props, any> {
         case 1:
           question = <SignupQ />
           nextBtn = <div></div>
-          submitUser = <button className="nextBtn" onClick={this.handleUserSubmit} type="button">Submit</button>
+          submitUser = <button className="nextBtn" onClick={this.handleUserSubmit} type="button">Submit</button> //<div></div>
           skipBtn = <div></div>
           break;
         case 2:
@@ -223,6 +226,7 @@ class SignUpForm extends React.Component<props, any> {
             when={this.shouldBlockNavigation}
             message='You have unsaved changes, are you sure you want to leave?'
           />
+          <h3 id="signUpErrMsg" className="hidden">There was a problem trying to sign up, please check your information and try again.</h3>
           {question}
           <br></br>
           <div className="controls">

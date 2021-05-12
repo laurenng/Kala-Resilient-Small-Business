@@ -8,7 +8,6 @@
 
 
 #landingPage {
-  /* background-color: white !important; */
   color: black;
 }
 
@@ -83,7 +82,7 @@
 }
 
 .button_text{
-  color: white;
+  color: black;
   font-size: 1em;
   text-decoration: none;
   padding: .3em;
@@ -91,7 +90,7 @@
 }
 
 .button_text:link, .button_text:visited {
-  color: white;
+  color: black;
   text-decoration: dotted;
 }
 
