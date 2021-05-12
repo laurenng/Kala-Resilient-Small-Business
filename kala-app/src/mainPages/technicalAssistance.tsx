@@ -23,12 +23,14 @@ class TAPage extends React.Component<any> {
                 <h1>What is Assistance?</h1>
                 <p>These are organizations you can reach out to for <b>free</b> and they can assist with:</p>
                 <ul>
-                    <li>Finding and applying for resources, whether you are open for business or not</li>
-                    <li>Accessing translation and language assistance</li>
-                    <li>Navigating local, state and federal resources</li>
-                    <li>Planning for recovery and safe re-opening</li>
+                    <li><span>Finding and applying for resources, whether you are open for business or not</span></li>
+                    <li><span>Accessing translation and language assistance</span></li>
+                    <li><span>Navigating local, state and federal resources</span></li>
+                    <li><span>Planning for recovery and safe re-opening</span></li>
                 </ul>
             </div>
+
+            <br></br>
 
             <div className="biz-quote">
                 <blockquote cite="https://wsbdc.org/sbdc-advising-helps-drive-growth-for-mobile-truck-repair/">
@@ -39,6 +41,8 @@ class TAPage extends React.Component<any> {
                 <figcaption>David Ruelas - Mobile Truck Repair Business Owner</figcaption>
             </div>
 
+            <br></br>
+            
             <div id="ta-options">
             <Link to="/form" style={{ textDecoration: 'none', color: 'white' }}>
               <div className="two-column">
