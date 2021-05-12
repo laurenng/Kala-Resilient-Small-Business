@@ -5,21 +5,26 @@
     border: #0A7088 2px solid;
     border-radius: 1em;
     color: black;
+    margin-right: .45em;
+}
+
+.leftAlignDiv {
+    margin-left: .5em;
 }
 
 #progressBar {
     margin-top: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 50%;
     margin-left: 25%;
     display: none;
 }
 
 .dot {
-    height: 1em;
-    width: 1em;
+    height: .75em;
+    width: .75em;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -30,13 +35,13 @@
 }
 
 #welcomeQuestion {
-    overflow: scroll;
+    /* overflow-y: auto; */
     height: 300px;
     font-size: 16px;
     text-align: left;
-    border: solid black 5px;
+    /* border: solid black 5px;
     border-radius: 50px;
-    border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0; */
     
     /* padding-left: 5%;
     padding-right: 5%; */
@@ -47,7 +52,8 @@
     font-size: 42px;
     margin-bottom: 5px;
     margin-top: 5px;
-    text-align: center;
+    text-align: left;
+    margin-left: 13%;
 }
 
 .hidden {
@@ -68,7 +74,7 @@
 
 #beginForm {
     margin-left: 75%;
-    width: 7em;
+    /* width: 7em; */
 }
 
 .backBtn {
@@ -89,6 +95,7 @@
 .inline {
     display: flex;
     flex-direction: row;
+    
 }
 
 button {
@@ -96,30 +103,29 @@ button {
 }
 
 .questionBubble {
-    border: solid black 5px;
+    /* border: solid black 5px;
     border-radius: 30px;
-    border-bottom-left-radius: 0;
-    padding-left: 5%;
+    border-bottom-left-radius: 0; */
+    /* padding-left: 5%; */
     padding-right: 5%;
     left: 111px;
     top: 68px;
     margin: 3%;
     text-align: left;
     width: fit-content;
-    max-height: 8em;
-    margin-left: 13%;
-    overflow: scroll;
-    overflow-y: scroll;
+    /* max-height: 8em; */
+    /* margin-left: 13%; */
+    /* overflow-y: auto; */
 }  
 
 .question {
-    font-size: 1em;
+    font-size: 1.25em;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
 .questionInstructions {
-    font-size: 16px;
+    font-size: 1em;
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -136,11 +142,15 @@ button {
 }
 
 .sideByside {
+    justify-content: center;
     display: flex;
-    flex-flow: row;
 }
 
-.dropDownList {
+.either {
+    font-size: 1.25em;
+}
+
+/* .dropDownList {
     margin-left: 5%;
 }
 
@@ -149,11 +159,12 @@ button {
     box-sizing: border-box;
     border-radius: 10px;
     width: 173px;
-}
+} */
 
 #progressBar.active {
     display: flex;
-    margin-top: 1em;
+    /* margin-top: 1em; */
+    padding-bottom: 2em;
 }
 
 #circleTag  {
@@ -168,7 +179,7 @@ button {
     margin-left: 90%;
 }
 
-#demo-simple-select {
+/* #demo-simple-select {
     min-width: 9em;
 }
 
@@ -181,13 +192,13 @@ button {
 .dropdown-form {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-}
+} */
 
 
 /* stylings for the calendar view */
 #ui-datepicker-div {margin-left:-160px; }
 
-.textField {
+/* .textField {
     background-color: pink;
     margin-left: 0;
     min-width:fit-content
@@ -195,7 +206,7 @@ button {
 
 .MuiPaper-root {
     background-color: pink;
-}
+} */
 
 .modal {
     display: flex; 
@@ -208,11 +219,11 @@ button {
     display: flex;
     flex-flow: column;
 }
-
+/* 
 input {
     height: 2.5em;
     width: 80%;
-}
+} */
 
 /* temporary bc it looks wack right now*/
 #pointOfContactQuestions {
@@ -220,9 +231,9 @@ input {
 }
 
 @media (min-width: 1000px) {
-    label {
+    /* label {
         font-size: 1.1em;
-    }
+    } */
 
     #fundingPage {
         margin: auto;
@@ -234,23 +245,24 @@ input {
     #WelcomeMsg {
         margin: auto;
     }
+    
     .answer {
         width: 1.5em;
         height: 1.5em;
     }
 
-    #optionList { 
+    /* #optionList { 
         display: grid;
         width: 85%;
-        grid-template-columns:  33% 33% 33%; /*25% 25% 25% 25%;*/
+        grid-template-columns:  33% 33% 33%; 
         grid-template-rows: auto auto auto auto; 
         column-gap: 5px;
         row-gap: 5px;
-    }
+    } */
 
-    .dropDownList {
+    /* .dropDownList {
         margin: auto;
-    }
+    } */
 
     .questionBubble h4 {
         font-size: 1.7em;

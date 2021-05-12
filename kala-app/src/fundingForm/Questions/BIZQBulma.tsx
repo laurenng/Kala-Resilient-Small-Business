@@ -1,3 +1,5 @@
+
+
 /**
 Creates the business question component with forms for users to input their
 business industry, type and date. Data is temporarily saved to redux 
@@ -32,7 +34,7 @@ interface state {
     employeeNum: string
 }
 
-class BizQ extends React.Component<props, state> {
+class BizQBulma extends React.Component<props, state> {
     constructor(props:any) {
         super(props);
         let type = this.props.currentFilter.bizType.value;
@@ -106,10 +108,11 @@ class BizQ extends React.Component<props, state> {
             <div className="formQuestion" id="question3">
                 <div className="questionBubble">
                     <h4 className="question">Tell me about your business.</h4>
+                </div>
                 
-                
-                    <div className="leftAlignDiv">
-                    {/* <img src={kala} alt="Kala the squid"/> */}
+                    <div className="sideByside">
+                    <img src={kala} alt="Kala the squid"/>
+
                     <div className="dropDownList">
                         <FormControl className="dropdown-form">
                             <h3>Business Industry</h3>
@@ -177,7 +180,6 @@ class BizQ extends React.Component<props, state> {
                             <input type="text" value={this.state.employeeNum} onChange={this.employeeChange}></input>
                         </div>
 
-                        </div>
                     </div>
                 </div>
             </div>
@@ -202,4 +204,4 @@ function mapDispatchToProps(dispatch: any)  {
     }    
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(BizQ);
+export default connect(mapStateToProps, mapDispatchToProps)(BizQBulma);

@@ -66,7 +66,7 @@ class TaExpand extends React.Component<fundProps, fundState> {
     private listed = (list: string[]) => {
       let childList = list.map((d) => {
         return(
-          <li key={d}>{d}</li>
+          <li key={d}><span>{d}</span></li>
         )
       })
       return (

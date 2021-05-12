@@ -74,10 +74,10 @@ class MoneyQ extends React.Component<props, state> {
         <div className="formQuestion" id="question3">
             <div className="questionBubble">
                 <h4 className="question">Now, let's talk money.</h4>
-            </div>
             
-                <div className="sideByside">
-                <img src={kala} alt="Kala the squid"/>
+            
+                <div className="leftAlignDiv">
+                {/* <img src={kala} alt="Kala the squid"/> */}
 
                 <div id="moneyQuestions">
                     <FormControl className="dropdown-form">
@@ -120,6 +120,8 @@ class MoneyQ extends React.Component<props, state> {
                     </FormControl>
                 </div>
 
+             
+                </div>
                 </div>
         </div>
         );

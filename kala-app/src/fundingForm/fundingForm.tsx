@@ -10,6 +10,7 @@ import LanguageQ from './Questions/LanguageQ';
 import ReasonQ from './Questions/ReasonQ';
 // import WhenQ from './Questions/WhenQ';
 import BizQ from './Questions/BizQ';
+import BizQBulma from './Questions/BIZQBulma';
 import DemoQ from './Questions/DemoQ';
 import CreateAccountQ from './Questions/CreateAccountQ';
 import MoneyQ from './Questions/MoneyQ';
@@ -185,7 +186,6 @@ class FundingForm extends React.Component<any, any> {
       this.fillProgress();
       return (
         <main id="fundingPage">
-            <br></br>
             <div id="progressBar">
               {dots}
             </div>

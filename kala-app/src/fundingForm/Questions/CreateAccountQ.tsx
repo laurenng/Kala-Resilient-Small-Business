@@ -55,7 +55,7 @@ class CreateAccountQ extends React.Component<props, state> {
             </div>
             
                 <div className="sideByside">
-                <img src={kala} alt="Kala the squid"/>
+                {/* <img src={kala} alt="Kala the squid"/> */}
                 <FormControl component="fieldset">
                 <RadioGroup aria-label="create" name="create" value={this.state.createAccount} onChange={this.handleChange}>
                     <FormControlLabel value="true" control={<Radio />} label="Yes" />

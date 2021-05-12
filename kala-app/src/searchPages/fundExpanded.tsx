@@ -63,7 +63,7 @@ class FundingExpand extends React.Component<fundProps, fundState> {
     private listed = (list: string[]) => {
       let childList = list.map((d,i) => {
         return(
-          <li key={i}>{d}</li>
+          <li key={i}><span>{d}</span></li>
         )
       })
       return (
