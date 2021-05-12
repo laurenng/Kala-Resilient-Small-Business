@@ -15,12 +15,13 @@
 .categoryContainer {
     display: flex;
     flex-flow: column;
-    border-radius: 3em;
+    border-radius: 1.5em;
     margin-bottom: 10%;
     align-items: center;
     font-size: 0.7em;
     text-align: center;
     color: white;
+    /* width: 40%; */
     background-color: #0A7088;
 }
 
@@ -34,8 +35,8 @@
 
 .categoryContainer img {
     width: 100%;
-    border-top-left-radius: 3em;
-    border-top-right-radius: 3em;
+    border-top-left-radius: 1.5em;
+    border-top-right-radius: 1.5em;
 }
 
 .categoryContainer h2 {
@@ -93,7 +94,7 @@
     font-weight: bolder;
 }
 
-#grid {
+#lib-grid {
     display: grid;
     grid-template-columns: repeat(2, 40%);
     justify-content: center;

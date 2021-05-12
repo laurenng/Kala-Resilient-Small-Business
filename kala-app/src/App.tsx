@@ -41,6 +41,10 @@ import commerceLogo from './assets/Logo__Standard_RGB.png';
 import LoginTest from './loginTest';
 import SignupTest from './signupTest';
 
+// Bulma
+import 'bulma/css/bulma.css';
+import BulmaNavBar from './NavBarBulma';
+
 
 class App extends React.Component<any> {
 
@@ -67,9 +71,9 @@ class App extends React.Component<any> {
       <div>
         {/* Hamburger Menu or Nav Bar*/}
         {/* Only changes on refresh - determines window size */}
-        {window.matchMedia('(min-width: 1000px)').matches ? <DesktopNavBar /> : <PersistentDrawerRight />}
+        {/* {window.matchMedia('(min-width: 1000px)').matches ? <DesktopNavBar /> : <PersistentDrawerRight />} */}
 
-
+        {BulmaNavBar()}
         
         <Router history={history}>
   

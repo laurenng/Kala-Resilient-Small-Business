@@ -64,7 +64,7 @@ class ReasonQ extends React.Component<props, state> {
                     <h5 className="questionInstructions">Select all options that apply to you.</h5>
                   </div>
                   <div className="sideByside">
-                  <img src={kala} alt="Kala the squid"/>
+                  {/* <img src={kala} alt="Kala the squid"/> */}
                   <div id="optionList">
                   {this.q1Options.map(answer => {
                       // @ts-ignore 

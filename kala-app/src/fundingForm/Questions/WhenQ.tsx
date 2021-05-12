@@ -44,7 +44,7 @@ class WhenQ extends React.Component<props, state> {
         return(
             <div className="formQuestion" id="question2">
                 <h1 className="question" >Now, let's talk about money.</h1>
-                <img src={kala} alt="Kala the squid"/>
+                {/* <img src={kala} alt="Kala the squid"/> */}
                 <h2>When do you need this funding by?</h2>
                 {this.q2Options.map(answer => {
                       let selectedValue = (answer.label === this.state.choice) ? true : false;
