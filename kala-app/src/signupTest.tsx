@@ -23,7 +23,7 @@ class SignupTest extends React.Component<props, state> {
 
     constructor(props:any) {
         super(props);
-        let name = this.props.currentUser.user.value;
+        let name = this.props.currentUser.email.value;
         let number = this.props.currentUser.password.value;
         // setting state to what is dictated in redux (aka storing prev values here)
         this.state = {
@@ -34,7 +34,7 @@ class SignupTest extends React.Component<props, state> {
 
     componentWillUnmount() {
         let changes = this.props.currentUser;
-        changes.user.value = this.state.user;
+        changes.email.value = this.state.user;
         changes.password.value = this.state.password;
         updateUser(changes);
     }
@@ -73,9 +73,9 @@ class SignupTest extends React.Component<props, state> {
                    
                     <form onSubmit={this.handleSignup} id="signupForm">
                         <h2>Email</h2>
-                        <input type="email" title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
+                        <input type="email" onChange={this.userChange} title="Please enter a valid email address. e.g. johnsmith@example.com" required></input>
                         <h2>Password</h2>
-                        <input type="password" required></input>
+                        <input type="password"  onChange={this.passwordChange} required></input>
                         <br></br>
                         <div className="sideByside">
                             <input className="checkBox" type="checkbox" value="test1" required />

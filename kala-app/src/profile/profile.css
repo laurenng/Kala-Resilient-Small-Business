@@ -1,18 +1,6 @@
-.questionBubble {
-    /* border: solid black 5px;
-    border-radius: 30px;
-    border-bottom-left-radius: 0; */
-    /* padding-left: 5%; */
-    padding-right: 5%;
-    left: 111px;
-    top: 68px;
-    margin: 3%;
-    text-align: left;
-    /* width: fit-content; */
-    /* max-height: 8em; */
-    margin-left: 13%;
-    /* overflow: scroll;
-    overflow-y: scroll; */
+#welcomeHeader h4{
+    text-align: center;
+    font-size: 16px;
 }  
 
 h1 {
@@ -41,28 +29,27 @@ h1 {
 .businessRect {
     margin: .5em;
     background-color: #0A7088;
-    border-radius:  5em;
-    padding-left: .5em;
-    padding-right: .5em;
-    padding: .3em;
+    border-radius:  1em;
+    padding: .5em;
     color: white;
     width: 50%;
     text-align: center;
 }
 
-#addBiz{
+.addBiz{
     border: 3px solid #0A7088;
     border-radius: 1em;
     padding: .5em;
     width: 50%;
     text-align: center;
+    background-color: white;
+    margin: .5em;
 }
 
-#addBizText {
-    font-size: 1.5em;
+.addBiz p {
     color: black;
-    font-weight: bolder;
 }
+
 
 .businessGroups{
     align-items: center;
@@ -97,10 +84,15 @@ button {
     margin: 0.2em;
 }
 
+.content {
+    text-align: center;
+}
+
 @media (min-width: 1000px) {
     #loggedIn, #editBiz, #bizExpand {
         width: 70%;
         margin: auto;
+        text-align: center;
     }
 
     .cardDisplay {

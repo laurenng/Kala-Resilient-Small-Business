@@ -1,3 +1,5 @@
+/* Refer to signUpTest, it is the same exact thing but more styled and stuff
+*/
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from "react-router-dom";

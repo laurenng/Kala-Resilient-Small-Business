@@ -23,7 +23,7 @@ import { Prompt } from 'react-router';
 // popup
 import ConfirmPopup from './confirmationPopup';
 
-const NUM_QUESTIONS = 5; 
+const NUM_QUESTIONS = 7; 
 class FundingForm extends React.Component<any, any> {
     constructor(props: any) {
       super(props)
@@ -96,20 +96,20 @@ class FundingForm extends React.Component<any, any> {
           question  = <MoneyQ />
           nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
           break;
-        // case 5:
-        //   question  = <DemoQ />
-        //   nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
-        //   break;
-        // case 6:
-        //   question  = <CreateAccountQ />
-        //   nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
-        //   break;
+        case 5:
+          question  = <DemoQ />
+          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
+          break;
+        case 6:
+          question  = <CreateAccountQ />
+          nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
+          break;
         // case 7:
         //   question  = <SignupTest />
         //   nextBtn = <button className="nextBtn" onClick={this.handleNext} type="button">Next</button>
         //   break;
         default: // last question - form submission case
-          question  = <DemoQ />
+          question  = <SignupTest />
           skipBtn = <div></div>
           this.shouldBlockNavigation = false
           nextBtn = <ConfirmPopup></ConfirmPopup>

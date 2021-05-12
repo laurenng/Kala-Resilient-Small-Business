@@ -6,15 +6,27 @@
     background-size: cover;
 }
 
+#ta-banner > * , .biz-quote, .ta-options{
+    width: 90%;
+    margin: auto;
+}
+
+#ta-options .two-column {
+    background-color: #0A7088;
+}
+
 #ta-banner h1 {
     font-size: 2.2em;
     font-weight: bold;
 }
 
-.biz-quote {
+/* .biz-quote {
     margin: .7em;
-}
+} */
 
+#ta-banner li span {
+    margin-left: -10px;
+}
 
 @media (min-width: 1000px) {
     .biz-quote blockquote {

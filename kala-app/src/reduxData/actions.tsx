@@ -10,8 +10,7 @@ export enum actionIdentifier {
   UPDATEFILTERS,
   UPDATEUSER,
   UPDATESIGNIN,
-  LOG_OUT_USER,
-  UPDATEPOC
+  LOG_OUT_USER
 }
 
 
@@ -31,11 +30,6 @@ export interface updateTAObjectAction {
 };
 
 export interface updateUserAction {
-  type: actionIdentifier,
-  payload: UserInfo 
-};
-
-export interface updatePOCAction {
   type: actionIdentifier,
   payload: UserInfo 
 };
@@ -85,12 +79,6 @@ export function updateUser(info: UserInfo) : updateUserAction {
   }
 };
 
-export function updatePOC(info: UserInfo) : updatePOCAction {
-  return {
-    type: actionIdentifier.UPDATEPOC,
-    payload: info
-  }
-};
 
 export function clearData() {
   console.log("dsfhjadsfls")
@@ -100,5 +88,5 @@ export function clearData() {
 };
 
 export type actions = updateFundObjectAction | updateTAObjectAction | 
-                      updateFiltersAction | updateUserAction | updateSignInAction | updatePOCAction; 
+                      updateFiltersAction | updateUserAction | updateSignInAction; 
 
