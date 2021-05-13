@@ -11,6 +11,67 @@
   color: black;
 }
 
+#landingPage .card {
+  margin: 1em;
+}
+
+#roadmap, #roadmap-list {
+  width: 90%;
+  margin: auto;
+}
+
+#roadmap {
+  text-align: center;
+}
+
+#roadmap h1 {
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+#roadmap-list h2 {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+#roadmap-list p {
+  margin-left: 1em;
+  font-size: .9em;
+}
+
+#roadmap-list > div {
+  margin-top: .7em;
+  margin-bottom: .7em;
+}
+
+#roadmap-list a {
+  color: #0A7088;
+  font-weight: 600;
+}
+
+.card-content {
+  text-align: left;
+  background-color: #dedede !important;
+  padding: 1em !important;
+}
+.content {
+  text-align: left !important;
+  border: 0px !important;
+}
+.card-content-view h1 {
+  font-weight: 800;
+}
+
+.cardButton {
+  width: 100%;
+  border: #0A7088 3px solid;
+  margin-top: .8em;
+  padding: .2em;
+  background-color: #0A7088;
+  color: white;
+  font-weight: 600;
+}
+
 .blackLayer{
 
   width:100%;

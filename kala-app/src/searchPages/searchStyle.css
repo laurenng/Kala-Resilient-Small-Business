@@ -206,6 +206,19 @@ h1 {
     background-color: #D6775A;
 }
 
+#extra-help-text {
+    color: white;
+    text-decoration: underline;
+}
+
+.match-description {
+    margin-left: 1em;
+    text-align: left;
+}
+
+.match-description h3 {
+    margin: 0 !important;
+}
 .learnMoreBox h1 {
     padding: .7em;
     color: white;

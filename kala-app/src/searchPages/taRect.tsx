@@ -55,14 +55,16 @@ class TaRect extends React.Component<props, state> {
       
       return (
         <div>
+          <br></br>
         {this.state.technicalAssistance2.length > 0 ? 
-          <div><h3> Your matches</h3><p>{this.state.technicalAssistance.length} matches</p></div> : <h3></h3>
+          <div className="match-description"><h3> Your matches</h3><p>{this.state.technicalAssistance.length} matches</p></div> : <h3></h3>
         }
         <div id="fundGroup">
           {displayContent}
         </div>
-    
-        {this.state.technicalAssistance2.length > 0 ? <h3>Other</h3> : <h3></h3>}
+        
+        <br></br>
+        {this.state.technicalAssistance2.length > 0 ? <div className="match-description"><h3>Other</h3></div>: <h3></h3>}
         <div id="fundGroup">
           {displayContent2}
         </div>
