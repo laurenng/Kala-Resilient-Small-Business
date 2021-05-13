@@ -11,7 +11,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { Link } from "react-router-dom";
 // font awesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
 // properties that belong to SearchHome
 interface searchProp extends RouteComponentProps<any> {
@@ -48,17 +48,18 @@ class SearchHome extends React.Component<searchProp, searchState> {
               <h1>Funding &amp; Assistance</h1>
               <Link to="/form" style={{ textDecoration: 'none' }}>
                   <div className="blue-box inline">
-                    <FontAwesomeIcon icon={faFilter} size="1x" color="white" />
-                    <h2>Filter results here</h2>
+                    <FontAwesomeIcon icon={faClipboardList} size="1x" color="white" />
+                    <h2>Matching Form</h2>
                   </div>
               </Link>
+              <br></br>
 
               <p>Find technical assistance (e.g. legal and financial experts) and
                  funding (loans and grants) here. Answer these questions to narrow 
                  your results.</p>
 
               <Link to="/ta">
-                  <h3>Don't know where to start or needs some extra help?</h3>
+                  <h3 id="extra-help-text">Don't know where to start or needs some extra help?</h3>
               </Link>
             </div>
 
