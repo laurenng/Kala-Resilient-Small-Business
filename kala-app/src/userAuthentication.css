@@ -129,7 +129,7 @@
     display: flex;
     /* flex-flow: row; */
     /* justify-content: left */
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 @media (min-width: 1000px) {

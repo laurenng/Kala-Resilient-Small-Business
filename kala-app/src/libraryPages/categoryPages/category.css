@@ -34,7 +34,7 @@
     padding: 1em;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1024px) {
     .resourceContainer {
         /* display: flex;
         flex-direction: row;
@@ -45,6 +45,10 @@
         grid-template-columns: repeat(4, 20%);
         justify-content: center;
         grid-gap: 2em;
+    }
+
+    .catContainer h4 {
+        font-size: 1.2em;
     }
 
     .catTitle {

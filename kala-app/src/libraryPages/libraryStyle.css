@@ -102,7 +102,7 @@
 }
 
 /* ask about why hamburger menu */
-@media (min-width: 1000px) {
+@media (min-width: 1024px) {
     .libraryHeader {
         padding-top: 1em;
         padding-bottom: 1em;
@@ -113,6 +113,10 @@
         padding-left: 0;
         padding-right: 0;
         width: auto;
+    }
+
+    .categoryContainer h2 {
+        font-size: 1.4em;
     }
 
     .libraryHeader h1, .libraryHeader p {

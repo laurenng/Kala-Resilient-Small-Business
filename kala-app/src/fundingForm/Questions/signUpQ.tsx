@@ -104,7 +104,7 @@ class SignupQ extends React.Component<props, state> {
         return(
             <div id="signupBody">
                 <div id="signupPage">
-                    <div className="sideByside">
+                    <div className="sideBysideForm">
                         {/* <img src={kala} alt="Kala the squid"/> */}
                         <div className="questionBubble">
                             <h4 className="question">Let's create an account.</h4>
@@ -127,7 +127,7 @@ class SignupQ extends React.Component<props, state> {
                         <input type="text" value={this.state.lname} onChange={this.lastChange} title="Please enter your last name" required></input>
                         
                         <br></br>
-                        <div className="sideByside">
+                        <div className="sideBysideForm">
                             <input className="checkBox" type="checkbox" value="test1" required />
                             <div>
                                 <p>I agree to Funding Finder's </p> 
@@ -135,7 +135,7 @@ class SignupQ extends React.Component<props, state> {
                             </div>
                         </div>
 
-                        <div className="sideByside">
+                        <div className="sideBysideForm">
                             <input className="checkBox" type="checkbox" value="test2" required />
                             <p>I am aware that the Washington State Department of Commerce
                                 will be able to view the information that I provide on this site</p>

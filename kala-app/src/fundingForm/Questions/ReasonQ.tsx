@@ -63,7 +63,7 @@ class ReasonQ extends React.Component<props, state> {
                     <h4 className="question" >Why do you need funding?</h4>
                     <h5 className="questionInstructions">Select all options that apply to you.</h5>
                   </div>
-                  <div className="sideByside">
+                  <div className="sideBysideForm">
                   {/* <img src={kala} alt="Kala the squid"/> */}
                   <div id="optionList">
                   {this.q1Options.map(answer => {

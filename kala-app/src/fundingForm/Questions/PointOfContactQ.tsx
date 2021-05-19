@@ -92,7 +92,7 @@ class PointOfContactQ extends React.Component<props, state> {
                 <h4 className="question">Who is this business' point of contact?</h4>
             </div>
             
-                <div className="sideByside">
+                <div className="sideBysideForm">
                 {/* <img src={kala} alt="Kala the squid"/> */}
 
                 <div id="pointOfContactQuestions">
