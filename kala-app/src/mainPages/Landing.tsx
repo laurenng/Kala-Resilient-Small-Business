@@ -17,7 +17,7 @@ class Landing extends React.Component<any> {
     return (
       <div id="landingPage">
           {/* Header Card view */}
-          <div className="card">
+          <div className="card landingDesktop">
             <div className="card-image">
               <figure className="image is-4by3">
                 <img src={header} alt="small rustic town street with small business signs" />
@@ -36,7 +36,7 @@ class Landing extends React.Component<any> {
           </div>
 
           {/* Connect Card view */}
-          <div className="card">
+          <div className="card landingDesktop">
             <div className="card-image">
               <figure className="image is-4by3">
                 <img src={secondary} alt="small rustic town street with small business signs" />
@@ -69,12 +69,6 @@ class Landing extends React.Component<any> {
               <h2>1. Get Your Matches</h2>
               <p>Our <Link to="/form" style={{ textDecoration: 'underline' }}>streamlined matching form </Link>saves you time by showing you the best 
                 funding and technical assistance for your business.</p>
-            </div>
-
-            <div>
-              <h2>2. Browse Funding &amp; Assistance</h2>
-              <p><Link to="/search" style={{ textDecoration: 'underline' }}>Look and learn more </Link>
-              about the loans, grants, and technical assistance groups (no-cost small business experts). </p>
             </div>
 
             <div>

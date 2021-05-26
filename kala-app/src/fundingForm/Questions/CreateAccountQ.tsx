@@ -54,7 +54,7 @@ class CreateAccountQ extends React.Component<props, state> {
                 <h5 className="questionInstructions">Creating an account will allow you to save your matches.</h5>
             </div>
             
-                <div className="sideByside">
+                <div className="sideBysideForm">
                 {/* <img src={kala} alt="Kala the squid"/> */}
                 <FormControl component="fieldset">
                 <RadioGroup aria-label="create" name="create" value={this.state.createAccount} onChange={this.handleChange}>

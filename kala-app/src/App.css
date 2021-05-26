@@ -34,7 +34,7 @@ li {
   list-style: inside;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1024px) {
     footer {
       display: flex;
       flex-flow: row;
@@ -62,9 +62,9 @@ li {
     }
 
     #navTitle {
-      font-size: 1.4em;
+      /* font-size: 1.4em; */
       font-weight: bold;
-      width: 35%;
+      /* width: 35%; */
       padding-top: 1%;
     }
 

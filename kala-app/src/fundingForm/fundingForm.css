@@ -141,8 +141,8 @@ button {
     margin-right: 5%;
 }
 
-.sideByside {
-    justify-content: center;
+.sideBysideForm {
+    /* justify-content: center; */
     display: flex;
 }
 
@@ -208,6 +208,14 @@ button {
     background-color: pink;
 } */
 
+.sideBysideForm  {
+    margin-left: 1.4em;
+}
+
+.leftAlignDiv {
+    margin-left: 0.7em;
+}
+
 .modal {
     display: flex; 
     align-items: center;
@@ -230,7 +238,7 @@ input {
     width: 55%;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1024px) {
     /* label {
         font-size: 1.1em;
     } */
@@ -242,9 +250,11 @@ input {
         /* padding-bottom: 20%; */
     }
 
-    #WelcomeMsg {
+    #welcomeMsg {
         margin: auto;
+        text-align: center;
     }
+    
     
     .answer {
         width: 1.5em;
@@ -263,6 +273,14 @@ input {
     /* .dropDownList {
         margin: auto;
     } */
+
+    .sideBysideForm  {
+        margin-left: 2.8em;
+    }
+
+    .leftAlignDiv {
+        margin-left: 1.4em;
+    }
 
     .questionBubble h4 {
         font-size: 1.7em;
@@ -283,6 +301,10 @@ input {
     }
 
     #beginForm{
-        margin-left: 50%;
+        /* margin-left: 50%; */
+    }
+
+    #fundingPage {
+        width: 45%;
     }
 }

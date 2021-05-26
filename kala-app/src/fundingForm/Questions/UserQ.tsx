@@ -57,7 +57,7 @@ class UserQ extends React.Component<props, state> {
                     <h4 className="question">Let's make an account</h4>
                 </div>
                 
-                    <div className="sideByside">
+                    <div className="sideBysideForm">
                     {/* <img src={kala} alt="Kala the squid"/> */}
                     <div className="dropDownList">
 

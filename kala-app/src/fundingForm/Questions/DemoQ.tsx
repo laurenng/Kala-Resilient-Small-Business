@@ -99,7 +99,7 @@ class DemoQ extends React.Component<props, state> {
                     <h4 className="question" >Tell me more about yourself.</h4>
                     <h5 className="questionInstructions">Select that apply to you.</h5>
                   </div>
-                  <div className="sideByside">
+                  <div className="sideBysideForm">
                   {/* <img src={kala} alt="Kala the squid"/> */}
                   <div>
                     <div id="optionList">
