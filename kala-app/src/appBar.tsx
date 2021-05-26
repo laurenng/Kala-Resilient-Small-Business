@@ -21,6 +21,8 @@ import history from "./customHistory";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLanguage, faHandHoldingUsd, faBook, faHome } from '@fortawesome/free-solid-svg-icons';
 
+// Depreciated Navigation Bar
+
 const drawerWidth = 240;
 
 /**

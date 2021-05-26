@@ -1,3 +1,8 @@
+/*
+This popup is for displaying the FUnding Finder User Privacy Policy
+when creating an account.
+*/
+
 import React from "react";
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';

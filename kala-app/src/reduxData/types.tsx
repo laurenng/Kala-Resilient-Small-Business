@@ -71,8 +71,9 @@ export const languageFilter  = {
 
 export const demoFilter  = {
     native: false,
-    women: false,
-    men: false,
+    female: false,
+    male: false,
+    nonbinary: false,
     hispanic: false,
     asian: false,
     black: false,

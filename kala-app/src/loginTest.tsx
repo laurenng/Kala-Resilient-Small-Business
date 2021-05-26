@@ -1,3 +1,13 @@
+/**
+ * This page allows users to login to their account.
+ * If they are already logged in they will be redirected to
+ * their profile page.
+ * 
+ * For MVP purposes the authentication token is saved to the
+ * browser's session storage, it is reccomended that this
+ * be altered to a response header later.
+ */
+
 import { connect } from 'react-redux';
 import React from 'react';
 import AppState from './reduxData/types';
@@ -28,6 +38,13 @@ class LoginTest extends React.Component<props, state> {
     componentWillUnmount() {
     }
 
+    /**
+     * Fetches the authenticated user session token from the API
+     * @param url API endpoint
+     * @param email user's email
+     * @param password user's password
+     * @returns Promise that the data including the token will be recieved
+     */
     async fetchTokenFromAPI(url: string, email: string, password: string): Promise<any> {
         return fetch(url, {
             method: 'POST',
@@ -55,7 +72,7 @@ class LoginTest extends React.Component<props, state> {
     handleLogin = (event: any) => {
         event.preventDefault();
         // Send Fetch Request to API
-        // If Request is Good, add cookie or session thing to state or browser storage
+        // If Request is Good, add cookie or session token to state or browser storage
         // Else - show error message
     
         var email = (document.getElementById("userEmail") as HTMLInputElement).value;
@@ -88,7 +105,7 @@ class LoginTest extends React.Component<props, state> {
         <div id="loginBody">
             <div id="loginPage">
                 <h1>Log in</h1>
-                <h3><a>If you are from Commerce, log in or sign up here</a></h3> {/* add href to commerece later */}
+                <h3><a>If you are from Commerce, log in or sign up here</a></h3> {/* add href to commerecec CMS later */}
                 <h3 id="loginErrMsg" className="hidden">There was a problem trying to login, please check your email or password and try again.</h3>
                 <form id="loginForm" onSubmit={this.handleLogin}>
                     <label>Email</label>

@@ -1,3 +1,8 @@
+/*
+This is a responsive navigation bar/menu that utilizes the
+Bulma library.
+*/
+
 import './App.css';
 import {BrowserRouter as Router, Link} from 'react-router-dom'
 import history from "./customHistory";
@@ -9,7 +14,7 @@ export default function BulmaNavBar() {
         history.push(path);
     }
     
-    // Used to go to a specific category in library atm
+    // Used to go to a specific category in library
     const pushHistorySearch = (path: string, search: string) => {
     history.push({
         pathname: path,
@@ -35,7 +40,6 @@ export default function BulmaNavBar() {
                 </Link>
                </div>
                 
-
                 <a role="button" id="bulmaBurger" onClick={toggleBurgerMenu} className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>

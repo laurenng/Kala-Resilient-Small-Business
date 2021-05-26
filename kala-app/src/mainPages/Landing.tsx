@@ -25,9 +25,9 @@ class Landing extends React.Component<any> {
             </div>
             <div className="card-content">
               <div className="content">
-                <h1>Washington state small businesses, start your funding search here.</h1>
-                <p>Getting money is complicated. We are here to make sure you get the 
-                  money your business deserves. Fill out our matching form to see what 
+                <h1>We are here to give your business a push in the right direction.</h1>
+                <p>Getting money is complicated. We want to help make it less complicated.
+                   Fill out our matching form to see what 
                   assistance or funding best fits your business.</p>
                 <button className="cardButton">Fill out the Matching Form</button>
                 <br/>
@@ -90,7 +90,7 @@ class Landing extends React.Component<any> {
               <h2>4. Apply &amp; Use Our Library</h2>
               <p>While browsing funding, click “Apply Now” for the funding 
                 you’d like to apply to. While filling out the application, 
-                 <Link to="/library" style={{ textDecoration: 'underline' }}>utilize our library</Link> 
+                 <Link to="/library" style={{ textDecoration: 'underline' }}> utilize our library </Link> 
                 to quickly find definitions other digital resources. </p>
             </div>
           </div>

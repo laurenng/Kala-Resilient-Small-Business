@@ -11,8 +11,9 @@ import kala from '../../assets/kala_orange_solid 3.svg';
 
 interface state {
     native: boolean,
-    women: boolean,
-    men: boolean,
+    female: boolean,
+    male: boolean,
+    nonbinary: boolean,
     hispanic: boolean,
     asian: boolean,
     black: boolean,
@@ -45,8 +46,9 @@ class DemoQ extends React.Component<props, state> {
     componentWillUnmount() {
         let changes = this.props.currentFilter;
         let reasonSet = {
-            women: this.state.women,
-            men: this.state.men,
+            female: this.state.female,
+            male: this.state.male,
+            nonbinary: this.state.nonbinary,
             native: this.state.native,
             hispanic: this.state.hispanic,
             asian: this.state.asian,
@@ -127,12 +129,16 @@ class DemoQ extends React.Component<props, state> {
 
     private demoOptions = [
         {
-            label: "women", 
-            value: "Woman"
+            label: "female", 
+            value: "Female"
         },
         {
-            label: "men", 
-            value: "Man"
+            label: "male", 
+            value: "Male"
+        },
+        {
+            label: "nonbinary", 
+            value: "Nonbinary"
         },
         {
             label: "hispanic", 
@@ -155,14 +161,6 @@ class DemoQ extends React.Component<props, state> {
             value: "White"
         },
         {
-            label: "veteran", 
-            value: "Veteran"
-        }, 
-        {
-            label: "lgbtq", 
-            value: "LGBTQ+"
-        }, 
-        {
             label: "mideast", 
             value: "Middle Eastern or North African"
         },
@@ -175,9 +173,71 @@ class DemoQ extends React.Component<props, state> {
             value: "Native American or Alaskan Native"
         },
         {
+            label: "veteran", 
+            value: "Veteran"
+        }, 
+        {
+            label: "lgbtq", 
+            value: "LGBTQ+"
+        }, 
+        {
             label: "dne", 
             value: "Prefer not to disclose"
         }];
+
+    // private demoOptionsOld = [
+    //     {
+    //         label: "women", 
+    //         value: "Woman"
+    //     },
+    //     {
+    //         label: "men", 
+    //         value: "Man"
+    //     },
+    //     {
+    //         label: "hispanic", 
+    //         value: "Latinx or Hispanic"
+    //     },
+    //     {
+    //         label: "asian", 
+    //         value: "Asian"
+    //     },
+    //     {
+    //         label: "islander", 
+    //         value: "Pacific Islander"
+    //     },
+    //     {
+    //         label: "mixed", 
+    //         value: "Mixed Race"
+    //     },
+    //     {
+    //         label: "white", 
+    //         value: "White"
+    //     },
+    //     {
+    //         label: "veteran", 
+    //         value: "Veteran"
+    //     }, 
+    //     {
+    //         label: "lgbtq", 
+    //         value: "LGBTQ+"
+    //     }, 
+    //     {
+    //         label: "mideast", 
+    //         value: "Middle Eastern or North African"
+    //     },
+    //     {
+    //         label: "black", 
+    //         value: "Black or African American"
+    //     },
+    //     {
+    //         label: "native", 
+    //         value: "Native American or Alaskan Native"
+    //     },
+    //     {
+    //         label: "dne", 
+    //         value: "Prefer not to disclose"
+    //     }];
 }
 
 function mapStateToProps(state: AppState) {

@@ -6,8 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch , faBook , faMoneyBillWave, faLanguage, faUser} from '@fortawesome/free-solid-svg-icons';
 
 /**
+ * Depreciated Nav Bar
+ * 
  * Creates & returns the navigatation bar for the desktop site
  * Uses react router and custom browser history for navigation/routing
+ * 
  */
 export default function DesktopNavBar() { 
 

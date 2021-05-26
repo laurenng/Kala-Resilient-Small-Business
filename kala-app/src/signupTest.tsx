@@ -1,3 +1,10 @@
+/*
+This page allows users to sign up for an account,
+specifically navigating from the login page (not from within the
+matching questionare form). Data is not posted to database
+until user finishes onboarding questions.
+*/
+
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from "react-router-dom";
